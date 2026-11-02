@@ -35,10 +35,10 @@ const ctaClass =
     <div class="container-site flex h-header items-center justify-between gap-4">
       <NuxtLink
         to="/"
-        class="flex items-center gap-2.5 font-display text-[1.35rem] tracking-wider text-inherit no-underline hover:text-gold-soft"
+        class="flex items-center gap-3 font-display text-[1.4rem] tracking-wider text-inherit no-underline hover:text-gold-soft"
         aria-label="FulcronGRV, vai alla home"
       >
-        <img src="/logos/logo_bianco.png" alt="" width="36" height="36" />
+        <NuxtImg src="/logos/logo_bianco_trim.png" alt="" width="40" height="40" densities="x1 x2" format="webp" />
         <span>FulcronGRV</span>
       </NuxtLink>
 

@@ -34,7 +34,15 @@ const linkClass = 'text-on-dark-muted no-underline hover:text-gold-soft'
           to="/"
           class="mb-4 inline-flex items-center gap-3 font-display text-2xl text-on-dark no-underline hover:text-gold-soft"
         >
-          <img src="/logos/logo_bianco.png" alt="" width="44" height="44" loading="lazy" />
+          <NuxtImg
+            src="/logos/logo_bianco_trim.png"
+            alt=""
+            width="40"
+            height="40"
+            densities="x1 x2"
+            format="webp"
+            loading="lazy"
+          />
           <span>FulcronGRV</span>
         </NuxtLink>
         <p class="max-w-[38ch]">
