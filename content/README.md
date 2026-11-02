@@ -51,7 +51,8 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 | `::banner{src="…" title="…"}` | foto a tutta larghezza con titolo | `chi-siamo.md` |
 | `::poem` | testo centrato in un riquadro decorato | `ambientazione.md` |
 | `::lore-tiles` | schede con titolo e testo | `ambientazione.md` |
-| `::gods`, `::timeline` | divinità, linea del tempo | `ambientazione.md` |
+| `::gods` | elenco delle divinità | `ambientazione.md` |
+| `::timeline-era` + `:::timeline-event` | linea del tempo (con link e grassetti) | `ambientazione.md`, `wiki/storia.md` |
 | `::notice` | frase evidenziata | `regolamento.md` |
 | `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |
 | `::documents` | elenco di PDF da scaricare | `regolamento.md` |

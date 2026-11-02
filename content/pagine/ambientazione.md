@@ -99,58 +99,76 @@ items:
 
 ## La storia di Fulcron
 
-::timeline
----
-eras:
-  - name: Quinta Era
-    events:
-      - date: "2000"
-        event: "Una serie di pietre infuocate cadono su Fulcron causando distruzioni e milioni di vittime. L’evento è ricordato come la Pioggia di Fuoco. Il mondo entra in una fase di profonda crisi e decadenza conosciuta come gli Anni Oscuri."
-      - date: "2001"
-        event: "Titus Caius uccide il terribile Drago Viola di Mezuna."
-      - date: "2003"
-        event: "Eklitz von Sharr, nobile del Rorish, recluta un’armata per sconfiggere il folle Arnarr Ruu."
-      - date: "2197"
-        event: "Su di una grande voragine formata a seguito della Pioggia di Fuoco viene fondata la città di Partaros."
-      - date: "2200 ca."
-        event: "Hanami della Camelia mette fine alle guerre tra i Dodici Regni di Jotai e fonda l’Impero dei Dodici Fiori."
-      - date: "2228"
-        event: "Il “Demone del Deserto”, o Barghest, viene sigillato dai guaritori e dai sacerdoti di Partaros."
-      - date: "2230"
-        event: "I guaritori di Partaros si uniscono alla battaglia contro il folle Arnarr Ruu. Per l’occasione Zaran Azar viene scelto come ambasciatore."
-      - date: "2238"
-        event: "A Partaros viene fondato l’Ordine dei Guaritori."
-      - date: "2500 ca."
-        event: "Sul fiume Amdinare viene fondata la città di Theris."
-      - date: "2600 ca."
-        event: "La città di Partaros estende la sua influenza in gran parte del Grande Deserto, fino a Cyr, creando l’Impero del Sol Levante."
-      - date: "2666"
-        event: "Vengono accolte a Theris le nobili famiglie Heat e Claymore."
-      - date: "2681"
-        event: "Battaglia dei Campi di Riso: l’esercito dell’Impero del Sol Levante viene sconfitto da quello di Jotai ed è costretto a ritirarsi verso nord."
-      - date: "2710"
-        event: "L’Impero del Sol Levante estende la sua influenza fino a Theris."
-      - date: "2712"
-        event: "Ritornano alla luce i primi documenti storici dopo gli Anni Oscuri. Inizia la Grande Guerra."
-      - date: "2812"
-        event: "Fine della Grande Guerra e morte dell’ultimo Drago per mano di Iulius Caius."
-      - date: "19 Termidoro 3013"
-        event: "Scoppia ufficialmente la guerra tra Est e Nord."
-      - date: "20 Termidoro 3014"
-        event: "Nel grande Muro a Sud viene aperta una breccia. I Diaforos dilagano nelle terre settentrionali."
-  - name: Sesta Era
-    events:
-      - date: "11 Termidoro 3015 · Anno 0 della Sesta Era"
-        event: "Fulcron viene sconvolta dal Grande Cataclisma. A Nord una grande esplosione devasta tutto lasciando un enorme buco nero. I Draghi tornano improvvisamente ad abitare i cieli di Fulcron."
-      - date: "29 Fiorile 3016"
-        event: "La regina dei pirati Elisha MaGkrafun viene assassinata. La M.A.S. attacca Port Imperial."
-      - date: "13 Fruttidoro 3016"
-        event: "La cupola nera comparsa a Nord si dissolve nel nulla."
-      - date: "28 Fiorile 3017"
-        event: "Scoppia la Guerra dell’Occhio, dichiarata dall’Occhio di Hava."
-      - date: "1 Vendemmiaio 3017"
-        event: "Conclusione della Guerra dell’Occhio e vittoria dei popoli liberi."
----
+::timeline-era{name="Quinta Era"}
+:::timeline-event{date="2000"}
+Una serie di pietre infuocate cadono su Fulcron causando distruzioni e milioni di vittime. L’evento è ricordato come la Pioggia di Fuoco. Il mondo entra in una fase di profonda crisi e decadenza conosciuta come gli Anni Oscuri.
+:::
+:::timeline-event{date="2001"}
+Titus Caius uccide il terribile Drago Viola di Mezuna.
+:::
+:::timeline-event{date="2003"}
+Eklitz von Sharr, nobile del Rorish, recluta un’armata per sconfiggere il folle Arnarr Ruu.
+:::
+:::timeline-event{date="2197"}
+Su di una grande voragine formata a seguito della Pioggia di Fuoco viene fondata la città di Partaros.
+:::
+:::timeline-event{date="2200 ca."}
+Hanami della Camelia mette fine alle guerre tra i Dodici Regni di Jotai e fonda l’Impero dei Dodici Fiori.
+:::
+:::timeline-event{date="2228"}
+Il “Demone del Deserto”, o Barghest, viene sigillato dai guaritori e dai sacerdoti di Partaros.
+:::
+:::timeline-event{date="2230"}
+I guaritori di Partaros si uniscono alla battaglia contro il folle Arnarr Ruu. Per l’occasione Zaran Azar viene scelto come ambasciatore.
+:::
+:::timeline-event{date="2238"}
+A Partaros viene fondato l’Ordine dei Guaritori.
+:::
+:::timeline-event{date="2500 ca."}
+Sul fiume Amdinare viene fondata la città di Theris.
+:::
+:::timeline-event{date="2600 ca."}
+La città di Partaros estende la sua influenza in gran parte del Grande Deserto, fino a Cyr, creando l’Impero del Sol Levante.
+:::
+:::timeline-event{date="2666"}
+Vengono accolte a Theris le nobili famiglie Heat e Claymore.
+:::
+:::timeline-event{date="2681"}
+Battaglia dei Campi di Riso: l’esercito dell’Impero del Sol Levante viene sconfitto da quello di Jotai ed è costretto a ritirarsi verso nord.
+:::
+:::timeline-event{date="2710"}
+L’Impero del Sol Levante estende la sua influenza fino a Theris.
+:::
+:::timeline-event{date="2712"}
+Ritornano alla luce i primi documenti storici dopo gli Anni Oscuri. Inizia la Grande Guerra.
+:::
+:::timeline-event{date="2812"}
+Fine della Grande Guerra e morte dell’ultimo Drago per mano di Iulius Caius.
+:::
+:::timeline-event{date="19 Termidoro 3013"}
+Scoppia ufficialmente la guerra tra Est e Nord.
+:::
+:::timeline-event{date="20 Termidoro 3014"}
+Nel grande Muro a Sud viene aperta una breccia. I Diaforos dilagano nelle terre settentrionali.
+:::
+::
+
+::timeline-era{name="Sesta Era"}
+:::timeline-event{date="11 Termidoro 3015 · Anno 0 della Sesta Era"}
+Fulcron viene sconvolta dal Grande Cataclisma. A Nord una grande esplosione devasta tutto lasciando un enorme buco nero. I Draghi tornano improvvisamente ad abitare i cieli di Fulcron.
+:::
+:::timeline-event{date="29 Fiorile 3016"}
+La regina dei pirati Elisha MaGkrafun viene assassinata. La M.A.S. attacca Port Imperial.
+:::
+:::timeline-event{date="13 Fruttidoro 3016"}
+La cupola nera comparsa a Nord si dissolve nel nulla.
+:::
+:::timeline-event{date="28 Fiorile 3017"}
+Scoppia la Guerra dell’Occhio, dichiarata dall’Occhio di Hava.
+:::
+:::timeline-event{date="1 Vendemmiaio 3017"}
+Conclusione della Guerra dell’Occhio e vittoria dei popoli liberi.
+:::
 ::
 
 ## La wiki di Fulcron
