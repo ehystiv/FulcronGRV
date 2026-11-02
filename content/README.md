@@ -56,6 +56,7 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 | `::gods` | elenco delle divinità | `ambientazione.md` |
 | `::timeline-era` + `:::timeline-event` | linea del tempo (con link e grassetti) | `ambientazione.md`, `wiki/storia.md` |
 | `::notice` | frase evidenziata | `regolamento.md` |
+| `::world-map` | la mappa di Fulcron, apribile a schermo intero | `ambientazione.md` |
 | `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |
 | `::documents` | elenco di PDF da scaricare | `regolamento.md` |
 | `::steps`, `::faq` | passi numerati, domande frequenti | `inizia-a-giocare.md` |

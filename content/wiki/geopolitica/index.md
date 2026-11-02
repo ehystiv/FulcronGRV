@@ -12,6 +12,9 @@ Il territorio è un'enorme anello di terra con al centro il così detto Mare Int
 - A sud una palude di cui non si conoscono ne i confini ne la sua conformazione interna
 - Ad ovest un'altissima catena montuosa che cela agli occhi dei popoli qualsiasi cosa possa esserci al di là
 
+::world-map
+::
+
 ::notice
 Quelle tra Nord, Sud, Est e Ovest sono molto più che mere divisioni territoriali.
 ::
