@@ -36,16 +36,18 @@ bacheca e oneshot sono file Markdown. Guida ed esempi in [`content/README.md`](c
 content/                  testi del sito (Markdown)
   pagine/                 chi siamo, ambientazione, regolamento, inizia a giocare, privacy…
   bacheca/  oneshot/      una notizia / una oneshot per file
+  wiki/                   la wiki di Fulcron (cartelle = sezioni)
 app/
   assets/css/main.css     Tailwind: colori, font e stili di base del tema
   components/ui/          componenti di base (UiButton, UiCard, UiSectionTitle…)
   components/content/     blocchi usabili nei Markdown (::banner, ::faq, ::timeline…)
+  components/wiki/        menu della wiki
   components/             header, footer e componenti condivisi
   composables/usePage.ts  carica una pagina da content/pagine
   pages/                  una pagina Vue per ogni URL
 public/                   immagini, PDF dei manuali, favicon
 server/routes/            sitemap.xml (generata in build)
-scripts/                  importazione una tantum dei vecchi dati da MongoDB
+scripts/                  importazioni una tantum: vecchi dati da MongoDB, backup della vecchia wiki
 ```
 
 ## Note
@@ -53,3 +55,5 @@ scripts/                  importazione una tantum dei vecchi dati da MongoDB
 - La **gallery** è disattivata finché non ci sono foto da pubblicare. Lo script di importazione da MongoDB salva
   comunque i dati degli album in `content/gallery/`, così non vanno persi quando la si riattiva.
 - I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.
+- La wiki, prima su `wikia.fulcrongrv.it`, ora è una sezione del sito (`/wiki`). Se il vecchio sottodominio è ancora
+  attivo, conviene reindirizzarlo a `https://fulcrongrv.it/wiki`.

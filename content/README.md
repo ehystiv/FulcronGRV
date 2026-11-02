@@ -60,6 +60,28 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 
 Il modo più semplice è copiare un blocco da una pagina esistente e cambiarne il testo.
 
+## Wiki: `wiki/**/*.md`
+
+La wiki di Fulcron. Ogni cartella è una sezione (ad esempio `wiki/geopolitica/est/`) e il suo `index.md` è la
+pagina della sezione. Il menu laterale si costruisce da solo a partire dalle cartelle: per aggiungere una pagina
+basta creare un file nella cartella giusta.
+
+```md
+---
+title: "Partaros"
+description: "La città santa"
+updated: 2026-11-02
+---
+
+Testo della pagina. I titoli delle sezioni si scrivono con `##` e `###`.
+Per collegare un’altra pagina: [Ordine dei Guaritori](/wiki/geopolitica/est/partaros/l-ordine-dei-guaritori).
+```
+
+`order` (facoltativo) decide la posizione nel menu: numeri più bassi vengono prima, il resto è in ordine
+alfabetico. Le immagini della wiki stanno in `public/wiki/uploads/`.
+
+Le pagine sono state importate dal backup della vecchia wiki (Wiki.js) con `scripts/import-wiki.mjs`.
+
 ## Importare i vecchi dati da MongoDB
 
 Serve una volta sola, da chi ha accesso al database:

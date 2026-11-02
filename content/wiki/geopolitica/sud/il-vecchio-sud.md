@@ -1,0 +1,36 @@
+---
+title: "Il Vecchio Sud"
+description: "Storia delle origini del Sud"
+updated: 2020-04-30
+---
+
+## Il Vecchio Sud
+Il Sud è una delle quattro macroregioni che compongono Fulcron. Essa si estende da ovest con il reame dei nani fino ad est con la regione di influenza delle tre grandi città mercantili (Agya, Ekpodon e Odys). Ad nord la regione si apre sul Mare Interno, mentre a sud si estende una sconfinata palude abitata da creature mostruose. Il Sud è famoso in tutto Fulcron per la grande preparazione dei propri maghi e dei propri alchimisti, che vengono formati al Collegio dell'Alchimia e alla Scuola Alchemica.
+
+### Insediamenti principali
+#### Polyteles
+La capitale del Sud, Polyteles, si erge a poche miglia dal Mare Interno ed ospita il più grande Collegio della Magia di tutto l'anello e la Scuola Alchemica, dove è possibile trovare i reagenti più raffinati e costosi, lavorati in maniera eccellente. La città venne distrutta durante la Grande Guerra, ma gli abitanti del luogo reagirono costruendo edifici ancora più alti e ancora più belli, per dimostrare al mondo la grandezza e la raffinatezza del loro popolo.
+
+#### Limen
+Altra città fiorente e ricca è Limen, base portuale che sorge sulle rive del Mare Interno. Una potente barriera magica protegge il suo porto dalle continue scorrerie di Elfi Oscuri. Ricettacolo di ogni tipo di merce proveniente da ogni angolo dell'anello, il suo mercato è una gioia per gli occhi dei viaggiatori: al suo interno si avvicendano barbosi pentoshi con i loro tappeti colorati, mercanti di spezie esotiche, guitti, musicanti, giocolieri, rudi mercanti del Nord che cercano di propinare a tutti i visitatori le loro aringhe affumicate, cacciatori occidentali con le loro pelli di tigre.
+
+#### Xyla
+Al confine con le frondose giungle dell'Ovest sorge Xyla, da cui orde di tagliaboschi sciamano per cercare di strappare alla foresta terreno coltivabile e per rifornire i cantieri navali di Limen del pregiato legname da costruzione di cui necessitano.
+
+#### Agya, Ekpodon e Odis
+Al confine con l'est sorgono a breve distanza tre magnifiche città, Agyia, Ekpodon e Odis, che furono fondate  per controllare le frontiere orientali durante i numerosi anni di guerra. Grazie all'attuale situazione di pace, queste città si sono arricchite enormemente beneficiando delle lunghissime vie commerciali che serpeggiano nei deserti dell'Est.
+
+#### Mneme Coris
+Muovendosi di poco a settentrione rispetto alla foresta di Sathros ci si imbatte nel Monastero di Mneme Coris. Questo luogo è abitato da una folle setta di monaci i cui comandanti sono spesso stati i più potenti studenti del Collegio di Magia di Polyteles. Essi pensano che il mondo debba essere vissuto solamente da coloro che non possono nuocere usando la magia. Il loro obbiettivo è lo sfruttamento di chi non è in grado di padroneggiarla e lo sterminio di chi non si rivela degno di questo dono. Ma questi monaci sembrano più dei vecchi pazzi che una minaccia tangibile.
+
+#### Stratos
+Polyteles è sì una città ricca e raffinata, ma questo non significa che il Sud sia un regno più dedito allo studio e alla ricerca che non all'arte militare. A poche miglia dalla capitale, infatti, muovendosi verso Ovest, troviamo Stratos, la città in cui viene addestrato l'esercito del Sud. Seconda città del regno per numero di abitanti, è comunque popolata soprattutto da soldati in addestramento e da maghi da battaglia. I maghi le cui arti si prestano maggiormente alla distruzione vengono accolti all'Accademia Militare, dove possono imparare a sfruttare al massimo tutto il loro potere distruttivo. Nel frattempo, abili armaioli addestrano un esercito efficiente, non formato da semplici contadini, ma da soldati capaci che ricevono uno stipendio per il loro lavoro. Per questo quello del Sud è un esercito temibile: a falangi di  guerrieri determinati si uniscono orde di arcanisti che hanno nella distruzione il loro obbiettivo di vita, che hanno fatto della follia il loro mestiere.
+
+#### La Foresta di Sathros
+Anche le antiche razze prosperano ancora nel Sud. Nella gigantesca foresta di Sathros, nell'estremo sud del paese, vive dal giorno della creazione dei tempi una popolazione di elfi con cui mai nessuno è riuscito a entrare in contatto. Difendono il bosco gelosamente dall'assalto di chiunque e nessuno è mai riuscito a penetrare i segreti di quella antica razza.
+
+#### Il Reame dei Nani
+Nelle montagne a confine con l'Ovest resistono tenacemente le ultime città dei nani, ultimi baluginii di uno splendore passato. Sorgeva infatti un tempo un regno nanico che occupava tutte quante quelle montagne, i cui manufatti erano  orgoglio e vanto per ogni nano presente nell'anello. A quella laboriosa comunità guardavano tutti con ammirazione, nella speranza di imparare qualcosa dalla loro perizia. Il tempo non è stato gentile con i regni dei Nani e la maggior parte di essi sono caduti. Sono tre le città che ancora resistono contro l'inesorabile scorrere del tempo, con la tenacia e la testardaggine tipica dei nani, mentre orchi, goblin e troll occupano le loro antiche sale ormai abbandonate.
+
+### La Muraglia
+A sentire i regnanti del sud, non c'è altro da sapere su questo ricco e splendido regno. Ma non è così. Una gigantesca muraglia è stata costruita secoli fa intrecciando sapientemente magia e pietra. Fortificazioni ogni cinquecento metri su di essa e città intere colme di soldati a presidiarla. Ma, soprattutto, orde all'assalto di esse. Milioni di persone che grattano incessantemente le mura, milioni di bocche sbavanti davanti ad essa: i Diaforos. Tribù e tribù di popoli mutati costretti a vivere nelle paludi malsane che occupano il lontano Sud. Ecco perchè non esistono le prigioni nelle splendide città del meridione: non importa quale sia il reato, la pena è sempre la stessa: esilio, al di là del muro. A proteggerlo, al centro esatto di esso, a sud della capitale, si trova Eryma, una città di cunicoli costruita interamente all'interno dello spessore della muraglia. Un'altra città è costruita allo stesso modo, ma in una torre, nella parte occidentale della muraglia: Tyrsis. La muraglia, però, non è continua: due alte montagne la interrompono e su di esse brillano le magnifiche città gemelle: Oryktos e Argyreia. Queste città minerarie hanno una storia che si perde nella leggenda: quando il re Siderus chiese ai suoi figli Argo e Orik di costruire due città bellissime per glorificare il suo nome, essi, senza mai consultarsi, costruirono due città perfettamente speculari. I loro discendenti, Calkothorax e Crysos governano ancora le città, floride per le loro miniere sui fianchi delle montagne. Un tunnel sotteraneo le collega ancora, e nessuno sa se venne costruito dal re, che tanto amava entrambi i suoi figli e che voleva sempre essere al loro fianco, o dai fratelli stessi, che, nel profondo, si amavano molto. La muraglia è interrota ad Ovest dal lago Nekys, un lago di acque infernali che ospita un'isola tenebrosa i cui racconti terrorizzano i pescatori da generazioni. Nessuno sa chi o cosa la abiti e nessuno vuole saperlo. A est invece è interrotta dalla foresta di Sathros. Comunque sono pochi i Diaforos che riescono a superare quei terribili ostacoli e la maggior parte di loro finisce trafitta dalle frecce degli elfi o annegata nelle profondità del lago.

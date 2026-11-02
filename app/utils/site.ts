@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { to: '/chi-siamo', label: 'Chi siamo' },
   { to: '/sinfonia/ambientazione', label: 'La Sinfonia dei Sette', match: '/sinfonia' },
   { to: '/oneshot', label: 'Oneshot' },
+  { to: '/wiki', label: 'Wiki' },
 ]
 
 export const SOCIAL_LINKS = [
@@ -12,8 +13,6 @@ export const SOCIAL_LINKS = [
   { name: 'telegram', label: 'Telegram', href: 'https://t.me/FulcronGRV' },
   { name: 'whatsapp', label: 'WhatsApp', href: 'https://chat.whatsapp.com/8PjZxAAbWXvAHVdMGpukLn' },
 ]
-
-export const WIKI_URL = 'https://wikia.fulcrongrv.it'
 
 /** Official details of the association (privacy page). Empty fields are not shown. */
 export const ASSOCIATION = {

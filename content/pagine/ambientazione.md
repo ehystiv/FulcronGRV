@@ -32,7 +32,7 @@ Fulcron è un “Anello”, senza dubbio, ma solo per quello che ne sappiamo noi
 
 Il mondo di Fulcron è singolare, oltre che per le creature fantastiche che lo abitano, anche per la sua geografia. La terra conosciuta di Fulcron è chiamata l’Anello proprio per la sua forma caratteristica.
 
-La nostra ambientazione si divide in cinque macroregioni, ognuna con caratteristiche e peculiarità proprie. Non preoccuparti se non conosci a menadito l’ambientazione di Fulcron: a ogni evento verranno fornite le informazioni necessarie per giocare senza problemi e, se vorrai approfondire, potrai sempre consultare la nostra [wiki](https://wikia.fulcrongrv.it).
+La nostra ambientazione si divide in cinque macroregioni, ognuna con caratteristiche e peculiarità proprie. Non preoccuparti se non conosci a menadito l’ambientazione di Fulcron: a ogni evento verranno fornite le informazioni necessarie per giocare senza problemi e, se vorrai approfondire, potrai sempre consultare la nostra [wiki](/wiki).
 
 ::lore-tiles
 ---
@@ -157,4 +157,4 @@ eras:
 
 Per approfondire l’ambientazione di Fulcron (ed eventualmente contribuire), visita la nostra wiki!
 
-:button-link[Vai alla wiki]{href="https://wikia.fulcrongrv.it"}
+:button-link[Vai alla wiki]{to="/wiki"}

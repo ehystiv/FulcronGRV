@@ -13,7 +13,7 @@ const columns = [
       { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
       { to: '/sinfonia/regolamento', label: 'Regolamento e manuali' },
       { to: '/sinfonia/bacheca', label: 'Bacheca' },
-      { href: WIKI_URL, label: 'Wiki di Fulcron' },
+      { to: '/wiki', label: 'Wiki di Fulcron' },
     ],
   },
 ]
@@ -46,10 +46,7 @@ const linkClass = 'text-on-dark-muted no-underline hover:text-gold-soft'
         <h2 class="mb-4 font-display text-base tracking-[0.12em] text-gold-soft">{{ col.title }}</h2>
         <ul class="space-y-1.5">
           <li v-for="link in col.links" :key="link.label">
-            <a v-if="'href' in link" :href="link.href" target="_blank" rel="noopener" :class="linkClass">
-              {{ link.label }}
-            </a>
-            <NuxtLink v-else :to="link.to" :class="linkClass">{{ link.label }}</NuxtLink>
+            <NuxtLink :to="link.to" :class="linkClass">{{ link.label }}</NuxtLink>
           </li>
         </ul>
       </nav>

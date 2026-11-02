@@ -16,6 +16,17 @@ export default defineContentConfig({
       }),
     }),
 
+    // The wiki of Fulcron: one Markdown file per page, folders = sections
+    wiki: defineCollection({
+      type: 'page',
+      source: 'wiki/**/*.md',
+      schema: z.object({
+        updated: z.string().optional(),
+        // Position in the wiki menu (lower first); the rest is alphabetical
+        order: z.number().optional(),
+      }),
+    }),
+
     // News board: one file per post, the text is the body of the file
     bacheca: defineCollection({
       type: 'page',
