@@ -6,6 +6,18 @@
 @import '@fontsource/montserrat/600.css';
 @import '@fontsource/montserrat/400-italic.css';
 
+/* Fonts of "Il Palazzo dei Destini Incrociati" (oneshot pages only) */
+@font-face {
+  font-family: 'Cardinal';
+  src: url('../fonts/cardinal.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Italian Cursive';
+  src: url('../fonts/italian.woff2') format('woff2');
+  font-display: swap;
+}
+
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -37,6 +49,8 @@
   --font-display: 'Marcellus SC', 'Times New Roman', serif;
   --font-heading: 'Marcellus', 'Times New Roman', serif;
   --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-cardinal: 'Cardinal', 'Times New Roman', serif;
+  --font-cursive: 'Italian Cursive', 'Times New Roman', serif;
 
   /* Layout */
   --spacing-header: 4rem;

@@ -23,16 +23,17 @@ const { data: oneshots } = await useAsyncData('oneshot', () => queryCollection('
         to="/oneshot/palazzo-destini"
         class="ornate mb-12 md:flex-row"
         media-class="md:w-[45%] md:min-h-70 md:shrink-0 aspect-16/10 md:aspect-auto"
-        image="/immagini/palazzo-destini.jpg"
+        image="/oneshot/palazzo-destini/video-poster.jpg"
         image-sizes="sm:100vw md:540px"
       >
         <div class="flex flex-1 flex-col justify-center md:px-6 md:py-4">
-          <span class="eyebrow">In evidenza</span>
+          <span class="eyebrow">Aprile 2022 · Villa Achillini</span>
           <h2 class="mb-2 font-heading text-[clamp(1.6rem,3vw,2.2rem)] tracking-normal">
             Il Palazzo dei Destini Incrociati
           </h2>
           <p class="text-muted">
-            Un banchetto, un ospite misterioso, decine di destini che si intrecciano. Indossa la tua maschera.
+            Un banchetto, un ospite misterioso, decine di destini che si intrecciano. Rivivi il sito dell’evento, con il
+            trailer e i tarocchi dei tredici PGOS.
           </p>
           <span class="mt-3 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-teal">
             Scopri l’evento <AppIcon name="arrow-right" :size="16" />

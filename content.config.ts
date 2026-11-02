@@ -12,7 +12,10 @@ export default defineContentConfig({
         lead: z.string().optional(),
         updated: z.string().optional(),
         image: z.string().optional(),
-        links: z.array(z.object({ label: z.string(), href: z.string(), primary: z.boolean().optional() })).optional(),
+        // Il Palazzo dei Destini Incrociati
+        date: z.string().optional(),
+        place: z.string().optional(),
+        cards: z.array(z.string()).optional(),
       }),
     }),
 

@@ -10,6 +10,8 @@ const PAGES = [
   '/sinfonia/bacheca',
   '/oneshot',
   '/oneshot/palazzo-destini',
+  '/oneshot/palazzo-destini/pgos',
+  '/oneshot/palazzo-destini/iscrizioni',
   '/privacy',
 ]
 
