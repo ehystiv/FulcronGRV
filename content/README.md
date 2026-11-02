@@ -38,7 +38,9 @@ photos: "https://link-all-album-di-foto"
 Due righe per raccontare di cosa parlava.
 ```
 
-`photos` è facoltativo: un link esterno a un album di foto.
+`photos` è facoltativo: un link esterno a un album di foto. Anche `place` (il luogo) è facoltativo.
+Se l’evento ha una pagina sul sito, indicala con `page: "/oneshot/nome-pagina"`: compare il pulsante
+“Visita la pagina dell’evento” e l’oneshot più recente con una pagina viene messa in evidenza.
 
 ## Pagine: `pagine/*.md`
 

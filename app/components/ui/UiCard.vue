@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Imported explicitly: a component chosen at runtime with :is is not resolved by name
+import { NuxtLink } from '#components'
+
 // Card with optional cover image. With `to` the whole card is a link.
 withDefaults(
   defineProps<{
@@ -15,7 +18,7 @@ withDefaults(
 
 <template>
   <component
-    :is="to ? resolveComponent('NuxtLink') : 'article'"
+    :is="to ? NuxtLink : 'article'"
     :to="to"
     class="group flex flex-col overflow-hidden rounded-card border border-line bg-surface text-body no-underline shadow-card transition duration-300"
     :class="hover && 'hover:-translate-y-0.5 hover:text-body hover:shadow-card-lg'"

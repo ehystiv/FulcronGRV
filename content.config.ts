@@ -51,6 +51,10 @@ export default defineContentConfig({
         tags: z.array(z.string()).default([]),
         // Optional link to the photos of the event (e.g. an external album)
         photos: z.string().optional(),
+        // Where the event took place (optional)
+        place: z.string().optional(),
+        // Page of the event on this site, e.g. /oneshot/palazzo-destini (optional)
+        page: z.string().optional(),
       }),
     }),
   },

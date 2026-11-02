@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Imported explicitly: a component chosen at runtime with :is is not resolved by name
+import { NuxtLink } from '#components'
+
 // White uppercase button of the Palazzo pages: :palazzo-button[Testo]{to="/…"} or {href="https://…"}
 defineProps<{ to?: string; href?: string }>()
 </script>
@@ -6,7 +9,7 @@ defineProps<{ to?: string; href?: string }>()
 <template>
   <span class="not-prose my-6 flex justify-center">
     <component
-      :is="to ? resolveComponent('NuxtLink') : 'a'"
+      :is="to ? NuxtLink : 'a'"
       :to="to"
       :href="href"
       :target="href ? '_blank' : undefined"
