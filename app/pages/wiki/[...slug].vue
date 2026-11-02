@@ -38,6 +38,12 @@ const crumbs = computed(() => {
 })
 
 const updated = computed(() => formatDate(page.value?.updated))
+
+// Close the phone menu after moving to another page
+const mobileMenu = ref<HTMLDetailsElement>()
+watch(path, () => {
+  if (mobileMenu.value) mobileMenu.value.open = false
+})
 </script>
 
 <template>
@@ -65,12 +71,16 @@ const updated = computed(() => formatDate(page.value?.updated))
 
     <div class="container-site grid gap-10 py-[clamp(2rem,6vw,4rem)] lg:grid-cols-[250px_minmax(0,1fr)]">
       <!-- Wiki menu: sidebar on desktop, collapsible on phones -->
-      <details class="group rounded-card border border-line bg-surface lg:hidden">
+      <details ref="mobileMenu" v-accordion class="group rounded-card border border-line bg-surface lg:hidden">
         <summary
           class="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-semibold text-ink [&::-webkit-details-marker]:hidden"
         >
           Esplora la wiki
-          <AppIcon name="chevron-right" :size="18" class="transition-transform group-open:rotate-90" />
+          <AppIcon
+            name="chevron-right"
+            :size="18"
+            class="transition-transform duration-300 group-data-[expanded=true]:rotate-90"
+          />
         </summary>
         <WikiMenu :items="nav" class="px-2 pb-3" />
       </details>
@@ -83,8 +93,21 @@ const updated = computed(() => formatDate(page.value?.updated))
         <h1 class="mb-2 text-[clamp(2rem,4.5vw,3.2rem)]">{{ page.title }}</h1>
         <p v-if="page.description" class="text-[clamp(1.05rem,2vw,1.2rem)] text-muted">{{ page.description }}</p>
 
-        <details v-if="toc.length > 2" class="my-6 max-w-[72ch] rounded-lg border border-line bg-surface px-4 py-3">
-          <summary class="cursor-pointer font-semibold text-ink">In questa pagina</summary>
+        <details
+          v-if="toc.length > 2"
+          v-accordion
+          class="group my-6 max-w-[72ch] rounded-lg border border-line bg-surface px-4 py-3"
+        >
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between font-semibold text-ink [&::-webkit-details-marker]:hidden"
+          >
+            In questa pagina
+            <AppIcon
+              name="chevron-right"
+              :size="18"
+              class="transition-transform duration-300 group-data-[expanded=true]:rotate-90"
+            />
+          </summary>
           <ol class="mt-2 space-y-1 text-[0.95rem]">
             <li v-for="link in toc" :key="link.id">
               <a :href="`#${link.id}`" class="no-underline">{{ link.text }}</a>

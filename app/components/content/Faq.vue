@@ -7,14 +7,15 @@ defineProps<{ items: { q: string; a: string }[] }>()
     <details
       v-for="item in items"
       :key="item.q"
-      class="group rounded-lg border border-line bg-surface open:border-gold"
+      v-accordion
+      class="group rounded-lg border border-line bg-surface transition-colors duration-300 data-[expanded=true]:border-gold"
     >
       <summary
         class="relative cursor-pointer list-none py-4 pr-12 pl-5 font-semibold text-ink [&::-webkit-details-marker]:hidden"
       >
         {{ item.q }}
         <span
-          class="absolute top-1/2 right-5 size-2.5 -translate-y-[70%] rotate-45 border-r-2 border-b-2 border-gold transition-transform group-open:-translate-y-[30%] group-open:-rotate-135"
+          class="absolute top-1/2 right-5 size-2.5 -translate-y-[70%] rotate-45 border-r-2 border-b-2 border-gold transition-transform duration-300 group-data-[expanded=true]:-translate-y-[30%] group-data-[expanded=true]:-rotate-135"
           aria-hidden="true"
         />
       </summary>

@@ -30,7 +30,14 @@ const isOpen = (item: WikiNavItem) =>
       >
         {{ item.title }}
       </NuxtLink>
-      <WikiNav v-if="item.children?.length && isOpen(item)" :items="item.children" :level="(level ?? 0) + 1" />
+      <Transition
+        enter-active-class="transition duration-300 ease-out"
+        enter-from-class="-translate-y-1 opacity-0"
+        leave-active-class="transition duration-150 ease-in"
+        leave-to-class="opacity-0"
+      >
+        <WikiNav v-if="item.children?.length && isOpen(item)" :items="item.children" :level="(level ?? 0) + 1" />
+      </Transition>
     </li>
   </ul>
 </template>
