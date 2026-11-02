@@ -171,9 +171,13 @@ const eras = [
     <article class="content">
       <h1>Ambientazione</h1>
 
+      <nav class="toc-mobile" aria-label="Indice">
+        <a v-for="s in sections" :key="s.id" :href="`#${s.id}`" class="pill">{{ s.label }}</a>
+      </nav>
+
       <section id="cos-e-fulcron">
         <h2>Cos’è Fulcron?</h2>
-        <div class="poem">
+        <div class="poem ornate">
           <p>
             Sette furono gli Dei.<br />
             Sette cantarono e così cantando crearono il Tutto.<br />
@@ -221,7 +225,7 @@ const eras = [
           nostra <a :href="WIKI_URL" target="_blank" rel="noopener">wiki</a>.
         </p>
         <div class="tiles">
-          <div v-for="r in regions" :key="r.name" class="tile">
+          <div v-for="r in regions" :key="r.name" v-reveal class="tile">
             <h3>{{ r.name }}</h3>
             <p>{{ r.text }}</p>
           </div>
@@ -243,7 +247,7 @@ const eras = [
         <h2>Le razze di Fulcron</h2>
         <p class="lead">Sette sono le razze presenti a Fulcron.</p>
         <div class="tiles tiles--compact">
-          <div v-for="r in races" :key="r.name" class="tile">
+          <div v-for="(r, i) in races" :key="r.name" v-reveal="(i % 2) * 100" class="tile">
             <h3>{{ r.name }}</h3>
             <p>{{ r.text }}</p>
           </div>
@@ -269,7 +273,7 @@ const eras = [
         <div v-for="era in eras" :key="era.name" class="era">
           <h3 class="era-title">{{ era.name }}</h3>
           <ol class="timeline">
-            <li v-for="(e, i) in era.events" :key="i">
+            <li v-for="(e, i) in era.events" :key="i" v-reveal>
               <span class="t-date">{{ e.date }}</span>
               <p>{{ e.event }}</p>
             </li>
@@ -337,6 +341,44 @@ const eras = [
 }
 .content {
   max-width: 820px;
+  min-width: 0;
+}
+.toc-mobile {
+  position: sticky;
+  top: calc(var(--header-h) + var(--tabs-h) + 1px);
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 calc(-1 * var(--gutter)) 2rem;
+  padding: 0.6rem var(--gutter);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.toc-mobile::-webkit-scrollbar {
+  display: none;
+}
+.pill {
+  flex-shrink: 0;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.pill:hover,
+.pill:focus-visible {
+  border-color: var(--gold);
+}
+@media (min-width: 1000px) {
+  .toc-mobile {
+    display: none;
+  }
 }
 .content > h1 {
   margin-bottom: 1.5rem;
@@ -352,10 +394,10 @@ const eras = [
 .poem {
   font-family: var(--font-display);
   font-size: clamp(1rem, 2.6vw, 1.15rem);
+  padding: 2.5rem 2rem;
   line-height: 1.8;
   color: var(--ink);
   text-align: center;
-  padding: 2rem 1.5rem;
   margin-bottom: 2rem;
   background: radial-gradient(ellipse at top, rgb(184 145 63 / 0.12), transparent 70%), var(--surface);
   border: 1px solid var(--border);
@@ -402,6 +444,7 @@ const eras = [
 }
 .tile h3 {
   margin-bottom: 0.4rem;
+  font-size: 1.3rem;
 }
 .tile p {
   margin: 0;
@@ -423,7 +466,7 @@ const eras = [
   border-radius: var(--radius-sm);
 }
 .god-name {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.25rem;
   color: var(--ink);
 }

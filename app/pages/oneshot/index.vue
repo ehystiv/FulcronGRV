@@ -21,9 +21,9 @@ function isInternal(url: string | null) {
     />
 
     <div class="container section">
-      <NuxtLink to="/oneshot/palazzo-destini" class="featured card">
+      <NuxtLink to="/oneshot/palazzo-destini" class="featured card ornate">
         <div class="card-media">
-          <img src="/immagini/palazzo-destini.jpg" alt="" loading="lazy" />
+          <SiteImage src="/immagini/palazzo-destini.jpg" sizes="sm:100vw md:540px" />
         </div>
         <div class="card-body">
           <span class="eyebrow">In evidenza</span>
@@ -43,9 +43,9 @@ function isInternal(url: string | null) {
       />
 
       <div v-if="status === 'success' && oneshots.length" class="grid">
-        <article v-for="oneshot in oneshots" :key="oneshot.id" class="card">
+        <article v-for="(oneshot, i) in oneshots" :key="oneshot.id" v-reveal="(i % 3) * 100" class="card">
           <div class="card-media">
-            <img :src="oneshot.image" :alt="`Locandina di ${oneshot.title}`" loading="lazy" />
+            <SiteImage :src="oneshot.image" :alt="`Locandina di ${oneshot.title}`" sizes="sm:100vw md:50vw lg:400px" />
           </div>
           <div class="card-body">
             <h2 class="card-title">{{ oneshot.title }}</h2>
@@ -57,11 +57,11 @@ function isInternal(url: string | null) {
             </ul>
             <p v-if="oneshot.description">{{ oneshot.description }}</p>
             <div v-if="oneshot.photos" class="card-actions">
-              <NuxtLink v-if="isInternal(oneshot.photos)" :to="oneshot.photos" class="btn btn-outline">
-                <AppIcon name="image" :size="18" /> Foto dell’evento
+              <NuxtLink v-if="isInternal(oneshot.photos)" :to="oneshot.photos" class="btn btn-outline btn-sm">
+                <AppIcon name="image" :size="16" /> Foto dell’evento
               </NuxtLink>
-              <a v-else :href="oneshot.photos" target="_blank" rel="noopener" class="btn btn-outline">
-                <AppIcon name="image" :size="18" /> Foto dell’evento
+              <a v-else :href="oneshot.photos" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                <AppIcon name="image" :size="16" /> Foto dell’evento
               </a>
             </div>
           </div>

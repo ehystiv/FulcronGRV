@@ -40,7 +40,9 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
 <template>
   <div>
     <section class="hero">
-      <img class="hero-bg" src="/backgrounds/forest_op_comp.jpg" alt="" fetchpriority="high" />
+      <div class="hero-bg">
+        <SiteImage src="/backgrounds/forest_op_comp.jpg" loading="eager" fetchpriority="high" />
+      </div>
       <div class="hero-overlay" aria-hidden="true" />
       <div class="container hero-content">
         <img class="hero-logo" src="/logos/logo_bianco.png" alt="" width="220" height="220" />
@@ -58,7 +60,7 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
     </section>
 
     <section class="section intro">
-      <div class="container prose center">
+      <div v-reveal class="container prose center">
         <span class="eyebrow">Salve, viandante</span>
         <h2>Un mondo da vivere, non solo da raccontare</h2>
         <div class="divider" aria-hidden="true"><span /></div>
@@ -72,9 +74,9 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
 
     <section class="section features">
       <div class="container grid">
-        <NuxtLink v-for="f in features" :key="f.to" :to="f.to" class="card feature">
+        <NuxtLink v-for="(f, i) in features" :key="f.to" v-reveal="i * 120" :to="f.to" class="card feature">
           <div class="card-media">
-            <img :src="f.image" :alt="''" loading="lazy" />
+            <SiteImage :src="f.image" sizes="sm:100vw md:50vw lg:400px" />
           </div>
           <div class="card-body">
             <span class="eyebrow">{{ f.eyebrow }}</span>
@@ -87,7 +89,7 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
     </section>
 
     <section class="section join">
-      <div class="container join-inner">
+      <div v-reveal class="container join-inner">
         <div>
           <h2>Unisciti all’avventura</h2>
           <p>
@@ -121,10 +123,12 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
 .hero-bg {
   position: absolute;
   inset: 0;
+  z-index: -2;
+}
+.hero-bg :deep(img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
 }
 .hero-overlay {
   position: absolute;

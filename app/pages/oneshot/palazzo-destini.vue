@@ -63,8 +63,12 @@ useSeoMeta({
         <p class="accent">Benvenuto nel Palazzo dei Destini Incrociati.</p>
       </div>
 
-      <figure class="poster">
-        <img src="/immagini/palazzo-destini.jpg" alt="Locandina dell’evento Il Palazzo dei Destini Incrociati" />
+      <figure v-reveal class="poster">
+        <SiteImage
+          src="/immagini/palazzo-destini.jpg"
+          alt="Locandina dell’evento Il Palazzo dei Destini Incrociati"
+          sizes="sm:100vw md:100vw lg:520px"
+        />
       </figure>
     </div>
   </div>
@@ -104,7 +108,7 @@ useSeoMeta({
 .poster {
   margin: 0;
 }
-.poster img {
+.poster :deep(img) {
   width: 100%;
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);

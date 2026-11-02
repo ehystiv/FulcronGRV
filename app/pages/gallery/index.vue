@@ -18,37 +18,43 @@ const { data: albums, status, refresh } = await useFetch('/api/albums', { defaul
       />
 
       <div v-if="status === 'success' && albums.length" class="grid">
-        <article v-for="album in albums" :key="album.id" class="card">
+        <article v-for="(album, i) in albums" :key="album.id" v-reveal="(i % 3) * 100" class="card album">
           <div class="card-media">
-            <img :src="album.cover" :alt="`Copertina dell’album ${album.name}`" loading="lazy" />
+            <SiteImage
+              :src="album.cover"
+              :alt="`Copertina dell’album ${album.name}`"
+              sizes="sm:100vw md:50vw lg:400px"
+            />
+            <time class="badge" :datetime="String(album.date)">{{ formatDate(album.date) }}</time>
           </div>
           <div class="card-body">
             <h2 class="card-title">{{ album.name }}</h2>
-            <p class="card-meta meta">
-              <span><AppIcon name="calendar" :size="16" /> {{ formatDate(album.date) }}</span>
-              <span v-if="album.placeIG || album.place">
+            <p class="card-meta place">
+              <template v-if="album.placeIG || album.place">
                 <AppIcon name="pin" :size="16" />
-                {{ album.placeIG }}<template v-if="album.placeIG && album.place"> · </template>{{ album.place }}
-              </span>
+                <span>
+                  {{ album.placeIG }}<template v-if="album.placeIG && album.place"> · </template>{{ album.place }}
+                </span>
+              </template>
             </p>
             <div class="card-actions">
               <NuxtLink
                 v-if="album.slug"
                 :to="`/gallery/${album.slug}`"
-                class="btn btn-primary"
+                class="btn btn-primary btn-sm"
                 :aria-label="`Vedi le foto di ${album.name}`"
               >
-                <AppIcon name="image" :size="18" /> Vedi le foto
+                <AppIcon name="image" :size="16" /> Vedi le foto
               </NuxtLink>
               <a
                 v-if="album.highQuality"
                 :href="album.highQuality"
                 target="_blank"
                 rel="noopener"
-                class="btn btn-outline"
+                class="btn btn-outline btn-sm"
                 :aria-label="`Scarica in alta qualità le foto di ${album.name}`"
               >
-                <AppIcon name="download" :size="18" /> Alta qualità
+                <AppIcon name="download" :size="16" /> Alta qualità
               </a>
             </div>
           </div>
@@ -59,14 +65,32 @@ const { data: albums, status, refresh } = await useFetch('/api/albums', { defaul
 </template>
 
 <style scoped>
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1rem;
+.album .card-media {
+  position: relative;
 }
-.meta span {
-  display: inline-flex;
+.badge {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgb(0 26 38 / 0.82);
+  backdrop-filter: blur(4px);
+  color: var(--on-dark);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.place {
+  display: flex;
   align-items: center;
   gap: 0.35rem;
+  /* Keeps the cards aligned even when the place is missing */
+  min-height: 1.6em;
+}
+.place :deep(svg) {
+  flex-shrink: 0;
+}
+.album .card-actions {
+  flex-wrap: nowrap;
 }
 </style>

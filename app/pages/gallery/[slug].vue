@@ -74,7 +74,14 @@ function onTouchEnd(e: TouchEvent) {
             :aria-label="`Apri la foto ${i + 1} di ${photos.length}`"
             @click="open(i)"
           >
-            <img :src="src" alt="" loading="lazy" decoding="async" />
+            <img
+              :src="`${src}?w=480`"
+              :srcset="`${src}?w=480 480w, ${src}?w=960 960w`"
+              sizes="(min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
           </button>
         </li>
       </ul>
@@ -90,7 +97,7 @@ function onTouchEnd(e: TouchEvent) {
     >
       <template v-if="current !== null">
         <img
-          :src="photos[current]"
+          :src="`${photos[current]}?w=1600`"
           :alt="`Foto ${current + 1} di ${photos.length} · ${title}`"
           @touchstart.passive="onTouchStart"
           @touchend.passive="onTouchEnd"

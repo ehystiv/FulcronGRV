@@ -18,7 +18,7 @@ const documents = [
       <h1>Regolamento</h1>
       <p class="lead">Regole basilari per ogni tipo di LARP (gioco di ruolo dal vivo).</p>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>Correttezza e rispetto verso gli altri</h2>
         <p>Giochiamo per divertirci, ma la libertà di un Giocatore non deve limitare quella degli altri.</p>
         <p>
@@ -28,7 +28,7 @@ const documents = [
         </p>
       </section>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>Onestà</h2>
         <p>Sono molte le situazioni in cui il Giocatore potrebbe “barare” a vantaggio del Personaggio.</p>
         <p>
@@ -53,7 +53,7 @@ const documents = [
         <p class="notice">Un comportamento palesemente scorretto deve essere segnalato e conseguentemente punito.</p>
       </section>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>Sicurezza</h2>
         <p>
           In nessun caso il Giocatore può agire in modo da mettere a rischio la propria incolumità o quella di altri.
@@ -65,7 +65,7 @@ const documents = [
         </p>
       </section>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>Differenza fra “In Gioco” e “Fuori Gioco”</h2>
         <p>
           Nella dinamica di un gioco di ruolo dal vivo, il Personaggio e il Giocatore non vanno identificati. In
@@ -97,7 +97,7 @@ const documents = [
         </div>
       </section>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>PG, PNG e PGOS: tre modi di giocare</h2>
         <p>
           Se sei nel mondo del gioco di ruolo dal vivo da un po’, saprai già cosa significa essere PG o PNG, ma di
@@ -124,7 +124,7 @@ const documents = [
         </dl>
       </section>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>I PAB, la moneta di scambio</h2>
         <p>
           Se pensi di volere un PG per muoverti nel mondo di Fulcron, allora sarai assolutamente interessato ai PAB. I
@@ -139,7 +139,7 @@ const documents = [
         </p>
       </section>
 
-      <section class="rule">
+      <section v-reveal class="rule">
         <h2>Il nostro regolamento</h2>
         <p>
           Il nostro regolamento prevede l’utilizzo di armi in lattice e l’apprendimento di alcune semplici regole che

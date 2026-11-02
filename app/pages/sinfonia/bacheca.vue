@@ -20,9 +20,9 @@ const { data: posts, status, refresh } = await useFetch('/api/posts', { default:
     />
 
     <div v-if="status === 'success' && posts.length" class="feed">
-      <article v-for="post in posts" :key="post.id" class="card post">
+      <article v-for="post in posts" :key="post.id" v-reveal class="card post">
         <div v-if="post.image" class="card-media">
-          <img :src="post.image" :alt="post.title" loading="lazy" />
+          <SiteImage :src="post.image" :alt="post.title" sizes="sm:100vw md:760px" />
         </div>
         <div class="card-body">
           <p class="card-meta">
@@ -55,14 +55,14 @@ const { data: posts, status, refresh } = await useFetch('/api/posts', { default:
   aspect-ratio: auto;
   max-height: 520px;
 }
-.post .card-media img {
+.post .card-media :deep(img) {
   object-fit: contain;
   background: var(--ink-deep);
 }
 .post:hover {
   transform: none;
 }
-.post:hover .card-media img {
+.post:hover .card-media :deep(img) {
   transform: none;
 }
 .post-text {

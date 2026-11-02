@@ -8,12 +8,12 @@ const tabs = [
 
 <template>
   <div>
-    <PageHero
-      eyebrow="La campagna"
-      title="La Sinfonia dei Sette"
-      lead="Tutto quello che serve per entrare nel mondo di Fulcron: la sua storia, le regole del gioco e le ultime notizie dall’Anello."
-      as="h2"
-    />
+    <header class="band">
+      <div class="container band-inner">
+        <span class="eyebrow">La campagna</span>
+        <p class="band-title">La Sinfonia dei Sette</p>
+      </div>
+    </header>
     <nav class="tabs" aria-label="Sezioni della Sinfonia dei Sette">
       <div class="container tabs-inner">
         <NuxtLink v-for="tab in tabs" :key="tab.to" :to="tab.to" class="tab">{{ tab.label }}</NuxtLink>
@@ -24,6 +24,28 @@ const tabs = [
 </template>
 
 <style scoped>
+.band {
+  background:
+    radial-gradient(ellipse at top, rgb(184 145 63 / 0.12), transparent 70%),
+    linear-gradient(180deg, var(--surface-2), transparent);
+}
+.band-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 1.5rem 0.75rem;
+  text-align: center;
+}
+.band .eyebrow {
+  margin-bottom: 0.2rem;
+}
+.band-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
 .tabs {
   position: sticky;
   top: var(--header-h);
@@ -41,7 +63,10 @@ const tabs = [
 }
 .tab {
   flex-shrink: 0;
-  padding: 0.95rem 1.2rem;
+  display: flex;
+  align-items: center;
+  height: var(--tabs-h);
+  padding: 0 1.2rem;
   font-weight: 600;
   font-size: 0.92rem;
   letter-spacing: 0.04em;

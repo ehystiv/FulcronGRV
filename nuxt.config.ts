@@ -7,8 +7,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
+  modules: ['@nuxt/image'],
+
   css: [
     '@fontsource/marcellus-sc/400.css',
+    '@fontsource/marcellus/400.css',
     '@fontsource/montserrat/400.css',
     '@fontsource/montserrat/500.css',
     '@fontsource/montserrat/600.css',
@@ -17,6 +20,7 @@ export default defineNuxtConfig({
   ],
 
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       htmlAttrs: { lang: 'it' },
       meta: [
@@ -39,7 +43,20 @@ export default defineNuxtConfig({
         { rel: 'mask-icon', href: '/favicon/safari-pinned-tab.svg', color: '#002d40' },
         { rel: 'manifest', href: '/favicon/site.webmanifest' },
       ],
+      script: [
+        // Enables the scroll-reveal animations only when JavaScript runs,
+        // so content is never hidden without JS or for crawlers.
+        { innerHTML: "document.documentElement.classList.add('js')", tagPosition: 'head' },
+      ],
     },
+  },
+
+  // Static images are served as WebP in the right size (https://image.nuxt.com).
+  // AVIF is smaller but much slower to encode on the fly on a small server.
+  image: {
+    format: ['webp'],
+    quality: 72,
+    ipx: { maxAge: 60 * 60 * 24 * 30 },
   },
 
   runtimeConfig: {

@@ -9,7 +9,11 @@ useSeoMeta({
 <template>
   <div>
     <section class="banner">
-      <img src="/immagini/origini_1.jpg" alt="Giocatori in costume durante un evento FulcronGRV" />
+      <SiteImage
+        src="/immagini/origini_1.jpg"
+        alt="Giocatori in costume durante un evento FulcronGRV"
+        loading="eager"
+      />
       <div class="banner-text container">
         <span class="eyebrow">Chi siamo</span>
         <h1>Le nostre origini</h1>
@@ -42,7 +46,7 @@ useSeoMeta({
     </section>
 
     <section class="banner">
-      <img src="/immagini/origini_2.jpg" alt="Scena di gioco della campagna La Sinfonia dei Sette" loading="lazy" />
+      <SiteImage src="/immagini/origini_2.jpg" alt="Scena di gioco della campagna La Sinfonia dei Sette" />
       <div class="banner-text container align-end">
         <span class="eyebrow">La campagna</span>
         <h2>La Sinfonia dei Sette</h2>
@@ -85,7 +89,7 @@ useSeoMeta({
           avventurieri hanno ricominciato la loro marcia, tra antiche profezie e nuove storie da raccontare.
         </p>
 
-        <blockquote class="closing">
+        <blockquote v-reveal class="closing">
           Fulcron può essere una terra inospitale, a volte crudele e infame, ma sa ricompensare ampiamente chiunque
           abbia il coraggio di avventurarcisi: è un mondo vivo, che non riposa mai e avrà sempre storie nuove da
           raccontare per chi avrà l’audacia di ascoltarle.
@@ -108,7 +112,7 @@ useSeoMeta({
   color: #fff;
   isolation: isolate;
 }
-.banner img {
+.banner :deep(img) {
   position: absolute;
   inset: 0;
   width: 100%;
