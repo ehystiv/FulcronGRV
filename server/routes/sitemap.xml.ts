@@ -1,5 +1,6 @@
 const PAGES = [
   '/',
+  '/inizia-a-giocare',
   '/chi-siamo',
   '/sinfonia/ambientazione',
   '/sinfonia/regolamento',
@@ -7,6 +8,7 @@ const PAGES = [
   '/oneshot',
   '/oneshot/palazzo-destini',
   '/gallery',
+  '/privacy',
 ]
 
 export default defineEventHandler((event) => {

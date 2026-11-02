@@ -7,7 +7,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
-  modules: ['@nuxt/image'],
+  modules: ['@nuxt/image', '@nuxt/content'],
+
+  // Markdown content (content/). Node's built-in SQLite: no native module to compile.
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
 
   css: [
     '@fontsource/marcellus-sc/400.css',
@@ -60,10 +65,10 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // NUXT_MONGODB_URI, e.g. mongodb://user:pass@host:27017/fulcron?authSource=admin
-    mongodbUri: '',
     // NUXT_GALLERY_DIR: folder that holds one sub-folder of photos per album
     galleryDir: './gallery',
+    // NUXT_STATS_KEY: secret key to open /statistiche?key=... (empty = statistics page disabled)
+    statsKey: '',
     public: {
       siteUrl,
     },
@@ -75,7 +80,8 @@ export default defineNuxtConfig({
     '/sinfonia': { redirect: { to: '/sinfonia/ambientazione', statusCode: 302 } },
     '/api/foto/**': { redirect: { to: '/gallery/**', statusCode: 301 } },
     // Cache the static pages; the data-driven ones are refreshed often
-    '/api/**': { headers: { 'cache-control': 'public, max-age=60, s-maxage=300' } },
+    '/api/gallery/**': { headers: { 'cache-control': 'public, max-age=60, s-maxage=300' } },
+    '/statistiche': { headers: { 'x-robots-tag': 'noindex' } },
   },
 
   nitro: {

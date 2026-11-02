@@ -29,3 +29,19 @@ export function formatDate(value?: string | Date | null) {
   const date = new Date(value)
   return Number.isNaN(date.getTime()) ? '' : dateFormatter.format(date)
 }
+
+/** Folder of the photos of an album: `folder` in the file, or the file name. */
+export function albumFolder(album: { folder?: string; stem: string }) {
+  return album.folder || album.stem.split('/').pop() || ''
+}
+
+/**
+ * Official details of the association, shown in the privacy policy.
+ * TODO: fill in with the real data (fields left empty are not shown).
+ */
+export const ASSOCIATION = {
+  name: 'Associazione FulcronGRV',
+  address: '',
+  taxCode: '',
+  email: '',
+}

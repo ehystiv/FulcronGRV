@@ -15,6 +15,7 @@
           <li v-for="link in NAV_LINKS" :key="link.to">
             <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
           </li>
+          <li><NuxtLink to="/inizia-a-giocare">Inizia a giocare</NuxtLink></li>
         </ul>
       </nav>
 
@@ -59,6 +60,7 @@
 
     <div class="container legal">
       <p>© {{ year }} Associazione FulcronGRV</p>
+      <NuxtLink to="/privacy">Privacy</NuxtLink>
     </div>
   </footer>
 </template>
@@ -159,6 +161,12 @@ a:hover {
   border-top: 1px solid rgb(255 255 255 / 0.08);
   padding-block: 1.25rem;
   font-size: 0.85rem;
+}
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
 }
 .legal p {
   margin: 0;

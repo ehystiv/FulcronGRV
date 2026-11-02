@@ -1,26 +1,32 @@
 <script setup lang="ts">
 useHead({ title: 'Bacheca' })
-useSeoMeta({ description: 'Le ultime notizie dal mondo di Fulcron e dalla campagna La Sinfonia dei Sette.' })
+useSeoMeta({ description: 'Le notizie dal mondo di Fulcron e dalla campagna La Sinfonia dei Sette.' })
 
-const { data: posts, status, refresh } = await useFetch('/api/posts', { default: () => [] })
+const {
+  data: posts,
+  status,
+  refresh,
+} = await useAsyncData('bacheca', () => queryCollection('bacheca').order('date', 'DESC').all(), {
+  default: () => [],
+})
 </script>
 
 <template>
   <div class="container section">
     <div class="head">
       <h1>Bacheca</h1>
-      <p class="lead">Rimani aggiornato sul mondo di Fulcron.</p>
+      <p class="lead">Le notizie dall’Anello, così come arrivano.</p>
     </div>
 
     <StateMessage
       :status="status"
       :empty="!posts.length"
-      empty-text="Nessuna notizia per ora: torna a trovarci presto!"
+      empty-text="Non ci sono ancora notizie in bacheca."
       @retry="refresh()"
     />
 
     <div v-if="status === 'success' && posts.length" class="feed">
-      <article v-for="post in posts" :key="post.id" v-reveal class="card post">
+      <article v-for="post in posts" :key="post.path" v-reveal class="card post">
         <div v-if="post.image" class="card-media">
           <SiteImage :src="post.image" :alt="post.title" sizes="sm:100vw md:760px" />
         </div>
@@ -29,9 +35,8 @@ const { data: posts, status, refresh } = await useFetch('/api/posts', { default:
             <time :datetime="String(post.date)">{{ formatDate(post.date) }}</time>
           </p>
           <h2 class="card-title">{{ post.title }}</h2>
-          <!-- HTML is sanitized server-side in server/api/posts.get.ts -->
-          <div class="post-text" v-html="post.html" />
-          <ul v-if="post.tags.length" class="chips">
+          <ContentRenderer :value="post" class="post-text" />
+          <ul v-if="post.tags?.length" class="chips">
             <li v-for="tag in post.tags" :key="tag" class="chip">{{ tag }}</li>
           </ul>
         </div>

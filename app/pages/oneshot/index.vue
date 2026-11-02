@@ -5,9 +5,15 @@ useSeoMeta({
     'Gli eventi oneshot di FulcronGRV: avventure di gioco di ruolo dal vivo autoconclusive con temi e ambientazioni sempre diversi.',
 })
 
-const { data: oneshots, status, refresh } = await useFetch('/api/oneshots', { default: () => [] })
+const {
+  data: oneshots,
+  status,
+  refresh,
+} = await useAsyncData('oneshot', () => queryCollection('oneshot').order('date', 'DESC').all(), {
+  default: () => [],
+})
 
-function isInternal(url: string | null) {
+function isInternal(url?: string) {
   return !!url && url.startsWith('/') && !url.startsWith('//')
 }
 </script>
@@ -17,7 +23,7 @@ function isInternal(url: string | null) {
     <PageHero
       eyebrow="Avventure singole"
       title="Oneshot"
-      lead="Storie autoconclusive con temi e ambientazioni sempre diverse, lontano (o forse no) dalle terre di Fulcron."
+      lead="Storie che iniziano e finiscono nello stesso evento, ognuna con il suo mondo e le sue regole."
     />
 
     <div class="container section">
@@ -43,7 +49,7 @@ function isInternal(url: string | null) {
       />
 
       <div v-if="status === 'success' && oneshots.length" class="grid">
-        <article v-for="(oneshot, i) in oneshots" :key="oneshot.id" v-reveal="(i % 3) * 100" class="card">
+        <article v-for="(oneshot, i) in oneshots" :key="oneshot.path" v-reveal="(i % 3) * 100" class="card">
           <div class="card-media">
             <SiteImage :src="oneshot.image" :alt="`Locandina di ${oneshot.title}`" sizes="sm:100vw md:50vw lg:400px" />
           </div>
@@ -52,10 +58,10 @@ function isInternal(url: string | null) {
             <p class="card-meta">
               <time :datetime="String(oneshot.date)">{{ formatDate(oneshot.date) }}</time>
             </p>
-            <ul v-if="oneshot.tags.length" class="chips">
+            <ul v-if="oneshot.tags?.length" class="chips">
               <li v-for="tag in oneshot.tags" :key="tag" class="chip">{{ tag }}</li>
             </ul>
-            <p v-if="oneshot.description">{{ oneshot.description }}</p>
+            <ContentRenderer :value="oneshot" class="description" />
             <div v-if="oneshot.photos" class="card-actions">
               <NuxtLink v-if="isInternal(oneshot.photos)" :to="oneshot.photos" class="btn btn-outline btn-sm">
                 <AppIcon name="image" :size="16" /> Foto dell’evento

@@ -2,7 +2,13 @@
 useHead({ title: 'Gallery' })
 useSeoMeta({ description: 'Le foto degli eventi di gioco di ruolo dal vivo organizzati da FulcronGRV.' })
 
-const { data: albums, status, refresh } = await useFetch('/api/albums', { default: () => [] })
+const {
+  data: albums,
+  status,
+  refresh,
+} = await useAsyncData('gallery', () => queryCollection('gallery').order('date', 'DESC').all(), {
+  default: () => [],
+})
 </script>
 
 <template>
@@ -18,17 +24,17 @@ const { data: albums, status, refresh } = await useFetch('/api/albums', { defaul
       />
 
       <div v-if="status === 'success' && albums.length" class="grid">
-        <article v-for="(album, i) in albums" :key="album.id" v-reveal="(i % 3) * 100" class="card album">
+        <article v-for="(album, i) in albums" :key="album.path" v-reveal="(i % 3) * 100" class="card album">
           <div class="card-media">
             <SiteImage
               :src="album.cover"
-              :alt="`Copertina dell’album ${album.name}`"
+              :alt="`Copertina dell’album ${album.title}`"
               sizes="sm:100vw md:50vw lg:400px"
             />
             <time class="badge" :datetime="String(album.date)">{{ formatDate(album.date) }}</time>
           </div>
           <div class="card-body">
-            <h2 class="card-title">{{ album.name }}</h2>
+            <h2 class="card-title">{{ album.title }}</h2>
             <p class="card-meta place">
               <template v-if="album.placeIG || album.place">
                 <AppIcon name="pin" :size="16" />
@@ -39,10 +45,9 @@ const { data: albums, status, refresh } = await useFetch('/api/albums', { defaul
             </p>
             <div class="card-actions">
               <NuxtLink
-                v-if="album.slug"
-                :to="`/gallery/${album.slug}`"
+                :to="`/gallery/${albumFolder(album)}`"
                 class="btn btn-primary btn-sm"
-                :aria-label="`Vedi le foto di ${album.name}`"
+                :aria-label="`Vedi le foto di ${album.title}`"
               >
                 <AppIcon name="image" :size="16" /> Vedi le foto
               </NuxtLink>
@@ -52,7 +57,7 @@ const { data: albums, status, refresh } = await useFetch('/api/albums', { defaul
                 target="_blank"
                 rel="noopener"
                 class="btn btn-outline btn-sm"
-                :aria-label="`Scarica in alta qualità le foto di ${album.name}`"
+                :aria-label="`Scarica in alta qualità le foto di ${album.title}`"
               >
                 <AppIcon name="download" :size="16" /> Alta qualità
               </a>

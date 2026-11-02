@@ -46,6 +46,7 @@ function isActive(link: { to: string; match?: string }) {
         >
           {{ link.label }}
         </NuxtLink>
+        <NuxtLink to="/inizia-a-giocare" class="nav-cta">Inizia a giocare</NuxtLink>
       </nav>
 
       <button
@@ -71,6 +72,7 @@ function isActive(link: { to: string; match?: string }) {
       >
         {{ link.label }}
       </NuxtLink>
+      <NuxtLink to="/inizia-a-giocare" class="nav-cta nav-cta--mobile">Inizia a giocare</NuxtLink>
     </nav>
   </header>
 </template>
@@ -115,7 +117,8 @@ function isActive(link: { to: string; match?: string }) {
 }
 .nav-desktop {
   display: none;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 0.15rem;
 }
 .nav-link {
   position: relative;
@@ -141,6 +144,31 @@ function isActive(link: { to: string; match?: string }) {
   bottom: 0.2rem;
   height: 1px;
   background: currentColor;
+}
+.nav-cta {
+  margin-left: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  color: var(--gold-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.nav-cta:hover,
+.nav-cta.router-link-active {
+  background: var(--gold);
+  color: var(--ink-deep);
+}
+.nav-cta--mobile {
+  margin: 1rem 0 0;
+  text-align: center;
+  padding: 0.75rem 1rem;
 }
 .menu-toggle {
   display: grid;
@@ -175,7 +203,7 @@ function isActive(link: { to: string; match?: string }) {
   background: var(--ink-deep);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1080px) {
   .nav-desktop {
     display: flex;
   }

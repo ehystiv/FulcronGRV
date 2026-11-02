@@ -7,21 +7,21 @@ const features = [
     to: '/sinfonia/ambientazione',
     eyebrow: 'La campagna',
     title: 'La Sinfonia dei Sette',
-    text: 'Un mondo fantasy originale, vivo e in continuo mutamento, che risponde alle azioni dei giocatori evento dopo evento.',
+    text: 'Fulcron, l’Anello: un mondo inventato da noi, con i suoi regni, i suoi dei e la sua storia. Quello che fanno i personaggi cambia davvero come vanno le cose.',
     image: '/immagini/origini_2.jpg',
   },
   {
     to: '/oneshot',
     eyebrow: 'Avventure singole',
     title: 'Oneshot',
-    text: 'Storie autoconclusive con temi e ambientazioni sempre diversi: horror, fantascienza, intrighi di corte.',
+    text: 'Storie che cominciano e finiscono nello stesso evento, ognuna con un’ambientazione tutta sua. Tear Asunder, Sunless Dawn, La Teoria del Nulla…',
     image: '/oneshots/TearAsunder.jpg',
   },
   {
     to: '/gallery',
     eyebrow: 'Ricordi',
     title: 'Gallery',
-    text: 'Le foto dei nostri eventi: costumi, battaglie, banchetti e tutte le storie che abbiamo vissuto insieme.',
+    text: 'Le foto dei nostri eventi, album per album. Se c’eri, probabilmente ti ritrovi.',
     image: '/albums/banchettodeiguitti.jpg',
   },
 ]
@@ -50,11 +50,11 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
         <h1>Benvenuto a Fulcron</h1>
         <p class="hero-lead">Vivi la tua avventura, ora. Scopri le magiche e vive terre dell’Anello.</p>
         <div class="btn-row hero-actions">
-          <NuxtLink to="/sinfonia/ambientazione" class="btn btn-gold">
-            Scopri la Sinfonia dei Sette
+          <NuxtLink to="/inizia-a-giocare" class="btn btn-gold">
+            Inizia a giocare
             <AppIcon name="arrow-right" :size="18" />
           </NuxtLink>
-          <NuxtLink to="/chi-siamo" class="btn btn-ghost-light">Chi siamo</NuxtLink>
+          <NuxtLink to="/sinfonia/ambientazione" class="btn btn-ghost-light">Scopri Fulcron</NuxtLink>
         </div>
       </div>
     </section>
@@ -62,12 +62,12 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
     <section class="section intro">
       <div v-reveal class="container prose center">
         <span class="eyebrow">Salve, viandante</span>
-        <h2>Un mondo da vivere, non solo da raccontare</h2>
+        <h2>Siamo FulcronGRV</h2>
         <div class="divider" aria-hidden="true"><span /></div>
         <p class="lead">
-          FulcronGRV nasce da un gruppo di amici e dalla voglia di vivere in mondi fantastici. Tra i boschi
-          dell’Appennino Tosco-Emiliano organizziamo una campagna continuativa e oneshot con ambientazioni sempre nuove:
-          indossa i panni del tuo personaggio e fai parte della storia.
+          Un gruppo di amici con la passione per i mondi fantastici e la voglia di viverli in prima persona. Così ne
+          abbiamo costruito uno e ci siamo messi a giocarci dentro, nei boschi dell’Appennino Tosco-Emiliano. Da lì sono
+          nate una campagna che va avanti da anni, La Sinfonia dei Sette, e una serie di oneshot.
         </p>
       </div>
     </section>
@@ -88,13 +88,30 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
       </div>
     </section>
 
+    <section class="section first-time">
+      <div v-reveal class="container first-time-inner ornate">
+        <div>
+          <span class="eyebrow">Prima volta?</span>
+          <h2>Non hai mai fatto un LARP?</h2>
+          <p>
+            Nessun problema, all’inizio non lo sapeva fare nessuno di noi. Abbiamo raccolto le risposte alle domande che
+            ci fate più spesso: cosa serve, come si crea un personaggio, come funzionano i combattimenti.
+          </p>
+        </div>
+        <NuxtLink to="/inizia-a-giocare" class="btn btn-primary">
+          Inizia da qui
+          <AppIcon name="arrow-right" :size="18" />
+        </NuxtLink>
+      </div>
+    </section>
+
     <section class="section join">
       <div v-reveal class="container join-inner">
         <div>
-          <h2>Unisciti all’avventura</h2>
+          <h2>Restiamo in contatto</h2>
           <p>
-            Segui i nostri canali per conoscere le date dei prossimi eventi, iscriverti e restare aggiornato sulle
-            vicende dell’Anello.
+            Date, iscrizioni e novità le pubblichiamo prima di tutto sui nostri canali. Se hai una domanda, scrivici
+            dove ti è più comodo: rispondiamo volentieri.
           </p>
         </div>
         <ul class="join-social">
@@ -198,6 +215,29 @@ useHead({ script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(json
 }
 .feature:hover .more {
   color: var(--forest);
+}
+
+.first-time {
+  padding-top: 0;
+}
+.first-time-inner {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.first-time-inner p {
+  margin: 0;
+  max-width: 60ch;
+}
+@media (min-width: 800px) {
+  .first-time-inner {
+    grid-template-columns: 1fr auto;
+  }
 }
 
 .join {

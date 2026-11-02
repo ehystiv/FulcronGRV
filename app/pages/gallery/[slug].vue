@@ -2,11 +2,15 @@
 const route = useRoute()
 const slug = computed(() => String(route.params.slug))
 
-const { data: albums } = await useFetch('/api/albums', { default: () => [] })
+const { data: albums } = await useAsyncData(
+  'gallery-albums',
+  () => queryCollection('gallery').order('date', 'DESC').all(),
+  { default: () => [] },
+)
 const { data, status, error, refresh } = await useFetch(() => `/api/gallery/${slug.value}`)
 
-const album = computed(() => albums.value.find((a) => a.slug === slug.value))
-const title = computed(() => album.value?.name ?? slug.value.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase()))
+const album = computed(() => albums.value.find((a) => albumFolder(a) === slug.value))
+const title = computed(() => album.value?.title ?? slug.value.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase()))
 const photos = computed(() => data.value?.photos ?? [])
 const notFound = computed(() => error.value?.statusCode === 404)
 if (import.meta.server && notFound.value) setResponseStatus(useRequestEvent()!, 404)
