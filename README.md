@@ -2,64 +2,54 @@
 
 Sito dell'associazione di gioco di ruolo dal vivo **FulcronGRV**.
 
-Stack: [Nuxt 4](https://nuxt.com) (Vue 3, Nitro) · [Nuxt Content](https://content.nuxt.com) (Markdown) · CSS su misura (nessun framework UI) · font self-hosted.
+È un **sito statico**: niente server Node, niente database. `npm run generate` produce una cartella di file HTML,
+CSS, JS e immagini (`.output/public`) che si può pubblicare su qualsiasi hosting statico o servire con nginx/Apache.
+
+Stack: [Nuxt 4](https://nuxt.com) · [Nuxt Content](https://content.nuxt.com) (testi in Markdown) ·
+[Tailwind CSS 4](https://tailwindcss.com) · [Nuxt Image](https://image.nuxt.com) (WebP generati in build) · font self-hosted.
 
 ## Requisiti
 
-- Node.js ≥ 22.5 (vedi `.nvmrc`)
-- npm
+- Node.js ≥ 22.5 (vedi `.nvmrc`), solo per sviluppare e generare il sito
 
-## Sviluppo
+## Comandi
 
 ```bash
 npm install
-cp .env.example .env   # poi compila i valori
-npm run dev            # http://localhost:8080
+npm run dev        # sviluppo su http://localhost:8080
+npm run generate   # genera il sito statico in .output/public
+npm run preview    # prova in locale il sito generato
+npm run typecheck  # controllo dei tipi
 ```
 
-## Produzione
-
-```bash
-npm run build
-node .output/server/index.mjs   # porta da PORT (default 3000)
-```
-
-## Configurazione (variabili d'ambiente)
-
-| Variabile | Descrizione |
-| --- | --- |
-| `NUXT_GALLERY_DIR` | Cartella con le foto degli album, una sottocartella per album (default `./gallery`). |
-| `NUXT_PUBLIC_SITE_URL` | URL pubblico del sito, per sitemap, canonical e Open Graph (default `https://fulcrongrv.it`). |
-| `NUXT_STATS_KEY` | Chiave segreta per vedere le statistiche su `/statistiche?key=…`. Se vuota la pagina è disattivata (le visite vengono comunque contate). |
+L'unica variabile d'ambiente è `NUXT_PUBLIC_SITE_URL` (default `https://fulcrongrv.it`), usata per sitemap, link
+canonici e Open Graph.
 
 ## Contenuti
 
-Notizie della bacheca, oneshot e album della gallery sono file Markdown nella cartella `content/`: per pubblicare
-basta aggiungere un file. Istruzioni ed esempi in [`content/README.md`](content/README.md).
-
-I vecchi dati erano su MongoDB: per importarli una volta sola c'è `npm run export-mongo` (vedi lo stesso README).
-Il sito non usa più nessun database.
-
-## Statistiche
-
-Le visite si contano senza cookie e senza salvare indirizzi IP: per ogni giorno restano solo il numero di
-visualizzazioni per pagina e i siti di provenienza. I dati stanno in `.data/kv/stats/` sul server, quindi quella
-cartella va conservata tra un deploy e l'altro.
-
-## Da completare
-
-- Dati ufficiali dell'associazione (sede, codice fiscale, email) in `app/utils/site.ts` → `ASSOCIATION`:
-  compaiono nella pagina Privacy.
+Tutti i testi stanno nella cartella `content/` e si modificano senza toccare il codice: pagine, notizie della
+bacheca e oneshot sono file Markdown. Guida ed esempi in [`content/README.md`](content/README.md).
 
 ## Struttura
 
 ```
-app/          pagine, componenti, layout e stili (Vue 3)
-content/      notizie, oneshot e album (Markdown)
-server/api/   elenco foto degli album (/api/gallery/:slug) e statistiche
-server/routes foto degli album (/foto/:slug/:file) e sitemap.xml
-scripts/      importazione una tantum dei vecchi dati da MongoDB
-public/       immagini, documenti PDF, favicon
+content/                  testi del sito (Markdown)
+  pagine/                 chi siamo, ambientazione, regolamento, inizia a giocare, privacy…
+  bacheca/  oneshot/      una notizia / una oneshot per file
+app/
+  assets/css/main.css     Tailwind: colori, font e stili di base del tema
+  components/ui/          componenti di base (UiButton, UiCard, UiSectionTitle…)
+  components/content/     blocchi usabili nei Markdown (::banner, ::faq, ::timeline…)
+  components/             header, footer e componenti condivisi
+  composables/usePage.ts  carica una pagina da content/pagine
+  pages/                  una pagina Vue per ogni URL
+public/                   immagini, PDF dei manuali, favicon
+server/routes/            sitemap.xml (generata in build)
+scripts/                  importazione una tantum dei vecchi dati da MongoDB
 ```
 
-I vecchi URL (`/who`, `/sinfonia`, `/api/foto/...`) vengono reindirizzati ai nuovi.
+## Note
+
+- La **gallery** è disattivata finché non ci sono foto da pubblicare. Lo script di importazione da MongoDB salva
+  comunque i dati degli album in `content/gallery/`, così non vanno persi quando la si riattiva.
+- I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.

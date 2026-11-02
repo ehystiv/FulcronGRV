@@ -3,7 +3,6 @@ export const NAV_LINKS = [
   { to: '/chi-siamo', label: 'Chi siamo' },
   { to: '/sinfonia/ambientazione', label: 'La Sinfonia dei Sette', match: '/sinfonia' },
   { to: '/oneshot', label: 'Oneshot' },
-  { to: '/gallery', label: 'Gallery' },
 ]
 
 export const SOCIAL_LINKS = [
@@ -16,6 +15,14 @@ export const SOCIAL_LINKS = [
 
 export const WIKI_URL = 'https://wikia.fulcrongrv.it'
 
+/** Official details of the association (privacy page). Empty fields are not shown. */
+export const ASSOCIATION = {
+  name: 'Associazione FulcronGRV',
+  address: 'Via del Corso 107, Castiglione dei Pepoli (BO)',
+  taxCode: '',
+  email: '',
+}
+
 const dateFormatter = new Intl.DateTimeFormat('it-IT', {
   day: 'numeric',
   month: 'long',
@@ -23,25 +30,9 @@ const dateFormatter = new Intl.DateTimeFormat('it-IT', {
   timeZone: 'Europe/Rome',
 })
 
-/** "7 novembre 2020" — replaces @nuxtjs/moment. */
+/** "7 novembre 2020" */
 export function formatDate(value?: string | Date | null) {
   if (!value) return ''
   const date = new Date(value)
   return Number.isNaN(date.getTime()) ? '' : dateFormatter.format(date)
-}
-
-/** Folder of the photos of an album: `folder` in the file, or the file name. */
-export function albumFolder(album: { folder?: string; stem: string }) {
-  return album.folder || album.stem.split('/').pop() || ''
-}
-
-/**
- * Official details of the association, shown in the privacy policy.
- * TODO: fill in with the real data (fields left empty are not shown).
- */
-export const ASSOCIATION = {
-  name: 'Associazione FulcronGRV',
-  address: '',
-  taxCode: '',
-  email: '',
 }

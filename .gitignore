@@ -18,9 +18,6 @@ logs
 .env.*
 !.env.example
 
-# Photos of the albums are deployed separately (see NUXT_GALLERY_DIR)
-/gallery/
-
 # Editors / OS
 .idea
 .vscode

@@ -1,40 +1,16 @@
 <template>
-  <div class="layout">
-    <a href="#contenuto" class="skip-link">Vai al contenuto</a>
+  <div class="flex min-h-screen flex-col">
+    <a
+      href="#contenuto"
+      class="absolute -top-24 left-4 z-100 rounded-lg bg-gold px-4 py-2.5 font-semibold text-ink-deep focus:top-4"
+    >
+      Vai al contenuto
+    </a>
     <SiteHeader />
-    <main id="contenuto" class="main" :class="{ 'main--hero': $route.path === '/' }">
+    <main id="contenuto" class="flex-1" :class="$route.path !== '/' && 'pt-header'">
       <slot />
     </main>
     <SiteFooter />
     <ScrollTop />
   </div>
 </template>
-
-<style scoped>
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.main {
-  flex: 1;
-  padding-top: var(--header-h);
-}
-.main--hero {
-  padding-top: 0;
-}
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -100px;
-  z-index: 100;
-  padding: 0.6rem 1rem;
-  background: var(--gold);
-  color: var(--ink-deep);
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-}
-.skip-link:focus {
-  top: 1rem;
-}
-</style>

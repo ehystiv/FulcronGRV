@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://fulcrongrv.it'
 const description =
@@ -7,22 +9,24 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
-  modules: ['@nuxt/image', '@nuxt/content'],
+  modules: ['@nuxt/content', '@nuxt/image'],
 
-  // Markdown content (content/). Node's built-in SQLite: no native module to compile.
+  css: ['~/assets/css/main.css'],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  // Markdown content (content/). Node's built-in SQLite, used only at build time.
   content: {
     experimental: { sqliteConnector: 'native' },
   },
 
-  css: [
-    '@fontsource/marcellus-sc/400.css',
-    '@fontsource/marcellus/400.css',
-    '@fontsource/montserrat/400.css',
-    '@fontsource/montserrat/500.css',
-    '@fontsource/montserrat/600.css',
-    '@fontsource/montserrat/400-italic.css',
-    '~/assets/main.css',
-  ],
+  // Images in public/ are converted to WebP and resized when the site is generated
+  image: {
+    format: ['webp'],
+    quality: 72,
+  },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -49,43 +53,30 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/favicon/site.webmanifest' },
       ],
       script: [
-        // Enables the scroll-reveal animations only when JavaScript runs,
+        // Scroll-reveal animations are enabled only when JavaScript runs,
         // so content is never hidden without JS or for crawlers.
         { innerHTML: "document.documentElement.classList.add('js')", tagPosition: 'head' },
       ],
     },
   },
 
-  // Static images are served as WebP in the right size (https://image.nuxt.com).
-  // AVIF is smaller but much slower to encode on the fly on a small server.
-  image: {
-    format: ['webp'],
-    quality: 72,
-    ipx: { maxAge: 60 * 60 * 24 * 30 },
-  },
-
   runtimeConfig: {
-    // NUXT_GALLERY_DIR: folder that holds one sub-folder of photos per album
-    galleryDir: './gallery',
-    // NUXT_STATS_KEY: secret key to open /statistiche?key=... (empty = statistics page disabled)
-    statsKey: '',
-    public: {
-      siteUrl,
-    },
+    public: { siteUrl },
   },
 
+  // Old URLs from the previous versions of the site (static redirect pages)
   routeRules: {
-    // Old URLs from the previous version of the site
-    '/who': { redirect: { to: '/chi-siamo', statusCode: 301 } },
-    '/sinfonia': { redirect: { to: '/sinfonia/ambientazione', statusCode: 302 } },
-    '/api/foto/**': { redirect: { to: '/gallery/**', statusCode: 301 } },
-    // Cache the static pages; the data-driven ones are refreshed often
-    '/api/gallery/**': { headers: { 'cache-control': 'public, max-age=60, s-maxage=300' } },
-    '/statistiche': { headers: { 'x-robots-tag': 'noindex' } },
+    '/who': { redirect: '/chi-siamo' },
+    '/sinfonia': { redirect: '/sinfonia/ambientazione' },
   },
 
+  // Fully static site: `npm run generate` writes everything to .output/public
   nitro: {
-    compressPublicAssets: true,
+    preset: 'static',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/sitemap.xml'],
+    },
   },
 
   devServer: {

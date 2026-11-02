@@ -1,3 +1,4 @@
+// Generated once at build time (prerendered to /sitemap.xml)
 const PAGES = [
   '/',
   '/inizia-a-giocare',
@@ -7,7 +8,6 @@ const PAGES = [
   '/sinfonia/bacheca',
   '/oneshot',
   '/oneshot/palazzo-destini',
-  '/gallery',
   '/privacy',
 ]
 

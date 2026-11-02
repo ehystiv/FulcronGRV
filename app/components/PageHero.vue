@@ -1,21 +1,13 @@
 <script setup lang="ts">
-defineProps<{ title: string; eyebrow?: string; lead?: string; as?: 'h1' | 'h2' }>()
+defineProps<{ title: string; eyebrow?: string; lead?: string }>()
 </script>
 
 <template>
-  <header class="page-hero">
-    <div class="container">
-      <span v-if="eyebrow" class="eyebrow">{{ eyebrow }}</span>
-      <component :is="as ?? 'h1'" class="hero-title">{{ title }}</component>
-      <div class="divider" aria-hidden="true"><span /></div>
-      <p v-if="lead" class="lead">{{ lead }}</p>
+  <header
+    class="border-b border-line bg-[radial-gradient(ellipse_at_top,rgb(184_145_63/0.12),transparent_60%),linear-gradient(180deg,var(--color-surface-2),var(--color-parchment))] pt-[clamp(3rem,9vw,6rem)] pb-[clamp(2.5rem,6vw,4rem)]"
+  >
+    <UiSectionTitle :title="title" :eyebrow="eyebrow" :lead="lead" as="h1" class="container-site">
       <slot />
-    </div>
+    </UiSectionTitle>
   </header>
 </template>
-
-<style scoped>
-.hero-title {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-}
-</style>

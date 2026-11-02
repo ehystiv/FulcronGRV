@@ -1,6 +1,6 @@
 # Contenuti del sito
 
-Notizie, oneshot e album della gallery sono semplici file di testo in questa cartella.
+Tutti i testi del sito sono semplici file di testo in questa cartella.
 Per pubblicare qualcosa basta aggiungere o modificare un file e rifare il deploy.
 Si può fare anche dal browser, direttamente su GitHub ("Add file" → "Create new file").
 
@@ -32,30 +32,33 @@ title: "Tear Asunder"
 date: 2019-10-31
 image: "/oneshots/TearAsunder.jpg"
 tags: ["PGOS"]
-photos: "/gallery/tear-asunder"
+photos: "https://link-all-album-di-foto"
 ---
 
 Due righe per raccontare di cosa parlava.
 ```
 
-`photos` è facoltativo: può essere un album della gallery o un link esterno.
+`photos` è facoltativo: un link esterno a un album di foto.
 
-## Gallery: `gallery/nome-cartella.md`
+## Pagine: `pagine/*.md`
 
-```md
----
-title: "Alla Vecchia Spada"
-date: 2019-08-02
-cover: "/albums/allavecchiaspada.jpg"
-place: "Castiglione dei Pepoli"
-placeIG: "Rifugio Ranuzzi Segni"
-highQuality: "https://link-alla-cartella-in-alta-qualita"
----
-```
+Chi siamo, ambientazione, regolamento, inizia a giocare, privacy e la pagina del Palazzo dei Destini Incrociati
+sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elenchi con `-`, **grassetto**,
+[link](https://esempio.it)) più alcuni blocchi speciali:
 
-Le foto vanno nella cartella della gallery sul server (`NUXT_GALLERY_DIR`), in una sottocartella
-con lo stesso nome del file (qui `nome-cartella`). Se la cartella ha un nome diverso, aggiungi
-`folder: "nome-della-cartella"`. `place`, `placeIG` e `highQuality` sono facoltativi.
+| Blocco | A cosa serve | Esempio |
+| --- | --- | --- |
+| `::banner{src="…" title="…"}` | foto a tutta larghezza con titolo | `chi-siamo.md` |
+| `::poem` | testo centrato in un riquadro decorato | `ambientazione.md` |
+| `::lore-tiles` | schede con titolo e testo | `ambientazione.md` |
+| `::gods`, `::timeline` | divinità, linea del tempo | `ambientazione.md` |
+| `::notice` | frase evidenziata | `regolamento.md` |
+| `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |
+| `::documents` | elenco di PDF da scaricare | `regolamento.md` |
+| `::steps`, `::faq` | passi numerati, domande frequenti | `inizia-a-giocare.md` |
+| `:button-link[Testo]{href="…"}` | bottone | `ambientazione.md` |
+
+Il modo più semplice è copiare un blocco da una pagina esistente e cambiarne il testo.
 
 ## Importare i vecchi dati da MongoDB
 
@@ -65,5 +68,6 @@ Serve una volta sola, da chi ha accesso al database:
 MONGODB_URI="mongodb://utente:password@host:27017/nome-db?authSource=admin" npm run export-mongo
 ```
 
-Lo script crea i file qui dentro e salta i documenti cancellati. I file già esistenti non vengono
+Lo script crea i file qui dentro e salta i documenti cancellati. Gli album finiscono in `gallery/`: per ora non
+vengono mostrati (la gallery è disattivata), ma restano pronti per quando la si riattiva. I file già esistenti non vengono
 toccati (con `--force` vengono sovrascritti).
