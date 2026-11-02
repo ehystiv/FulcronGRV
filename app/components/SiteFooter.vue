@@ -24,6 +24,14 @@ const contacts = SOCIAL_LINKS.filter((s) => ['telegram', 'whatsapp', 'facebook']
 }))
 
 const linkClass = 'text-on-dark-muted no-underline hover:text-gold-soft'
+
+// Legal line, split into pieces that never break in the middle (e.g. "C.F. 91407660371")
+const legal = [
+  { text: `© ${year.value} ${ASSOCIATION.name}`, after: ' · ' },
+  { text: `${ASSOCIATION.street},`, after: ' ' },
+  { text: `${ASSOCIATION.postalCode} ${ASSOCIATION.city} (${ASSOCIATION.province})`, after: ' · ' },
+  { text: `C.F. ${ASSOCIATION.taxCode}`, after: '' },
+]
 </script>
 
 <template>
@@ -86,7 +94,12 @@ const linkClass = 'text-on-dark-muted no-underline hover:text-gold-soft'
     </div>
 
     <div class="container-site flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-white/10 py-5 text-sm">
-      <p>© {{ year }} {{ ASSOCIATION.name }}</p>
+      <p>
+        <template v-for="part in legal" :key="part.text"
+          ><span class="whitespace-nowrap">{{ part.text }}</span
+          >{{ part.after }}</template
+        >
+      </p>
       <NuxtLink to="/privacy" :class="linkClass">Privacy</NuxtLink>
     </div>
   </footer>

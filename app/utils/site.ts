@@ -14,12 +14,14 @@ export const SOCIAL_LINKS = [
   { name: 'whatsapp', label: 'WhatsApp', href: 'https://chat.whatsapp.com/8PjZxAAbWXvAHVdMGpukLn' },
 ]
 
-/** Official details of the association (privacy page). Empty fields are not shown. */
+/** Official details of the association (Agenzia delle Entrate certificate). */
 export const ASSOCIATION = {
   name: 'Associazione FulcronGRV',
-  address: 'Via del Corso 107, Castiglione dei Pepoli (BO)',
-  taxCode: '',
-  email: '',
+  street: 'Via del Corso 107',
+  postalCode: '40035',
+  city: 'Castiglione dei Pepoli',
+  province: 'BO',
+  taxCode: '91407660371',
 }
 
 const dateFormatter = new Intl.DateTimeFormat('it-IT', {

@@ -8,7 +8,7 @@ updated: novembre 2026
 
 ## Chi è il titolare
 
-Il titolare del trattamento è l’Associazione FulcronGRV, con sede in Via del Corso 107, Castiglione dei Pepoli (BO). Per qualsiasi domanda puoi contattarci sui canali che trovi in fondo alla pagina.
+Il titolare del trattamento è l’Associazione FulcronGRV, con sede in Via del Corso 107, 40035 Castiglione dei Pepoli (BO), codice fiscale 91407660371. Per qualsiasi domanda puoi contattarci sui canali che trovi in fondo alla pagina.
 
 ## Niente cookie, niente statistiche, niente profilazione
 
