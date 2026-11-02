@@ -6,7 +6,7 @@ place: "Villa Achillini, Sasso Marconi (Bo)"
 image: /oneshot/palazzo-destini/video-poster.jpg
 ---
 
-:palazzo-button[Iscrizioni all’evento]{to="/oneshot/palazzo-destini/iscrizioni"}
+:palazzo-button[Iscriviti all’evento]{:disabled="true" note="Iscrizioni chiuse"}
 
 ::palazzo-poem
 Non ti preoccupar dei  
@@ -183,5 +183,5 @@ Villa Achillini, Via Helston, 40037 Sasso Marconi BO
 
 La quota evento era di 10 €, che comprendevano la caparra, più 35 €, che comprendevano tutti i pasti della giornata di gioco.
 
-:palazzo-button[Come funzionavano le iscrizioni]{to="/oneshot/palazzo-destini/iscrizioni"}
+:palazzo-button[Iscriviti all’evento]{:disabled="true" note="Iscrizioni chiuse"}
 ::

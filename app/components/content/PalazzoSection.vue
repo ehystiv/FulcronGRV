@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Expandable section of the Palazzo pages, in the style of the original site:
+// Expandable section of the Palazzo pages (white card, Cardinal title):
 // ::palazzo-section{title="…"}
 // #incipit
 // Always visible introduction (optional)
@@ -7,29 +7,49 @@
 // Text shown with "Espandi"
 // ::
 withDefaults(defineProps<{ title: string; align?: 'center' | 'left' }>(), { align: 'center' })
+
+// Buttons inside the white card use their dark-on-light colours
+provide('palazzo-surface', 'light')
 </script>
 
 <template>
-  <section
-    class="not-prose my-14 bg-[linear-gradient(90deg,transparent,#fff_6%,#fff_94%,transparent)] py-6 text-ink-deep md:bg-[linear-gradient(90deg,transparent,#fff_30%,#fff_70%,transparent)]"
-  >
-    <div class="container-site flex flex-col items-center text-center">
-      <h2 v-reveal class="font-cardinal text-[clamp(2.2rem,5vw,3.4rem)] font-normal tracking-normal text-ink-deep">
+  <section class="not-prose container-site my-12 md:my-16">
+    <div
+      v-reveal
+      class="relative mx-auto max-w-3xl rounded-2xl bg-[linear-gradient(180deg,#fff,#faf7f0)] px-6 py-9 text-ink-deep shadow-[0_24px_60px_-24px_rgb(0_0_0/0.9)] ring-1 ring-gold/35 md:px-14 md:py-12"
+    >
+      <h2
+        class="text-center font-cardinal text-[clamp(2.2rem,5vw,3.4rem)] leading-tight font-normal tracking-normal text-ink-deep"
+      >
         {{ title }}
       </h2>
-      <div class="my-3 h-px w-2/3 max-w-xl bg-ink-deep" aria-hidden="true" />
-      <div v-if="$slots.incipit" class="mb-3 max-w-2xl italic [&_p]:mb-2">
+      <img
+        src="/oneshot/palazzo-destini/ornamento.png"
+        alt=""
+        width="700"
+        height="400"
+        class="mx-auto my-3 w-40 opacity-80"
+      />
+      <div
+        v-if="$slots.incipit"
+        class="mx-auto mb-6 max-w-2xl text-center text-[1.05rem] text-ink-deep/85 italic [&_p]:mb-2"
+      >
         <slot name="incipit" />
       </div>
-      <details v-accordion class="group w-full">
+      <details v-accordion class="group">
         <summary
-          class="mx-auto mb-3 w-fit cursor-pointer list-none rounded-md border border-ink-deep/40 px-4 py-1.5 text-sm font-semibold transition-colors hover:bg-ink-deep hover:text-white [&::-webkit-details-marker]:hidden"
+          class="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-ink-deep/25 px-5 py-2 text-sm font-semibold tracking-wide text-ink-deep transition hover:border-ink hover:bg-ink hover:text-on-dark [&::-webkit-details-marker]:hidden"
         >
           <span class="group-data-[expanded=true]:hidden">Espandi</span>
           <span class="hidden group-data-[expanded=true]:inline">Chiudi</span>
+          <AppIcon
+            name="chevron-down"
+            :size="16"
+            class="transition-transform duration-300 group-data-[expanded=true]:rotate-180"
+          />
         </summary>
         <div
-          class="mx-auto max-w-3xl pb-2 [&_li]:mb-3 [&_li]:border-b [&_li]:border-ink-deep/40 [&_li]:pb-2 [&_p]:mb-3 [&_ul]:list-none [&_ul]:p-0"
+          class="mx-auto mt-6 max-w-2xl border-t border-gold/30 pt-6 leading-relaxed [&_li]:mb-3 [&_li]:border-b [&_li]:border-ink-deep/10 [&_li]:pb-3 [&_p]:mb-4 [&_ul]:list-none [&_ul]:p-0"
           :class="align === 'left' ? 'text-left' : 'text-center'"
         >
           <slot />
