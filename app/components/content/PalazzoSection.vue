@@ -4,12 +4,18 @@
 // #incipit
 // Always visible introduction (optional)
 // #default
-// Text shown with "Espandi"
+// Text shown with "Espandi" (always visible with {:expandable="false"})
 // ::
-withDefaults(defineProps<{ title: string; align?: 'center' | 'left' }>(), { align: 'center' })
+withDefaults(defineProps<{ title: string; align?: 'center' | 'left'; expandable?: boolean }>(), {
+  align: 'center',
+  expandable: true,
+})
 
 // Buttons inside the white card use their dark-on-light colours
 provide('palazzo-surface', 'light')
+
+const bodyClass =
+  'mx-auto max-w-2xl leading-relaxed [&_li]:mb-3 [&_li]:border-b [&_li]:border-ink-deep/10 [&_li]:pb-3 [&_p]:mb-4 [&_ul]:list-none [&_ul]:p-0'
 </script>
 
 <template>
@@ -36,7 +42,7 @@ provide('palazzo-surface', 'light')
       >
         <slot name="incipit" />
       </div>
-      <details v-accordion class="group">
+      <details v-if="expandable" v-accordion class="group">
         <summary
           class="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-ink-deep/25 px-5 py-2 text-sm font-semibold tracking-wide text-ink-deep transition hover:border-ink hover:bg-ink hover:text-on-dark [&::-webkit-details-marker]:hidden"
         >
@@ -49,12 +55,15 @@ provide('palazzo-surface', 'light')
           />
         </summary>
         <div
-          class="mx-auto mt-6 max-w-2xl border-t border-gold/30 pt-6 leading-relaxed [&_li]:mb-3 [&_li]:border-b [&_li]:border-ink-deep/10 [&_li]:pb-3 [&_p]:mb-4 [&_ul]:list-none [&_ul]:p-0"
-          :class="align === 'left' ? 'text-left' : 'text-center'"
+          class="mt-6 border-t border-gold/30 pt-6"
+          :class="[bodyClass, align === 'left' ? 'text-left' : 'text-center']"
         >
           <slot />
         </div>
       </details>
+      <div v-else :class="[bodyClass, align === 'left' ? 'text-left' : 'text-center']">
+        <slot />
+      </div>
     </div>
   </section>
 </template>

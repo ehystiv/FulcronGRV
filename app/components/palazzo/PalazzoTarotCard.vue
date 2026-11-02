@@ -16,17 +16,17 @@ function flip() {
 <template>
   <button
     type="button"
-    class="group block w-full rounded-xl [perspective:1200px] focus-visible:outline-gold-soft"
+    class="group block w-full transition-transform duration-300 hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 rounded-xl [perspective:1200px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-soft"
     :aria-pressed="flipped"
     :aria-label="flipped ? `${props.name}: gira la carta` : `Scopri ${props.name}`"
     @click="flip"
   >
     <span
-      class="relative block aspect-9/16 transition-transform duration-700 [transform-style:preserve-3d]"
+      class="relative block aspect-9/16 transition-transform duration-700 [transform-style:preserve-3d] motion-reduce:duration-0"
       :class="flipped && '[transform:rotateY(180deg)]'"
     >
       <span
-        class="absolute inset-0 overflow-hidden rounded-xl brightness-90 transition duration-500 [backface-visibility:hidden] group-hover:shadow-[0_0_0.5rem_0.25rem_#fff] group-hover:brightness-110"
+        class="absolute inset-0 overflow-hidden rounded-xl brightness-90 transition duration-500 [backface-visibility:hidden] shadow-[0_18px_40px_-18px_rgb(0_0_0/0.9)] ring-1 ring-gold-soft/30 group-hover:shadow-[0_0_2rem_-0.25rem_var(--color-gold-soft)] group-hover:ring-gold-soft/80 group-hover:brightness-110"
       >
         <SiteImage
           :src="front"
@@ -36,7 +36,7 @@ function flip() {
         />
       </span>
       <span
-        class="absolute inset-0 overflow-hidden rounded-xl transition duration-500 [backface-visibility:hidden] [transform:rotateY(180deg)] group-hover:shadow-[0_0_0.5rem_0.25rem_#fff]"
+        class="absolute inset-0 overflow-hidden rounded-xl transition duration-500 [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-[0_18px_40px_-18px_rgb(0_0_0/0.9)] ring-1 ring-gold-soft/30 group-hover:shadow-[0_0_2rem_-0.25rem_var(--color-gold-soft)] group-hover:ring-gold-soft/80"
       >
         <SiteImage
           :src="back"
