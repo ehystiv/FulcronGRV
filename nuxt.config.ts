@@ -22,8 +22,11 @@ export default defineNuxtConfig({
     experimental: { sqliteConnector: 'native' },
   },
 
-  // Images in public/ are converted to WebP and resized when the site is generated
+  // Images in public/ are converted to WebP and resized when the site is generated.
+  // The provider is fixed to ipx: on Vercel @nuxt/image would otherwise switch to
+  // /_vercel/image, which does not exist in a static deployment (broken images).
   image: {
+    provider: 'ipx',
     format: ['webp'],
     quality: 72,
   },
