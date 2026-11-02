@@ -16,6 +16,16 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       let animation: Animation | null = null
 
+      // Heights are border-box (Tailwind preflight): include padding and borders
+      const frame = () => {
+        const style = getComputedStyle(el)
+        return ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth'].reduce(
+          (sum, prop) => sum + parseFloat(style[prop as keyof CSSStyleDeclaration] as string),
+          0,
+        )
+      }
+      const closedHeight = () => summary.offsetHeight + frame()
+
       const animate = (from: number, to: number, onDone: () => void) => {
         animation?.cancel()
         el.style.overflow = 'hidden'
@@ -33,14 +43,16 @@ export default defineNuxtPlugin((nuxtApp) => {
         const from = el.offsetHeight
         el.style.height = `${from}px`
         el.open = true
-        const to = el.scrollHeight
+        // scrollHeight covers content and padding, not the borders
+        const style = getComputedStyle(el)
+        const to = el.scrollHeight + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth)
         el.style.height = ''
         animate(from, to, () => {})
       }
 
       const close = () => {
         el.dataset.expanded = 'false'
-        animate(el.offsetHeight, summary.offsetHeight, () => (el.open = false))
+        animate(el.offsetHeight, closedHeight(), () => (el.open = false))
       }
 
       summary.addEventListener('click', (event) => {

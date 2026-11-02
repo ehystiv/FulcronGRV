@@ -66,19 +66,20 @@ const ctaClass =
         :aria-label="open ? 'Chiudi il menu' : 'Apri il menu'"
         @click="open = !open"
       >
-        <!-- Three lines that turn into an X -->
+        <!-- Three lines that turn into an X: the outer lines move to the centre, then rotate.
+             Only translate/rotate change, so no two classes compete for the same property. -->
         <span class="relative block h-4 w-6" aria-hidden="true">
           <span
-            class="absolute top-0 left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-300"
-            :class="open && 'top-[7px] rotate-45'"
+            class="absolute top-0 left-0 h-0.5 w-6 rounded-full bg-current transition duration-300"
+            :class="open && 'translate-y-[7px] rotate-45'"
           />
           <span
-            class="absolute top-[7px] left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-300"
+            class="absolute top-[7px] left-0 h-0.5 w-6 rounded-full bg-current transition duration-300"
             :class="open && 'scale-x-0 opacity-0'"
           />
           <span
-            class="absolute top-[14px] left-0 h-0.5 w-6 rounded-full bg-current transition-all duration-300"
-            :class="open && 'top-[7px] -rotate-45'"
+            class="absolute top-[14px] left-0 h-0.5 w-6 rounded-full bg-current transition duration-300"
+            :class="open && '-translate-y-[7px] -rotate-45'"
           />
         </span>
       </button>
