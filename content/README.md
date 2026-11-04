@@ -64,6 +64,13 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 
 Il modo più semplice è copiare un blocco da una pagina esistente e cambiarne il testo.
 
+## Prossimo evento: `pagine/prossimo-evento.md`
+
+Il riquadro "Prossimo evento" in home e in fondo a "Inizia a giocare" legge questo file. Quando c'è un evento
+in calendario compila `date` (es. `"18–19 aprile 2027"`), `place`, `cost` (es. `"Quota: 40 €"`) e, se c'è un
+modulo, `link`; il testo del file è la presentazione. Con `date` vuoto il sito mostra "nessun evento in
+calendario" e rimanda a Instagram.
+
 ## Wiki: `wiki/**/*.md`
 
 La wiki di Fulcron. Ogni cartella è una sezione (ad esempio `wiki/geopolitica/est/`) e il suo `index.md` è la

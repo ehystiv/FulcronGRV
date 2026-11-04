@@ -15,6 +15,9 @@ export default defineContentConfig({
         // Il Palazzo dei Destini Incrociati
         date: z.string().optional(),
         place: z.string().optional(),
+        // Prossimo evento: approximate cost and sign-up link
+        cost: z.string().optional(),
+        link: z.string().optional(),
         cards: z.array(z.string()).optional(),
       }),
     }),

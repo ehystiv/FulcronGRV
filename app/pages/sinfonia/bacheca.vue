@@ -10,7 +10,10 @@ const { data: posts } = await useAsyncData('bacheca', () => queryCollection('bac
   <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
     <UiSectionTitle title="Bacheca" lead="Le notizie dall’Anello, così come arrivano." as="h1" class="mb-10" />
 
-    <EmptyState v-if="!posts.length">Non ci sono ancora notizie in bacheca.</EmptyState>
+    <EmptyState v-if="!posts.length">
+      Non ci sono ancora notizie in bacheca. Le novità e il prossimo evento li annunciamo su
+      <a :href="INSTAGRAM.href" target="_blank" rel="noopener">Instagram</a>.
+    </EmptyState>
 
     <div v-else class="mx-auto grid max-w-190 gap-7">
       <UiCard v-for="post in posts" :key="post.path" v-reveal :hover="false" media-class="aspect-auto">

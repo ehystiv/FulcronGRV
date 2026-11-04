@@ -14,5 +14,5 @@ Si potevano fare anche più pagamenti con un solo PayPal, indicando sempre i nom
 All’ingresso in villa, la mattina del 23 aprile, era obbligatorio esibire un Green Pass valido, e nei luoghi chiusi e affollati andava indossata la mascherina.
 
 ::notice
-Le iscrizioni a questo evento sono chiuse. Per i prossimi eventi segui i nostri canali, oppure leggi [come iniziare a giocare](/inizia-a-giocare).
+Le iscrizioni a questo evento sono chiuse. Per i prossimi eventi seguici su [Instagram](https://www.instagram.com/fulcrongrv), oppure leggi [come iniziare a giocare](/inizia-a-giocare).
 ::

@@ -8,7 +8,7 @@ updated: novembre 2026
 
 ## Chi è il titolare
 
-Il titolare del trattamento è l’Associazione FulcronGRV, con sede in Via del Corso 107, 40035 Castiglione dei Pepoli (BO), codice fiscale 91407660371. Per qualsiasi domanda puoi contattarci sui canali che trovi in fondo alla pagina.
+Il titolare del trattamento è l’Associazione FulcronGRV, con sede in Via del Corso 107, 40035 Castiglione dei Pepoli (BO), codice fiscale 91407660371. Per qualsiasi domanda puoi scriverci su [Instagram](https://www.instagram.com/fulcrongrv).
 
 ## Niente cookie, niente statistiche, niente profilazione
 
@@ -20,7 +20,7 @@ Come quasi ogni sito, il server che ci ospita può registrare per un periodo lim
 
 ## Link ad altri servizi
 
-Nel sito trovi link a Facebook, Instagram, YouTube, Telegram, WhatsApp, Google Drive e Google Moduli. Quando li apri esci dal nostro sito e valgono le informative di quei servizi. Se ti iscrivi a un evento con un modulo, i dati che inserisci li usiamo solo per organizzare quell’evento.
+Nel sito trovi link a Instagram e Google Maps. Quando li apri esci dal nostro sito e valgono le informative di quei servizi. Se ti iscrivi a un evento con un modulo, i dati che inserisci li usiamo solo per organizzare quell’evento.
 
 ## I tuoi diritti
 

@@ -21,7 +21,7 @@ items:
     to: /sinfonia/ambientazione
     cta: L’ambientazione
   - title: Scrivici e iscriviti
-    text: "Date e iscrizioni le annunciamo sui nostri canali. Se hai dubbi, scrivici prima: preferiamo una domanda in più che un giocatore spaesato."
+    text: "Date e iscrizioni le annunciamo su Instagram. Se hai dubbi, scrivici lì prima: preferiamo una domanda in più che un giocatore spaesato."
 ---
 ::
 
@@ -32,6 +32,8 @@ items:
 items:
   - q: Cos’è un gioco di ruolo dal vivo?
     a: "È un gioco in cui interpreti un personaggio in prima persona, in costume, insieme agli altri giocatori. Non ci sono un tabellone o dei dadi: quello che il tuo personaggio dice e fa, lo dici e lo fai tu. Gli organizzatori preparano la storia e i personaggi non giocanti; il resto lo costruite giocando."
+  - q: Dove si gioca, quanto costa, cosa devo portare?
+    a: "Dipende dall’evento: luogo, quota e cosa portare li scriviamo nell’annuncio, che trovi su Instagram e in cima alla home. Se qualcosa non è chiaro, scrivici lì."
   - q: Serve esperienza?
     a: "No. Il regolamento è pensato proprio perché chi arriva per la prima volta impari le basi in fretta, mentre chi gioca da anni ha comunque modo di far crescere il proprio personaggio."
   - q: Devo per forza creare un personaggio?
@@ -44,7 +46,5 @@ items:
     a: "No. Fulcron ha molta storia alle spalle, ma a ogni evento diamo le informazioni necessarie per giocare. Se poi ti appassioni, c’è la wiki."
   - q: Cosa vuol dire “In Gioco” e “Fuori Gioco”?
     a: "In Gioco (IG) è tutto quello che riguarda il tuo personaggio; Fuori Gioco (FG) è quello che riguarda te come persona. Il personaggio non sa le cose che sai tu e viceversa. Per esempio, in gioco non si dice “quel mostro ha 3 punti ferita”, ma “ho visto quel mostro combattere, non è così forte”."
-  - q: Dove si gioca, quanto costa, cosa devo portare?
-    a: "Dipende dall’evento: luogo, quota e informazioni pratiche le trovi nell’annuncio di ciascuno. Se qualcosa non è chiaro, chiedici pure."
 ---
 ::

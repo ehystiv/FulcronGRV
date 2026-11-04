@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { siFacebook, siInstagram, siTelegram, siWhatsapp, siYoutube } from 'simple-icons'
+import { siInstagram } from 'simple-icons'
 
 // Small inline icon set: brand logos from simple-icons, UI icons hand-drawn.
 // No icon font / CDN request needed.
 const BRANDS: Record<string, string> = {
-  facebook: siFacebook.path,
   instagram: siInstagram.path,
-  youtube: siYoutube.path,
-  telegram: siTelegram.path,
-  whatsapp: siWhatsapp.path,
 }
 
 const UI: Record<string, string> = {

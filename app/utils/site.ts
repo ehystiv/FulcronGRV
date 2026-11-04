@@ -6,13 +6,8 @@ export const NAV_LINKS = [
   { to: '/wiki', label: 'Wiki' },
 ]
 
-export const SOCIAL_LINKS = [
-  { name: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/fulcrongrv' },
-  { name: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/fulcrongrv' },
-  { name: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/channel/UCcFUnolPnHeIUd8Heu-_kWA' },
-  { name: 'telegram', label: 'Telegram', href: 'https://t.me/FulcronGRV' },
-  { name: 'whatsapp', label: 'WhatsApp', href: 'https://chat.whatsapp.com/8PjZxAAbWXvAHVdMGpukLn' },
-]
+/** The one contact channel of the association: dates, sign-ups and questions all go through Instagram. */
+export const INSTAGRAM = { handle: '@fulcrongrv', href: 'https://www.instagram.com/fulcrongrv' }
 
 /** Official details of the association (Agenzia delle Entrate certificate). */
 export const ASSOCIATION = {

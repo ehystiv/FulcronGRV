@@ -45,7 +45,7 @@ useHead({
           addressRegion: ASSOCIATION.province,
           addressCountry: 'IT',
         },
-        sameAs: SOCIAL_LINKS.map((s) => s.href),
+        sameAs: [INSTAGRAM.href],
       }),
     },
   ],
@@ -87,6 +87,10 @@ useHead({
       </div>
     </section>
 
+    <section class="container-site -mt-[clamp(2rem,5vw,3.5rem)] relative z-10">
+      <NextEvent />
+    </section>
+
     <section class="pt-[clamp(3rem,8vw,5.5rem)] pb-4">
       <UiSectionTitle v-reveal eyebrow="Salve, viandante" title="Siamo FulcronGRV" class="container-site">
         <p class="mx-auto max-w-[60ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">
@@ -126,15 +130,13 @@ useHead({
         <div>
           <h2 class="mb-4 text-[clamp(1.6rem,3.2vw,2.3rem)] text-white">Restiamo in contatto</h2>
           <p>
-            Date, iscrizioni e novità le pubblichiamo prima di tutto sui nostri canali. Se hai una domanda, scrivici
-            dove ti è più comodo: rispondiamo volentieri.
+            Date, iscrizioni e novità le pubblichiamo su Instagram. Se hai una domanda, scrivici lì in privato:
+            rispondiamo volentieri.
           </p>
         </div>
-        <ul class="flex flex-wrap gap-2.5">
-          <li v-for="s in SOCIAL_LINKS" :key="s.name">
-            <UiButton :href="s.href" variant="ghost" :icon="s.name">{{ s.label }}</UiButton>
-          </li>
-        </ul>
+        <div class="lg:justify-self-end">
+          <UiButton :href="INSTAGRAM.href" variant="ghost" icon="instagram">Instagram · {{ INSTAGRAM.handle }}</UiButton>
+        </div>
       </div>
     </section>
   </div>
