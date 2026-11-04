@@ -5,14 +5,14 @@ const paths = [
   {
     to: '/inizia-a-giocare',
     title: 'La tua prima volta',
-    text: 'Com’è una giornata di gioco, come si crea un personaggio, come si combatte: le risposte alle domande che ci fate più spesso.',
+    text: 'Non hai mai giocato? Ti spieghiamo com’è una giornata di gioco, come nasce un personaggio e come si combatte.',
     image: '/immagini/origini_2.jpg',
     cta: 'Inizia da qui',
   },
   {
     to: '/oneshot',
     title: 'Oneshot',
-    text: 'Storie che cominciano e finiscono nello stesso evento, spesso con un’ambientazione tutta loro.',
+    text: 'Storie che iniziano e finiscono nello stesso evento, spesso in un mondo tutto loro.',
     image: '/oneshot/palazzo-destini/video-poster.jpg',
     cta: 'Guarda le oneshot',
   },
@@ -65,10 +65,10 @@ useHead({
       <div class="container-site pt-[calc(var(--spacing-header)+3rem)] pb-[clamp(6rem,13vw,8.5rem)]">
         <div class="max-w-3xl">
           <h1 class="mb-[0.35em] text-[clamp(2.3rem,6.2vw,4.5rem)] text-white [text-shadow:0_4px_30px_rgb(0_0_0/0.5)]">
-            Gioco di ruolo dal vivo nell’Anello di Fulcron
+            Un altro mondo, sull’Appennino
           </h1>
           <p class="max-w-[42ch] text-[clamp(1.1rem,2.2vw,1.3rem)]">
-            In costume interpreti il tuo personaggio, insieme agli altri giocatori, sull’Appennino Tosco-Emiliano.
+            Giochiamo di ruolo dal vivo: ti metti in costume e diventi il tuo personaggio, insieme agli altri.
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
             <UiButton to="/inizia-a-giocare" variant="gold" icon-right="arrow-right">Inizia a giocare</UiButton>
@@ -85,8 +85,8 @@ useHead({
     <section class="pt-[clamp(3rem,8vw,5.5rem)] pb-[clamp(3rem,8vw,5.5rem)]">
       <UiSectionTitle v-reveal title="Siamo FulcronGRV" class="container-site">
         <p class="mx-auto max-w-[46ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">
-          Salve, viandante. Siamo un gruppo di amici con la passione per i mondi fantastici e la voglia di viverli in
-          prima persona. Così ne abbiamo costruito uno e ci siamo messi a giocarci dentro, nei boschi dell’Appennino
+          Salve, viandante. Siamo partiti come un gruppo di amici con la voglia di vivere i mondi fantastici in prima
+          persona. Così ne abbiamo costruito uno e abbiamo iniziato a giocarci dentro, nei boschi dell’Appennino
           Tosco-Emiliano.
         </p>
       </UiSectionTitle>
@@ -112,11 +112,11 @@ useHead({
         <div class="pb-[clamp(3rem,8vw,5.5rem)] lg:py-[clamp(3rem,8vw,5.5rem)]">
           <h2 class="mb-4 text-[clamp(1.8rem,3.6vw,2.6rem)] text-white">La Sinfonia dei Sette</h2>
           <p class="mb-3 max-w-[46ch]">
-            Ghiacci senza fine a Nord, deserti a Est, paludi a Sud, montagne altissime a Ovest e un grande mare interno
-            al centro: è l’Anello, il mondo che abbiamo scritto noi.
+            A Nord ghiacci senza fine, a Est deserti, a Sud paludi, a Ovest montagne altissime e in mezzo un grande mare
+            interno. È l’Anello, il mondo che abbiamo scritto noi.
           </p>
           <p class="mb-6 max-w-[46ch] text-on-dark-muted">
-            La Sinfonia dei Sette è la campagna che ci giochiamo dentro da anni. Quello che fanno i personaggi cambia
+            Ci giochiamo da anni La Sinfonia dei Sette, la nostra campagna, e quello che fanno i personaggi cambia
             davvero come vanno le cose.
           </p>
           <UiButton to="/sinfonia" variant="ghost" icon-right="arrow-right">Scopri la campagna</UiButton>
@@ -150,10 +150,9 @@ useHead({
     >
       <div v-reveal class="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>
-          <h2 class="mb-4 text-[clamp(1.6rem,3.2vw,2.3rem)] text-white">Restiamo in contatto</h2>
+          <h2 class="mb-4 text-[clamp(1.6rem,3.2vw,2.3rem)] text-white">Hai una domanda?</h2>
           <p>
-            Date, iscrizioni e novità le pubblichiamo su Instagram. Se hai una domanda, scrivici lì in privato:
-            rispondiamo volentieri.
+            Scrivici in privato su Instagram, rispondiamo volentieri. Lì pubblichiamo anche date, iscrizioni e novità.
           </p>
         </div>
         <div class="lg:justify-self-end">

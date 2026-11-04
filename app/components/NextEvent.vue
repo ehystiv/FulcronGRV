@@ -37,8 +37,8 @@ const scheduled = computed(() => !!event.value?.date && !over.value)
     <template v-else>
       <h2 class="m-0 text-[clamp(1.5rem,3vw,2rem)]">Prossimo evento</h2>
       <p class="m-0 max-w-[46ch] text-muted">
-        Siamo fermi da un po’, ma il prossimo evento è in preparazione. Date e iscrizioni le annunciamo su Instagram:
-        seguici per non perderlo, e scrivici lì se hai domande.
+        Siamo fermi da un po’, ma stiamo preparando il prossimo evento. Lo annunceremo su Instagram, e lì puoi scriverci
+        per qualsiasi domanda.
       </p>
       <UiButton :href="INSTAGRAM.href" variant="outline" icon="instagram">Seguici su Instagram</UiButton>
       <NuxtLink to="/oneshot" class="inline-flex min-h-11 items-center gap-1.5 text-[0.92rem] font-semibold">
