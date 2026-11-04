@@ -34,8 +34,14 @@ const cards = computed(() =>
       </h2>
       <p class="mt-2 text-center text-white/80">Tocca una carta per girarla e leggere il suo Teaser.</p>
 
-      <ul class="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 md:grid-cols-3">
-        <li v-for="card in cards" :key="card.name" v-reveal class="flex flex-col items-center">
+      <!-- Flex instead of grid: the 13th card sits centred on the last row instead of alone on the left -->
+      <ul class="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-x-4 gap-y-10 sm:gap-x-8">
+        <li
+          v-for="card in cards"
+          :key="card.name"
+          v-reveal
+          class="flex w-[calc(50%-0.5rem)] flex-col items-center sm:w-[calc(50%-1rem)] md:w-[calc((100%-4rem)/3)]"
+        >
           <PalazzoTarotCard :name="card.name" :front="card.front" :back="card.back" />
           <p class="mt-4 text-center leading-tight">
             <span class="block font-display text-sm tracking-[0.25em] text-gold-soft">{{ card.numeral }}</span>

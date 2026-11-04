@@ -4,21 +4,18 @@ useSeoMeta({ title: 'FulcronGRV', ogTitle: 'FulcronGRV · Gioco di ruolo dal viv
 const features = [
   {
     to: '/sinfonia',
-    eyebrow: 'La campagna',
     title: 'La Sinfonia dei Sette',
     text: 'Fulcron, l’Anello: un mondo inventato da noi, con i suoi regni, i suoi dei e la sua storia. Quello che fanno i personaggi cambia davvero come vanno le cose.',
     image: '/immagini/origini_2.jpg',
   },
   {
     to: '/oneshot',
-    eyebrow: 'Avventure singole',
     title: 'Oneshot',
     text: 'Storie che cominciano e finiscono nello stesso evento, ognuna con un’ambientazione tutta sua.',
     image: '/oneshots/TearAsunder.jpg',
   },
   {
     to: '/inizia-a-giocare',
-    eyebrow: 'Prima volta?',
     title: 'Inizia a giocare',
     text: 'Cosa serve, come si crea un personaggio, come funzionano i combattimenti: le risposte alle domande che ci fate più spesso.',
     image: '/albums/banchettodeiguitti.jpg',
@@ -111,7 +108,6 @@ useHead({
           :image="f.image"
           image-sizes="sm:100vw md:33vw lg:400px"
         >
-          <span class="eyebrow mb-1.5">{{ f.eyebrow }}</span>
           <h3 class="mb-1 text-[1.45rem]">{{ f.title }}</h3>
           <p class="text-muted">{{ f.text }}</p>
           <span

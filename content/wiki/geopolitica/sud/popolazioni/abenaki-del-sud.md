@@ -14,7 +14,7 @@ Le pitture facciali assumono poi simboli geometrici e simmetrici, più simili al
 
 ## Cultura
 
-Pur mantenendo gli stessi obiettivi e metodi dei loro genitori dell'Est, gli Abenaki del SUd ne irrigidiscono i dogmi, a tal punto da diventare una popolazione chiusa anche nei confronti dei loro simili, ma non per questo meno desiderosi di condividere le loro scoperte, in un'aura, a volte, di superiorità.
+Pur mantenendo gli stessi obiettivi e metodi dei loro genitori dell'Est, gli Abenaki del Sud ne irrigidiscono i dogmi, a tal punto da diventare una popolazione chiusa anche nei confronti dei loro simili, ma non per questo meno desiderosi di condividere le loro scoperte, in un'aura, a volte, di superiorità.
 
 ### Feste e Celebrazioni
 
