@@ -9,6 +9,7 @@ const PAGES = [
   '/sinfonia/regolamento',
   '/sinfonia/bacheca',
   '/oneshot',
+  '/oneshot/sunless-dawn',
   '/oneshot/palazzo-destini',
   '/oneshot/palazzo-destini/pgos',
   '/oneshot/palazzo-destini/iscrizioni',

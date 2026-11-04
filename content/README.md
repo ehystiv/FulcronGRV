@@ -45,7 +45,7 @@ Se l’evento ha una pagina sul sito, indicala con `page: "/oneshot/nome-pagina"
 
 ## Pagine: `pagine/*.md`
 
-Chi siamo, ambientazione, regolamento, inizia a giocare, privacy e la pagina del Palazzo dei Destini Incrociati
+Chi siamo, ambientazione, regolamento, inizia a giocare, privacy e le pagine del Palazzo dei Destini Incrociati e di Sunless Dawn
 sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elenchi con `-`, **grassetto**,
 [link](https://esempio.it)) più alcuni blocchi speciali:
 

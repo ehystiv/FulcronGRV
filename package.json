@@ -17,6 +17,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fontsource/alex-brush": "^5.3.0",
+    "@fontsource/bodoni-moda": "^5.3.0",
+    "@fontsource/cutive-mono": "^5.3.0",
     "@fontsource/marcellus": "^5.3.0",
     "@fontsource/marcellus-sc": "^5.3.0",
     "@fontsource/montserrat": "^5.3.0",

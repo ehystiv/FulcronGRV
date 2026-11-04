@@ -1,0 +1,605 @@
+/* Sunless Dawn (oneshot page only): ivory paper, ink and blood */
+@import '@fontsource/alex-brush/400.css';
+@import '@fontsource/bodoni-moda/400.css';
+@import '@fontsource/bodoni-moda/400-italic.css';
+@import '@fontsource/cutive-mono/400.css';
+
+@property --sd-r {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+.sunless {
+  --sd-ivory: #f5ecda;
+  --sd-ink: #0d0d0f;
+  --sd-ink-soft: #3c3e42;
+  --sd-blood: #870b12;
+  --sd-night: #050506;
+  --sd-gutter: clamp(1.25rem, 6vw, 5rem);
+
+  /* Typing paper: a grey tile that multiplies the ivory, so the colour stays a single value */
+  background: var(--sd-ivory) url('/oneshot/sunless-dawn/carta.webp') 0 0 / 640px;
+  background-blend-mode: multiply;
+  color: var(--sd-ink);
+  font-family: 'Cutive Mono', 'Courier New', monospace;
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  line-height: 1.7;
+  font-synthesis: none;
+  overflow-wrap: break-word;
+  scrollbar-color: var(--sd-ink) var(--sd-ivory);
+}
+
+.sunless ::selection {
+  background: var(--sd-blood);
+  color: var(--sd-ivory);
+}
+
+.sunless :focus-visible {
+  outline: 2px solid var(--sd-blood);
+  outline-offset: 3px;
+}
+
+.sunless h1,
+.sunless h2,
+.sunless h3,
+.sunless h4 {
+  margin: 0;
+  color: inherit;
+  letter-spacing: normal;
+  text-wrap: balance;
+}
+
+/* ---------- First screen ---------- */
+
+.sunless-hero {
+  --sd-lamp-w: clamp(9.5rem, 18vw, 13rem);
+
+  position: relative;
+  display: flex;
+  min-height: calc(100svh - var(--spacing-header));
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: calc(var(--sd-lamp-w) * 2.2) 1.25rem clamp(2.5rem, 8vh, 5rem);
+  background: radial-gradient(ellipse 48rem 34rem at 50% 12rem, #fff9ea 15%, transparent 75%);
+  text-align: center;
+}
+
+.sunless-hero h1 {
+  font-family: 'Alex Brush', 'Snell Roundhand', cursive;
+  /* A script with a tiny x-height: it needs this size to read as big as a 6rem roman */
+  font-size: clamp(4.5rem, 15vw, 10rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.sunless-hero__lead {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+}
+
+.sunless-hero__status {
+  margin: 0.75rem 0 0;
+  color: var(--sd-ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ---------- Lamp and blackout ---------- */
+
+.sd-lamp {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: var(--sd-lamp-w);
+  transform: translateX(-50%);
+
+  --sd-metal: var(--sd-ink);
+  --sd-edge: var(--sd-ink);
+  --sd-string: var(--sd-ink);
+}
+
+/* The rod carries on behind the header, up to the ceiling */
+.sd-lamp::before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: calc(var(--sd-lamp-w) / 60);
+  transform: translateX(-50%);
+  height: var(--spacing-header);
+  background: var(--sd-edge);
+  content: '';
+}
+
+/* Only in the dark, when the header is hidden: it must not cross the header as the light comes on */
+html:not(.sd-dark) .sd-lamp::before,
+html.sd-lighting .sd-lamp::before {
+  display: none;
+}
+
+.sd-lamp__switch {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.sd-lamp__switch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.sd-lamp__metal {
+  fill: var(--sd-metal);
+  stroke: var(--sd-edge);
+  stroke-width: 1.5;
+}
+
+.sd-lamp__string {
+  fill: none;
+  stroke: var(--sd-string);
+  stroke-width: 2;
+}
+
+.sd-lamp__bulb {
+  fill: #fff6d8;
+  filter: drop-shadow(0 10px 30px #ffd97a);
+}
+
+.sd-lamp__cord {
+  transform-box: view-box;
+  transform-origin: 170px 212px;
+}
+
+.sd-lamp__hint {
+  display: none;
+  margin: 0.5rem 0 0;
+  color: #a9abb0;
+  font-size: 0.9rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.sd-blackout {
+  display: none;
+}
+
+/* The space of the scrollbar stays reserved, or the page would jump sideways when the bar comes back */
+html.sd-dark {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+  background: #050506;
+}
+
+html.sd-lighting {
+  overflow: auto;
+  scrollbar-gutter: auto;
+  background: none;
+}
+
+html.sd-dark .sd-blackout {
+  position: fixed;
+  z-index: 60;
+  display: block;
+  background: var(--sd-night);
+  inset: 0;
+}
+
+html.sd-dark .sd-lamp {
+  z-index: 70;
+
+  --sd-metal: #141416;
+  --sd-edge: #7c7e84;
+  --sd-string: #a9abb0;
+}
+
+html.sd-dark:not(.sd-lighting) .sd-lamp__hint {
+  display: block;
+}
+
+html.sd-dark:not(.sd-lighting) .sd-lamp__bulb {
+  fill: #1b1b1e;
+  filter: none;
+}
+
+/* The bulb catches on the second try, then the room fills with light from it */
+html.sd-lighting .sd-blackout {
+  animation: sd-light-on 1.9s linear forwards;
+  mask-image: radial-gradient(circle at var(--sd-x, 50%) var(--sd-y, 25%), transparent calc(var(--sd-r) * 0.55), #000 var(--sd-r));
+}
+
+html.sd-lighting .sd-lamp__bulb {
+  animation: sd-bulb 0.7s steps(1) both;
+}
+
+@keyframes sd-light-on {
+  0%,
+  8% {
+    --sd-r: 0px;
+  }
+  14%,
+  20% {
+    --sd-r: 42vmin;
+  }
+  21%,
+  31% {
+    --sd-r: 0px;
+  }
+  37% {
+    --sd-r: 48vmin;
+    animation-timing-function: cubic-bezier(0.3, 0, 0.1, 1);
+  }
+  100% {
+    --sd-r: 190vmax;
+  }
+}
+
+@keyframes sd-bulb {
+  0% {
+    fill: #1b1b1e;
+    filter: none;
+  }
+  23% {
+    fill: #fff6d8;
+    filter: drop-shadow(0 8px 26px #ffe9ad);
+  }
+  45% {
+    fill: #1b1b1e;
+    filter: none;
+  }
+  53%,
+  100% {
+    fill: #fff6d8;
+    filter: drop-shadow(0 8px 26px #ffe9ad);
+  }
+}
+
+.sd-lamp__switch.is-pulled .sd-lamp__cord {
+  animation: sd-pull 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes sd-pull {
+  0% {
+    transform: none;
+  }
+  30% {
+    transform: translateY(46px);
+  }
+  68% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+.sd-lamp__switch:hover .sd-lamp__cord {
+  translate: 0 5px;
+  transition: translate 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.sd-dark:not(.sd-lighting) .sd-lamp__switch:not(.is-pulled) .sd-lamp__cord {
+    animation: sd-sway 6s ease-in-out infinite;
+  }
+
+  @keyframes sd-sway {
+    0%,
+    100% {
+      transform: rotate(-1.2deg);
+    }
+    50% {
+      transform: rotate(1.2deg);
+    }
+  }
+}
+
+/* No flicker and no sweep: the room simply fades in */
+@media (prefers-reduced-motion: reduce) {
+  html.sd-lighting .sd-blackout {
+    animation: sd-light-fade 0.4s ease-out forwards;
+    mask-image: none;
+  }
+
+  @keyframes sd-light-fade {
+    to {
+      opacity: 0;
+    }
+  }
+
+  html.sd-lighting .sd-lamp__bulb {
+    animation: none;
+  }
+
+  .sd-lamp__switch.is-pulled .sd-lamp__cord {
+    animation-duration: 1ms;
+  }
+}
+
+@media print {
+  html.sd-dark {
+    overflow: visible;
+  }
+
+  html.sd-dark .sd-blackout,
+  .sd-lamp {
+    display: none;
+  }
+}
+
+/* ---------- Text ---------- */
+
+.sunless-prose {
+  max-width: 62ch;
+}
+
+.sunless-prose p {
+  margin: 0 0 1.25em;
+}
+
+.sunless-prose > :last-child {
+  margin-bottom: 0;
+}
+
+.sunless-prose strong {
+  color: var(--sd-blood);
+  font-weight: 400;
+}
+
+.sunless-incipit {
+  display: flex;
+  justify-content: center;
+  padding: clamp(4rem, 12vw, 9rem) var(--sd-gutter);
+}
+
+.sunless-blood {
+  padding: clamp(5rem, 16vw, 12rem) var(--sd-gutter);
+  background: var(--sd-blood);
+  color: var(--sd-ivory);
+  text-align: center;
+}
+
+.sunless-blood ::selection {
+  background: var(--sd-ivory);
+  color: var(--sd-blood);
+}
+
+.sunless-blood__line {
+  max-width: 18ch;
+  margin-inline: auto;
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-size: clamp(2.5rem, 7.5vw, 5.75rem);
+  font-style: italic;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.sunless-blood__line p,
+.sunless-blood__question p {
+  margin: 0;
+}
+
+.sunless-blood__question {
+  margin-top: 2.5rem;
+}
+
+.sunless-section {
+  display: grid;
+  gap: 1.25rem clamp(2rem, 6vw, 6rem);
+  max-width: 76rem;
+  margin-inline: auto;
+  padding: clamp(3rem, 8vw, 6rem) var(--sd-gutter);
+}
+
+.sunless-section h3 {
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.sunless-section__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 56rem) {
+  .sunless-section {
+    grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  }
+
+  .sunless-section__side {
+    position: sticky;
+    top: calc(var(--spacing-header) + 2rem);
+    align-self: start;
+  }
+}
+
+.sunless-alibi {
+  padding: clamp(3rem, 9vw, 7rem) var(--sd-gutter) clamp(2rem, 5vw, 4rem);
+  font-family: 'Alex Brush', 'Snell Roundhand', cursive;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 1.1;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sunless-alibi p {
+  margin: 0;
+}
+
+.sunless h2.sunless-chapter {
+  margin: 0;
+  padding: clamp(4rem, 10vw, 8rem) var(--sd-gutter) clamp(3.5rem, 9vw, 7rem);
+  background: var(--sd-ink);
+  color: var(--sd-ivory);
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.sunless-wardrobe {
+  display: grid;
+  gap: 2rem clamp(1.5rem, 4vw, 3rem);
+  margin-top: 2.25rem;
+}
+
+@media (min-width: 40rem) {
+  .sunless-wardrobe {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sunless-wardrobe h4,
+.sunless-gallery h4 {
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.sunless-wardrobe ul {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sunless-wardrobe li {
+  padding-block: 0.5rem;
+  border-top: 1px solid rgb(13 13 15 / 0.3);
+  line-height: 1.4;
+}
+
+/* ---------- Photos ---------- */
+
+.sunless-gallery {
+  padding-block: clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 4rem);
+  background: var(--sd-ink);
+  color: var(--sd-ivory);
+}
+
+.sunless-gallery h4 {
+  padding: clamp(2rem, 5vw, 3.5rem) var(--sd-gutter) clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  text-align: center;
+}
+
+.sunless-gallery__row {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 0.875rem);
+  padding-inline: clamp(0.5rem, 1vw, 0.875rem);
+  margin-bottom: clamp(0.5rem, 1vw, 0.875rem);
+}
+
+.sunless-gallery__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 40rem) {
+  .sunless-gallery__row {
+    flex-direction: row;
+  }
+
+  .sunless-gallery__photo {
+    min-width: 0;
+    flex-basis: 0;
+  }
+}
+
+.sunless-gallery__note {
+  padding: clamp(2rem, 5vw, 3.5rem) var(--sd-gutter) clamp(1rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.sunless-gallery__note p {
+  max-width: 44ch;
+  margin: 0 auto;
+}
+
+/* ---------- Closing ---------- */
+
+.sunless-facts {
+  padding: clamp(4rem, 9vw, 7rem) var(--sd-gutter);
+  background: var(--sd-ink);
+  color: var(--sd-ivory);
+  text-align: center;
+}
+
+.sunless-facts dl {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem clamp(3rem, 8vw, 7rem);
+  margin: 0;
+}
+
+.sunless-facts dt {
+  color: #b5b7bc;
+}
+
+.sunless-facts dd {
+  margin: 0.25rem 0 0;
+  font-family: 'Bodoni Moda', 'Didot', serif;
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.sunless-facts__note {
+  max-width: 44ch;
+  margin: 2.5rem auto 0;
+}
+
+.sunless-facts__note p {
+  margin: 0;
+}
+
+.sunless-end {
+  padding: 0 var(--sd-gutter) clamp(3rem, 7vw, 5rem);
+  background: var(--sd-ink);
+  color: var(--sd-ivory);
+  text-align: center;
+}
+
+.sunless-end img {
+  display: inline-block;
+  height: auto;
+  opacity: 0.85;
+}
+
+.sunless-end p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2.5rem;
+  margin: 2rem 0 0;
+}
+
+.sunless-end a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.sunless-end a:hover {
+  text-decoration-color: #d3121b;
+}
+
+.sunless-end :focus-visible,
+.sunless-facts :focus-visible {
+  outline-color: var(--sd-ivory);
+}
