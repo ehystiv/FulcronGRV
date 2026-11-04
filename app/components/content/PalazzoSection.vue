@@ -29,12 +29,16 @@ const bodyClass =
       >
         {{ title }}
       </h2>
-      <img
+      <NuxtImg
         src="/oneshot/palazzo-destini/ornamento.png"
         alt=""
-        width="700"
-        height="400"
+        width="176"
+        height="101"
         class="mx-auto my-3 w-40 opacity-80"
+        densities="x1 x2"
+        format="webp"
+        loading="lazy"
+        decoding="async"
       />
       <div
         v-if="$slots.incipit"

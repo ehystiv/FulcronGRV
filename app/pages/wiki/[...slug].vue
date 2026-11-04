@@ -55,7 +55,9 @@ watch(path, () => {
         <nav aria-label="Percorso" class="text-sm">
           <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-muted">
             <li>
-              <NuxtLink to="/wiki" class="font-semibold tracking-wide text-gold-ink no-underline">Wiki di Fulcron</NuxtLink>
+              <NuxtLink to="/wiki" class="font-semibold tracking-wide text-gold-ink no-underline"
+                >Wiki di Fulcron</NuxtLink
+              >
             </li>
             <li v-for="c in crumbs" :key="c.title" class="flex items-center gap-2">
               <span aria-hidden="true">›</span>

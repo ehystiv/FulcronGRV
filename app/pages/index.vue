@@ -51,7 +51,9 @@ useHead({
 
 <template>
   <div>
-    <section class="on-dark relative isolate grid min-h-[min(100svh,900px)] place-items-center overflow-hidden text-on-dark">
+    <section
+      class="on-dark relative isolate grid min-h-[min(100svh,900px)] place-items-center overflow-hidden text-on-dark"
+    >
       <SiteImage
         src="/backgrounds/forest_op_comp.jpg"
         loading="eager"
@@ -70,7 +72,9 @@ useHead({
           height="220"
           class="mb-6 w-[clamp(130px,22vw,220px)] animate-turn drop-shadow-[0_6px_24px_rgb(0_0_0/0.5)]"
         />
-        <span class="eyebrow text-gold-soft [text-shadow:0_1px_12px_rgb(0_26_38/0.8)]">Associazione di gioco di ruolo dal vivo</span>
+        <span class="eyebrow text-gold-soft [text-shadow:0_1px_12px_rgb(0_26_38/0.8)]"
+          >Associazione di gioco di ruolo dal vivo</span
+        >
         <h1 class="mb-[0.3em] text-[clamp(2.6rem,7vw,5rem)] text-white [text-shadow:0_4px_30px_rgb(0_0_0/0.5)]">
           Benvenuto a Fulcron
         </h1>
@@ -131,7 +135,9 @@ useHead({
           </p>
         </div>
         <div class="lg:justify-self-end">
-          <UiButton :href="INSTAGRAM.href" variant="ghost" icon="instagram">Instagram · {{ INSTAGRAM.handle }}</UiButton>
+          <UiButton :href="INSTAGRAM.href" variant="ghost" icon="instagram"
+            >Instagram · {{ INSTAGRAM.handle }}</UiButton
+          >
         </div>
       </div>
     </section>

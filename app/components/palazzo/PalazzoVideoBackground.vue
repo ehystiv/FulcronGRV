@@ -5,15 +5,16 @@ const video = ref<HTMLVideoElement>()
 const playing = ref(true)
 const muted = ref(true)
 
+// The trailer (1.7 MB) is not downloaded up front: it starts on its own only on wide screens,
+// without reduced motion or data saving. On phones the poster stays and the play button loads it.
 onMounted(() => {
   const el = video.value
   if (!el) return
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    el.pause()
-    playing.value = false
-  } else {
-    el.play().catch(() => (playing.value = false))
-  }
+  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData
+  const autoplay =
+    !matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(min-width: 768px)').matches && !saveData
+  if (autoplay) el.play().catch(() => (playing.value = false))
+  else playing.value = false
 })
 
 function togglePlay() {
@@ -52,7 +53,7 @@ const buttonClass =
       muted
       loop
       playsinline
-      preload="auto"
+      preload="none"
     />
   </div>
 

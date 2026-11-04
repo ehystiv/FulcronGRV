@@ -13,12 +13,16 @@ const page = await usePage('palazzo-destini-iscrizioni')
         >
           Iscrizioni
         </h1>
-        <img
+        <NuxtImg
           src="/oneshot/palazzo-destini/ornamento.png"
           alt=""
-          width="700"
-          height="400"
+          width="176"
+          height="101"
           class="mx-auto my-3 mb-6 w-40 opacity-80"
+          densities="x1 x2"
+          format="webp"
+          loading="lazy"
+          decoding="async"
         />
         <ContentRenderer :value="page" class="leading-relaxed [&_p]:mb-4" />
         <div class="mt-8 flex justify-center">

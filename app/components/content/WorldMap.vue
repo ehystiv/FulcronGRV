@@ -6,8 +6,11 @@ const ALT = 'Mappa di Fulcron: l’Anello di terre attorno al Mare Interno, divi
 
 const dialog = ref<HTMLDialogElement>()
 const zoomed = ref(false)
+// The full-size map (385 KB) is loaded only the first time the viewer opens
+const opened = ref(false)
 
 function open() {
+  opened.value = true
   zoomed.value = false
   dialog.value?.showModal()
 }
@@ -50,6 +53,7 @@ function close() {
   >
     <div class="flex size-full overflow-auto" @click.self="close">
       <img
+        v-if="opened"
         :src="SRC"
         :alt="ALT"
         width="1280"
