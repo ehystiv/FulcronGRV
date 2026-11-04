@@ -45,7 +45,7 @@ watch(() => route.path, showActive)
       <!-- The fade on the right edge (phones only) hints that the strip scrolls -->
       <div
         ref="strip"
-        class="container-site flex justify-center-safe gap-1 overflow-x-auto [scrollbar-width:none] max-sm:[mask-image:linear-gradient(to_right,black_82%,transparent)]"
+        class="container-site flex justify-center-safe gap-1 overflow-x-auto max-sm:[mask-image:linear-gradient(to_right,black_82%,transparent)]"
       >
         <NuxtLink
           v-for="tab in tabs"

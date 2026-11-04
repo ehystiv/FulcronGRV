@@ -27,7 +27,6 @@
   line-height: 1.7;
   font-synthesis: none;
   overflow-wrap: break-word;
-  scrollbar-color: var(--sd-ink) var(--sd-ivory);
 }
 
 .sunless ::selection {
@@ -170,17 +169,12 @@ html.sd-lighting .sd-lamp::before {
   display: none;
 }
 
-/* The space of the scrollbar stays reserved, or the page would jump sideways when the bar comes back */
 html.sd-dark {
   overflow: hidden;
-  scrollbar-gutter: stable;
-  background: #050506;
 }
 
 html.sd-lighting {
   overflow: auto;
-  scrollbar-gutter: auto;
-  background: none;
 }
 
 html.sd-dark .sd-blackout {

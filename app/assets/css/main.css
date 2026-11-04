@@ -77,6 +77,14 @@
 /* ---------- Base ---------- */
 
 @layer base {
+  /* No visible scrollbars anywhere: pages and panels still scroll with wheel, touch and keyboard */
+  * {
+    scrollbar-width: none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--spacing-header) + 1rem);
