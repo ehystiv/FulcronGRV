@@ -23,19 +23,20 @@ const toc = computed(() => page.value.body?.toc?.links ?? [])
       </ol>
     </aside>
 
-    <article class="min-w-0 max-w-205">
+    <!-- On phones the headings stop below the pinned table of contents -->
+    <article class="min-w-0 max-w-205 max-lg:[&_h2]:scroll-mt-14">
       <h1 class="mb-6 text-[clamp(2.2rem,5vw,3.6rem)]">{{ page.title }}</h1>
 
       <!-- Mobile table of contents -->
       <nav
-        class="sticky top-[calc(var(--spacing-header)+var(--spacing-tabs)+1px)] z-10 -mx-[clamp(1rem,4vw,2rem)] mb-8 flex gap-2 overflow-x-auto border-b border-line bg-parchment/94 px-[clamp(1rem,4vw,2rem)] py-2.5 backdrop-blur-md [scrollbar-width:none] lg:hidden"
+        class="sticky top-[calc(var(--spacing-header)+1px)] z-10 sm:top-[calc(var(--spacing-header)+var(--spacing-tabs)+1px)] -mx-[clamp(1rem,4vw,2rem)] mb-8 flex gap-2 overflow-x-auto border-b border-line bg-parchment/94 px-[clamp(1rem,4vw,2rem)] py-2.5 backdrop-blur-md [scrollbar-width:none] lg:hidden"
         aria-label="Indice"
       >
         <a
           v-for="link in toc"
           :key="link.id"
           :href="`#${link.id}`"
-          class="shrink-0 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[0.85rem] font-medium text-ink no-underline hover:border-gold"
+          class="inline-flex min-h-11 shrink-0 items-center rounded-full border border-line bg-surface px-3.5 text-[0.875rem] font-medium text-ink no-underline hover:border-gold"
         >
           {{ link.text }}
         </a>

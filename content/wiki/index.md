@@ -10,7 +10,7 @@ Fulcron è un “Anello”, senza dubbio, ma solo per quello che ne sappiamo noi
 
 ## Da dove cominciare
 
-- [Geopolitica](/wiki/geopolitica): i regni del Nord, dell’Est, del Sud e dell’Ovest, e il Mare Interno.
+- [Geografia e Regni](/wiki/geopolitica): i regni del Nord, dell’Est, del Sud e dell’Ovest, e il Mare Interno.
 - [Religione e culti](/wiki/religione): i Sette, l’Antico Credo e l’Armata Santa.
 - [Le razze](/wiki/razze) che abitano l’Anello.
 - [La storia](/wiki/storia) e il [calendario](/wiki/calendario) di Fulcron.
@@ -18,4 +18,4 @@ Fulcron è un “Anello”, senza dubbio, ma solo per quello che ne sappiamo noi
 
 ## Un archivio vivo, ma non aggiornatissimo
 
-Queste pagine raccolgono quello che giocatori e staff hanno scritto negli anni. Alcune parti sono più vecchie di altre e qua e là la storia è andata avanti: se trovi qualcosa che non torna, o vuoi proporre una pagina nuova, scrivici sui nostri canali.
+Queste pagine raccolgono quello che giocatori e staff hanno scritto negli anni. Alcune parti sono più vecchie di altre e qua e là la storia è andata avanti: se trovi qualcosa che non torna, o vuoi proporre una pagina nuova, scrivici su [Instagram](https://www.instagram.com/fulcrongrv).

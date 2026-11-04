@@ -29,7 +29,10 @@ const cards = computed(() =>
     <ContentRenderer :value="page" />
 
     <section class="container-site" aria-labelledby="tarocchi">
-      <h2 id="tarocchi" class="text-center font-cardinal text-[clamp(2.2rem,5vw,3.4rem)] font-normal tracking-normal text-white">
+      <h2
+        id="tarocchi"
+        class="text-center font-cardinal text-[clamp(2.2rem,5vw,3.4rem)] font-normal tracking-normal text-white"
+      >
         I tredici Teaser
       </h2>
       <p class="mt-2 text-center text-white/80">Tocca una carta per girarla e leggere il suo Teaser.</p>

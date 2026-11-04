@@ -14,7 +14,7 @@ withDefaults(defineProps<{ title: string; eyebrow?: string; lead?: string; as?: 
       {{ title }}
     </component>
     <UiDivider />
-    <p v-if="lead" class="mx-auto max-w-[60ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">{{ lead }}</p>
+    <p v-if="lead" class="mx-auto max-w-[46ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">{{ lead }}</p>
     <slot />
   </div>
 </template>

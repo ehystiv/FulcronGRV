@@ -1,6 +1,12 @@
 <script setup lang="ts">
 const visible = ref(false)
-const onScroll = () => (visible.value = window.scrollY > 600)
+// Shown only while scrolling up: reading down, it would sit on top of the content
+let lastY = 0
+const onScroll = () => {
+  const y = window.scrollY
+  visible.value = y > 600 && y < lastY
+  lastY = y
+}
 onMounted(() => {
   onScroll()
   window.addEventListener('scroll', onScroll, { passive: true })

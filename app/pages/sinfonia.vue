@@ -2,12 +2,13 @@
 const route = useRoute()
 const isOverview = computed(() => route.path.replace(/\/$/, '') === '/sinfonia')
 
-const tabs = [
-  { to: '/sinfonia', label: 'La campagna' },
+const hasNews = useHasNews()
+const tabs = computed(() => [
+  { to: '/sinfonia', label: 'Panoramica' },
   { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
   { to: '/sinfonia/regolamento', label: 'Regolamento' },
-  { to: '/sinfonia/bacheca', label: 'Bacheca' },
-]
+  ...(hasNews.value ? [{ to: '/sinfonia/bacheca', label: 'Bacheca' }] : []),
+])
 
 // On phones the tabs scroll sideways: keep the current one in view
 const strip = ref<HTMLElement>()
@@ -38,7 +39,7 @@ watch(() => route.path, showActive)
     </header>
 
     <nav
-      class="sticky top-header z-20 border-b border-line bg-parchment/92 backdrop-blur-md"
+      class="top-header z-20 border-b border-line bg-parchment/92 backdrop-blur-md sm:sticky"
       aria-label="Sezioni della Sinfonia dei Sette"
     >
       <!-- The fade on the right edge (phones only) hints that the strip scrolls -->

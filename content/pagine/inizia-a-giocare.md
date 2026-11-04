@@ -2,49 +2,123 @@
 title: Inizia a giocare
 description: Non hai mai fatto un gioco di ruolo dal vivo? Come funziona, come si crea un personaggio, come si combatte e come partecipare a un evento FulcronGRV.
 eyebrow: Nuovi giocatori
-lead: Non hai mai fatto un LARP? Ti serve meno di quanto pensi. Qui sotto trovi tutto quello che ci chiedono più spesso.
+lead: Non hai mai fatto un gioco di ruolo dal vivo (LARP)? Ti serve meno di quanto pensi. Qui sotto trovi com’è una giornata di gioco, da dove partire e le domande che ci fanno più spesso.
 ---
+
+## Cos’è un gioco di ruolo dal vivo
+
+È un gioco in cui interpreti un personaggio in prima persona, in costume, insieme agli altri giocatori. Non ci sono un tabellone o dei dadi: quello che il tuo personaggio dice e fa, lo dici e lo fai tu. Gli organizzatori preparano la storia e i personaggi non giocanti; il resto lo costruite giocando.
+
+## Com’è una giornata di gioco
+
+Ogni evento ha la sua storia, ma il ritmo è più o meno questo. L’esempio viene da Il Palazzo dei Destini Incrociati, una nostra oneshot del 2022.
+
+- **Ritrovo e preparazione.** Ci si trova in mattinata, si passa dalla segreteria e ci si prepara con trucco e costume.
+- **Workshop.** Ripassiamo tutto quello che serve per giocare, per chi è nuovo e per chi gioca da anni.
+- **Pranzo.** Si mangia insieme, ancora fuori gioco.
+- **Time In.** Da qui in poi sei il tuo personaggio. Possono esserci battaglie, intrighi, trattative e preghiere.
+- **Cena in gioco.** Anche a tavola si resta nel personaggio.
+- **Time Off.** Il gioco finisce e si torna sé stessi. Quella volta era previsto alle tre di notte.
+
+## Oneshot o campagna?
+
+Per cominciare vanno bene entrambe. Quando annunciamo un evento, scriviamo sempre di che tipo è.
+
+- **Oneshot.** La storia inizia e finisce in un solo evento: è un’esperienza completa, che non richiede di tornare.
+- **Campagna.** La Sinfonia dei Sette è una storia che continua di evento in evento. Puoi tornare con lo stesso personaggio e vederlo crescere, come in una serie TV.
 
 ## Da dove partire
 
 ::steps
 ---
+
 items:
-  - title: Leggi le regole base
-    text: "Sono poche e si capiscono in dieci minuti: rispetto per gli altri, sicurezza, differenza tra In Gioco e Fuori Gioco."
-    to: /sinfonia/regolamento
-    cta: Il regolamento
-  - title: Scegli come giocare
-    text: "Puoi creare il tuo personaggio (PG) oppure interpretarne uno preparato da noi (PNG o PGOS). Per iniziare vanno bene tutti e tre."
-  - title: Dai un’occhiata al mondo
-    text: "Non serve studiarlo: a ogni evento ti diamo le informazioni che ti servono. Ma due minuti sull’ambientazione aiutano."
-    to: /sinfonia/ambientazione
-    cta: L’ambientazione
-  - title: Scrivici e iscriviti
-    text: "Date e iscrizioni le annunciamo su Instagram. Se hai dubbi, scrivici lì prima: preferiamo una domanda in più che un giocatore spaesato."
+
+- title: Scegli come giocare
+  text: "Puoi anche non creare nulla: interpreti un personaggio preparato da noi, con storia e obiettivi (PGOS), o con indicazioni precise per la giornata (PNG). Se preferisci, crei il tuo da zero (PG). Per iniziare vanno bene tutti e tre."
+- title: Dai un’occhiata al mondo
+  text: "Non serve studiarlo: a ogni evento ti diamo le informazioni che ti servono. Ma la mappa dell’Anello è un bel modo di cominciare."
+  to: /sinfonia/ambientazione#la-geografia-di-fulcron
+  cta: Guarda la mappa
+- title: Leggi le regole in breve
+  text: "Sono dieci punti: rispetto per gli altri, sicurezza, differenza tra In Gioco e Fuori Gioco. Il resto lo ripassiamo insieme al Workshop."
+  to: /sinfonia/regolamento#le-regole-in-dieci-punti
+  cta: Le regole in dieci punti
+- title: Scrivici su Instagram
+  text: "Lì annunciamo date e iscrizioni dei prossimi eventi. Se hai dubbi, scrivici prima: preferiamo una domanda in più che un giocatore spaesato."
+  instagram: true
+  cta: Apri Instagram
+
 ---
+
 ::
 
 ## Domande frequenti
 
+### Chi può venire
+
 ::faq
 ---
+
 items:
-  - q: Cos’è un gioco di ruolo dal vivo?
-    a: "È un gioco in cui interpreti un personaggio in prima persona, in costume, insieme agli altri giocatori. Non ci sono un tabellone o dei dadi: quello che il tuo personaggio dice e fa, lo dici e lo fai tu. Gli organizzatori preparano la storia e i personaggi non giocanti; il resto lo costruite giocando."
-  - q: Dove si gioca, quanto costa, cosa devo portare?
-    a: "Dipende dall’evento: luogo, quota e cosa portare li scriviamo nell’annuncio, che trovi su Instagram e in cima alla home. Se qualcosa non è chiaro, scrivici lì."
-  - q: Serve esperienza?
-    a: "No. Il regolamento è pensato proprio perché chi arriva per la prima volta impari le basi in fretta, mentre chi gioca da anni ha comunque modo di far crescere il proprio personaggio."
-  - q: Devo per forza creare un personaggio?
-    a: "No. Oltre al PG (il tuo personaggio, creato da zero) puoi giocare come PNG, un personaggio scritto dai registi con indicazioni precise su cosa fare durante la giornata, oppure come PGOS: un personaggio preparato dalla regia, con background e obiettivi, che però gioca come tutti gli altri senza conoscere la trama. Sono due ottimi modi per provare."
-  - q: Come si crea un personaggio?
-    a: "Scegli chi è, da dove viene e cosa sa fare. Le capacità si comprano con i PAB (Punti Abilità): ogni personaggio parte con 130 PAB e per ogni giornata a cui partecipi ne guadagni almeno 10, qualunque ruolo tu abbia. Dare una mano (a sistemare dopo un evento, in cucina e così via) ne fa guadagnare altri."
-  - q: Come funzionano i combattimenti?
-    a: "Si usano armi in lattice, fatte per colpire senza farsi male. Magie, effetti speciali e colpi particolari si annunciano con poche chiamate a voce, che trovi nei manuali. La sicurezza viene prima di tutto: chi gioca in modo pericoloso viene allontanato."
-  - q: Devo conoscere tutta l’ambientazione?
-    a: "No. Fulcron ha molta storia alle spalle, ma a ogni evento diamo le informazioni necessarie per giocare. Se poi ti appassioni, c’è la wiki."
-  - q: Cosa vuol dire “In Gioco” e “Fuori Gioco”?
-    a: "In Gioco (IG) è tutto quello che riguarda il tuo personaggio; Fuori Gioco (FG) è quello che riguarda te come persona. Il personaggio non sa le cose che sai tu e viceversa. Per esempio, in gioco non si dice “quel mostro ha 3 punti ferita”, ma “ho visto quel mostro combattere, non è così forte”."
+
+- q: Posso venire da solo o da sola?
+  a: "Sì. Non serve conoscere nessuno né arrivare in gruppo."
+- q: C’è un’età minima?
+  a: "Sì: per partecipare servono almeno 16 anni."
+- q: Devo iscrivermi all’associazione?
+  a: "Sì, per giocare bisogna essere soci. Scrivici su Instagram e ti spieghiamo come fare."
+- q: Serve esperienza?
+  a: "No. Non serve essere attori né avere esperienza: prima di ogni evento c’è il Workshop, in cui ripassiamo tutto quello che serve per giocare. Chi gioca da anni ha comunque modo di far crescere il proprio personaggio."
+- q: "Ho intolleranze o esigenze particolari: come faccio?"
+  a: "Avvisaci prima dell’evento scrivendoci su Instagram."
+
 ---
+
+::
+
+### Come funziona un evento
+
+::faq
+---
+
+items:
+
+- q: Dove si gioca?
+  a: "Cambia a ogni evento e lo scriviamo nell’annuncio. Negli anni abbiamo giocato per esempio a Villa Achillini (Sasso Marconi), a Palazzo Comelli (Camugnano) e al Rifugio Ranuzzi Segni (Castiglione dei Pepoli)."
+- q: Si dorme sul posto?
+  a: "Dipende dall’evento: lo scriviamo nell’annuncio."
+- q: Quanto costa?
+  a: "La quota cambia a ogni evento e la trovi nell’annuncio. Per darti un’idea, a Il Palazzo dei Destini Incrociati, nel 2022, erano 45 €: 10 € di caparra più 35 € che comprendevano tutti i pasti della giornata di gioco."
+- q: Cosa devo portare?
+  a: "L’elenco preciso lo trovi nell’annuncio, perché dipende dall’evento e dal personaggio. Di solito per cominciare bastano il costume, scarpe comode adatte al terreno, qualcosa da mettere sopra se fa freddo, una borraccia d’acqua e qualche cerotto. Se si dorme sul posto, aggiungi sacco a pelo e l’occorrente per la notte."
+- q: Mi serve un costume? E un’arma?
+  a: "Il costume sì, ma al primo evento non deve essere perfetto. Di solito basta una base semplice: camicia o tunica, pantaloni o gonna e una cintura, in colori naturali o scuri, senza scritte, loghi o capi chiaramente moderni. L’arma non è il primo acquisto da fare: qui si usano solo armi in lattice, quindi niente armi vere, e prima di comprarne una conviene chiederci cosa serve al tuo personaggio."
+
+---
+
+::
+
+### Come si gioca
+
+::faq
+---
+
+items:
+
+- q: Devo per forza creare un personaggio?
+  a: "No. Oltre al PG (il tuo personaggio, creato da zero) puoi giocare come PNG, un personaggio scritto dai registi con indicazioni precise su cosa fare durante la giornata, oppure come PGOS: un personaggio preparato dalla regia, con background e obiettivi, che però gioca come tutti gli altri senza conoscere la trama. Sono due ottimi modi per provare."
+- q: Devo conoscere tutta l’ambientazione?
+  a: "No. Fulcron ha molta storia alle spalle, ma a ogni evento diamo le informazioni necessarie per giocare. Se poi ti appassioni, c’è la wiki."
+- q: Come si crea un personaggio?
+  a: "Scegli chi è, da dove viene e cosa sa fare. Le capacità si comprano con i PAB (Punti Abilità): ogni personaggio parte con 130 PAB e per ogni giornata a cui partecipi ne guadagni almeno 10, qualunque ruolo tu abbia. Dare una mano (a sistemare dopo un evento, in cucina e così via) ne fa guadagnare altri."
+- q: Come funzionano i combattimenti?
+  a: "Si usano armi in lattice, fatte per colpire senza farsi male. Magie, effetti speciali e colpi particolari si annunciano con poche chiamate a voce, che trovi nei manuali. La sicurezza viene prima di tutto: chi gioca in modo pericoloso viene allontanato."
+- q: Cosa vuol dire “In Gioco” e “Fuori Gioco”?
+  a: "In Gioco (IG) è tutto quello che riguarda il tuo personaggio; Fuori Gioco (FG) è quello che riguarda te come persona. Il personaggio non sa le cose che sai tu e viceversa. Per esempio, in gioco non si dice “quel mostro ha 3 punti ferita”, ma “ho visto quel mostro combattere, non è così forte”."
+- q: E se una scena mi mette a disagio?
+  a: "Puoi dire “Vacci piano” in qualsiasi momento: è una parola di sicurezza. Chi sta giocando con te deve abbassare subito l’intensità, e la tua scelta non si discute."
+
+---
+
 ::

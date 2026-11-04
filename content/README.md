@@ -38,7 +38,8 @@ photos: "https://link-all-album-di-foto"
 Due righe per raccontare di cosa parlava.
 ```
 
-`photos` è facoltativo: un link esterno a un album di foto. Anche `place` (il luogo) è facoltativo.
+`photos` è facoltativo: un link esterno a un album di foto. Anche `place` (il luogo) è facoltativo, e lo è `date`
+se la data precisa non si conosce.
 Se l’evento ha una pagina sul sito, indicala con `page: "/oneshot/nome-pagina"`: compare il pulsante
 “Visita la pagina dell’evento” e l’oneshot più recente con una pagina viene messa in evidenza.
 
@@ -67,9 +68,9 @@ Il modo più semplice è copiare un blocco da una pagina esistente e cambiarne i
 ## Prossimo evento: `pagine/prossimo-evento.md`
 
 Il riquadro "Prossimo evento" in home e in fondo a "Inizia a giocare" legge questo file. Quando c'è un evento
-in calendario compila `date` (es. `"18–19 aprile 2027"`), `place`, `cost` (es. `"Quota: 40 €"`) e, se c'è un
-modulo, `link`; il testo del file è la presentazione. Con `date` vuoto il sito mostra "nessun evento in
-calendario" e rimanda a Instagram.
+in calendario compila `date` (es. `"18–19 aprile 2027"`), `until` (l'ultimo giorno, es. `2027-04-19`), `place`,
+`cost` (es. `"Quota: 40 €"`) e, se c'è un modulo, `link`; il testo del file è la presentazione. Con `date` vuoto,
+o passato il giorno `until`, il sito mostra il testo generico di `NextEvent.vue` e rimanda a Instagram.
 
 ## Wiki: `wiki/**/*.md`
 

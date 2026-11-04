@@ -32,10 +32,10 @@ const localSrc = computed(() => {
     :alt="alt"
     :sizes="sizes"
     :loading="loading"
-    :fetchpriority="fetchpriority"
+    :preload="fetchpriority === 'high' ? { fetchPriority: 'high' } : undefined"
     format="webp"
     class="contents"
-    :img-attrs="{ ...$attrs, decoding: 'async' }"
+    :img-attrs="{ ...$attrs, fetchpriority, decoding: 'async' }"
   />
   <img
     v-else

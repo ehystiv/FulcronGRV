@@ -3,6 +3,8 @@ import type { NuxtError } from '#app'
 
 const props = defineProps<{ error: NuxtError }>()
 const notFound = computed(() => props.error?.statusCode === 404)
+const route = useRoute()
+const inWiki = computed(() => notFound.value && route.path.startsWith('/wiki'))
 
 useHead({ title: notFound.value ? 'Pagina non trovata' : 'Errore' })
 </script>
@@ -20,7 +22,10 @@ useHead({ title: notFound.value ? 'Pagina non trovata' : 'Errore' })
         "
         as="h1"
       />
-      <UiButton class="mt-6" to="/" @click="clearError()">Torna alla home</UiButton>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <UiButton v-if="inWiki" to="/wiki" @click="clearError()">Torna alla wiki</UiButton>
+        <UiButton :variant="inWiki ? 'outline' : 'primary'" to="/" @click="clearError()">Torna alla home</UiButton>
+      </div>
     </section>
   </NuxtLayout>
 </template>

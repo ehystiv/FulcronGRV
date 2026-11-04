@@ -98,7 +98,7 @@ watch(path, () => {
         <details
           v-if="toc.length > 2"
           v-accordion
-          class="group my-6 max-w-[72ch] rounded-lg border border-line bg-surface px-4 py-3"
+          class="group my-6 max-w-reading rounded-lg border border-line bg-surface px-4 py-3"
         >
           <summary
             class="flex cursor-pointer list-none items-center justify-between font-semibold text-ink [&::-webkit-details-marker]:hidden"
@@ -122,13 +122,13 @@ watch(path, () => {
           </ol>
         </details>
 
-        <ContentRenderer :value="page" class="prose-fulcron max-w-[72ch] [&_img]:rounded-card [&_img]:shadow-card" />
+        <ContentRenderer :value="page" class="prose-fulcron max-w-reading [&_img]:rounded-card [&_img]:shadow-card" />
 
         <p v-if="updated" class="mt-10 text-sm text-muted">Ultima modifica: {{ updated }}</p>
 
         <nav
           v-if="surround?.[0] || surround?.[1]"
-          class="mt-8 grid max-w-[72ch] gap-3 border-t border-line pt-6 sm:grid-cols-2"
+          class="mt-8 grid max-w-reading gap-3 border-t border-line pt-6 sm:grid-cols-2"
           aria-label="Pagine vicine"
         >
           <NuxtLink

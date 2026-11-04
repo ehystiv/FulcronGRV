@@ -31,17 +31,32 @@ watch(
   () => (open.value = false),
 )
 
+// The page behind the phone menu stays still; on desktop the class has no effect
+const LOCK = 'max-lg:overflow-hidden'
+watch(open, (isOpen) => document.documentElement.classList.toggle(LOCK, isOpen))
+onBeforeUnmount(() => document.documentElement.classList.remove(LOCK))
+
 const isActive = (link: { to: string; match?: string }) =>
   link.to === '/' ? route.path === '/' : route.path.startsWith(link.match ?? link.to)
 
 // Desktop links: a gold underline grows from the left on hover and stays on the current section
 const linkClass =
-  'relative rounded-full px-3.5 py-2 text-[0.92rem] font-medium tracking-wide text-on-dark no-underline transition-colors hover:text-gold-soft after:absolute after:inset-x-3.5 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100'
+  'relative rounded-full px-3.5 py-2 text-[0.92rem] font-medium tracking-wide no-underline transition-colors hover:text-gold-soft after:absolute after:inset-x-3.5 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100'
 const ctaClass =
   'rounded-full border border-gold px-4 py-2 text-[0.88rem] font-semibold tracking-wide whitespace-nowrap text-gold-soft no-underline transition-colors hover:bg-gold hover:text-ink-deep'
 </script>
 
 <template>
+  <!-- Outside the header: its backdrop blur would trap a fixed element inside it -->
+  <Transition
+    enter-active-class="transition duration-300"
+    leave-active-class="transition duration-200"
+    enter-from-class="opacity-0"
+    leave-to-class="opacity-0"
+  >
+    <div v-show="open" class="fixed inset-0 z-45 bg-ink-deep/60 lg:hidden" aria-hidden="true" @click="open = false" />
+  </Transition>
+
   <header
     class="on-dark fixed inset-x-0 top-0 z-50 border-b text-on-dark transition-colors duration-300"
     :class="transparent ? 'border-transparent bg-transparent' : 'border-gold-soft/20 bg-ink-deep/92 backdrop-blur-md'"
@@ -61,7 +76,7 @@ const ctaClass =
           v-for="link in NAV_LINKS"
           :key="link.to"
           :to="link.to"
-          :class="[linkClass, isActive(link) && 'text-gold-soft after:scale-x-100']"
+          :class="[linkClass, isActive(link) ? 'text-gold-soft after:scale-x-100' : 'text-on-dark']"
           :aria-current="isActive(link) ? 'page' : undefined"
         >
           {{ link.label }}
@@ -109,15 +124,15 @@ const ctaClass =
       <nav
         v-show="open"
         id="mobile-nav"
-        class="container-site flex flex-col border-t border-gold-soft/20 bg-ink-deep pt-2 pb-5 lg:hidden"
+        class="container-site flex max-h-[calc(100dvh-var(--spacing-header))] flex-col overflow-y-auto border-t border-gold-soft/20 bg-ink-deep pt-2 pb-5 lg:hidden"
         aria-label="Menu principale"
       >
         <NuxtLink
           v-for="(link, i) in NAV_LINKS"
           :key="link.to"
           :to="link.to"
-          class="animate-menu-item border-b border-white/5 px-1 py-3.5 text-[1.05rem] text-on-dark no-underline"
-          :class="isActive(link) && 'text-gold-soft'"
+          class="animate-menu-item border-b border-white/5 px-1 py-3.5 text-[1.05rem] no-underline"
+          :class="isActive(link) ? 'font-semibold text-gold-soft' : 'text-on-dark'"
           :style="{ animationDelay: `${60 + i * 45}ms` }"
           :aria-current="isActive(link) ? 'page' : undefined"
         >

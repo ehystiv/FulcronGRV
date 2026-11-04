@@ -58,6 +58,8 @@
   --spacing-header: 4rem;
   --spacing-tabs: 3.625rem;
   --container-site: 74rem;
+  /* Long text, about 75 characters per line. Not in ch: Montserrat's wide zero makes 72ch run past 90 characters */
+  --container-reading: 36rem;
   --radius-card: 0.875rem;
   --shadow-card: 0 1px 2px rgb(0 26 38 / 0.06), 0 8px 24px -12px rgb(0 26 38 / 0.25);
   --shadow-card-lg: 0 2px 4px rgb(0 26 38 / 0.08), 0 20px 40px -16px rgb(0 26 38 / 0.35);
@@ -70,13 +72,6 @@
       transform: translateY(-6px);
     }
   }
-
-  --animate-turn: turn 90s linear infinite;
-  @keyframes turn {
-    to {
-      transform: rotate(360deg);
-    }
-  }
 }
 
 /* ---------- Base ---------- */
@@ -84,13 +79,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--spacing-header) + var(--spacing-tabs) + 1rem);
+    scroll-padding-top: calc(var(--spacing-header) + 1rem);
     -webkit-text-size-adjust: 100%;
+    /* full-bleed sections use 100vw, which includes a classic scrollbar */
+    overflow-x: clip;
+
+    /* Room for the section tabs where they stay pinned (always in Palazzo, from sm up in the campaign) */
+    &:has(.sticky.top-header) {
+      scroll-padding-top: calc(var(--spacing-header) + var(--spacing-tabs) + 1rem);
+    }
+    @media (width >= 40rem) {
+      scroll-padding-top: calc(var(--spacing-header) + var(--spacing-tabs) + 1rem);
+    }
   }
 
   body {
     @apply bg-parchment font-sans text-[1.0625rem] leading-[1.7] text-body antialiased;
-    /* full-bleed sections use 100vw, which includes the scrollbar */
     overflow-x: clip;
     /* Subtle parchment grain */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .27 0 0 0 0 .1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
@@ -196,7 +200,7 @@
   --tw-prose-links: var(--color-teal);
   --tw-prose-bold: var(--color-ink);
   --tw-prose-bullets: var(--color-gold);
-  --tw-prose-counters: var(--color-gold);
+  --tw-prose-counters: var(--color-gold-ink);
   --tw-prose-quotes: var(--color-ink);
   --tw-prose-quote-borders: var(--color-gold);
   --tw-prose-hr: var(--color-line);
@@ -239,7 +243,8 @@
   opacity: 0;
 }
 
-/* Scroll reveal (v-reveal directive). Hidden only when JS is running. */
+/* Scroll reveal (v-reveal directive). `.js` is added only once the app has mounted
+   (plugins/reveal.ts), so content can never stay hidden if the bundle is late or fails. */
 .js [data-reveal] {
   opacity: 0;
   transform: translateY(18px);

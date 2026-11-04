@@ -7,8 +7,20 @@ const page = await usePage('palazzo-destini')
   <PalazzoShell :stars="false">
     <PalazzoVideoBackground />
 
-    <!-- First screen: only the trailer -->
-    <section class="flex h-[calc(100svh-var(--spacing-header)-var(--spacing-tabs))] items-end justify-center pb-20">
+    <!-- First screen: the trailer, with just enough to say what this page is -->
+    <section
+      class="flex h-[calc(100svh-var(--spacing-header)-var(--spacing-tabs))] flex-col items-center justify-end gap-5 px-4 pb-14 text-center"
+    >
+      <div>
+        <h1
+          class="font-cardinal text-[clamp(2rem,5.5vw,3.4rem)] leading-tight font-normal tracking-normal text-white [text-shadow:0_2px_12px_rgb(0_0_0/0.9)]"
+        >
+          {{ page.title }}
+        </h1>
+        <p class="mt-2 text-sm font-semibold text-white/85 [text-shadow:0_1px_8px_rgb(0_0_0/0.9)]">
+          Evento concluso · pagina d’archivio
+        </p>
+      </div>
       <a
         href="#palazzo"
         class="flex flex-col items-center gap-1 text-sm font-semibold tracking-[0.2em] text-white uppercase no-underline [text-shadow:0_2px_10px_rgb(0_0_0/0.9)] hover:text-gold-soft"
@@ -27,16 +39,8 @@ const page = await usePage('palazzo-destini')
           sizes="sm:80vw md:480px"
           class="w-[min(80vw,480px)] invert"
         />
-        <h1
-          class="mt-6 font-cardinal text-[clamp(2.6rem,7vw,4.6rem)] leading-tight font-normal tracking-normal text-white [text-shadow:0_2px_16px_rgb(0_0_0/0.8)]"
-        >
-          {{ page.title }}
-        </h1>
-        <p class="mt-2 font-display text-[clamp(1.4rem,3vw,2rem)] text-white">{{ page.date }}</p>
+        <p class="mt-6 font-display text-[clamp(1.4rem,3vw,2rem)] text-white">{{ page.date }}</p>
         <p class="font-display text-[clamp(1.2rem,2.6vw,1.7rem)] text-white/90">{{ page.place }}</p>
-        <p class="mt-5 rounded-full border border-white/25 px-4 py-1.5 text-sm font-semibold text-white/85">
-          Evento concluso · pagina d’archivio
-        </p>
       </div>
 
       <ContentRenderer :value="page" />

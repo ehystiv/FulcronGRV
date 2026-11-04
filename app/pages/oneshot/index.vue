@@ -13,8 +13,8 @@ const { data: oneshots } = await useAsyncData('oneshot', () => queryCollection('
 const featured = computed(() => oneshots.value.find((o) => o.page))
 const others = computed(() => oneshots.value.filter((o) => o !== featured.value))
 
-const when = (o: { date: string | Date; place?: string }) =>
-  [new Intl.DateTimeFormat('it-IT', { month: 'long', year: 'numeric' }).format(new Date(o.date)), o.place]
+const when = (o: { date?: string | Date; place?: string }) =>
+  [o.date && new Intl.DateTimeFormat('it-IT', { month: 'long', year: 'numeric' }).format(new Date(o.date)), o.place]
     .filter(Boolean)
     .join(' · ')
 </script>
@@ -24,7 +24,7 @@ const when = (o: { date: string | Date; place?: string }) =>
     <PageHero
       eyebrow="Avventure singole"
       title="Oneshot"
-      lead="Storie che iniziano e finiscono nello stesso evento, ognuna con il suo mondo e le sue regole."
+      lead="Storie che iniziano e finiscono nello stesso evento, spesso con un mondo e regole tutti loro."
     />
 
     <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
@@ -58,12 +58,11 @@ const when = (o: { date: string | Date; place?: string }) =>
           v-reveal="(i % 3) * 100"
           :image="oneshot.image"
           :image-alt="`Locandina di ${oneshot.title}`"
+          :hover="false"
+          media-class="aspect-4/5"
         >
           <h2 class="mb-1 font-heading text-[1.45rem] tracking-normal">{{ oneshot.title }}</h2>
-          <p class="mb-3 text-sm text-muted">
-            <time :datetime="String(oneshot.date)">{{ formatDate(oneshot.date) }}</time>
-            <template v-if="oneshot.place"> · {{ oneshot.place }}</template>
-          </p>
+          <p class="mb-3 text-sm text-muted">{{ ['Evento concluso', when(oneshot)].filter(Boolean).join(' · ') }}</p>
           <TagList :tags="oneshot.tags" />
           <ContentRenderer :value="oneshot" class="prose-fulcron prose-base" />
           <div v-if="oneshot.page || oneshot.photos?.startsWith('http')" class="mt-auto flex flex-wrap gap-2 pt-4">

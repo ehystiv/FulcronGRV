@@ -3,7 +3,7 @@ defineProps<{ items: { q: string; a: string }[] }>()
 </script>
 
 <template>
-  <div class="not-prose mt-8 grid gap-3">
+  <div class="not-prose mx-auto mt-6 grid max-w-3xl gap-3">
     <details
       v-for="item in items"
       :key="item.q"
@@ -19,7 +19,7 @@ defineProps<{ items: { q: string; a: string }[] }>()
           aria-hidden="true"
         />
       </summary>
-      <p class="px-5 pb-4">{{ item.a }}</p>
+      <p class="max-w-[39rem] px-5 pb-4">{{ item.a }}</p>
     </details>
   </div>
 </template>

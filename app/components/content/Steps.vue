@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ items: { title: string; text: string; to?: string; cta?: string }[] }>()
+defineProps<{ items: { title: string; text: string; to?: string; cta?: string; instagram?: boolean }[] }>()
 </script>
 
 <template>
@@ -18,9 +18,16 @@ defineProps<{ items: { title: string; text: string; to?: string; cta?: string }[
       </span>
       <h3 class="mb-1.5 text-xl">{{ step.title }}</h3>
       <p class="text-[0.98rem] text-muted">{{ step.text }}</p>
-      <NuxtLink v-if="step.to" :to="step.to" class="mt-3 inline-flex items-center gap-1.5 text-[0.92rem] font-semibold">
+      <NuxtLink
+        v-if="step.to"
+        :to="step.to"
+        class="mt-2 inline-flex min-h-11 items-center gap-1.5 text-[0.92rem] font-semibold"
+      >
         {{ step.cta }} <AppIcon name="arrow-right" :size="16" />
       </NuxtLink>
+      <UiButton v-else-if="step.instagram" :href="INSTAGRAM.href" variant="gold" icon="instagram" class="mt-3">
+        {{ step.cta }}
+      </UiButton>
     </li>
   </ol>
 </template>

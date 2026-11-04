@@ -55,11 +55,6 @@ export default defineNuxtConfig({
         { rel: 'mask-icon', href: '/favicon/safari-pinned-tab.svg', color: '#002d40' },
         { rel: 'manifest', href: '/favicon/site.webmanifest' },
       ],
-      script: [
-        // Scroll-reveal animations are enabled only when JavaScript runs,
-        // so content is never hidden without JS or for crawlers.
-        { innerHTML: "document.documentElement.classList.add('js')", tagPosition: 'head' },
-      ],
     },
   },
 
@@ -77,7 +72,8 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/sitemap.xml'],
+      // Bacheca has no links while it is empty, so the crawler would not find it
+      routes: ['/', '/sitemap.xml', '/sinfonia/bacheca'],
     },
   },
 

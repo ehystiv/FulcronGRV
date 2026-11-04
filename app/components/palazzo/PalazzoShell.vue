@@ -5,7 +5,7 @@ withDefaults(defineProps<{ stars?: boolean }>(), { stars: true })
 const links = [
   { to: '/oneshot/palazzo-destini', label: 'Il Palazzo' },
   { to: '/oneshot/palazzo-destini/pgos', label: 'I PGOS' },
-  { to: '/oneshot/palazzo-destini/iscrizioni', label: 'Iscrizioni' },
+  { to: '/oneshot/palazzo-destini/iscrizioni', label: 'Iscrizioni 2022' },
 ]
 </script>
 
@@ -22,7 +22,7 @@ const links = [
         <li v-for="link in links" :key="link.to" class="flex">
           <NuxtLink
             :to="link.to"
-            class="relative flex flex-1 items-center justify-center font-cardinal text-[clamp(1.25rem,3.6vw,1.6rem)] leading-none text-white/75 no-underline transition-colors after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-gold-soft after:transition-transform after:duration-300 hover:text-white hover:after:scale-x-50"
+            class="relative flex flex-1 items-center justify-center font-display text-[clamp(0.95rem,2.6vw,1.1rem)] leading-none text-white/75 no-underline transition-colors after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-gold-soft after:transition-transform after:duration-300 hover:text-white hover:after:scale-x-50"
             exact-active-class="!text-gold-soft after:!scale-x-100"
           >
             {{ link.label }}

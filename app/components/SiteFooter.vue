@@ -2,10 +2,15 @@
 // Computed at build time and reused on the client: no hydration mismatch
 const year = useState('footer-year', () => new Date().getFullYear())
 
-const columns = [
+const hasNews = useHasNews()
+const columns = computed(() => [
   {
     title: 'Esplora',
-    links: [...NAV_LINKS, { to: '/inizia-a-giocare', label: 'Inizia a giocare' }],
+    links: [
+      { to: '/chi-siamo', label: 'Chi siamo' },
+      { to: '/oneshot', label: 'Oneshot' },
+      { to: '/inizia-a-giocare', label: 'Inizia a giocare' },
+    ],
   },
   {
     title: 'La campagna',
@@ -13,13 +18,14 @@ const columns = [
       { to: '/sinfonia', label: 'La Sinfonia dei Sette' },
       { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
       { to: '/sinfonia/regolamento', label: 'Regolamento e manuali' },
-      { to: '/sinfonia/bacheca', label: 'Bacheca' },
+      ...(hasNews.value ? [{ to: '/sinfonia/bacheca', label: 'Bacheca' }] : []),
       { to: '/wiki', label: 'Wiki di Fulcron' },
     ],
   },
-]
+])
 
-const linkClass = 'text-on-dark-muted no-underline hover:text-gold-soft'
+// Comfortable tap height on touch layouts, compact on desktop
+const linkClass = 'inline-flex items-center text-on-dark-muted no-underline hover:text-gold-soft max-lg:min-h-11'
 
 // Legal line, split into pieces that never break in the middle (e.g. "C.F. 91407660371")
 const legal = [
@@ -56,7 +62,7 @@ const legal = [
 
       <nav v-for="col in columns" :key="col.title" :aria-label="col.title">
         <h2 class="mb-4 font-display text-base tracking-[0.12em] text-gold-soft">{{ col.title }}</h2>
-        <ul class="space-y-1.5">
+        <ul class="lg:space-y-1.5">
           <li v-for="link in col.links" :key="link.label">
             <NuxtLink :to="link.to" :class="linkClass">{{ link.label }}</NuxtLink>
           </li>

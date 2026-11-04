@@ -8,7 +8,12 @@ const { data: posts } = await useAsyncData('bacheca', () => queryCollection('bac
 
 <template>
   <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
-    <UiSectionTitle title="Bacheca" lead="Le notizie dall’Anello, così come arrivano." as="h1" class="mb-10" />
+    <UiSectionTitle
+      title="Bacheca"
+      :lead="posts.length ? 'Le notizie dall’Anello, così come arrivano.' : undefined"
+      as="h1"
+      class="mb-10"
+    />
 
     <EmptyState v-if="!posts.length">
       Non ci sono ancora notizie in bacheca. Le novità e il prossimo evento li annunciamo su

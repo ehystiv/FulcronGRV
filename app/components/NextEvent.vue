@@ -1,10 +1,19 @@
 <script setup lang="ts">
 // "Prossimo evento" box, from content/pagine/prossimo-evento.md.
-// Without a date it says that nothing is scheduled and points to Instagram.
+// Without a date, or once `until` has passed, it says the next one is being prepared and points to Instagram.
 const { data: event } = await useAsyncData('prossimo-evento', () =>
   queryCollection('pagine').path('/pagine/prossimo-evento').first(),
 )
-const scheduled = computed(() => !!event.value?.date)
+
+// The site is static: checked at build time and again in the browser, so an old build cannot keep a past event up
+const isOver = () => {
+  const until = event.value?.until
+  return !!until && new Date(`${until}T23:59:59`).getTime() < Date.now()
+}
+const over = useState('prossimo-evento-over', isOver)
+onMounted(() => (over.value = isOver()))
+
+const scheduled = computed(() => !!event.value?.date && !over.value)
 </script>
 
 <template>
@@ -27,11 +36,14 @@ const scheduled = computed(() => !!event.value?.date)
 
     <template v-else>
       <h2 class="m-0 text-[clamp(1.5rem,3vw,2rem)]">Prossimo evento</h2>
-      <p class="m-0 max-w-[52ch] text-muted">
-        Per ora non c’è nessun evento in calendario. Date e iscrizioni le annunciamo su Instagram: seguici per non
-        perdere il prossimo, e scrivici lì se hai domande.
+      <p class="m-0 max-w-[46ch] text-muted">
+        Siamo fermi da un po’, ma il prossimo evento è in preparazione. Date e iscrizioni le annunciamo su Instagram:
+        seguici per non perderlo, e scrivici lì se hai domande.
       </p>
-      <UiButton :href="INSTAGRAM.href" variant="gold" icon="instagram">Seguici su Instagram</UiButton>
+      <UiButton :href="INSTAGRAM.href" variant="outline" icon="instagram">Seguici su Instagram</UiButton>
+      <NuxtLink to="/oneshot" class="inline-flex min-h-11 items-center gap-1.5 text-[0.92rem] font-semibold">
+        Intanto, guarda le nostre oneshot <AppIcon name="arrow-right" :size="16" />
+      </NuxtLink>
     </template>
   </div>
 </template>

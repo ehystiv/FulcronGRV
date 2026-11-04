@@ -19,13 +19,13 @@ const isOpen = (item: WikiNavItem) =>
 <template>
   <ul :class="level ? 'ml-3 border-l border-line pl-2' : ''">
     <li v-for="item in items" :key="item.path">
-      <span v-if="item.page === false" class="block px-2.5 py-1.5 text-[0.92rem] font-semibold text-ink">
+      <span v-if="item.page === false" class="block px-2.5 py-1.5 text-[0.92rem] font-semibold text-ink max-lg:py-3">
         {{ item.title }}
       </span>
       <NuxtLink
         v-else
         :to="item.path"
-        class="block rounded-md px-2.5 py-1.5 text-[0.92rem] leading-snug text-muted no-underline hover:bg-surface-2 hover:text-ink"
+        class="block rounded-md px-2.5 py-1.5 text-[0.92rem] leading-snug text-muted no-underline hover:bg-surface-2 hover:text-ink max-lg:py-3"
         exact-active-class="!bg-ink !text-on-dark"
       >
         {{ item.title }}

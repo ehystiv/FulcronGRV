@@ -19,7 +19,7 @@ const variants = {
   ghost: 'border-on-dark/55 bg-white/5 text-on-dark backdrop-blur-sm hover:bg-on-dark hover:text-ink-deep',
 }
 const sizes = {
-  sm: 'min-h-9.5 px-4 py-2 text-[0.85rem]',
+  sm: 'min-h-9.5 px-4 py-2 text-[0.85rem] max-lg:min-h-11',
   md: 'min-h-11 px-[1.4rem] py-2.5 text-[0.92rem]',
 }
 

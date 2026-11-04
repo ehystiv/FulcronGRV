@@ -17,6 +17,8 @@ export default defineContentConfig({
         place: z.string().optional(),
         // Prossimo evento: approximate cost and sign-up link
         cost: z.string().optional(),
+        // Prossimo evento: last day (YYYY-MM-DD), after which the box goes back to its generic text
+        until: z.string().optional(),
         link: z.string().optional(),
         cards: z.array(z.string()).optional(),
       }),
@@ -49,7 +51,8 @@ export default defineContentConfig({
       type: 'page',
       source: 'oneshot/*.md',
       schema: z.object({
-        date: z.date(),
+        // Optional: for the oldest events the exact date may not be known
+        date: z.date().optional(),
         image: z.string(),
         tags: z.array(z.string()).default([]),
         // Optional link to the photos of the event (e.g. an external album)

@@ -17,8 +17,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     return observer
   }
 
+  // Enabled here and not in an inline script: until the app is alive, nothing is hidden.
+  // Not on app:mounted: pages with async setup hydrate after it, and their visible content would dip
+  nuxtApp.hooks.hookOnce('app:suspense:resolve', () => document.documentElement.classList.add('js'))
+
   nuxtApp.vueApp.directive<HTMLElement, number | undefined>('reveal', {
-    // Rendered on the server too, so the element is hidden before hydration (no flash)
+    // Rendered on the server too, but it only hides anything once `.js` is set below
     getSSRProps: (binding) => ({
       'data-reveal': '',
       style: binding.value ? `--reveal-delay:${binding.value}ms` : undefined,
@@ -26,7 +30,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     mounted(el, binding) {
       el.dataset.reveal = ''
       if (binding.value) el.style.setProperty('--reveal-delay', `${binding.value}ms`)
-      if (typeof IntersectionObserver === 'undefined') {
+      // What the visitor can already see (or has scrolled past) before hydration ends must not vanish
+      const alreadySeen = nuxtApp.isHydrating && el.getBoundingClientRect().top < window.innerHeight
+      if (alreadySeen || typeof IntersectionObserver === 'undefined') {
         el.classList.add('is-visible')
         return
       }

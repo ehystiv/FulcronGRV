@@ -4,6 +4,21 @@ description: Le regole base del gioco di ruolo dal vivo FulcronGRV. Correttezza,
 lead: Regole basilari per ogni tipo di LARP (gioco di ruolo dal vivo).
 ---
 
+## Le regole in dieci punti
+
+1. Giochiamo per divertirci: la tua libertà non deve limitare quella degli altri.
+2. La sicurezza viene prima di tutto: chi gioca in modo pericoloso viene allontanato dall’evento.
+3. Niente atteggiamenti offensivi o aggressivi fuori dal gioco.
+4. Non barare: qui non si vince, e barare è una mancanza di rispetto verso gli altri.
+5. Distingui In Gioco e Fuori Gioco: quello che sai tu, il tuo personaggio non lo sa.
+6. Resta nel personaggio il più possibile.
+7. Non sollevare questioni di regolamento mentre si gioca.
+8. Ad ogni azione, una reazione: se ti succede qualcosa, fallo vedere.
+9. Si combatte con armi in lattice e poche chiamate a voce, spiegate nei manuali.
+10. Se una scena è troppo intensa, di’ “Vacci piano”: chi gioca con te deve abbassare subito l’intensità.
+
+Il resto lo ripassiamo al Workshop prima di ogni evento. Il seguito di questa pagina è per chi vuole i dettagli.
+
 ## Correttezza e rispetto verso gli altri
 
 Giochiamo per divertirci, ma la libertà di un Giocatore non deve limitare quella degli altri.
@@ -49,6 +64,7 @@ Nella dinamica di un gioco di ruolo dal vivo, il Personaggio e il Giocatore non 
 > “Ho visto combattere quell’Orco, non è robusto come si dice e le sue armi paiono di pessima fattura: è nostro!”
 
 > “Abbiamo bisogno di una spada sacra.”
+
 ::
 
 ## PG, PNG e PGOS: tre modi di giocare
@@ -81,3 +97,5 @@ items:
   - { href: /documents/guida-magia.pdf, title: Guida alla magia, size: "2,7 MB" }
 ---
 ::
+
+:button-link[Torna a Inizia a giocare]{to="/inizia-a-giocare"}
