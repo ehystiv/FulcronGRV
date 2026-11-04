@@ -17,7 +17,7 @@ lead: Regole basilari per ogni tipo di LARP (gioco di ruolo dal vivo).
 9. Si combatte con armi in lattice e poche chiamate a voce, spiegate nei manuali.
 10. Se una scena è troppo intensa, di’ “Vacci piano”: chi gioca con te deve abbassare subito l’intensità.
 
-Il resto lo ripassiamo al Workshop prima di ogni evento. Il seguito di questa pagina è per chi vuole i dettagli.
+Il resto lo ripassiamo al Workshop prima di ogni evento. Sotto trovi i dettagli.
 
 ## Correttezza e rispetto verso gli altri
 

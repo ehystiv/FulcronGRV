@@ -2,7 +2,7 @@
 title: Inizia a giocare
 description: Non hai mai fatto un gioco di ruolo dal vivo? Come funziona, come si crea un personaggio, come si combatte e come partecipare a un evento FulcronGRV.
 eyebrow: Nuovi giocatori
-lead: Non hai mai fatto un gioco di ruolo dal vivo (LARP)? Ti serve meno di quanto pensi. Qui sotto trovi com’è una giornata di gioco, da dove partire e le domande che ci fanno più spesso.
+lead: Non hai mai fatto un gioco di ruolo dal vivo (LARP)? Ti serve meno di quanto pensi.
 ---
 
 ## Cos’è un gioco di ruolo dal vivo
@@ -11,21 +11,15 @@ lead: Non hai mai fatto un gioco di ruolo dal vivo (LARP)? Ti serve meno di quan
 
 ## Com’è una giornata di gioco
 
-Ogni evento ha la sua storia, ma il ritmo è più o meno questo. L’esempio viene da Il Palazzo dei Destini Incrociati, una nostra oneshot del 2022.
+Ogni evento ha la sua storia, ma il ritmo è più o meno questo. Prendiamo Il Palazzo dei Destini Incrociati, una nostra oneshot del 2022.
 
-- **Ritrovo e preparazione.** Ci si trova in mattinata, si passa dalla segreteria e ci si prepara con trucco e costume.
-- **Workshop.** Ripassiamo tutto quello che serve per giocare, per chi è nuovo e per chi gioca da anni.
-- **Pranzo.** Si mangia insieme, ancora fuori gioco.
-- **Time In.** Da qui in poi sei il tuo personaggio. Possono esserci battaglie, intrighi, trattative e preghiere.
-- **Cena in gioco.** Anche a tavola si resta nel personaggio.
-- **Time Off.** Il gioco finisce e si torna sé stessi. Quella volta era previsto alle tre di notte.
+Ci si trova in mattinata, si passa dalla segreteria e ci si prepara con trucco e costume. Poi c’è il Workshop, dove ripassiamo tutto quello che serve per giocare, per chi è nuovo e per chi gioca da anni. Si pranza insieme, ancora fuori gioco.
+
+Con il Time In diventi il tuo personaggio, e lo resti anche a cena. Possono esserci battaglie, intrighi, trattative e preghiere. Il gioco finisce con il Time Off, che quella volta era previsto alle tre di notte.
 
 ## Oneshot o campagna?
 
-Per cominciare vanno bene entrambe. Quando annunciamo un evento, scriviamo sempre di che tipo è.
-
-- **Oneshot.** La storia inizia e finisce in un solo evento: è un’esperienza completa, che non richiede di tornare.
-- **Campagna.** La Sinfonia dei Sette è una storia che continua di evento in evento. Puoi tornare con lo stesso personaggio e vederlo crescere, come in una serie TV.
+Per cominciare vanno bene entrambe. Una oneshot inizia e finisce in un solo evento, quindi non devi tornare. La Sinfonia dei Sette, la nostra campagna, continua di evento in evento: puoi tornare con lo stesso personaggio e vederlo crescere, come in una serie TV. Negli annunci scriviamo sempre di che tipo di evento si tratta.
 
 ## Da dove partire
 
@@ -63,13 +57,13 @@ items:
 items:
 
 - q: Posso venire da solo o da sola?
-  a: "Sì. Non serve conoscere nessuno né arrivare in gruppo."
+  a: "Sì, non devi conoscere nessuno né arrivare in gruppo."
 - q: C’è un’età minima?
   a: "Sì: per partecipare servono almeno 16 anni."
 - q: Devo iscrivermi all’associazione?
   a: "Sì, per giocare bisogna essere soci. Scrivici su Instagram e ti spieghiamo come fare."
 - q: Serve esperienza?
-  a: "No. Non serve essere attori né avere esperienza: prima di ogni evento c’è il Workshop, in cui ripassiamo tutto quello che serve per giocare. Chi gioca da anni ha comunque modo di far crescere il proprio personaggio."
+  a: "No, e non serve neanche saper recitare. Prima di ogni evento c’è il Workshop, dove ripassiamo tutto quello che serve per giocare. Chi gioca da anni ha comunque modo di far crescere il proprio personaggio."
 - q: "Ho intolleranze o esigenze particolari: come faccio?"
   a: "Avvisaci prima dell’evento scrivendoci su Instagram."
 
@@ -89,11 +83,11 @@ items:
 - q: Si dorme sul posto?
   a: "Dipende dall’evento: lo scriviamo nell’annuncio."
 - q: Quanto costa?
-  a: "La quota cambia a ogni evento e la trovi nell’annuncio. Per darti un’idea, a Il Palazzo dei Destini Incrociati, nel 2022, erano 45 €: 10 € di caparra più 35 € che comprendevano tutti i pasti della giornata di gioco."
+  a: "La quota cambia a ogni evento e la trovi nell’annuncio. Per darti un’idea, per Il Palazzo dei Destini Incrociati, nel 2022, erano 45 €: 10 € di caparra più 35 € che comprendevano tutti i pasti della giornata di gioco."
 - q: Cosa devo portare?
   a: "L’elenco preciso lo trovi nell’annuncio, perché dipende dall’evento e dal personaggio. Di solito per cominciare bastano il costume, scarpe comode adatte al terreno, qualcosa da mettere sopra se fa freddo, una borraccia d’acqua e qualche cerotto. Se si dorme sul posto, aggiungi sacco a pelo e l’occorrente per la notte."
 - q: Mi serve un costume? E un’arma?
-  a: "Il costume sì, ma al primo evento non deve essere perfetto. Di solito basta una base semplice: camicia o tunica, pantaloni o gonna e una cintura, in colori naturali o scuri, senza scritte, loghi o capi chiaramente moderni. L’arma non è il primo acquisto da fare: qui si usano solo armi in lattice, quindi niente armi vere, e prima di comprarne una conviene chiederci cosa serve al tuo personaggio."
+  a: "Il costume sì, ma al primo evento non deve essere perfetto. Di solito basta una base semplice: camicia o tunica, pantaloni o gonna e una cintura, in colori naturali o scuri, senza scritte, loghi o capi chiaramente moderni. L’arma non è il primo acquisto da fare: qui si usano solo armi in lattice, mai armi vere. Prima di comprarne una, chiedici cosa serve al tuo personaggio."
 
 ---
 

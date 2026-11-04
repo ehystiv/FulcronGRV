@@ -24,7 +24,7 @@ const when = (o: { date?: string | Date; place?: string }) =>
     <PageHero
       eyebrow="Avventure singole"
       title="Oneshot"
-      lead="Storie che iniziano e finiscono nello stesso evento, spesso con un mondo e regole tutti loro."
+      lead="Storie che iniziano e finiscono nello stesso evento, spesso in un mondo tutto loro e con regole proprie."
     />
 
     <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
