@@ -34,6 +34,9 @@ const page = await usePage('palazzo-destini')
         </h1>
         <p class="mt-2 font-display text-[clamp(1.4rem,3vw,2rem)] text-white">{{ page.date }}</p>
         <p class="font-display text-[clamp(1.2rem,2.6vw,1.7rem)] text-white/90">{{ page.place }}</p>
+        <p class="mt-5 rounded-full border border-white/25 px-4 py-1.5 text-sm font-semibold text-white/85">
+          Evento concluso · pagina d’archivio
+        </p>
       </div>
 
       <ContentRenderer :value="page" />

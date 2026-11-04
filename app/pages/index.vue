@@ -3,7 +3,7 @@ useSeoMeta({ title: 'FulcronGRV', ogTitle: 'FulcronGRV · Gioco di ruolo dal viv
 
 const features = [
   {
-    to: '/sinfonia/ambientazione',
+    to: '/sinfonia',
     eyebrow: 'La campagna',
     title: 'La Sinfonia dei Sette',
     text: 'Fulcron, l’Anello: un mondo inventato da noi, con i suoi regni, i suoi dei e la sua storia. Quello che fanno i personaggi cambia davvero come vanno le cose.',
@@ -13,7 +13,7 @@ const features = [
     to: '/oneshot',
     eyebrow: 'Avventure singole',
     title: 'Oneshot',
-    text: 'Storie che cominciano e finiscono nello stesso evento, ognuna con un’ambientazione tutta sua. Tear Asunder, Sunless Dawn, La Teoria del Nulla…',
+    text: 'Storie che cominciano e finiscono nello stesso evento, ognuna con un’ambientazione tutta sua.',
     image: '/oneshots/TearAsunder.jpg',
   },
   {

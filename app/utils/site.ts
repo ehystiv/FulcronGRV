@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/chi-siamo', label: 'Chi siamo' },
-  { to: '/sinfonia/ambientazione', label: 'La Sinfonia dei Sette', match: '/sinfonia' },
+  { to: '/sinfonia', label: 'La Sinfonia dei Sette' },
   { to: '/oneshot', label: 'Oneshot' },
   { to: '/wiki', label: 'Wiki' },
 ]

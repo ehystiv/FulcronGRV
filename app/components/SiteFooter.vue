@@ -10,6 +10,7 @@ const columns = [
   {
     title: 'La campagna',
     links: [
+      { to: '/sinfonia', label: 'La Sinfonia dei Sette' },
       { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
       { to: '/sinfonia/regolamento', label: 'Regolamento e manuali' },
       { to: '/sinfonia/bacheca', label: 'Bacheca' },

@@ -70,7 +70,6 @@ export default defineNuxtConfig({
   // Old URLs from the previous versions of the site (static redirect pages)
   routeRules: {
     '/who': { redirect: '/chi-siamo' },
-    '/sinfonia': { redirect: '/sinfonia/ambientazione' },
   },
 
   // Fully static site: `npm run generate` writes everything to .output/public
