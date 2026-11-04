@@ -1,0 +1,694 @@
+/* La Teoria del Nulla (oneshot page only): black, cold marble and the labels of the poster */
+@import '@fontsource/share-tech-mono/400.css';
+@import '@fontsource/spectral/400.css';
+@import '@fontsource/spectral/400-italic.css';
+
+.teoria {
+  --td-black: #08090c;
+  --td-black-soft: #c9ccd2;
+  --td-white: #eeeeec;
+  --td-ink: #101114;
+  --td-ink-soft: #3d4046;
+  --td-blue: #8fc1dc;
+  --td-red: #a81c22;
+  --td-grey: #8d8e90;
+  --td-gutter: max(clamp(1.25rem, 6vw, 5rem), calc((100vw - 72rem) / 2));
+  --td-rule: currentColor;
+
+  background: var(--td-black);
+  color: var(--td-white);
+  font-family: 'Spectral', Georgia, serif;
+  font-size: clamp(1.1rem, 1.05rem + 0.2vw, 1.22rem);
+  line-height: 1.65;
+  font-synthesis: none;
+  overflow-wrap: break-word;
+}
+
+.teoria ::selection {
+  background: var(--td-red);
+  color: #fff;
+}
+
+.teoria :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.teoria h1,
+.teoria h2,
+.teoria h3,
+.teoria h4 {
+  margin: 0;
+  color: inherit;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.teoria :is(p, li) a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.teoria a:hover {
+  text-decoration-color: var(--td-red);
+}
+
+/* Headings in the Markdown carry an anchor link: it is not a link to read */
+.teoria h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Anchors land right under the header and the section index */
+html:has(.teoria) {
+  scroll-padding-top: calc(var(--spacing-header) + 3.375rem);
+}
+
+/* ---------- First screen ---------- */
+
+.teoria-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: calc(100svh - var(--spacing-header));
+  grid-template-rows: auto auto 1fr auto;
+  justify-items: end;
+  overflow: hidden;
+  padding-top: clamp(2.5rem, 9vh, 6rem);
+}
+
+.teoria-hero__photo {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%;
+  inset: 0;
+}
+
+.teoria-hero::after {
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(to top, var(--td-black) 2%, rgb(8 9 12 / 0.55) 24%, transparent 52%);
+  content: '';
+  inset: 0;
+}
+
+/* The two black labels of the poster, flush with the edge of the screen */
+.teoria-hero h1 {
+  padding: 0.5em clamp(1.25rem, 5vw, 3.5rem) 0.5em 0.9em;
+  background: var(--td-black);
+  font-size: clamp(1.35rem, 5.2vw, 4rem);
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  text-wrap: nowrap;
+}
+
+.teoria-hero__date {
+  margin: clamp(0.9rem, 2vw, 1.5rem) 0 0;
+  padding: 0.5em clamp(1.25rem, 5vw, 3.5rem) 0.5em 1em;
+  background: var(--td-black);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: clamp(1rem, 2.6vw, 1.9rem);
+  letter-spacing: 0.18em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.teoria-hero__eye {
+  align-self: end;
+  width: clamp(7.5rem, 17vw, 13.5rem);
+  height: auto;
+  margin-right: clamp(1.25rem, 5vw, 3.5rem);
+  color: #c9ccd2;
+}
+
+.teoria-pupil {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teoria-hero__foot {
+  justify-self: start;
+  padding: clamp(1rem, 3vw, 2rem) var(--td-gutter) clamp(1.75rem, 5vh, 3.5rem);
+}
+
+.teoria-hero__lead {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.6vw, 2.75rem);
+  font-style: italic;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.teoria-hero__status {
+  margin: 0.6rem 0 0;
+  color: var(--td-black-soft);
+  font-size: 1rem;
+}
+
+/* ---------- Section index ---------- */
+
+.teoria-nav {
+  position: sticky;
+  top: var(--spacing-header);
+  z-index: 30;
+  display: flex;
+  gap: clamp(1.25rem, 2.4vw, 2.25rem);
+  overflow-x: auto;
+  padding: 0.25rem var(--td-gutter);
+  background: var(--td-black);
+  border-bottom: 1px solid rgb(238 238 236 / 0.22);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  scroll-behavior: smooth;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.teoria-nav a {
+  display: block;
+  flex: none;
+  padding-block: 0.7rem;
+  color: var(--td-black-soft);
+  text-decoration: none;
+}
+
+.teoria-nav a:hover,
+.teoria-nav a[aria-current] {
+  color: #fff;
+}
+
+.teoria-nav a[aria-current] {
+  box-shadow: 0 2px 0 var(--td-red);
+}
+
+/* ---------- Bands ---------- */
+
+.teoria-band {
+  padding: clamp(4rem, 10vw, 8rem) var(--td-gutter);
+}
+
+.teoria-band--nero {
+  --td-label-bg: var(--td-white);
+  --td-label-fg: var(--td-ink);
+  --td-soft: var(--td-black-soft);
+
+  background: var(--td-black);
+  color: var(--td-white);
+}
+
+.teoria-band--marmo {
+  --td-label-bg: var(--td-black);
+  --td-label-fg: var(--td-white);
+  --td-soft: var(--td-ink-soft);
+
+  background: #f7f7f5 url('/oneshot/teoria-del-nulla/marmo.webp') 0 0 / 1200px;
+  background-blend-mode: multiply;
+  color: var(--td-ink);
+}
+
+/* Section title: a label cut from the poster, running in from the edge of the screen */
+.teoria .teoria-label {
+  width: fit-content;
+  margin-left: calc(var(--td-gutter) * -1);
+  padding: 0.5em 0.9em 0.5em var(--td-gutter);
+  background: var(--td-label-bg, var(--td-white));
+  color: var(--td-label-fg, var(--td-ink));
+  font-size: clamp(1.5rem, 5.4vw, 3.75rem);
+  letter-spacing: 0.18em;
+  line-height: 1.1;
+}
+
+.teoria-section {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 6vw, 6rem);
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 62rem) {
+  .teoria-section {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 40rem);
+  }
+
+  .teoria-section > * {
+    grid-column: 2;
+  }
+
+  .teoria-section > .teoria-wide {
+    grid-column: 1 / -1;
+  }
+
+  .teoria-section > .teoria-quote {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+  }
+}
+
+.teoria-quote {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.teoria-quote p {
+  margin: 0;
+}
+
+.teoria-prose {
+  max-width: 40rem;
+}
+
+.teoria-prose p,
+.teoria-more__body p,
+.teoria-era p,
+.teoria-casta__text p {
+  margin: 0 0 1.1em;
+}
+
+.teoria-prose > :last-child,
+.teoria-more__body > :last-child,
+.teoria-era > div > :last-child,
+.teoria-casta__text > :last-child {
+  margin-bottom: 0;
+}
+
+.teoria-prose h3,
+.teoria-more__body h3 {
+  margin: 2.4em 0 0.8em;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+.teoria-prose > h3:first-child,
+.teoria-more__body > h3:first-child {
+  margin-top: 0;
+}
+
+.teoria-prose strong,
+.teoria-more__body strong {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.94em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.teoria-prose ul,
+.teoria-more__body ul {
+  margin: 0 0 1.1em;
+  padding: 0;
+  list-style: none;
+}
+
+.teoria-prose li,
+.teoria-more__body li {
+  padding-block: 0.65em;
+  border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+}
+
+/* ---------- Anno 2030 ---------- */
+
+.teoria-incipit {
+  display: grid;
+  justify-items: center;
+  padding-block: clamp(5rem, 13vw, 11rem);
+  text-align: center;
+}
+
+.teoria-incipit__year {
+  margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: clamp(2.25rem, 8vw, 5.75rem);
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.teoria-incipit__text {
+  max-width: 42rem;
+  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.teoria-incipit__text p,
+.teoria-incipit__credits p {
+  margin-block: 0;
+}
+
+.teoria-incipit__credits {
+  max-width: 34rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  color: var(--td-ink-soft);
+  font-size: 1rem;
+}
+
+/* ---------- Expanding text ---------- */
+
+.teoria-more {
+  margin-top: 1.75rem;
+  border-block: 1px solid currentColor;
+}
+
+.teoria-more + .teoria-more {
+  margin-top: -1px;
+}
+
+.teoria-more summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.9rem;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.teoria-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.teoria-more__sign {
+  position: relative;
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: none;
+}
+
+.teoria-more__sign::before,
+.teoria-more__sign::after {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  content: '';
+}
+
+.teoria-more__sign::after {
+  rotate: 90deg;
+  transition: rotate 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teoria-more[data-expanded='true'] .teoria-more__sign::after {
+  rotate: 0deg;
+}
+
+.teoria-more__body {
+  padding-block: 0.75rem 2rem;
+}
+
+/* ---------- Timeline ---------- */
+
+.teoria-era {
+  padding-block: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+}
+
+.teoria-more__body > h3 + .teoria-era {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.teoria .teoria-era__year {
+  margin: 0 0 0.6rem;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+}
+
+.teoria-era__year small {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: 'Spectral', Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+/* ---------- Castes ---------- */
+
+.teoria-wide {
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+.teoria-casta {
+  display: grid;
+  gap: 1.75rem clamp(2.5rem, 6vw, 6rem);
+}
+
+.teoria-casta__card {
+  display: flex;
+  width: min(100%, 17rem);
+  aspect-ratio: 453 / 630;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 1.75rem;
+  background: var(--td-card) url('/oneshot/teoria-del-nulla/marmo.webp') 0 0 / 640px;
+  background-blend-mode: multiply;
+  color: #0a0a0c;
+}
+
+.teoria-casta:nth-child(2) .teoria-casta__card {
+  background-position: 120px 300px;
+}
+
+.teoria-casta:nth-child(3) .teoria-casta__card {
+  background-position: 340px 90px;
+}
+
+.teoria-casta:nth-child(4) .teoria-casta__card {
+  background-position: 60px 420px;
+}
+
+.teoria-casta__card--azzurro {
+  --td-card: var(--td-blue);
+}
+
+.teoria-casta__card--rosso {
+  --td-card: var(--td-red);
+}
+
+.teoria-casta__card--bianco {
+  --td-card: #f7f7f5;
+}
+
+.teoria-casta__card--grigio {
+  --td-card: var(--td-grey);
+}
+
+.teoria-casta__card svg {
+  width: 100%;
+  height: auto;
+}
+
+.teoria .teoria-casta__card h3 {
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  letter-spacing: 0.2em;
+  /* The tracking trails after the last letter: this keeps the word on the axis of the sigil */
+  margin-right: -0.2em;
+}
+
+@media (min-width: 62rem) {
+  .teoria-casta {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 40rem);
+    align-items: start;
+  }
+
+  .teoria-casta__card {
+    justify-self: end;
+  }
+}
+
+/* ---------- Costume colours ---------- */
+
+.teoria-colors ul {
+  display: grid;
+  gap: 0;
+}
+
+.teoria-colors li {
+  position: relative;
+  padding-left: 2.1rem;
+}
+
+.teoria-colors li::before {
+  position: absolute;
+  top: 1.05em;
+  left: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid var(--td-ink);
+  content: '';
+}
+
+.teoria-colors li:nth-child(1)::before {
+  background: var(--td-blue);
+}
+
+.teoria-colors li:nth-child(2)::before {
+  background: var(--td-red);
+}
+
+.teoria-colors li:nth-child(3)::before {
+  background: var(--td-ink);
+}
+
+.teoria-colors li:nth-child(4)::before {
+  background: #fff;
+}
+
+/* ---------- Programme ---------- */
+
+#programma .teoria-wide {
+  order: -1;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+@media (min-width: 48rem) {
+  #programma .teoria-wide {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.teoria-day h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+.teoria-day ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teoria-day li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding-block: 0.6rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+}
+
+.teoria-day strong {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Safe words ---------- */
+
+.teoria-safeword {
+  display: grid;
+  gap: 0.75rem clamp(2.5rem, 6vw, 6rem);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid rgb(238 238 236 / 0.35);
+}
+
+.teoria .teoria-safeword h3 {
+  font-size: clamp(1.9rem, 6vw, 4.5rem);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+}
+
+.teoria-safeword p {
+  max-width: 40rem;
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+#giocare-sicuri .teoria-wide {
+  gap: 0;
+}
+
+/* ---------- Closing ---------- */
+
+.teoria-facts {
+  padding: clamp(4rem, 9vw, 7rem) var(--td-gutter) clamp(3rem, 6vw, 5rem);
+}
+
+.teoria-facts dl {
+  display: grid;
+  gap: 1.75rem clamp(2rem, 5vw, 4rem);
+  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+}
+
+@media (min-width: 40rem) {
+  .teoria-facts dl {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 72rem) {
+  .teoria-facts dl {
+    grid-template-columns: 1.3fr 1.5fr 0.8fr 0.8fr;
+  }
+}
+
+.teoria-facts dt {
+  color: var(--td-black-soft);
+  font-size: 1rem;
+}
+
+.teoria-facts dd {
+  margin: 0.2rem 0 0;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+}
+
+.teoria-facts__note {
+  max-width: 40rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.teoria-facts__note p {
+  margin: 0;
+}
+
+.teoria-end {
+  padding: clamp(1rem, 3vw, 2rem) var(--td-gutter) clamp(3rem, 7vw, 5rem);
+}
+
+.teoria-end img {
+  display: block;
+  height: auto;
+  opacity: 0.85;
+}
+
+.teoria-end p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2.5rem;
+  margin: 1.75rem 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teoria-nav {
+    scroll-behavior: auto;
+  }
+
+  .teoria-pupil,
+  .teoria-more__sign::after {
+    transition: none;
+  }
+}
