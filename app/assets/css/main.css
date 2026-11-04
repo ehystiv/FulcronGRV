@@ -34,6 +34,8 @@
   --color-forest: #004013;
   --color-gold: #b8913f;
   --color-gold-soft: #d9bf7f;
+  /* Gold for text and focus rings on light surfaces (≥4.5:1 on parchment, surface and surface-2) */
+  --color-gold-ink: #7d5f22;
 
   /* Surfaces and text */
   --color-parchment: #f7f3ea;
@@ -113,8 +115,10 @@
     @apply text-teal decoration-gold/70 underline-offset-4 transition-colors hover:text-forest;
   }
 
+  /* Focus ring: dark gold on light surfaces, light gold inside .on-dark sections */
   :focus-visible {
-    @apply rounded outline-2 outline-offset-3 outline-gold;
+    @apply rounded outline-2 outline-offset-3;
+    outline-color: var(--focus-ring, var(--color-gold-ink));
   }
 
   ::selection {
@@ -148,9 +152,19 @@
   margin-inline: calc(50% - 50vw);
 }
 
+/* Dark sections (header, footer, heroes, Palazzo): light focus ring */
+@utility on-dark {
+  --focus-ring: var(--color-gold-soft);
+}
+
+/* Light panels inside a dark section */
+@utility on-light {
+  --focus-ring: var(--color-gold-ink);
+}
+
 /* Small uppercase label above titles */
 @utility eyebrow {
-  @apply mb-3 inline-block text-xs font-semibold tracking-[0.18em] text-gold uppercase;
+  @apply mb-3 inline-block text-xs font-semibold tracking-[0.18em] text-gold-ink uppercase;
 }
 
 /* Gold corner flourishes for featured boxes */

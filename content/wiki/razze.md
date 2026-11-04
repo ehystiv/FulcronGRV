@@ -7,7 +7,7 @@ order: 3
 
 In principio gli Dei popolarono Fulcron con Sette Razze. Ognuna di esse possedeva tratti differenti e unici rispetto alle altre, ma tutte quante, rispecchiando la forma dei loro creatori, erano umanoidi.
 
-### Le Sette Razze
+## Le Sette Razze
 - Gli **Elfi**, dal corpo snello e slanciato, dotati di caratteristiche orecchie appuntite e carnagione chiara. La loro forza risiede nella saggezza e nelle capacità sensoriali elevate.
 - I **Nani**, dal corpo tozzo e per niente slanciato, dotati di folte barbe e particolarmente villosi. La loro forza risiede nella resistenza fisica e nella conoscenza della terra e dell'industria.
 - I **Raktaag**, i cui corpi sono ricoperti in parte da scaglie del tutto simili a quelli dei draghi, e per questo conosciuti anche come Uomini-Drago.
@@ -16,7 +16,7 @@ In principio gli Dei popolarono Fulcron con Sette Razze. Ognuna di esse possedev
 - I **Maut**, il cui corpo nel corso degli anni va incontro a necrosi e deterioramento senza perderne in funzionalità. La loro forza sta proprio nella maggiore resistenza alla malattia e ai danni fisici.
 - Gli **Uomini**, il cui corpo non presenta particolarità molto rilevanti, ma si tratta di una razza molto versatile e diffusa.
 
-### Le Sette Razze dopo la Grande Guerra
+## Le Sette Razze dopo la Grande Guerra
 Nei giorni odierni gli Uomini sono la razza più diffusa a Fulcron, inoltre questi si sono adattati a quasi tutti gli ambienti e hanno colonizzato il mondo in maniera omogenea.
 Gli Elfi, i Nani, e gli Uomini-Pesce sono presenti in numeri importanti, ma i loro habitat sono molto più limitati.
 I Maut abitano anch'essi Fulcron in numeri abbastanza elevati, ma tendono a non riunirsi in insediamenti.

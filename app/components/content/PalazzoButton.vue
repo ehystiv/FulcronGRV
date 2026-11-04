@@ -20,7 +20,8 @@ const base =
 
 <template>
   <span class="not-prose my-6 flex flex-col items-center gap-2">
-    <span v-if="disabled" role="link" aria-disabled="true" :class="[base, disabledClass]">
+    <!-- Closed registrations: plain text styled as an inactive button, not a fake link -->
+    <span v-if="disabled" :class="[base, disabledClass]">
       <slot mdc-unwrap="p" />
     </span>
     <component

@@ -10,7 +10,7 @@ const links = [
 </script>
 
 <template>
-  <div class="relative isolate min-h-screen bg-black pb-16 text-white">
+  <div class="on-dark relative isolate min-h-screen bg-black pb-16 text-white">
     <PalazzoStarField v-if="stars" />
 
     <!-- Section tabs: big touch targets, always reachable under the site header -->

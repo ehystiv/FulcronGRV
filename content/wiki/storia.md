@@ -7,7 +7,7 @@ order: 4
 
 Gli eventi che hanno segnato l’Anello, dalla Pioggia di Fuoco ai giorni nostri.
 
-::timeline-era{name="Quinta Era"}
+::timeline-era{name="Quinta Era" level="2"}
 :::timeline-event{date="2000"}
 Una serie di pietre infuocate cadono su Fulcron causando distruzioni e milioni di vittime. L'evento è ricordato come la ***Pioggia di Fuoco***. Il mondo entra in una fase di profonda crisi e decadenza conosciuta come gli **Anni Oscuri**.
 :::
@@ -58,7 +58,7 @@ Nel grande Muro a Sud viene aperta una breccia. I Diaforos dilagano nelle terre 
 :::
 ::
 
-::timeline-era{name="Sesta Era"}
+::timeline-era{name="Sesta Era" level="2"}
 :::timeline-event{date="11 Termidoro 3015 · Anno 0 della Sesta Era"}
 Fulcron viene sconvolta dal Grande Cataclisma. A Nord una grande esplosione devasta tutto lasciando un enorme buco nero. I Draghi tornano improvvisamente ad abitare i cieli di Fulcron.
 :::

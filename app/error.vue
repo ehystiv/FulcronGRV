@@ -20,7 +20,7 @@ useHead({ title: notFound.value ? 'Pagina non trovata' : 'Errore' })
         "
         as="h1"
       />
-      <UiButton class="mt-6" @click="clearError({ redirect: '/' })">Torna alla home</UiButton>
+      <UiButton class="mt-6" to="/" @click="clearError()">Torna alla home</UiButton>
     </section>
   </NuxtLayout>
 </template>

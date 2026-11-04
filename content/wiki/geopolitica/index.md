@@ -22,7 +22,7 @@ Durante la Grande Guerra, scoppiata nel 2712, erano questi quattro grandi regni 
 
 A parte questa divisione macroscopica, che ha condizionato anche la suddivisione dei popoli, all'interno dell'anello si possono trovare gli ambienti più vari, dalla steppa alla giungla, da piccole aree aride ad enormi e verdi pianure.
 
-### Le Macroaree
+## Le Macroaree
 
 * [Il Nord](/wiki/geopolitica/nord)
 * [L'Est](/wiki/geopolitica/est)

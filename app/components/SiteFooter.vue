@@ -35,7 +35,7 @@ const legal = [
 </script>
 
 <template>
-  <footer class="mt-auto border-t border-gold-soft/25 bg-ink-deep text-[0.95rem] text-on-dark-muted">
+  <footer class="on-dark mt-auto border-t border-gold-soft/25 bg-ink-deep text-[0.95rem] text-on-dark-muted">
     <div class="container-site grid gap-10 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
       <div>
         <NuxtLink

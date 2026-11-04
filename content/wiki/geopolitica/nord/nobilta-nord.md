@@ -4,7 +4,7 @@ description: "I vari gradi di nobiltà presenti nel Rorish e nel Qorish, le due 
 updated: 2020-04-30
 ---
 
-### **Rorish**
+## **Rorish**
 
 L'unico **titolo sovrano** finora presente nel Rorish è quello di re: 
 
@@ -27,7 +27,7 @@ Esiste un'ulteriore carica, strettamente collegata al re:
 
 -   **Vicario regio**: funzionario con deleghe regie temporanee o permanenti, ereditarie o vitalizie. Il re in persona sceglie l'incarico e la durata dello stesso. Di fatto, può dare accesso a cariche nobiliari.
 
-### Qorish
+## Qorish
 
 **Barone**: viene incaricato dal re di governare una porzione di territorio, detta per l'appunto baronia, ma senza che questa sia di proprietà del barone. Egli infatti riceve una gratifica mensile in base al proprio operato. Non è una carica ereditaria e viene nominato ogni 5 anni dal re tra le famiglie più influenti del regno. 
 

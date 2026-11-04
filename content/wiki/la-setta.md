@@ -5,7 +5,7 @@ updated: 2021-10-13
 
 La Setta è un organizzazione politica e militare sorta ad [Ovest](/wiki/geopolitica/ovest) intorno all'anno 3016 del calendario di Fulcron. La sua sede fu una città sotterranea collocata al di sotto della foresta del Chult, in particolare nella zona nota come "Bocca del Serpente". I suoi membri erano legati ad uno strano culto, legato a sette divinità, tra cui la dea Hava. La sua guida è stata la sacerdotessa-guerriera nota come l'[Occhio di Hava](/wiki/occhio-di-hava), che nel Fiorile del 3017 diede inizio alla [Guerra dell'Occhio](/wiki/guerra-dell-occhio).
 
-#### Storia
+## Storia
 
 La Setta interviene per la prima volta nelle vicende politiche di Fulcron nel mese di Messidoro del 3016, quando un tale Sir Raknar, cavaliere della Mano della Setta, contrae matrimonio politico con la giovane figlia del lord protettore di Amhora, lord Wealth. Nonostante ciò, poche ore dopo le celebrazioni, il cavaliere perde le vita lottando contro alcuni monaci della città.
 
@@ -15,7 +15,7 @@ Nel mese di Fiorile dell'anno 3017, il capo stesso dell'organizzazione, nota com
 
 Nel Vendemmiaio del 3017, a seguito della morte della sui guida, la Setta si disperde. Molti suoi membri vengono catturati e giustiziati.
 
-#### Membri
+## Membri
 
 In quanto organizzazione religiosa, la Setta era comandata da un concilio formato da sette Alti Sacerdoti.
 

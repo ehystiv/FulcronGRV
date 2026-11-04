@@ -54,7 +54,7 @@ useHead({
 
 <template>
   <div>
-    <section class="relative isolate grid min-h-[min(100svh,900px)] place-items-center overflow-hidden text-on-dark">
+    <section class="on-dark relative isolate grid min-h-[min(100svh,900px)] place-items-center overflow-hidden text-on-dark">
       <SiteImage
         src="/backgrounds/forest_op_comp.jpg"
         loading="eager"
@@ -73,7 +73,7 @@ useHead({
           height="220"
           class="mb-6 w-[clamp(130px,22vw,220px)] animate-turn drop-shadow-[0_6px_24px_rgb(0_0_0/0.5)]"
         />
-        <span class="eyebrow text-gold-soft">Associazione di gioco di ruolo dal vivo</span>
+        <span class="eyebrow text-gold-soft [text-shadow:0_1px_12px_rgb(0_26_38/0.8)]">Associazione di gioco di ruolo dal vivo</span>
         <h1 class="mb-[0.3em] text-[clamp(2.6rem,7vw,5rem)] text-white [text-shadow:0_4px_30px_rgb(0_0_0/0.5)]">
           Benvenuto a Fulcron
         </h1>
@@ -120,7 +120,7 @@ useHead({
     </section>
 
     <section
-      class="bg-[radial-gradient(ellipse_at_top_right,rgb(184_145_63/0.18),transparent_55%),linear-gradient(135deg,var(--color-ink-deep),var(--color-ink)_55%,var(--color-forest))] py-[clamp(3rem,8vw,5.5rem)] text-on-dark"
+      class="bg-[radial-gradient(ellipse_at_top_right,rgb(184_145_63/0.18),transparent_55%),linear-gradient(135deg,var(--color-ink-deep),var(--color-ink)_55%,var(--color-forest))] py-[clamp(3rem,8vw,5.5rem)] text-on-dark on-dark"
     >
       <div v-reveal class="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>

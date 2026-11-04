@@ -44,7 +44,7 @@ function close() {
 
   <dialog
     ref="dialog"
-    class="not-prose m-0 size-full max-h-none max-w-none bg-ink-deep/95 p-0 backdrop:bg-black/70"
+    class="not-prose on-dark m-0 size-full max-h-none max-w-none bg-ink-deep/95 p-0 backdrop:bg-black/70"
     aria-label="Mappa di Fulcron"
     @click.self="close"
   >

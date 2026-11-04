@@ -7,11 +7,24 @@ const scrolled = ref(false)
 const transparent = computed(() => route.path === '/' && !scrolled.value && !open.value)
 
 const onScroll = () => (scrolled.value = window.scrollY > 24)
+
+// Esc closes the phone menu and gives focus back to the menu button
+const menuButton = ref<HTMLButtonElement>()
+const onKeydown = (e: KeyboardEvent) => {
+  if (e.key !== 'Escape' || !open.value) return
+  open.value = false
+  menuButton.value?.focus()
+}
+
 onMounted(() => {
   onScroll()
   window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('keydown', onKeydown)
 })
-onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('keydown', onKeydown)
+})
 
 watch(
   () => route.fullPath,
@@ -30,7 +43,7 @@ const ctaClass =
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-50 border-b text-on-dark transition-colors duration-300"
+    class="on-dark fixed inset-x-0 top-0 z-50 border-b text-on-dark transition-colors duration-300"
     :class="transparent ? 'border-transparent bg-transparent' : 'border-gold-soft/20 bg-ink-deep/92 backdrop-blur-md'"
   >
     <div class="container-site flex h-header items-center justify-between gap-4">
@@ -59,6 +72,7 @@ const ctaClass =
       </nav>
 
       <button
+        ref="menuButton"
         type="button"
         class="grid size-11 place-items-center rounded-full hover:bg-white/10 lg:hidden"
         :aria-expanded="open"
@@ -96,7 +110,7 @@ const ctaClass =
         v-show="open"
         id="mobile-nav"
         class="container-site flex flex-col border-t border-gold-soft/20 bg-ink-deep pt-2 pb-5 lg:hidden"
-        aria-label="Navigazione principale"
+        aria-label="Menu principale"
       >
         <NuxtLink
           v-for="(link, i) in NAV_LINKS"
