@@ -9,7 +9,7 @@ const page = await usePage('regolamento')
       <p v-if="page.lead" class="text-[clamp(1.1rem,2vw,1.25rem)] text-muted">{{ page.lead }}</p>
       <ContentRenderer
         :value="page"
-        class="prose-fulcron [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-line [&_h2]:pt-10"
+        class="prose-fulcron [&_img]:rounded-card [&_img]:shadow-card [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-line [&_h2]:pt-10"
       />
     </div>
   </article>

@@ -9,6 +9,8 @@ lead: Non hai mai fatto un gioco di ruolo dal vivo (LARP)? Ti serve meno di quan
 
 È un gioco in cui interpreti un personaggio in prima persona, in costume, insieme agli altri giocatori. Non ci sono un tabellone o dei dadi: quello che il tuo personaggio dice e fa, lo dici e lo fai tu. Gli organizzatori preparano la storia e i personaggi non giocanti; il resto lo costruite giocando.
 
+![Due giocatori in costume parlano davanti all’insegna del Forno del Borgo](/immagini/forno-del-borgo.jpg)
+
 ## Com’è una giornata di gioco
 
 Ogni evento ha la sua storia, ma il ritmo è più o meno questo. Prendiamo Il Palazzo dei Destini Incrociati, una nostra oneshot del 2022.
@@ -16,6 +18,8 @@ Ogni evento ha la sua storia, ma il ritmo è più o meno questo. Prendiamo Il Pa
 Ci si trova in mattinata, si passa dalla segreteria e ci si prepara con trucco e costume. Poi c’è il Workshop, dove ripassiamo tutto quello che serve per giocare, per chi è nuovo e per chi gioca da anni. Si pranza insieme, ancora fuori gioco.
 
 Con il Time In diventi il tuo personaggio, e lo resti anche a cena. Possono esserci battaglie, intrighi, trattative e preghiere. Il gioco finisce con il Time Off, che quella volta era previsto alle tre di notte.
+
+![Giocatori in costume a tavola durante un banchetto a lume di candela](/immagini/banchetto.jpg)
 
 ## Oneshot o campagna?
 

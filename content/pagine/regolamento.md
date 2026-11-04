@@ -87,6 +87,8 @@ Per ogni giornata a cui partecipi, qualunque sia il tuo ruolo, guadagni almeno 1
 
 Il nostro regolamento prevede l’utilizzo di armi in lattice e l’apprendimento di alcune semplici regole che indicano magie, effetti o colpi all’interno del gioco, in modo da integrare in maniera ottimale la magia e le abilità particolari.
 
+![Due giocatori si affrontano con le armi in lattice in un prato, davanti a un salice](/immagini/duello.jpg)
+
 Per questo abbiamo dei veri e propri manuali, comodamente scaricabili qui.
 
 ::documents

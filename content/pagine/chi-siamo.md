@@ -3,7 +3,7 @@ title: Chi siamo
 description: FulcronGRV è un’associazione di gioco di ruolo dal vivo nata tra i boschi dell’Appennino Tosco-Emiliano. Le nostre origini e la campagna La Sinfonia dei Sette.
 ---
 
-::banner{src="/immagini/origini_1.jpg" alt="Giocatori in costume durante un evento FulcronGRV" eyebrow="Chi siamo" title="Le nostre origini" first}
+::banner{src="/immagini/gruppo-nel-bosco.jpg" alt="Un gruppo di giocatori in costume risale un sentiero nel bosco, sostenendo un compagno" position="50% 46%" eyebrow="Chi siamo" title="Le nostre origini" first}
 ::
 
 **Salve, viandante.**
@@ -14,7 +14,7 @@ Il mondo in cui giochiamo si chiama Fulcron, o l’Anello, come lo chiamano in m
 
 Oltre alla campagna principale organizziamo anche [oneshot](/oneshot), storie autoconclusive con ambientazioni tutte loro, come Tear Asunder, Sunless Dawn o La Teoria del Nulla.
 
-::banner{src="/immagini/origini_2.jpg" alt="Scena di gioco della campagna La Sinfonia dei Sette" eyebrow="La campagna" title="La Sinfonia dei Sette" align="right"}
+::banner{src="/immagini/gruppo-montagne.jpg" alt="Giocatori in costume seduti su un prato con uno scudo, davanti alle montagne al tramonto" position="50% 78%" eyebrow="La campagna" title="La Sinfonia dei Sette" align="right"}
 ::
 
 La Sinfonia dei Sette è la nostra campagna: da diversi anni segue un gruppo di avventurieri che cerca di sopravvivere nell’Anello. Le terre di Fulcron sono chiuse da grandi barriere naturali: ghiacci senza fine a Nord, deserti a Est, paludi a Sud e montagne altissime a Ovest. Al centro c’è un grande mare interno, ed è da lì che viene il nome.

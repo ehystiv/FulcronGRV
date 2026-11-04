@@ -6,7 +6,7 @@ const paths = [
     to: '/inizia-a-giocare',
     title: 'La tua prima volta',
     text: 'Non hai mai giocato? Ti spieghiamo com’è una giornata di gioco, come nasce un personaggio e come si combatte.',
-    image: '/immagini/origini_2.jpg',
+    image: '/immagini/gruppo-armature.jpg',
     cta: 'Inizia da qui',
   },
   {

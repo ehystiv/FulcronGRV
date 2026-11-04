@@ -9,6 +9,8 @@ withDefaults(
     title: string
     align?: 'left' | 'right'
     first?: boolean
+    /** CSS object-position, to keep the subject in frame on this very wide crop */
+    position?: string
   }>(),
   { alt: '', align: 'left' },
 )
@@ -23,6 +25,7 @@ withDefaults(
       :alt="alt"
       :loading="first ? 'eager' : 'lazy'"
       class="absolute inset-0 -z-20 size-full object-cover"
+      :style="position && { objectPosition: position }"
     />
     <div class="absolute inset-0 -z-10 bg-linear-to-b from-ink-deep/15 from-30% to-ink-deep/85" />
     <div
