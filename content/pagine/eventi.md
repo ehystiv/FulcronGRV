@@ -132,7 +132,7 @@ lead: I live della campagna dal 2012 al 2019, divisi per arco narrativo.
 **Alla ricerca di Neith Lail**
 :::
 :::timeline-event{date="17 aprile 2014"}
-**Grotte Naniche (Selas)**
+**Grotte Naniche**
 :::
 :::timeline-event{date="22 aprile 2014 · Paese di Acqualtus"}
 **Il Pozzo dei Desideri**
