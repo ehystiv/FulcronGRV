@@ -7,6 +7,7 @@ const tabs = computed(() => [
   { to: '/sinfonia', label: 'Panoramica' },
   { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
   { to: '/sinfonia/regolamento', label: 'Regolamento' },
+  { to: '/sinfonia/eventi', label: 'Eventi' },
   ...(hasNews.value ? [{ to: '/sinfonia/bacheca', label: 'Bacheca' }] : []),
 ])
 

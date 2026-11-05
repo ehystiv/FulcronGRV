@@ -55,7 +55,7 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 | `::poem` | testo centrato in un riquadro decorato | `ambientazione.md` |
 | `::lore-tiles` | schede con titolo e testo | `ambientazione.md` |
 | `::gods` | elenco delle divinità | `ambientazione.md` |
-| `::timeline-era` + `:::timeline-event` | linea del tempo (con link e grassetti); aggiungi `level="2"` se non sta sotto un titolo `##` | `ambientazione.md`, `wiki/storia.md` |
+| `::timeline-era` + `:::timeline-event` | linea del tempo (con link e grassetti); aggiungi `level="2"` se non sta sotto un titolo `##`; su un evento, `chip="…"` mostra un’etichetta e `major` lo mette in risalto | `ambientazione.md`, `wiki/storia.md`, `pagine/eventi.md` |
 | `::notice` | frase evidenziata | `regolamento.md` |
 | `::world-map` | la mappa di Fulcron, apribile a schermo intero | `ambientazione.md` |
 | `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |

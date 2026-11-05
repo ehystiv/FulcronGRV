@@ -19,6 +19,7 @@ const columns = computed(() => [
       { to: '/sinfonia', label: 'La Sinfonia dei Sette' },
       { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
       { to: '/sinfonia/regolamento', label: 'Regolamento e manuali' },
+      { to: '/sinfonia/eventi', label: 'Eventi giocati' },
       ...(hasNews.value ? [{ to: '/sinfonia/bacheca', label: 'Bacheca' }] : []),
       { to: '/wiki', label: 'Wiki di Fulcron' },
     ],

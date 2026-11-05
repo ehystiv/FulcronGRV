@@ -23,4 +23,5 @@ Non serve conoscere tutta l’ambientazione: a ogni evento diamo le informazioni
 
 - [Ambientazione](/sinfonia/ambientazione): il mondo di Fulcron in una pagina, con la mappa.
 - [Regolamento e manuali](/sinfonia/regolamento): le regole e i manuali da scaricare.
+- [Eventi giocati](/sinfonia/eventi): i live della campagna dal 2012 al 2019.
 - [Wiki di Fulcron](/wiki): regni, religioni, razze e storia, per chi vuole approfondire.

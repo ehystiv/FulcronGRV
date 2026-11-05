@@ -7,6 +7,7 @@ const PAGES = [
   '/chi-siamo',
   '/sinfonia/ambientazione',
   '/sinfonia/regolamento',
+  '/sinfonia/eventi',
   '/sinfonia/bacheca',
   '/oneshot',
   '/oneshot/sunless-dawn',
