@@ -22,8 +22,10 @@ npm run preview    # prova in locale il sito generato
 npm run typecheck  # controllo dei tipi
 ```
 
-L'unica variabile d'ambiente è `NUXT_PUBLIC_SITE_URL` (default `https://fulcrongrv.it`), usata per sitemap, link
-canonici e Open Graph.
+Variabili d'ambiente:
+
+- `NUXT_PUBLIC_SITE_URL` (default `https://fulcrongrv.it`): usata per sitemap, link canonici e Open Graph.
+- `NUXT_PUBLIC_GALLERY_URL` (default `/foto`, per lo sviluppo in locale): da dove arrivano le foto della gallery.
 
 ## Contenuti
 
@@ -50,6 +52,38 @@ server/routes/            sitemap.xml (generata in build)
 scripts/                  importazioni una tantum: vecchi dati da MongoDB, backup della vecchia wiki
 ```
 
+## Foto su R2
+
+In produzione le foto della gallery non sono nel repo né su Vercel: stanno in un bucket Cloudflare R2, servito da
+`https://foto.fulcrongrv.it` (custom domain del bucket). Il bucket contiene la stessa struttura di `public/foto/`,
+cioè `<album>/thumb/` e `<album>/large/`.
+
+Su Vercel `NUXT_PUBLIC_GALLERY_URL=https://foto.fulcrongrv.it` deve essere impostata sia per Production sia per
+Preview. Senza questa variabile la build fallisce: le copertine puntano a `/foto`, che su Vercel non esiste. La
+variabile vale solo per le build successive, quindi dopo averla cambiata serve un nuovo deploy.
+
+Per caricare le foto serve [rclone](https://rclone.org), configurato con un remote `r2` di tipo S3 (provider
+Cloudflare), un token R2 con permesso `Object Read & Write` sul solo bucket e l'endpoint
+`https://<ACCOUNT_ID>.r2.cloudflarestorage.com`. Le chiavi restano fuori dal repo.
+
+Quando aggiungi o togli foto:
+
+```bash
+npm run gallery                                    # aggiorna public/foto e content/gallery
+rclone sync public/foto r2:<bucket> --dry-run      # mostra cosa cambierebbe
+rclone sync public/foto r2:<bucket> --transfers 16 --progress
+```
+
+Poi fai il commit dei JSON in `content/gallery/` e il deploy del sito.
+
+- `rclone sync` rende il bucket identico a `public/foto/` e **cancella** dal bucket ciò che in locale non c'è. Serve
+  per togliere davvero una foto: con `rclone copy` resterebbe online. Per lo stesso motivo va lanciato solo con
+  `public/foto/` completa; se la cartella è vuota o parziale, prima rigenerala con `npm run gallery`.
+- Rinominare un album significa rinominare anche la sua cartella: con `sync` la vecchia sparisce e la nuova viene
+  ricaricata.
+- Le foto hanno una cache di alcune ore, quindi una foto tolta può restare visibile per un po' a chi l'ha già
+  caricata.
+
 ## Note
 
 - La **gallery** nasce da `foto-originali/<album>/`, che resta fuori da git: `npm run gallery` crea le versioni
@@ -57,8 +91,10 @@ scripts/                  importazioni una tantum: vecchi dati da MongoDB, backu
   `place`, `photographer` (credito mostrato nella pagina dell'album, vale per tutto l'album), `poster` (percorso della
   locandina in `public/`, che nell'elenco degli album prende il posto della foto di copertina), `cover` (nome di una
   delle foto) ed `exclude` (nomi degli originali da togliere dal sito, poi si rilancia lo script). Anche
-  `public/foto/` è fuori da git: in produzione le foto vanno servite da uno storage esterno, indicato da
-  `NUXT_PUBLIC_GALLERY_URL`.
+  `public/foto/` è fuori da git: in produzione le foto stanno su Cloudflare R2, vedi [Foto su R2](#foto-su-r2).
+- `vercel.json` dichiara le route a mano: il preset Nuxt di Vercel manda ogni indirizzo sconosciuto a `200.html`, che
+  risponde 200, mentre così le pagine inesistenti danno un vero 404. `framework: null` non basta, perché Vercel rileva
+  comunque Nuxt da `package.json`.
 - I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.
 - La wiki, prima su `wikia.fulcrongrv.it`, ora è una sezione del sito (`/wiki`). Se il vecchio sottodominio è ancora
   attivo, conviene reindirizzarlo a `https://fulcrongrv.it/wiki`.
