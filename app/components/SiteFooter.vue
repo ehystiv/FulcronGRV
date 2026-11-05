@@ -9,6 +9,7 @@ const columns = computed(() => [
     links: [
       { to: '/chi-siamo', label: 'Chi siamo' },
       { to: '/oneshot', label: 'Oneshot' },
+      { to: '/gallery', label: 'Gallery' },
       { to: '/inizia-a-giocare', label: 'Inizia a giocare' },
     ],
   },

@@ -1,0 +1,601 @@
+{
+  "title": "Il Giorno delle Lacrime",
+  "date": "2017-08-20",
+  "photographer": "Francesco Giardi",
+  "cover": "img_2829.webp",
+  "exclude": [],
+  "count": 118,
+  "first": "img_2719.webp",
+  "photos": [
+    {
+      "file": "img_2719.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2720.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2721.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2722.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2725.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2726.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2727.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2728.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2729.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2730.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2731.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2733.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2734.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2735.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2736.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2737.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2738.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2739.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2740.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2741.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2742.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2743.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2744.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2745.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2746.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2747.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2748.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2749.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2750.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2752.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2753.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2754.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2757.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2758.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2759.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2760.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2763.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2764.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2766.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2767.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2768.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2769.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2770.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2771.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2772.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2773.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2774.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2775.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2776.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2777.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2778.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2779.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2780.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2781.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2784.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2786.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2787.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2788.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2789.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2790.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2791.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2793.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2794.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2796.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2797.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2798.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2799.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2800.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2801.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2802.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2803.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2804.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2805.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2806.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2807.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2808.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2809.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2810.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2811.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2812.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2813.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2814.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2815.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2816.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2818.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2819.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2820.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2821.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2822.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2823.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2824.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2825.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2826.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2827.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2828.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2829.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2830.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2831.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2832.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2833.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2834.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2835.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2836.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2837.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2839.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2840.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2841.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2842.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2843.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2845.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2846.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2847.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2848.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2850.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2852.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2853.webp",
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "file": "img_2855.webp",
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "file": "img_2856.webp",
+      "width": 1333,
+      "height": 2000
+    }
+  ]
+}

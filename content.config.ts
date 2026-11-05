@@ -63,5 +63,29 @@ export default defineContentConfig({
         page: z.string().optional(),
       }),
     }),
+
+    // Photo albums: one JSON per event, written by `npm run gallery`. Title, date, photographer,
+    // poster, cover and exclude are edited by hand, the rest is generated.
+    gallery: defineCollection({
+      type: 'data',
+      source: 'gallery/*.json',
+      schema: z.object({
+        title: z.string(),
+        // YYYY-MM-DD
+        date: z.string().optional(),
+        place: z.string().optional(),
+        // Credited on the album page; it applies to the whole album
+        photographer: z.string().optional(),
+        // Path of the event poster under public/. It replaces the cover photo on the album list
+        poster: z.string().optional(),
+        // One of the album's photos, as in `photos[].file`. Without it the first photo is used
+        cover: z.string().optional(),
+        // Original file names to keep off the site
+        exclude: z.array(z.string()).default([]),
+        count: z.number().default(0),
+        first: z.string().optional(),
+        photos: z.array(z.object({ file: z.string(), width: z.number(), height: z.number() })).default([]),
+      }),
+    }),
   },
 })

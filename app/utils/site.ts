@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { to: '/chi-siamo', label: 'Chi siamo' },
   { to: '/sinfonia', label: 'La Sinfonia dei Sette' },
   { to: '/oneshot', label: 'Oneshot' },
+  { to: '/gallery', label: 'Gallery' },
   { to: '/wiki', label: 'Wiki' },
 ]
 

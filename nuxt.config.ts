@@ -59,7 +59,12 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    public: { siteUrl },
+    public: {
+      siteUrl,
+      // Where the gallery photos are served from: public/foto locally, external storage in
+      // production (NUXT_PUBLIC_GALLERY_URL)
+      galleryUrl: process.env.NUXT_PUBLIC_GALLERY_URL || '/foto',
+    },
   },
 
   // Old URLs from the previous versions of the site (static redirect pages)

@@ -1,8 +1,8 @@
 ---
 title: Privacy
-description: Come FulcronGRV tratta i dati di chi visita il sito.
+description: Come FulcronGRV tratta i dati di chi visita il sito e le foto degli eventi.
 eyebrow: Informativa
-lead: Cosa succede ai tuoi dati quando visiti questo sito. In breve, niente.
+lead: Cosa succede ai tuoi dati quando visiti questo sito e come trattiamo le foto dei nostri eventi.
 updated: novembre 2026
 ---
 
@@ -12,11 +12,17 @@ Il titolare del trattamento è l’Associazione FulcronGRV, con sede in Via del 
 
 ## Niente cookie, niente statistiche, niente profilazione
 
-Questo sito è fatto solo di pagine statiche. Non usa cookie, né nostri né di terze parti, non raccoglie statistiche sulle visite e non ti chiede di registrarti. Font e immagini sono ospitati insieme al sito: navigando qui non contatti servizi esterni come Google Fonts o reti pubblicitarie.
+Questo sito è fatto solo di pagine statiche. Non usa cookie, né nostri né di terze parti, non raccoglie statistiche sulle visite e non ti chiede di registrarti. Font e immagini sono ospitati insieme al sito, tranne le foto della gallery, che arrivano da un servizio di archiviazione esterno. A parte questo, navigando qui non contatti servizi esterni come Google Fonts o reti pubblicitarie.
 
 ## Dati tecnici del server
 
-Come quasi ogni sito, il server che ci ospita può registrare per un periodo limitato dati tecnici delle richieste (indirizzo IP, data e ora, pagina richiesta), che servono solo a garantirne il funzionamento e la sicurezza.
+Come quasi ogni sito, il server che ci ospita può registrare per un periodo limitato dati tecnici delle richieste (indirizzo IP, data e ora, pagina richiesta), che servono solo a garantirne il funzionamento e la sicurezza. Lo stesso vale per il servizio che ospita le foto della gallery.
+
+## Le foto degli eventi
+
+Nella [gallery](/gallery) pubblichiamo le foto dei nostri eventi per raccontare le attività dell’associazione. Nelle foto le persone possono essere riconoscibili. Prima di pubblicarle togliamo dai file i metadati, come la fotocamera usata e l’eventuale posizione.
+
+Se ci sei in una foto e vuoi toglierla, scrivici su [Instagram](https://www.instagram.com/fulcrongrv) indicando l’album e la foto: la togliamo dal sito. Per una persona minorenne può chiederlo anche chi ne ha la responsabilità genitoriale.
 
 ## Link ad altri servizi
 

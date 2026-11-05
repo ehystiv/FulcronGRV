@@ -1,0 +1,866 @@
+{
+  "title": "Il Banchetto dei Guitti",
+  "date": "2017-11-11",
+  "photographer": "Luca Romagnoli",
+  "poster": "/albums/banchettodeiguitti.jpg",
+  "exclude": [],
+  "count": 171,
+  "first": "mg_8296_fb.webp",
+  "photos": [
+    {
+      "file": "mg_8296_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8298_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8299_fb.webp",
+      "width": 700,
+      "height": 1049
+    },
+    {
+      "file": "mg_8301_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8302_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8304_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8307_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8308_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8309_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8310_fb-2.webp",
+      "width": 1200,
+      "height": 900
+    },
+    {
+      "file": "mg_8310_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8311_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8312_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8313_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8314_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8315_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8316_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8318_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8319_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8320_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8321_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8322_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8324_fb.webp",
+      "width": 1200,
+      "height": 900
+    },
+    {
+      "file": "mg_8326_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8327_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8328_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8329_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8330_fb-2.webp",
+      "width": 700,
+      "height": 933
+    },
+    {
+      "file": "mg_8330_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8331_fb-1-.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8332_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8334_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8335_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8336_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8339_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8340_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8342_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8343_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8344_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8346_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8347_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8348_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8349_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8350_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8354_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8355_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8356_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8357_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8358_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8365_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8366_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8368_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8369_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8370_fb.webp",
+      "width": 700,
+      "height": 933
+    },
+    {
+      "file": "mg_8372_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8373_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8376_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8378_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8380_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8381_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8383_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8385_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8388_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8391_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8393_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8394_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8395_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8396_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8397_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8400_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8402_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8406_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8412_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8415_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8418_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8422_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8426_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8427_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8430_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8437_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8442_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8447_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8451_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8454_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8456_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8458_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8459_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8462_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8466_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8469_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8472_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8474_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8476_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8477_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8478_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8479_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8480_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8482_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8483_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8486_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8489_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8492_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8496_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8497_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8499_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8500_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8504_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8506_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8510_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8512_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8515_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8517_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8520_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8521_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8522_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8526_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8529_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8531_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8532_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8536_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8538_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8546_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8558_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8560_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8567_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8572_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8580_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8586_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8591_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8592_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8600_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8604_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8605_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8623_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8627_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8629_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8631_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8632_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8636_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8637_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8639_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8641_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8646_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8659_fb.webp",
+      "width": 700,
+      "height": 1050
+    },
+    {
+      "file": "mg_8661_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8667_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8669_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8671_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8674_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8676_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8682_fb.webp",
+      "width": 700,
+      "height": 933
+    },
+    {
+      "file": "mg_8684_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8687_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8690_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8691_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8698_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8704_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8705_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8707_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8710_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8713_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8716_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8719_fb.webp",
+      "width": 1400,
+      "height": 788
+    },
+    {
+      "file": "mg_8724_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8725_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8729_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8734_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8736_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8738_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8741_fb.webp",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "file": "mg_8749_fb.webp",
+      "width": 1400,
+      "height": 788
+    }
+  ]
+}

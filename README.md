@@ -52,8 +52,13 @@ scripts/                  importazioni una tantum: vecchi dati da MongoDB, backu
 
 ## Note
 
-- La **gallery** è disattivata finché non ci sono foto da pubblicare. Lo script di importazione da MongoDB salva
-  comunque i dati degli album in `content/gallery/`, così non vanno persi quando la si riattiva.
+- La **gallery** nasce da `foto-originali/<album>/`, che resta fuori da git: `npm run gallery` crea le versioni
+  pubblicate in `public/foto/` e i dati in `content/gallery/<album>.json`. Lì si scrivono a mano `title`, `date`,
+  `place`, `photographer` (credito mostrato nella pagina dell'album, vale per tutto l'album), `poster` (percorso della
+  locandina in `public/`, che nell'elenco degli album prende il posto della foto di copertina), `cover` (nome di una
+  delle foto) ed `exclude` (nomi degli originali da togliere dal sito, poi si rilancia lo script). Anche
+  `public/foto/` è fuori da git: in produzione le foto vanno servite da uno storage esterno, indicato da
+  `NUXT_PUBLIC_GALLERY_URL`.
 - I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.
 - La wiki, prima su `wikia.fulcrongrv.it`, ora è una sezione del sito (`/wiki`). Se il vecchio sottodominio è ancora
   attivo, conviene reindirizzarlo a `https://fulcrongrv.it/wiki`.
