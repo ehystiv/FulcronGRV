@@ -102,6 +102,8 @@ Poi fai il commit dei JSON in `content/gallery/` e il deploy del sito.
 - `vercel.json` dichiara le route a mano: il preset Nuxt di Vercel manda ogni indirizzo sconosciuto a `200.html`, che
   risponde 200, mentre così le pagine inesistenti danno un vero 404. `framework: null` non basta, perché Vercel rileva
   comunque Nuxt da `package.json`.
+- `vercel.json` aggiunge anche alcuni header di sicurezza su tutte le pagine e la cache: un anno per `/_nuxt/` (file
+  con hash nel nome), un giorno per le immagini di `/_ipx/` (il loro indirizzo non cambia se cambia l'immagine).
 - I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.
 - La wiki, prima su `wikia.fulcrongrv.it`, ora è una sezione del sito (`/wiki`). Se il vecchio sottodominio è ancora
   attivo, conviene reindirizzarlo a `https://fulcrongrv.it/wiki`.
