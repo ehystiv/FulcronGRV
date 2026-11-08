@@ -92,16 +92,4 @@ Per collegare un’altra pagina: [Ordine dei Guaritori](/wiki/geopolitica/est/pa
 `order` (facoltativo) decide la posizione nel menu: numeri più bassi vengono prima, il resto è in ordine
 alfabetico. Le immagini della wiki stanno in `public/wiki/uploads/`.
 
-Le pagine sono state importate dal backup della vecchia wiki (Wiki.js) con `scripts/import-wiki.mjs`.
-
-## Importare i vecchi dati da MongoDB
-
-Serve una volta sola, da chi ha accesso al database:
-
-```bash
-MONGODB_URI="mongodb://utente:password@host:27017/nome-db?authSource=admin" npm run export-mongo
-```
-
-Lo script crea i file qui dentro e salta i documenti cancellati. Gli album finiscono in `gallery/`: per ora non
-vengono mostrati (la gallery è disattivata), ma restano pronti per quando la si riattiva. I file già esistenti non vengono
-toccati (con `--force` vengono sovrascritti).
+Le pagine vengono dal backup della vecchia wiki (Wiki.js); lo script di importazione è nella storia git.

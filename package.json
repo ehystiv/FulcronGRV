@@ -15,7 +15,6 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "gallery": "node scripts/gallery.mjs",
-    "export-mongo": "node scripts/export-mongo.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -37,12 +36,9 @@
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.6",
-    "@types/turndown": "^5.0.6",
-    "mongodb": "^7.8.0",
     "prettier": "^3.9.10",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
-    "turndown": "^7.2.4",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.3.14"
   }

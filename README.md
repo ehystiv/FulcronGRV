@@ -53,7 +53,7 @@ app/
   pages/                  una pagina Vue per ogni URL
 public/                   immagini, PDF dei manuali, favicon
 server/routes/            sitemap.xml (generata in build)
-scripts/                  importazioni una tantum: vecchi dati da MongoDB, backup della vecchia wiki
+scripts/gallery.mjs       prepara le foto della gallery (npm run gallery)
 ```
 
 ## Foto su R2
