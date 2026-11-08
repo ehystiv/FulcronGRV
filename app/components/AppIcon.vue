@@ -10,6 +10,7 @@ const BRANDS: Record<string, string> = {
 const UI: Record<string, string> = {
   menu: 'M4 7h16M4 12h16M4 17h16',
   close: 'M6 6l12 12M18 6L6 18',
+  search: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4',
   expand: 'M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5',
   'arrow-up': 'M12 19V5M5 12l7-7 7 7',
   'arrow-right': 'M5 12h14M13 5l7 7-7 7',

@@ -57,3 +57,22 @@ test('gallery: an album opens its photos in the viewer', async ({ page }) => {
     await expect(viewer).toHaveCount(0, { timeout: 1000 })
   }).toPass({ timeout: 10_000 })
 })
+
+test('wiki search: finds pages ignoring accents and opens the chosen one', async ({ page }) => {
+  await page.goto('/wiki')
+  const box = page.getByRole('combobox', { name: 'Cerca nella wiki' })
+  await box.fill('nobilta')
+  const first = page.getByRole('option').first()
+  await expect(first).toContainText('La nobiltà del Nord')
+  await box.press('Enter')
+  await expect(page).toHaveURL('/wiki/geopolitica/nord/nobilta-nord')
+  // The page transition swaps the whole wiki page, search box included
+  await expect(page.locator('h1')).toHaveText('La nobiltà del Nord')
+
+  await box.fill('parolachenonesiste')
+  // Shown in the list and announced to screen readers
+  await expect(page.getByText('Nessun risultato').last()).toBeVisible()
+  await expect(page.locator('[aria-live="polite"]')).toHaveText('Nessun risultato')
+  await box.press('Escape')
+  await expect(page.getByRole('option')).toHaveCount(0)
+})
