@@ -80,8 +80,9 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      // Bacheca has no links while it is empty, so the crawler would not find it
-      routes: ['/', '/sinfonia/bacheca'],
+      // Bacheca has no links while it is empty, so the crawler would not find it; the wiki search index is
+      // fetched by the browser, never linked
+      routes: ['/', '/sinfonia/bacheca', '/wiki-search.json'],
     },
   },
 

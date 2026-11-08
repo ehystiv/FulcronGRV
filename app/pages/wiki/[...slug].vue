@@ -54,7 +54,7 @@ watch(path, () => {
     <header
       class="border-b border-line bg-[radial-gradient(ellipse_at_top,rgb(184_145_63/0.12),transparent_70%),linear-gradient(180deg,var(--color-surface-2),transparent)]"
     >
-      <div class="container-site py-5">
+      <div class="container-site flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
         <nav aria-label="Percorso" class="text-sm">
           <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-muted">
             <li>
@@ -71,6 +71,7 @@ watch(path, () => {
             </li>
           </ol>
         </nav>
+        <WikiSearch />
       </div>
     </header>
 

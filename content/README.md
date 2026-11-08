@@ -83,7 +83,8 @@ contiene i due punti, va racchiuso tra apici (`'così: ad esempio'`).
 
 La wiki di Fulcron. Ogni cartella è una sezione (ad esempio `wiki/geopolitica/est/`) e il suo `index.md` è la
 pagina della sezione. Il menu laterale si costruisce da solo a partire dalle cartelle: per aggiungere una pagina
-basta creare un file nella cartella giusta.
+basta creare un file nella cartella giusta. Anche la ricerca in cima alla wiki si aggiorna da sola a ogni deploy: trova
+titoli, sezioni e testo delle pagine, ignorando maiuscole e accenti.
 
 ```md
 ---
