@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // "Prossimo evento" box, from content/pagine/prossimo-evento.md.
-// Without a date, or once `until` has passed, it says the next one is being prepared and points to Instagram.
+// Without a date, or once `until` has passed, it shows the `fallback` text of that file and points to Instagram.
 const { data: event } = await useAsyncData('prossimo-evento', () =>
   queryCollection('pagine').path('/pagine/prossimo-evento').first(),
 )
@@ -13,6 +13,7 @@ const isOver = () => {
 const over = useState('prossimo-evento-over', isOver)
 onMounted(() => (over.value = isOver()))
 
+const FALLBACK = 'Stiamo preparando il prossimo evento: lo annunceremo su Instagram.'
 const scheduled = computed(() => !!event.value?.date && !over.value)
 </script>
 
@@ -36,10 +37,7 @@ const scheduled = computed(() => !!event.value?.date && !over.value)
 
     <template v-else>
       <h2 class="m-0 text-[clamp(1.5rem,3vw,2rem)]">Prossimo evento</h2>
-      <p class="m-0 max-w-[46ch] text-muted">
-        Siamo fermi da un po’, ma stiamo preparando il prossimo evento. Lo annunceremo su Instagram, e lì puoi scriverci
-        per qualsiasi domanda.
-      </p>
+      <p class="m-0 max-w-[46ch] text-muted">{{ event?.fallback || FALLBACK }}</p>
       <UiButton :href="INSTAGRAM.href" variant="outline" icon="instagram">Seguici su Instagram</UiButton>
       <NuxtLink to="/oneshot" class="inline-flex min-h-11 items-center gap-1.5 text-[0.92rem] font-semibold">
         Intanto, guarda le nostre oneshot <AppIcon name="arrow-right" :size="16" />
