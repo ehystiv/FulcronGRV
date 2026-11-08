@@ -26,6 +26,9 @@ jobs:
       - name: Formatting
         run: npm run format:check
 
+      - name: Lint
+        run: npm run lint -- --max-warnings 0
+
       - name: Types
         run: npm run typecheck
 

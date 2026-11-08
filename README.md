@@ -22,6 +22,7 @@ npm run generate   # genera il sito statico in .output/public
 npm run preview    # prova in locale il sito generato
 npm run typecheck  # controllo dei tipi
 npm run format:check  # controlla la formattazione (Prettier)
+npm run lint       # controlla il codice Vue e TypeScript (ESLint)
 ```
 
 Variabili d'ambiente:
