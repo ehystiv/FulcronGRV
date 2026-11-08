@@ -51,21 +51,41 @@ const DELLE_AREE: Record<string, string> = {
 }
 
 // ---------- Selection, kept in the address (?luogo=partaros) so it can be shared ----------
-const mappa = ref<{
+type Comandi = {
   vaiA: (id: string, durata?: number) => void
   mostra: (id: string) => void
   adatta: () => void
   zoom: (f: number) => void
-}>()
+}
+const mappa = ref<Comandi>()
+// The 3D relief (?vista=3d): downloaded only when opened, it lies over the flat map
+const rilievo = ref<Comandi>()
+const vista3d = ref(route.query.vista === '3d')
+const attiva = computed(() => (vista3d.value ? rilievo.value : mappa.value))
 const selezionato = ref<string | null>(typeof route.query.luogo === 'string' ? route.query.luogo : null)
 const luogo = computed(() => luoghi.value.find((l) => l.id === selezionato.value))
 
+function aggiornaIndirizzo() {
+  router.replace({
+    query: {
+      ...(selezionato.value ? { luogo: selezionato.value } : {}),
+      ...(vista3d.value ? { vista: '3d' } : {}),
+    },
+  })
+}
 function seleziona(id: string | null, vola = false) {
   selezionato.value = id
-  router.replace({ query: id ? { luogo: id } : {} })
-  if (id && vola) mappa.value?.vaiA(id)
+  aggiornaIndirizzo()
+  if (id && vola) attiva.value?.vaiA(id)
   // Tapped on the map: once the panel is open, make sure it does not hide the place
-  else if (id) nextTick(() => requestAnimationFrame(() => mappa.value?.mostra(id)))
+  else if (id) nextTick(() => requestAnimationFrame(() => attiva.value?.mostra(id)))
+}
+function cambiaVista() {
+  vista3d.value = !vista3d.value
+  livelliAperti.value = false
+  aggiornaIndirizzo()
+  // Back to the flat map: show the place chosen meanwhile
+  if (!vista3d.value && selezionato.value) nextTick(() => mappa.value?.vaiA(selezionato.value!))
 }
 // Back and forward buttons
 watch(
@@ -73,6 +93,12 @@ watch(
   (q) => {
     const id = typeof q === 'string' ? q : null
     if (id !== selezionato.value) seleziona(id, true)
+  },
+)
+watch(
+  () => route.query.vista,
+  (q) => {
+    if ((q === '3d') !== vista3d.value) cambiaVista()
   },
 )
 
@@ -193,6 +219,17 @@ const testoScheda = computed(() => {
         :insediamenti="livelli.insediamenti"
         :eventi="livelli.eventi"
         :stimati="livelli.stimati"
+        :riquadro="riquadro"
+        :inert="vista3d"
+        @seleziona="seleziona"
+      />
+      <LazyMappaRilievo
+        v-if="vista3d"
+        ref="rilievo"
+        class="absolute inset-0"
+        :luoghi="luoghi"
+        :selezionato="selezionato"
+        :insediamenti="livelli.insediamenti"
         :riquadro="riquadro"
         @seleziona="seleziona"
       />
@@ -344,7 +381,17 @@ const testoScheda = computed(() => {
         >
           <button
             type="button"
-            class="grid size-11 place-items-center text-ink hover:bg-surface-2"
+            class="grid size-11 place-items-center font-heading text-[0.95rem] font-semibold text-ink hover:bg-surface-2"
+            :aria-label="vista3d ? 'Torna alla mappa piatta' : 'Vedi l’Anello in rilievo, in 3D'"
+            :aria-pressed="vista3d"
+            @click="cambiaVista"
+          >
+            {{ vista3d ? '2D' : '3D' }}
+          </button>
+          <button
+            v-show="!vista3d"
+            type="button"
+            class="grid size-11 place-items-center border-t border-line text-ink hover:bg-surface-2"
             :class="livelliAperti && 'bg-surface-2'"
             aria-label="Livelli e legenda"
             aria-controls="mappa-livelli"
@@ -357,7 +404,7 @@ const testoScheda = computed(() => {
             type="button"
             class="grid size-11 place-items-center border-t border-line text-ink hover:bg-surface-2"
             aria-label="Ingrandisci"
-            @click="mappa?.zoom(1.6)"
+            @click="attiva?.zoom(1.6)"
           >
             <AppIcon name="plus" />
           </button>
@@ -365,7 +412,7 @@ const testoScheda = computed(() => {
             type="button"
             class="grid size-11 place-items-center border-t border-line text-ink hover:bg-surface-2"
             aria-label="Rimpicciolisci"
-            @click="mappa?.zoom(1 / 1.6)"
+            @click="attiva?.zoom(1 / 1.6)"
           >
             <AppIcon name="minus" />
           </button>
@@ -373,7 +420,7 @@ const testoScheda = computed(() => {
             type="button"
             class="grid size-11 place-items-center border-t border-line text-ink hover:bg-surface-2"
             aria-label="Mostra tutto l’Anello"
-            @click="mappa?.adatta()"
+            @click="attiva?.adatta()"
           >
             <AppIcon name="fit" />
           </button>

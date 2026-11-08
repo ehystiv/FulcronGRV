@@ -111,5 +111,7 @@ sono in cima al file. Per spostare un luogo basta cambiarne `x` e `y`; per aggiu
 cambiane i dati. `stimato: true` segnala che la posizione è indicativa, perché la mappa dipinta originale non lo segna.
 
 Il testo sotto la mappa sta in `wiki/mappa.md`. Coste, montagne, foreste, fiumi e confini sono invece disegnati nel
-codice (`app/utils/mappa.ts`). Se cambi la mappa, rigenera l’anteprima `public/mappa/anello.jpg` (la usano il
-riquadro `::world-map` e le anteprime di condivisione) con `npm run generate && npm run mappa:anteprima`.
+codice (`app/utils/mappa.ts`). Se cambi la mappa, rigenera le due immagini con `npm run generate && npm run mappa:anteprima`: l’anteprima
+`public/mappa/anello.jpg` (la usano il riquadro `::world-map` e le anteprime di condivisione) e
+`public/mappa/rilievo.webp`, la mappa senza nomi stesa sul plastico della vista 3D. Le altezze del plastico
+stanno in `app/utils/mappaRilievo.ts`; quella di ogni catena montuosa è il campo `quota` in `app/utils/mappa.ts`.

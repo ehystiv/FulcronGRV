@@ -11,7 +11,19 @@ export const MAPPA_LATO = 1280
 type Punto = [number, number]
 
 /** Mountain ranges: the line of the crest, how far the peaks spread from it, and their size. */
-const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: number }[] = [
+/**
+ * Mountain ranges: the line of the crest, how far the peaks spread from it, their size, and their height in the
+ * 3D view (`quota`, 0 to 1). Heights follow the wiki: the Alte Montagne are the "altissima catena" that closes the
+ * Ring, the Lerrnerum a "grande catena montuosa", Sassorosso and the hills of the islands are low.
+ */
+export const MAPPA_CATENE: {
+  linea: Punto[]
+  largo: number
+  passo: number
+  min: number
+  max: number
+  quota: number
+}[] = [
   // Terre del Nord, above Casaroccia
   {
     linea: [
@@ -21,6 +33,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [340, 78],
       [382, 98],
     ],
+    quota: 0.55,
     largo: 20,
     passo: 12,
     min: 13,
@@ -36,6 +49,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [970, 50],
       [1040, 42],
     ],
+    quota: 0.7,
     largo: 26,
     passo: 11,
     min: 16,
@@ -48,6 +62,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [920, 102],
       [1000, 88],
     ],
+    quota: 0.6,
     largo: 14,
     passo: 13,
     min: 13,
@@ -61,6 +76,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [868, 180],
       [890, 200],
     ],
+    quota: 0.55,
     largo: 16,
     passo: 11,
     min: 12,
@@ -78,6 +94,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [1180, 400],
       [1196, 445],
     ],
+    quota: 0.7,
     largo: 22,
     passo: 11,
     min: 14,
@@ -95,6 +112,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [1020, 948],
       [998, 975],
     ],
+    quota: 0.8,
     largo: 30,
     passo: 10,
     min: 16,
@@ -107,6 +125,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [1200, 1000],
       [1236, 1006],
     ],
+    quota: 0.4,
     largo: 12,
     passo: 12,
     min: 11,
@@ -123,6 +142,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [1030, 1246],
       [1062, 1270],
     ],
+    quota: 0.5,
     largo: 18,
     passo: 11,
     min: 13,
@@ -138,6 +158,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [110, 387],
       [62, 402],
     ],
+    quota: 0.55,
     largo: 16,
     passo: 11,
     min: 12,
@@ -157,6 +178,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [58, 1160],
       [48, 1250],
     ],
+    quota: 1.0,
     largo: 34,
     passo: 10,
     min: 20,
@@ -173,6 +195,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [420, 1148],
       [478, 1140],
     ],
+    quota: 0.65,
     largo: 20,
     passo: 11,
     min: 13,
@@ -185,6 +208,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [150, 1250],
       [196, 1276],
     ],
+    quota: 0.75,
     largo: 18,
     passo: 11,
     min: 14,
@@ -196,6 +220,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [630, 1252],
       [672, 1268],
     ],
+    quota: 0.3,
     largo: 8,
     passo: 11,
     min: 10,
@@ -208,6 +233,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [500, 182],
       [534, 192],
     ],
+    quota: 0.35,
     largo: 5,
     passo: 9,
     min: 9,
@@ -219,6 +245,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [479, 438],
       [486, 462],
     ],
+    quota: 0.25,
     largo: 4,
     passo: 9,
     min: 8,
@@ -230,6 +257,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [640, 630],
       [647, 676],
     ],
+    quota: 0.3,
     largo: 6,
     passo: 9,
     min: 8,
@@ -241,6 +269,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
       [778, 806],
       [784, 834],
     ],
+    quota: 0.25,
     largo: 5,
     passo: 9,
     min: 8,
@@ -249,7 +278,7 @@ const CATENE: { linea: Punto[]; largo: number; passo: number; min: number; max: 
 ]
 
 /** Single peaks: x, y, size. */
-const PICCHI: [number, number, number][] = [
+export const MAPPA_PICCHI: [number, number, number][] = [
   [266, 156, 18], // Monte Iridel, a dormant volcano
   [374, 284, 13], // Monte Lupo
   [484, 860, 10], // Monte Uru
@@ -497,7 +526,7 @@ export function terrenoMappa(): Terreno {
   const r = casuale(1712)
   const punti: { x: number; y: number; s: number; colle: boolean; neve: boolean }[] = []
   const basi: Terreno['basi'] = []
-  for (const catena of CATENE) {
+  for (const catena of MAPPA_CATENE) {
     basi.push({ d: lineaMorbida(catena.linea), largo: catena.largo })
     for (let i = 0; i < catena.linea.length - 1; i++) {
       const [x1, y1] = catena.linea[i]!
@@ -526,7 +555,7 @@ export function terrenoMappa(): Terreno {
       }
     }
   }
-  for (const [x, y, s] of PICCHI) punti.push({ x, y, s, colle: false, neve: false })
+  for (const [x, y, s] of MAPPA_PICCHI) punti.push({ x, y, s, colle: false, neve: false })
   // Painter's order: the peaks lower on the map cover the ones behind them
   punti.sort((a, b) => a.y - b.y)
   const montagne = punti.map((p) => (p.colle ? disegnaColle(p.x, p.y, p.s, r) : disegnaMonte(p.x, p.y, p.s, p.neve, r)))

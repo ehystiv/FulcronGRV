@@ -108,3 +108,17 @@ test('wiki map: tapping a place on the map opens its card', async ({ page }) => 
   await expect(page.getByRole('complementary')).toBeHidden()
   await expect(page).toHaveURL('/wiki/mappa')
 })
+
+test('wiki map: the 3D view opens, names a place and gives way back to the flat map', async ({ page }) => {
+  await page.goto('/wiki/mappa')
+  await page.getByRole('button', { name: 'Vedi l’Anello in rilievo, in 3D' }).click()
+  await expect(page).toHaveURL(/vista=3d/)
+  await expect(page.locator('.rilievo canvas')).toBeVisible()
+  // The names float over the model and open the same card as on the flat map
+  await page.getByRole('group', { name: 'Luoghi principali' }).getByRole('button', { name: 'Valdyris' }).click()
+  await expect(page.getByRole('complementary').getByRole('heading', { name: 'Valdyris' })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Torna alla mappa piatta' }).click()
+  await expect(page.locator('.rilievo')).toHaveCount(0)
+  await expect(page).toHaveURL('/wiki/mappa?luogo=valdyris')
+})

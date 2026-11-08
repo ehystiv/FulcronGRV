@@ -9,6 +9,8 @@ order: 0
 
 Trascina per spostarti, usa la rotella, i tasti **+** e **−** o due dita per ingrandire. Avvicinandoti compaiono i borghi, le isole minori e i nomi più piccoli. Tocca un nome o un simbolo per aprire la sua scheda; le schede rimandano alle pagine della wiki.
 
+Il pulsante **3D** mostra l’Anello in rilievo, come un plastico: trascina per spostarti, usa due dita o il tasto destro del mouse per ruotarlo e inclinarlo. Le altezze seguono le descrizioni della wiki: le Alte Montagne sono le più alte, a sud la palude sta sotto la Muraglia, interrotta a Eryma dalla voragine della Breccia.
+
 La mappa è ridisegnata a partire dalla [mappa dipinta di Fulcron](/mappa-fulcron.jpg). Dove la wiki e la mappa dipinta non coincidono vale la wiki, e la scheda riporta il nome che compare sulla mappa dipinta (il Regno di Utelan è Estar, il Mare dei Prati è il Mar dei Pirati).
 
 ## Posizioni indicative
