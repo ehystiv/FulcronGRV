@@ -33,7 +33,7 @@ const year = (date?: string) => date?.slice(0, 4)
   <div>
     <PageHero title="Gallery" lead="Le foto dei nostri eventi, album per album." />
 
-    <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
+    <div class="container-site py-section">
       <EmptyState v-if="!albums.length">Non ci sono ancora album.</EmptyState>
 
       <ul v-else class="m-0 grid list-none gap-x-6 gap-y-10 p-0 sm:grid-cols-2">

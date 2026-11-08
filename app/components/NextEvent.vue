@@ -22,7 +22,7 @@ const scheduled = computed(() => !!event.value?.date && !over.value)
     class="mx-auto flex max-w-190 flex-col items-center gap-5 rounded-card border border-line bg-surface p-[clamp(1.5rem,4vw,2.5rem)] text-center shadow-card"
   >
     <template v-if="scheduled && event">
-      <h2 class="m-0 text-[clamp(1.5rem,3vw,2rem)]">{{ event.title }}</h2>
+      <h2 class="m-0 text-subheading">{{ event.title }}</h2>
       <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-ink">
         <li class="inline-flex items-center gap-2"><AppIcon name="calendar" :size="18" /> {{ event.date }}</li>
         <li v-if="event.place" class="inline-flex items-center gap-2">
@@ -36,7 +36,7 @@ const scheduled = computed(() => !!event.value?.date && !over.value)
     </template>
 
     <template v-else>
-      <h2 class="m-0 text-[clamp(1.5rem,3vw,2rem)]">Prossimo evento</h2>
+      <h2 class="m-0 text-subheading">Prossimo evento</h2>
       <p class="m-0 max-w-[46ch] text-muted">{{ event?.fallback || FALLBACK }}</p>
       <UiButton :href="INSTAGRAM.href" variant="outline" icon="instagram">Seguici su Instagram</UiButton>
       <NuxtLink to="/oneshot" class="inline-flex min-h-11 items-center gap-1.5 text-[0.92rem] font-semibold">

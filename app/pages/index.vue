@@ -52,7 +52,7 @@ useHead({
       />
       <div class="container-site pt-[calc(var(--spacing-header)+3rem)] pb-[clamp(6rem,13vw,8.5rem)]">
         <div class="max-w-3xl">
-          <h1 class="mb-[0.35em] text-[clamp(2.3rem,6.2vw,4.5rem)] text-white [text-shadow:0_4px_30px_rgb(0_0_0/0.5)]">
+          <h1 class="mb-[0.35em] text-display text-white [text-shadow:0_4px_30px_rgb(0_0_0/0.5)]">
             {{ hero.title }}
           </h1>
           <p class="max-w-[42ch] text-[clamp(1.1rem,2.2vw,1.3rem)]">{{ hero.text }}</p>
@@ -68,9 +68,9 @@ useHead({
       <NextEvent />
     </section>
 
-    <section class="pt-[clamp(3rem,8vw,5.5rem)] pb-[clamp(3rem,8vw,5.5rem)]">
+    <section class="pt-section pb-section">
       <UiSectionTitle v-reveal :title="intro.title" class="container-site">
-        <p class="mx-auto max-w-[46ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">{{ intro.text }}</p>
+        <p class="mx-auto max-w-[46ch] text-lead text-muted">{{ intro.text }}</p>
       </UiSectionTitle>
     </section>
 
@@ -91,7 +91,7 @@ useHead({
             class="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.02]"
           />
         </NuxtLink>
-        <div class="pb-[clamp(3rem,8vw,5.5rem)] lg:py-[clamp(3rem,8vw,5.5rem)]">
+        <div class="pb-section lg:py-section">
           <h2 class="mb-4 text-[clamp(1.8rem,3.6vw,2.6rem)] text-white">{{ campaign.title }}</h2>
           <p class="mb-3 max-w-[46ch]">{{ campaign.text }}</p>
           <p v-if="campaign.note" class="mb-6 max-w-[46ch] text-on-dark-muted">{{ campaign.note }}</p>
@@ -122,11 +122,11 @@ useHead({
     </section>
 
     <section
-      class="bg-[radial-gradient(ellipse_at_top_right,rgb(184_145_63/0.18),transparent_55%),linear-gradient(135deg,var(--color-ink-deep),var(--color-ink)_55%,var(--color-forest))] py-[clamp(3rem,8vw,5.5rem)] text-on-dark on-dark"
+      class="bg-[radial-gradient(ellipse_at_top_right,rgb(184_145_63/0.18),transparent_55%),linear-gradient(135deg,var(--color-ink-deep),var(--color-ink)_55%,var(--color-forest))] py-section text-on-dark on-dark"
     >
       <div v-reveal class="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>
-          <h2 class="mb-4 text-[clamp(1.6rem,3.2vw,2.3rem)] text-white">{{ question.title }}</h2>
+          <h2 class="mb-4 text-heading text-white">{{ question.title }}</h2>
           <p>{{ question.text }}</p>
         </div>
         <div class="lg:justify-self-end">

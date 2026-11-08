@@ -10,7 +10,7 @@ const { data: posts } = await useAsyncData('bacheca', () => queryCollection('bac
 </script>
 
 <template>
-  <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
+  <div class="container-site py-section">
     <UiSectionTitle
       title="Bacheca"
       :lead="posts.length ? 'Le notizie dall’Anello, così come arrivano.' : undefined"

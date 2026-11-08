@@ -3,10 +3,10 @@ const page = await usePage('regolamento')
 </script>
 
 <template>
-  <article class="container-site py-[clamp(3rem,8vw,5.5rem)]">
+  <article class="container-site py-section">
     <div class="mx-auto max-w-reading">
-      <h1 class="mb-3 text-[clamp(2.2rem,5vw,3.6rem)]">{{ page.title }}</h1>
-      <p v-if="page.lead" class="text-[clamp(1.1rem,2vw,1.25rem)] text-muted">{{ page.lead }}</p>
+      <h1 class="mb-3 text-title">{{ page.title }}</h1>
+      <p v-if="page.lead" class="text-lead text-muted">{{ page.lead }}</p>
       <ContentRenderer
         :value="page"
         class="prose-fulcron [&_img]:rounded-card [&_img]:shadow-card [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-line [&_h2]:pt-10"
