@@ -16,6 +16,7 @@ const PAGES = [
   '/oneshot/teoria-del-nulla',
   '/gallery',
   '/wiki',
+  '/wiki/mappa',
   '/privacy',
 ]
 

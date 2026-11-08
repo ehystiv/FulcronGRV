@@ -81,6 +81,51 @@ export default defineContentConfig({
       }),
     }),
 
+    // Places on the interactive map of the Ring (/wiki/mappa): one YAML file, content/mappa.yml
+    mappa: defineCollection({
+      type: 'data',
+      source: 'mappa.yml',
+      schema: z.object({
+        luoghi: z.array(
+          z.object({
+            id: z.string(),
+            nome: z.string(),
+            tipo: z.enum([
+              'capitale',
+              'citta',
+              'borgo',
+              'fortezza',
+              'luogo',
+              'evento',
+              'macro',
+              'regione',
+              'regno',
+              'mare',
+              'isola',
+              'foresta',
+              'monti',
+              'pianura',
+              'lago',
+              'fiume',
+              'deserto',
+              'palude',
+            ]),
+            area: z.enum(['nord', 'est', 'sud', 'ovest', 'mare']),
+            x: z.number(),
+            y: z.number(),
+            livello: z.number().default(2),
+            ruota: z.number().optional(),
+            etichetta: z.string().optional(),
+            lato: z.enum(['destra', 'sinistra']).optional(),
+            stimato: z.boolean().default(false),
+            dipinto: z.string().optional(),
+            testo: z.string().optional(),
+            wiki: z.string().optional(),
+          }),
+        ),
+      }),
+    }),
+
     // Photo albums: one JSON per event, written by `npm run gallery`. Title, date, photographer,
     // poster, cover and exclude are edited by hand, the rest is generated.
     gallery: defineCollection({

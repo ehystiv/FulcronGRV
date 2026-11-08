@@ -55,6 +55,7 @@ bacheca e oneshot sono file Markdown. Guida ed esempi in [`content/README.md`](c
 ```
 content/                  testi del sito (Markdown)
   home.yml                testi della home page
+  mappa.yml               i luoghi della mappa interattiva dell’Anello (/wiki/mappa)
   pagine/                 chi siamo, ambientazione, regolamento, inizia a giocare, privacy…
   bacheca/  oneshot/      una notizia / una oneshot per file
   wiki/                   la wiki di Fulcron (cartelle = sezioni)
@@ -63,6 +64,8 @@ app/
   components/ui/          componenti di base (UiButton, UiCard, UiSectionTitle…)
   components/content/     blocchi usabili nei Markdown (::banner, ::faq, ::timeline…)
   components/wiki/        menu e ricerca della wiki
+  components/mappa/       la mappa interattiva dell’Anello (disegno SVG, zoom e spostamento)
+  utils/mappa.ts          coste, montagne, foreste, fiumi e confini della mappa
   components/             header, footer e componenti condivisi
   composables/usePage.ts  carica una pagina da content/pagine
   composables/useSocialMeta.ts  titolo, descrizione e anteprima di condivisione di una pagina
@@ -71,6 +74,7 @@ public/                   immagini e favicon
 modules/sitemap.ts        scrive sitemap.xml alla fine della build, dalle pagine generate
 server/routes/            l'indice della ricerca nella wiki (wiki-search.json, generato in build)
 scripts/gallery.mjs       prepara le foto della gallery (npm run gallery)
+scripts/mappa-anteprima.mjs  disegna l’anteprima della mappa, public/mappa/anello.jpg (npm run mappa:anteprima)
 ```
 
 ## Stile

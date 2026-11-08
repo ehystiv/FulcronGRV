@@ -1,0 +1,1317 @@
+# Luoghi della mappa interattiva dell'Anello (/wiki/mappa). Si modificano qui senza toccare il codice.
+#
+# Ogni luogo ha:
+#   id       nome breve senza spazi né accenti, usato nell'indirizzo (/wiki/mappa?luogo=partaros)
+#   nome     come compare sulla mappa
+#   tipo     capitale, citta, borgo, fortezza, luogo, evento   (un simbolo con il nome accanto)
+#            macro, regione, regno, mare, isola, foresta, monti, pianura, lago, fiume, deserto, palude   (solo il nome, dipinto)
+#   area     nord, est, sud, ovest o mare
+#   x, y     posizione sulla mappa, da 0 a 1280 (0,0 è l'angolo in alto a sinistra)
+#   livello  1 si vede sempre, 2 avvicinandosi, 3 solo da vicino (facoltativo, di base 2)
+#   ruota    gradi di rotazione del nome (facoltativo, solo per i nomi dipinti)
+#   etichetta il nome come va scritto sulla mappa, se diverso; | va a capo (facoltativo, solo per i nomi dipinti)
+#   lato     sinistra per scrivere il nome a sinistra del simbolo (facoltativo)
+#   stimato  true se la wiki ne parla ma la mappa originale non lo segna: la posizione è indicativa
+#   dipinto  il nome scritto sulla mappa dipinta, se la wiki lo chiama diversamente (facoltativo)
+#   testo    due righe per la scheda (facoltativo)
+#   wiki     la pagina della wiki da aprire (facoltativo)
+
+luoghi:
+  # ---------- Le quattro terre e il mare ----------
+  - id: nord
+    nome: Nord
+    tipo: macro
+    area: nord
+    x: 400
+    y: 34
+    livello: 1
+    testo: Ispirato al medioevo europeo e dominato da re e regine di nobile stirpe. Comprende le Terre del Nord, il Qorish e il Rorish. Oltre i suoi confini si stende una landa perennemente gelata.
+    wiki: /wiki/geopolitica/nord
+  - id: est
+    nome: Est
+    tipo: macro
+    area: est
+    x: 1244
+    y: 700
+    livello: 1
+    ruota: -90
+    testo: Ispirato alle grandi civiltà asiatiche e nordafricane. Va dal fiume Amdinare e dalla Rocca Fantasma fino alle Tre Gemme del Sud; oltre, un deserto sconfinato che nessuno è mai riuscito a valicare.
+    wiki: /wiki/geopolitica/est
+  - id: sud
+    nome: Sud
+    tipo: macro
+    area: sud
+    x: 860
+    y: 1262
+    livello: 1
+    testo: Famoso per i suoi maghi e alchimisti. Dopo il Giorno della Breccia, nel 3014, l’unico regno rimasto unito dopo la Grande Guerra si è diviso. Oltre la Muraglia, una palude sconfinata abitata dai Diaforos.
+    wiki: /wiki/geopolitica/sud
+  - id: ovest
+    nome: Ovest
+    tipo: macro
+    area: ovest
+    x: 168
+    y: 1012
+    livello: 1
+    testo: La regione più selvaggia e ostile dell’Anello, coperta quasi per intero da fitte foreste e montagne impervie. A ovest la chiude un’altissima catena montuosa.
+    wiki: /wiki/geopolitica/ovest
+  - id: mare-interno
+    nome: Mare Interno
+    tipo: macro
+    area: mare
+    x: 664
+    y: 354
+    livello: 1
+    testo: La più grande distesa d’acqua dell’Anello, al centro di Fulcron. Conta 65 isole abitate, cinque delle quali, le «isole portanti», sono le più estese. Si divide in nove mari più piccoli.
+    wiki: /wiki/geopolitica/mare
+
+  # ---------- Nord ----------
+  - id: terre-del-nord
+    nome: Terre del Nord
+    tipo: regione
+    area: nord
+    x: 150
+    y: 62
+    livello: 1
+    testo: Qui il gelo domina su tutto. Non ci sono insediamenti umani degni di questo nome, solo tribù nomadi di orchi e, sotto terra, il reame nanico di Casaroccia.
+    wiki: /wiki/geopolitica/nord#terre-del-nord
+  - id: qorish
+    nome: Qorish
+    tipo: regione
+    area: nord
+    x: 262
+    y: 258
+    livello: 1
+    ruota: 22
+    testo: Il territorio occidentale del Nord, dove i boschi prevalgono su tutto. Si divide in due regni, Ilvia e Ulia; molti insediamenti sono nati da carovane di mercanti.
+    wiki: /wiki/geopolitica/nord#il-qorish
+  - id: rorish
+    nome: Rorish
+    tipo: regione
+    area: nord
+    x: 620
+    y: 192
+    livello: 1
+    ruota: 24
+    testo: La regione più estesa e forse più civilizzata del Nord, divisa in sette regni governati autonomamente, i cui sovrani si riuniscono in una dieta comune per le decisioni importanti.
+    wiki: /wiki/geopolitica/nord#il-rorish
+  - id: ulia
+    nome: Ulia
+    tipo: regno
+    area: nord
+    x: 318
+    y: 222
+    testo: Regno di foreste a nord di Ilvia, diviso in quattro baronie (Galia, Rea, Galena e Antea). Durante la Guerra dell’Occhio si è arreso alla Setta; oggi è retto da Harrey Bowman.
+    wiki: /wiki/geopolitica/nord#ulia
+  - id: ilvia
+    nome: Ilvia
+    tipo: regno
+    area: nord
+    x: 290
+    y: 336
+    testo: Regno del Qorish governato da re Gwyn Vinhaim con il concilio dei Sette Savi. È diviso in quattro baronie (Swanburg, Wintergate, Arrowdale e Fendergast). Stemma: una civetta delle nevi nera su sfondo blu.
+    wiki: /wiki/geopolitica/nord#ilvia
+  - id: iseldor
+    nome: Iseldor
+    tipo: regno
+    area: nord
+    x: 478
+    y: 128
+    testo: Regno di cacciatori a nord-ovest del Rorish, sul confine con le Terre del Nord. Chi vince la grande caccia che si tiene ogni cinque anni può diventare re; oggi regna la famiglia Alford.
+    wiki: /wiki/geopolitica/nord#iseldor
+  - id: erden
+    nome: Erden
+    tipo: regno
+    area: nord
+    x: 560
+    y: 30
+    testo: Regno famoso per le sue sorgenti, benedette da Samudra. Vi vivono molti elfi; regnano da decenni Aralion Flintwood e la moglie Ethel Answild.
+    wiki: /wiki/geopolitica/nord#erden
+  - id: shador
+    nome: Shador
+    tipo: regno
+    area: nord
+    x: 470
+    y: 216
+    testo: Regno quasi completamente immerso nella foresta di Shandora, diviso in sei contee. Trimold e Shamold, governate dalla stessa famiglia, sono dette le Contee Gemelle.
+    wiki: /wiki/geopolitica/nord#shador
+  - id: estar
+    nome: Estar
+    dipinto: Regno di Utelan
+    tipo: regno
+    area: nord
+    x: 625
+    y: 232
+    testo: Il regno più centrale del Rorish, governato dalla regina Chloris Dorset e dal marito Leon Erophel Flintwood. I sovrani vengono scelti dal Regentium, tre anziani sacerdoti detti la Veggente, l’Errante e la Civetta.
+    wiki: /wiki/geopolitica/nord#estar
+  - id: lungacosta
+    nome: Lungacosta
+    tipo: regno
+    area: nord
+    x: 566
+    y: 294
+    testo: Il regno costiero del Nord, con una possente flotta al servizio della regina Elaine Moonsharp. I commerci fioriscono. Stemma dei Moonsharp: una mezzaluna nera su sfondo celeste.
+    wiki: /wiki/geopolitica/nord#lungacosta
+  - id: ilshaka
+    nome: Ilshaka
+    tipo: regno
+    area: nord
+    x: 770
+    y: 196
+    ruota: 24
+    testo: Il regno più vasto del Rorish, famoso per la sua potenza militare e per re Nymbra Shoot, la Vecchia Tigre, decisivo per la vittoria del Nord nella Grande Guerra. Stemma: una tigre nera su sfondo bianco.
+    wiki: /wiki/geopolitica/nord#ilshaka
+  - id: foran
+    nome: Foran
+    tipo: regno
+    area: nord
+    x: 850
+    y: 272
+    testo: Piccolo regno a sud-est del Nord, al confine con la foresta di Tyr. Dopo anni sotto la protezione di Ilshaka, è tornato sul trono l’erede Sirius Duval.
+    wiki: /wiki/geopolitica/nord#foran
+  - id: casaroccia
+    nome: Casaroccia
+    tipo: capitale
+    area: nord
+    x: 262
+    y: 104
+    livello: 1
+    testo: Il reame nanico delle Terre del Nord, una gigantesca miniera che si estende per chilometri sotto terra. Il re ha una carica solo onoraria: decidono ministri eletti e il voto della comunità.
+    wiki: /wiki/geopolitica/nord#casaroccia
+  - id: babel
+    nome: Babel
+    tipo: borgo
+    area: nord
+    x: 175
+    y: 108
+    livello: 3
+  - id: foresta-delle-rocce
+    nome: Foresta delle Rocce
+    tipo: foresta
+    area: nord
+    x: 163
+    y: 168
+  - id: foresta-cerulea
+    nome: Foresta Cerulea
+    tipo: foresta
+    area: nord
+    x: 92
+    y: 262
+    stimato: true
+    testo: Fuori da ogni giurisdizione del Qorish. Prende il nome da un fiore celeste che, si dice, la ricopre per intero una volta ogni cento anni. Vi vivono migliaia di elfi; è interdetta agli stranieri.
+    wiki: /wiki/geopolitica/nord#foresta-cerulea
+  - id: mihifer
+    nome: Mihifer
+    tipo: capitale
+    area: nord
+    x: 275
+    y: 172
+    livello: 1
+    testo: Capitale di Ulia, alle pendici del monte Iridel. Vi ha sede l’Accademia di Magia e Arti Elementali di Embergard, la più antica e prestigiosa scuola di magia di Fulcron. Nel 3017 fu assediata dalla Setta.
+    wiki: /wiki/geopolitica/nord#accademia-di-magia-e-arti-elementali-di-embergard
+  - id: monte-iridel
+    nome: Monte Iridel
+    dipinto: Monte Iridan
+    tipo: monti
+    area: nord
+    x: 266
+    y: 140
+    livello: 3
+    testo: Vulcano inattivo, preziosissima fonte di ossidiana. Ai suoi piedi sorge Mihifer.
+    wiki: /wiki/geopolitica/nord#ulia
+  - id: magnolia
+    nome: Magnolia
+    tipo: borgo
+    area: nord
+    x: 335
+    y: 147
+    livello: 3
+  - id: melsted
+    nome: Melsted
+    tipo: borgo
+    area: nord
+    x: 407
+    y: 175
+    livello: 3
+  - id: foresta-del-sussurro
+    nome: Foresta del Sussurro
+    tipo: foresta
+    area: nord
+    x: 418
+    y: 98
+    livello: 3
+  - id: lago-di-ara
+    nome: Lago di Ara
+    tipo: lago
+    area: nord
+    x: 464
+    y: 62
+    livello: 3
+  - id: yomerick
+    nome: Yomerick
+    tipo: capitale
+    area: nord
+    x: 470
+    y: 150
+    stimato: true
+    testo: Capitale di Iseldor, detta la Città del Peccato per i suoi numerosi bordelli. Il palazzo reale è pieno di pelli e teste di animali.
+    wiki: /wiki/geopolitica/nord#iseldor
+    lato: sinistra
+  - id: shol
+    nome: Shol
+    tipo: capitale
+    area: nord
+    x: 584
+    y: 77
+    testo: Capitale di Erden. Accanto alle sue sorgenti calde sorge il più grande tempio di Samudra, dove i novizi compiono il Rituale di Purificazione immergendosi nelle acque gelide.
+    wiki: /wiki/geopolitica/nord#erden
+  - id: sassorosso
+    nome: Sassorosso
+    tipo: monti
+    area: nord
+    x: 520
+    y: 198
+    livello: 3
+    testo: Catena montuosa poco a nord-ovest dell’antica foresta di Shandora.
+    wiki: /wiki/geopolitica/nord#la-foresta-di-shandora
+  - id: foresta-di-shandora
+    nome: Foresta di Shandora
+    tipo: foresta
+    area: nord
+    x: 474
+    y: 262
+    testo: Ciò che resta di una grande civiltà che regnò su quasi tutto il Nord fino a più di mille anni fa, devota al Sole e all’albero della vita. Una barriera di piante, forse magica, ne impedisce l’accesso.
+    wiki: /wiki/geopolitica/nord#la-foresta-di-shandora
+  - id: monte-lupo
+    nome: Monte Lupo
+    tipo: monti
+    area: nord
+    x: 372
+    y: 268
+    livello: 3
+    testo: Un monte per lo più deserto, abitato da branchi di lupi e da una tribù di cacciatori guidata da uno sciamano, che i vicini chiamano semplicemente i Lupi.
+    wiki: /wiki/geopolitica/nord#monte-lupo
+  - id: herrik
+    nome: Herrik
+    tipo: borgo
+    area: nord
+    x: 359
+    y: 328
+    livello: 3
+  - id: amhora
+    nome: Amhora
+    tipo: citta
+    area: nord
+    x: 452
+    y: 352
+    livello: 1
+    testo: Città portuale di Ilvia, divenuta una delle più importanti città mercantili del Mare Interno. Nel 3017 il matrimonio di Siondra Beladhit finì in un grande incendio, le «Nozze di Fuoco».
+    wiki: /wiki/geopolitica/nord#amhora
+  - id: long-casset
+    nome: Long Casset
+    tipo: citta
+    area: nord
+    x: 533
+    y: 328
+  - id: tetrangelo
+    nome: Tetrangelo
+    tipo: borgo
+    area: nord
+    x: 173
+    y: 352
+    livello: 3
+  - id: shaka
+    nome: Shaka
+    tipo: borgo
+    area: nord
+    x: 683
+    y: 84
+    livello: 3
+  - id: monti-di-vlaren
+    nome: Monti di Vlaren
+    tipo: monti
+    area: nord
+    x: 860
+    y: 112
+  - id: lago-besteas
+    nome: Lago Besteas
+    tipo: lago
+    area: nord
+    x: 668
+    y: 158
+    livello: 3
+  - id: dagos
+    nome: Dagos
+    tipo: borgo
+    area: nord
+    x: 647
+    y: 252
+    livello: 3
+  - id: hellond
+    nome: Hellond
+    tipo: citta
+    area: nord
+    x: 604
+    y: 262
+    stimato: true
+    testo: Città di Estar, sede dell’antichissimo Ospedale di Hellond, un tempo della Congregazione dei Maestri Cerusici. Un piano custodisce ancora i loro libri e documenti.
+    wiki: /wiki/geopolitica/nord#estar
+  - id: spices
+    nome: Spices
+    tipo: borgo
+    area: nord
+    x: 648
+    y: 288
+    livello: 3
+  - id: bassopiano-di-aemr
+    nome: Bassopiano di Aemr
+    tipo: pianura
+    area: nord
+    x: 735
+    y: 270
+    livello: 3
+  - id: fiume-tyr
+    nome: Fiume Tyr
+    tipo: fiume
+    area: nord
+    x: 795
+    y: 264
+    livello: 3
+    ruota: 80
+  - id: bontor
+    nome: Bontor
+    tipo: capitale
+    area: nord
+    x: 848
+    y: 298
+    stimato: true
+    testo: Capitale di Foran, famosa per fabbri e armaioli capaci, si dice, di forgiare armi magiche. Nel 3013 cadde per mano del guardiano della foresta di Tyr; fu ripresa nel 3017.
+    wiki: /wiki/geopolitica/nord#foran
+  - id: ishar
+    nome: Ishar
+    tipo: borgo
+    area: nord
+    x: 905
+    y: 254
+    stimato: true
+    testo: Cittadina del regno di Foran, attaccata nel 3017 da Ghevurà, il Rosso, della Mano della Setta, che vi morì. Valdyris vi ha aperto da poco una via commerciale.
+    wiki: /wiki/la-setta
+    lato: destra
+  - id: foresta-di-tyr
+    nome: Foresta di Tyr
+    tipo: foresta
+    area: nord
+    x: 810
+    y: 330
+    testo: Una delle più estese foreste di Fulcron, al confine tra Nord ed Est, nata secondo la leggenda dal seme dell’albero sacro Bacab. Rifugio di creature magiche, elfi silvani e gnomi, protetta da un Guardiano.
+    wiki: /wiki/geopolitica/nord#la-foresta-di-tyr
+  - id: new-moon
+    nome: New Moon
+    tipo: borgo
+    area: nord
+    x: 892
+    y: 330
+    livello: 3
+  - id: rocca-fantasma
+    nome: Rocca Fantasma
+    tipo: fortezza
+    area: nord
+    x: 1046
+    y: 168
+    livello: 1
+    testo: Fortezza dove visse Eklitz von Sharr, il più grande Signore Vampiro che la storia ricordi, al confine con Ilshaka. Nel 3018 fu attaccata dall’esercito del Rorish, e la zona fu purificata da un’antica magia.
+    wiki: /wiki/geopolitica/nord#ilshaka
+
+  # ---------- Est ----------
+  - id: citta-libere
+    nome: Città libere del Deserto
+    etichetta: 'Città libere|del Deserto'
+    tipo: regione
+    area: est
+    x: 1010
+    y: 452
+    stimato: true
+    testo: Grandi città-stato in stretti rapporti tra loro, in una regione desertica salvo le zone vicine a fiumi e oasi. Vi è forte il culto del dio sole Shamash. Le maggiori sono Nuova Theris, Partaros e Cyr.
+    wiki: /wiki/geopolitica/est#le-città-libere-del-deserto
+  - id: nuova-theris
+    nome: Nuova Theris
+    tipo: citta
+    area: est
+    x: 966
+    y: 302
+    livello: 1
+    testo: La più settentrionale delle città libere, fondata sull’Amdinare dopo la Grande Guerra al posto di Theris, distrutta dai combattimenti. Dal 3013 la governa la Pentarchia, cinque principi con lo stesso potere.
+    wiki: /wiki/geopolitica/est/nuova-theris
+  - id: dolimion
+    nome: Dolimion
+    tipo: borgo
+    area: est
+    x: 1014
+    y: 292
+    livello: 3
+  - id: alto-borgo
+    nome: Alto Borgo
+    tipo: borgo
+    area: est
+    x: 1030
+    y: 314
+    livello: 3
+  - id: medwegya
+    nome: Medwegya
+    tipo: borgo
+    area: est
+    x: 991
+    y: 242
+    livello: 3
+  - id: altatorre
+    nome: Altatorre
+    tipo: fortezza
+    area: est
+    x: 1040
+    y: 213
+    livello: 3
+  - id: xerxes
+    nome: Xerxes
+    tipo: citta
+    area: est
+    x: 990
+    y: 196
+    stimato: true
+    testo: L’unico centro importante ai piedi della Rocca Fantasma, una zona che non ha mai adottato il culto di Shamash e ha sempre mantenuto contatti con le creature delle montagne.
+    wiki: /wiki/geopolitica/est#le-città-libere-del-deserto
+  - id: fiume-amdinare
+    nome: Fiume Amdinare
+    tipo: fiume
+    area: est
+    x: 1068
+    y: 302
+    livello: 3
+    ruota: -2
+    testo: Il grande fiume che segna il confine tra Nord ed Est. Partaros sorge tra il suo braccio settentrionale e quello meridionale.
+    wiki: /wiki/geopolitica/est
+  - id: partaros
+    nome: Partaros
+    tipo: capitale
+    area: est
+    x: 848
+    y: 368
+    livello: 1
+    stimato: true
+    testo: La Città Santa, la più estesa e fiorente delle città libere, tra i due bracci dell’Amdinare. Capitale dell’Impero del Sol Levante, sede dell’Ordine dei Guaritori; dal 3017 è una repubblica.
+    wiki: /wiki/geopolitica/est/partaros
+  - id: penthos
+    nome: Penthos
+    tipo: citta
+    area: est
+    x: 876
+    y: 426
+    testo: I «barbosi pentoshi» con i loro tappeti colorati si trovano fin nel mercato di Limen.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#limen
+  - id: magione-peaful
+    nome: Magione Peaful
+    tipo: luogo
+    area: est
+    x: 936
+    y: 232
+    stimato: true
+    testo: Antica magione al confine tra Nord ed Est. Nel 3017 vi si riunirono i potenti di Fulcron contrari alla Setta, e grazie ai poteri del luogo l’Occhio di Hava vi trovò la morte.
+    wiki: /wiki/guerra-dell-occhio#la-magione-peaful-e-la-caduta-dellocchio-di-hava
+  - id: cyr
+    nome: Cyr
+    tipo: citta
+    area: est
+    x: 1058
+    y: 508
+    livello: 1
+    testo: Città libera a sud di Partaros, ai piedi dei monti Lerrnerum, con un clima secco ma mitigato dal Sud e dal regno di Jotai. Nel 2600 circa l’Impero del Sol Levante arrivò fin qui.
+    wiki: /wiki/geopolitica/est#le-città-libere-del-deserto
+  - id: grande-deserto
+    nome: Grande Deserto
+    tipo: deserto
+    area: est
+    x: 1190
+    y: 505
+    livello: 1
+    ruota: 28
+    testo: Il deserto sconfinato e arido che chiude l’Anello a est. Nessuno è mai riuscito a valicarlo.
+    wiki: /wiki/geopolitica/est
+  - id: jotai
+    nome: Regno di Jotai
+    etichetta: 'Regno|di Jotai'
+    tipo: regione
+    area: est
+    x: 1004
+    y: 716
+    livello: 1
+    ruota: 30
+    testo: L’Impero dei Dodici Fiori, sulle Terre Verdi di Jotai, l’unica zona fertile e boschiva dell’Est. Unificato da Hanami della Camelia, è diviso in dodici distretti retti da altrettanti clan.
+    wiki: /wiki/geopolitica/est/l-impero-dei-dodici-fiori
+  - id: karin
+    nome: Karin
+    tipo: citta
+    area: est
+    x: 982
+    y: 632
+    testo: L’unico porto attivo dell’Impero dei Dodici Fiori, nel territorio del clan della Calendula: tanto trafficato quanto attentamente sorvegliato.
+    wiki: /wiki/geopolitica/est/l-impero-dei-dodici-fiori#economia
+  - id: edo
+    nome: Edo
+    tipo: capitale
+    area: est
+    x: 920
+    y: 877
+    livello: 1
+    testo: Capitale dell’Impero dei Dodici Fiori, fondata da Hanami della Camelia dopo l’unificazione e residenza dell’imperatore.
+    wiki: /wiki/geopolitica/est/l-impero-dei-dodici-fiori#politica
+  - id: fiume-haku
+    nome: Fiume Haku
+    tipo: fiume
+    area: est
+    x: 962
+    y: 904
+    livello: 3
+    testo: Il maggiore corso d’acqua dell’Impero, la cui via commerciale è dominata dal clan del Loto.
+    wiki: /wiki/geopolitica/est/l-impero-dei-dodici-fiori#politica
+  - id: campi-di-riso
+    nome: Campi di Riso
+    tipo: evento
+    area: est
+    x: 970
+    y: 800
+    stimato: true
+    testo: Battaglia del 2681, in cui l’esercito dell’Impero del Sol Levante fu sconfitto da quello di Jotai e costretto a ritirarsi verso nord.
+    wiki: /wiki/storia
+  - id: lerrnerum
+    nome: Monti Lerrnerum
+    dipinto: Montagne del Lerrnerum
+    tipo: monti
+    area: est
+    x: 1100
+    y: 770
+    ruota: -78
+  - id: aarak
+    nome: Sultanato degli Aarak
+    dipinto: Sultanato degli Arak
+    etichetta: 'Sultanato|degli Aarak'
+    tipo: regione
+    area: est
+    x: 1196
+    y: 890
+    livello: 1
+    ruota: 24
+    testo: Si estende a sud-est, oltre i monti Lerrnerum, fino al limitare del Grande Deserto. È popolato soprattutto da nomadi; il sultano è venerato come una divinità.
+    wiki: /wiki/geopolitica/est#il-sultanato-degli-aarak
+  - id: matis
+    nome: Matis
+    tipo: borgo
+    area: est
+    x: 1123
+    y: 919
+    livello: 3
+  - id: el-khadi
+    nome: El Khadi
+    tipo: borgo
+    area: est
+    x: 1215
+    y: 991
+    livello: 3
+
+  # ---------- Ovest ----------
+  - id: piana-di-wakan
+    nome: Piana di Wakan
+    tipo: regione
+    area: ovest
+    x: 222
+    y: 520
+    stimato: true
+    testo: Un vastissimo mare d’erba a nord dell’Ovest, al confine con il Qorish, intatto da agricoltura e allevamento. Lo abitano tribù nomadi umane, eterogenee e bellicose, devote al dio Wakan.
+    wiki: /wiki/geopolitica/ovest#la-piana-di-wakan
+  - id: mithrael-hall
+    nome: Mithrael-Hall
+    tipo: borgo
+    area: ovest
+    x: 105
+    y: 419
+    livello: 3
+  - id: syndarra
+    nome: Syndarra
+    dipinto: Sindarra
+    tipo: capitale
+    area: ovest
+    x: 205
+    y: 448
+    testo: Il Reame Silvano di Syndarra, il più importante dei regni elfici del Chult, misteriosamente decaduto. La sua principessa ed erede è Siondra Beladhit.
+    wiki: /wiki/geopolitica/ovest#la-foresta-del-chult
+  - id: battiferro
+    nome: Battiferro
+    tipo: borgo
+    area: ovest
+    x: 345
+    y: 420
+    livello: 3
+  - id: samuth
+    nome: Samuth
+    tipo: borgo
+    area: ovest
+    x: 333
+    y: 448
+    livello: 3
+  - id: kile
+    nome: Kile
+    tipo: borgo
+    area: ovest
+    x: 140
+    y: 483
+    livello: 3
+  - id: fiume-prabal
+    nome: Fiume Prabal
+    tipo: fiume
+    area: ovest
+    x: 258
+    y: 470
+    livello: 3
+    ruota: -20
+  - id: saagar
+    nome: Saagar
+    tipo: borgo
+    area: ovest
+    x: 308
+    y: 535
+    livello: 3
+  - id: vinimay
+    nome: Vinimay
+    tipo: borgo
+    area: ovest
+    x: 158
+    y: 553
+    livello: 3
+  - id: shan
+    nome: Shan
+    tipo: borgo
+    area: ovest
+    x: 200
+    y: 583
+    livello: 3
+  - id: lago-ayiverre
+    nome: Lago Ayiverre
+    tipo: lago
+    area: ovest
+    x: 140
+    y: 615
+    livello: 3
+  - id: oeevaar
+    nome: Oeevaar
+    tipo: borgo
+    area: ovest
+    x: 89
+    y: 627
+    livello: 3
+  - id: nea-limen
+    nome: Nea Limen
+    tipo: citta
+    area: ovest
+    x: 296
+    y: 612
+    stimato: true
+    testo: Con Valdyris, la più estesa e potente delle città costiere dell’Ovest. Nel 3017 da qui salpò la flotta di Samudra della Setta, diretta ad Amhora.
+    wiki: /wiki/geopolitica/ovest#le-ricche-città-costiere
+  - id: ganaraee
+    nome: Ganaraee
+    tipo: borgo
+    area: ovest
+    x: 286
+    y: 652
+    livello: 3
+  - id: chult
+    nome: Foresta del Chult
+    tipo: foresta
+    area: ovest
+    x: 186
+    y: 672
+    livello: 1
+    testo: La zona boschiva più estesa dell’Anello, grande quanto l’intero Rorish: nessun mortale l’ha mai esplorata tutta. Vi sorgono i regni degli elfi; sotto le sue radici si apre un gigantesco formicaio di roccia.
+    wiki: /wiki/geopolitica/ovest#la-foresta-del-chult
+  - id: bocca-del-serpente
+    nome: Bocca del Serpente
+    tipo: luogo
+    area: ovest
+    x: 150
+    y: 724
+    stimato: true
+    testo: La zona sotto la foresta del Chult dove sorgeva la città sotterranea della Setta, il culto guidato dall’Occhio di Hava che nel 3017 dichiarò guerra all’intera Fulcron.
+    wiki: /wiki/la-setta
+  - id: herel
+    nome: Herel
+    tipo: borgo
+    area: ovest
+    x: 129
+    y: 670
+    livello: 3
+  - id: gronggrash
+    nome: Gronggrash
+    tipo: borgo
+    area: ovest
+    x: 205
+    y: 712
+    livello: 3
+  - id: fiume-shaane
+    nome: Fiume Shaane
+    tipo: fiume
+    area: ovest
+    x: 225
+    y: 760
+    livello: 3
+  - id: rasaatal
+    nome: Rasaatal
+    tipo: borgo
+    area: ovest
+    x: 302
+    y: 778
+    livello: 3
+  - id: makrat
+    nome: Makrat
+    tipo: borgo
+    area: ovest
+    x: 127
+    y: 793
+    livello: 3
+  - id: alte-montagne
+    nome: Alte Montagne
+    tipo: monti
+    area: ovest
+    x: 30
+    y: 700
+    livello: 1
+    ruota: -90
+    testo: Uno degli invalicabili confini dell’Anello, con cime aguzze sempre coperte di neve. Nelle loro profondità vivono clan di Nani che hanno perso quasi ogni contatto con il resto del mondo.
+    wiki: /wiki/geopolitica/ovest#le-alte-montagne
+  - id: sangam
+    nome: Sangam
+    tipo: borgo
+    area: ovest
+    x: 172
+    y: 853
+    livello: 3
+  - id: valdyris
+    nome: Valdyris
+    tipo: citta
+    area: ovest
+    x: 350
+    y: 852
+    livello: 1
+    testo: Il Germoglio dell’Ovest, affacciata sul Mar di Parmore. Le sue case di palissandro sono incise di glifi; vive dei reagenti alchemici che la famiglia Ealth trasforma e vende in tutto l’Anello.
+    wiki: /wiki/geopolitica/ovest/valdyris
+  - id: charam
+    nome: Charam
+    tipo: borgo
+    area: ovest
+    x: 257
+    y: 902
+    livello: 3
+  - id: gadh
+    nome: Gadh
+    tipo: borgo
+    area: ovest
+    x: 122
+    y: 930
+    livello: 3
+  - id: lago-iveel
+    nome: Lago Iveel
+    tipo: lago
+    area: ovest
+    x: 236
+    y: 978
+    livello: 3
+  - id: laharon
+    nome: Laharon
+    tipo: borgo
+    area: ovest
+    x: 393
+    y: 920
+    livello: 3
+  - id: baithak
+    nome: Baithak
+    tipo: borgo
+    area: ovest
+    x: 262
+    y: 1048
+    livello: 3
+  - id: nod
+    nome: Nod
+    tipo: borgo
+    area: ovest
+    x: 119
+    y: 1060
+    livello: 3
+
+  # ---------- Sud ----------
+  - id: limen
+    nome: Limen
+    tipo: citta
+    area: sud
+    x: 469
+    y: 990
+    livello: 1
+    testo: Il grande porto del Sud, protetto da una barriera magica contro le scorrerie degli Elfi Oscuri. Il suo mercato accoglie merci da ogni angolo dell’Anello; i suoi cantieri navali usano il legname di Xyla.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#limen
+  - id: xyla
+    nome: Xyla
+    tipo: citta
+    area: sud
+    x: 392
+    y: 1010
+    stimato: true
+    testo: Al confine con le giungle dell’Ovest. Da qui i tagliaboschi strappano terre coltivabili alla foresta e riforniscono di legname i cantieri navali di Limen.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#xyla
+  - id: antico-regno
+    nome: L’Antico Regno
+    tipo: regione
+    area: sud
+    x: 575
+    y: 1052
+    livello: 1
+    testo: Il regno che ha resistito alla Breccia, da Stratos e Polyteles fino a Limen. Oggi lo governano due re, il guerriero Kyros e Arystarchos, già Rettore della Scuola Alchemica.
+    wiki: /wiki/geopolitica/sud#un-nuovo-ordine-lantico-regno
+  - id: stratos
+    nome: Stratos
+    tipo: citta
+    area: sud
+    x: 522
+    y: 1107
+    testo: La città in cui si addestra l’esercito del Sud, seconda per abitanti. Vi ha sede l’Accademia Militare, dove i maghi da battaglia imparano a sfruttare tutto il loro potere distruttivo.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#stratos
+  - id: polyteles
+    nome: Polyteles
+    tipo: capitale
+    area: sud
+    x: 731
+    y: 1067
+    livello: 1
+    testo: La capitale del Sud, a poche miglia dal Mare Interno. Ospita la più grande università dell’Anello, con la Scuola Alchemica e il Collegio della Magia. Distrutta nella Grande Guerra, è stata ricostruita ancora più alta.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#polyteles
+  - id: terre-senza-legge
+    nome: Terre senza Legge
+    dipinto: Terre di Nessuno
+    tipo: regione
+    area: sud
+    x: 676
+    y: 1132
+    ruota: -6
+    testo: Le terre centrali del Sud, dopo la Breccia paradiso dei malviventi. Le dominano bande di sedicenti Re dei Briganti, come Raqqa-Ja e Toses.
+    wiki: /wiki/geopolitica/sud#le-terre-senza-legge
+  - id: tre-gemme
+    nome: Le Tre Gemme del Sud
+    tipo: regione
+    area: sud
+    x: 985
+    y: 1105
+    ruota: 32
+    testo: Agyia, Ekpodon e Odis, fondate per controllare le frontiere orientali. Isolate dalle Terre senza Legge, oggi sono guidate dalle gilde mercantili, sempre più lontane da Polyteles.
+    wiki: /wiki/geopolitica/sud#le-tre-gemme-del-sud
+  - id: agyia
+    nome: Agyia
+    tipo: citta
+    area: sud
+    x: 885
+    y: 963
+  - id: ekpodon
+    nome: Ekpodon
+    tipo: citta
+    area: sud
+    x: 947
+    y: 1032
+  - id: odis
+    nome: Odis
+    tipo: citta
+    area: sud
+    x: 1039
+    y: 1064
+  - id: mneme-coris
+    nome: Mneme Coris
+    tipo: luogo
+    area: sud
+    x: 1031
+    y: 1172
+    testo: Monastero di una setta di monaci, spesso ex studenti del Collegio di Magia di Polyteles, convinti che il mondo spetti solo a chi non può nuocere con la magia. Dopo la Breccia hanno conquistato le terre intorno.
+    wiki: /wiki/geopolitica/sud#mneme-coris
+  - id: foresta-di-sathros
+    nome: Foresta di Sathros
+    tipo: foresta
+    area: sud
+    x: 1030
+    y: 1238
+    ruota: 18
+    testo: Gigantesca foresta nell’estremo sud, abitata da sempre da elfi con cui nessuno è mai riuscito a entrare in contatto.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#la-foresta-di-sathros
+  - id: reame-dei-nani
+    nome: Reame dei Nani
+    tipo: regione
+    area: sud
+    x: 290
+    y: 1118
+    testo: Nelle montagne al confine con l’Ovest resistono le ultime tre città dei nani; orchi, goblin e troll occupano le sale abbandonate dell’antico regno.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#il-reame-dei-nani
+  - id: battaglia-degli-occhi
+    nome: Battaglia degli Occhi
+    tipo: evento
+    area: sud
+    x: 330
+    y: 1086
+    stimato: true
+    testo: Nel 3017, presso il Reame dei Nani, l’esercito del Sangue della Setta raggiunse l’esercito della Fiamma del traditore Occhio di Yudah. Entrambi gli eserciti furono distrutti.
+    wiki: /wiki/guerra-dell-occhio#lassedio-di-amhora-e-la-battaglia-degli-occhi
+    lato: sinistra
+  - id: sabbie-mobili
+    nome: Sabbie Mobili
+    tipo: palude
+    area: sud
+    x: 293
+    y: 1225
+  - id: lago-nerys
+    nome: Lago Nerys
+    tipo: lago
+    area: sud
+    x: 436
+    y: 1268
+    livello: 3
+  - id: muraglia
+    nome: La Muraglia
+    tipo: regione
+    area: sud
+    x: 650
+    y: 1168
+    ruota: -5
+    testo: Una gigantesca muraglia di magia e pietra, con fortificazioni ogni cinquecento metri, che separa il Sud dalle paludi dei Diaforos. Chi commette un reato viene esiliato al di là del muro.
+    wiki: /wiki/geopolitica/sud/il-vecchio-sud#la-muraglia
+  - id: tyrsis
+    nome: Tyrsis
+    tipo: fortezza
+    area: sud
+    x: 520
+    y: 1216
+    livello: 3
+  - id: nea-elos
+    nome: Nea Elos
+    tipo: fortezza
+    area: sud
+    x: 572
+    y: 1203
+    livello: 3
+  - id: oryktos
+    nome: Oryktos
+    tipo: fortezza
+    area: sud
+    x: 640
+    y: 1188
+    livello: 3
+  - id: eryma
+    nome: Eryma
+    tipo: fortezza
+    area: sud
+    x: 731
+    y: 1180
+    testo: La città-fortezza scavata nello spessore della Muraglia, a sud della capitale. Nel 3014, il Giorno della Breccia, al suo posto si aprì una voragine e i Diaforos dilagarono nel Sud.
+    wiki: /wiki/geopolitica/sud
+  - id: argyreia
+    nome: Argyreia
+    tipo: fortezza
+    area: sud
+    x: 801
+    y: 1163
+    livello: 3
+  - id: nea-imera
+    nome: Nea Imera
+    tipo: regione
+    area: sud
+    x: 560
+    y: 1258
+    stimato: true
+    testo: La nuova entità che occupa la parte meridionale del Sud. Uomini e Diaforos vi convivono sotto un Consiglio dei Reggenti, e molti venerano il dio Apeiron.
+    wiki: /wiki/geopolitica/sud#una-nuova-speranza-nea-imera
+  - id: elos
+    nome: Elos
+    tipo: borgo
+    area: sud
+    x: 660
+    y: 1262
+    livello: 3
+
+  # ---------- Mare Interno ----------
+  - id: mar-di-alboran
+    nome: Mar di Alboran
+    tipo: mare
+    area: mare
+    x: 528
+    y: 378
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mare-del-cielo
+    nome: Mare del Cielo
+    tipo: mare
+    area: mare
+    x: 748
+    y: 425
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mar-dei-pirati
+    nome: Mar dei Pirati
+    dipinto: Mare dei Prati
+    tipo: mare
+    area: mare
+    x: 470
+    y: 638
+    testo: Il mare di Port Imperial e delle isole dei pirati.
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mar-d-avoz
+    nome: Mar d’Avoz
+    tipo: mare
+    area: mare
+    x: 452
+    y: 732
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mare-di-parmore
+    nome: Mare di Parmore
+    tipo: mare
+    area: mare
+    x: 548
+    y: 828
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mar-nero
+    nome: Mar Nero
+    tipo: mare
+    area: mare
+    x: 640
+    y: 852
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mar-levante
+    nome: Mar Levante
+    tipo: mare
+    area: mare
+    x: 790
+    y: 948
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mare-orientale
+    nome: Mare Orientale
+    tipo: mare
+    area: mare
+    x: 850
+    y: 682
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mare-centrale
+    nome: Mare Centrale
+    tipo: mare
+    area: mare
+    x: 690
+    y: 588
+    wiki: /wiki/geopolitica/mare#suddivisione-del-mare-interno
+  - id: mare-delle-ossa
+    nome: Mare delle Ossa
+    tipo: mare
+    area: mare
+    x: 470
+    y: 945
+    testo: Segnato sulla mappa dipinta, non è tra i nove mari elencati dalla wiki.
+  - id: atrapor
+    nome: Atrapor
+    tipo: isola
+    area: mare
+    x: 520
+    y: 470
+    testo: Una delle cinque isole portanti del Mare Interno. Nelle sue acque, nel 3017, la flotta della Setta fu intercettata da Cour Berenice nella battaglia delle Acque Rosse.
+    wiki: /wiki/geopolitica/mare#le-isole
+  - id: acque-rosse
+    nome: Acque Rosse
+    tipo: evento
+    area: mare
+    x: 418
+    y: 488
+    stimato: true
+    testo: Nel 3017, presso Atrapor, la flotta di Samudra della Setta fu intercettata da Cour Berenice, al servizio del re dei Pirati. Il mare si tinse di rosso; Cour Berenice morì e la flotta pirata si disperse.
+    wiki: /wiki/guerra-dell-occhio#la-battaglia-delle-acque-rosse
+  - id: mezuna
+    nome: Mezuna
+    dipinto: Mezzuna
+    tipo: isola
+    area: mare
+    x: 712
+    y: 506
+    testo: Una delle cinque isole portanti, a forma di mezzaluna. Qui Titus Caius uccise, nel 2001, il terribile Drago Viola.
+    wiki: /wiki/geopolitica/mare#le-isole
+  - id: naggaroth
+    nome: Naggaroth
+    tipo: isola
+    area: mare
+    x: 650
+    y: 640
+    testo: La grande isola al centro del Mare Interno.
+  - id: parmore
+    nome: Parmore
+    tipo: isola
+    area: mare
+    x: 432
+    y: 862
+    testo: Una delle cinque isole portanti del Mare Interno, che dà il nome al mare che la circonda.
+    wiki: /wiki/geopolitica/mare#le-isole
+  - id: ruplepor
+    nome: Ruplepor
+    tipo: isola
+    area: mare
+    x: 838
+    y: 852
+    testo: Una delle cinque isole portanti del Mare Interno.
+    wiki: /wiki/geopolitica/mare#le-isole
+  - id: port-imperial
+    nome: Port Imperial
+    tipo: citta
+    area: mare
+    x: 505
+    y: 551
+    testo: Il porto delle isole dei pirati. Nel 3016, dopo l’assassinio della regina dei pirati Elisha MaGkrafun, fu attaccato dalla M.A.S.
+    wiki: /wiki/storia
+  - id: isole-dei-pirati
+    nome: Isole dei Pirati
+    tipo: isola
+    area: mare
+    x: 492
+    y: 596
+    livello: 3
+    testo: Le isolette di Woodes, Teach, Morgan, Caesio, Rogers, Rackman e Annebonny, attorno a Port Imperial.
+  - id: neapoli
+    nome: Neapoli
+    tipo: citta
+    area: mare
+    x: 760
+    y: 840
+  - id: acharnes
+    nome: Acharnes
+    tipo: borgo
+    area: mare
+    x: 770
+    y: 788
+    livello: 3
+  - id: helmon
+    nome: Helmon
+    tipo: borgo
+    area: mare
+    x: 612
+    y: 553
+    livello: 3
+  - id: nkv
+    nome: Nkv
+    tipo: borgo
+    area: mare
+    x: 627
+    y: 690
+    livello: 3
+  - id: bin
+    nome: Bin
+    tipo: borgo
+    area: mare
+    x: 467
+    y: 365
+    livello: 3
+  - id: dierkow
+    nome: Dierkow
+    tipo: borgo
+    area: mare
+    x: 467
+    y: 392
+    livello: 3
+  - id: vinera
+    nome: Vinera
+    tipo: borgo
+    area: mare
+    x: 474
+    y: 472
+    livello: 3
+  - id: micnulis
+    nome: Micnulis
+    tipo: borgo
+    area: mare
+    x: 782
+    y: 450
+    livello: 3
+  - id: miesiak
+    nome: Miesiak
+    tipo: borgo
+    area: mare
+    x: 743
+    y: 537
+    livello: 3
+  - id: uel
+    nome: Uel
+    tipo: borgo
+    area: mare
+    x: 432
+    y: 822
+    livello: 3
+  - id: sael
+    nome: Sael
+    tipo: borgo
+    area: mare
+    x: 467
+    y: 902
+    livello: 3
+  - id: par
+    nome: Par
+    tipo: borgo
+    area: mare
+    x: 553
+    y: 889
+    livello: 3
+  - id: monte-uru
+    nome: Monte Uru
+    tipo: monti
+    area: mare
+    x: 486
+    y: 872
+    livello: 3
+  # Isole minori: solo il nome
+  - { id: imitra, nome: Imitra, tipo: isola, area: mare, x: 701, y: 345, livello: 3 }
+  - { id: trimurti, nome: Trimurti, tipo: isola, area: mare, x: 608, y: 392, livello: 3 }
+  - { id: rama, nome: Rama, tipo: isola, area: mare, x: 600, y: 410, livello: 3 }
+  - { id: uma, nome: Uma, tipo: isola, area: mare, x: 668, y: 384, livello: 3 }
+  - { id: taraka, nome: Taraka, tipo: isola, area: mare, x: 664, y: 408, livello: 3 }
+  - { id: bocana, nome: Bocana, tipo: isola, area: mare, x: 402, y: 421, livello: 3 }
+  - { id: anars, nome: Anars, tipo: isola, area: mare, x: 406, y: 459, livello: 3 }
+  - { id: merai, nome: Merai, tipo: isola, area: mare, x: 530, y: 421, livello: 3 }
+  - { id: ferrando, nome: Ferrando, tipo: isola, area: mare, x: 555, y: 441, livello: 3 }
+  - { id: sater, nome: Sater, tipo: isola, area: mare, x: 462, y: 502, livello: 3 }
+  - { id: urai, nome: Urai, tipo: isola, area: mare, x: 512, y: 502, livello: 3 }
+  - { id: cloto, nome: Cloto, tipo: isola, area: mare, x: 582, y: 500, livello: 3 }
+  - { id: ilargia, nome: Ilargia, tipo: isola, area: mare, x: 683, y: 460, livello: 3 }
+  - { id: llevad, nome: Llevad, tipo: isola, area: mare, x: 813, y: 562, livello: 3 }
+  - { id: pandawa, nome: Pandawa, tipo: isola, area: mare, x: 346, y: 527, livello: 3 }
+  - { id: mora, nome: Mora, tipo: isola, area: mare, x: 553, y: 612, livello: 3 }
+  - { id: fato, nome: Fato, tipo: isola, area: mare, x: 566, y: 642, livello: 3 }
+  - { id: lachesi, nome: Lachesi, tipo: isola, area: mare, x: 722, y: 657, livello: 3 }
+  - { id: atropo, nome: Atropo, tipo: isola, area: mare, x: 627, y: 763, livello: 3 }
+  - { id: nagina, nome: Nagina, tipo: isola, area: mare, x: 537, y: 697, livello: 3 }
+  - { id: hunabku, nome: Hunabku, tipo: isola, area: mare, x: 373, y: 645, livello: 3 }
+  - { id: huracan, nome: Huracan, tipo: isola, area: mare, x: 338, y: 660, livello: 3 }
+  - { id: camazotz, nome: Camazotz, tipo: isola, area: mare, x: 402, y: 668, livello: 3 }
+  - { id: xbalanque, nome: Xbalanque, tipo: isola, area: mare, x: 412, y: 685, livello: 3 }
+  - { id: intab, nome: Intab, tipo: isola, area: mare, x: 340, y: 694, livello: 3 }
+  - { id: hunapu, nome: Hunapu, tipo: isola, area: mare, x: 414, y: 705, livello: 3 }
+  - { id: santi, nome: Santi, tipo: isola, area: mare, x: 413, y: 775, livello: 3 }
+  - { id: putana, nome: Putana, tipo: isola, area: mare, x: 588, y: 783, livello: 3 }
+  - { id: kalumba, nome: Kalumba, tipo: isola, area: mare, x: 607, y: 895, livello: 3 }
+  - { id: unkulunkulu, nome: Unkulunkulu, tipo: isola, area: mare, x: 600, y: 928, livello: 3 }
+  - { id: katomda, nome: Katomda, tipo: isola, area: mare, x: 657, y: 883, livello: 3 }
+  - { id: agbe, nome: Agbe, tipo: isola, area: mare, x: 683, y: 905, livello: 3 }
+  - { id: imana, nome: Imana, tipo: isola, area: mare, x: 640, y: 960, livello: 3 }
+  - { id: balarama, nome: Balarama, tipo: isola, area: mare, x: 870, y: 607, livello: 3 }
+  - { id: chandra, nome: Chandra, tipo: isola, area: mare, x: 905, y: 623, livello: 3 }
+  - { id: brahma, nome: Brahma, tipo: isola, area: mare, x: 823, y: 632, livello: 3 }
+  - { id: durga, nome: Durga, tipo: isola, area: mare, x: 897, y: 650, livello: 3 }
+  - { id: mudra, nome: Mudra, tipo: isola, area: mare, x: 920, y: 726, livello: 3 }
+  - { id: isole-suffragio, nome: Isole Suffragio, tipo: isola, area: mare, x: 766, y: 690, livello: 3, testo: 'Le isole di Providence, Miracle e Hopes.' }
+  - { id: lokapala, nome: Lokapala, tipo: isola, area: mare, x: 713, y: 745, livello: 3 }
+  - { id: callio, nome: Callio, tipo: isola, area: mare, x: 785, y: 747, livello: 3 }
+  - { id: clio, nome: Clio, tipo: isola, area: mare, x: 700, y: 779, livello: 3 }
+  - { id: erato, nome: Erato, tipo: isola, area: mare, x: 705, y: 812, livello: 3 }
+  - { id: melpome, nome: Melpome, tipo: isola, area: mare, x: 864, y: 799, livello: 3 }
+  - { id: polmina, nome: Polmina, tipo: isola, area: mare, x: 867, y: 832, livello: 3 }
+  - { id: taly, nome: Taly, tipo: isola, area: mare, x: 720, y: 853, livello: 3 }
+  - { id: eterpe, nome: Eterpe, tipo: isola, area: mare, x: 835, y: 893, livello: 3 }
+  - { id: tersicore, nome: Tersicore, tipo: isola, area: mare, x: 822, y: 912, livello: 3 }
+  - { id: uran, nome: Uran, tipo: isola, area: mare, x: 758, y: 905, livello: 3 }
+  - { id: naga, nome: Naga, tipo: isola, area: mare, x: 720, y: 927, livello: 3 }

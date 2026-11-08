@@ -57,7 +57,7 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 | `::gods` | elenco delle divinità | `ambientazione.md` |
 | `::timeline-era` + `:::timeline-event` | linea del tempo (con link e grassetti); aggiungi `level="2"` se non sta sotto un titolo `##`; su un evento, `chip="…"` mostra un’etichetta e `major` lo mette in risalto | `ambientazione.md`, `wiki/storia.md`, `pagine/eventi.md` |
 | `::notice` | frase evidenziata | `regolamento.md` |
-| `::world-map` | la mappa di Fulcron, apribile a schermo intero | `ambientazione.md` |
+| `::world-map` | l’anteprima della mappa di Fulcron, che apre la mappa interattiva | `ambientazione.md` |
 | `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |
 | `::documents` | i manuali in PDF (versione da leggere e da stampare, sul bucket R2 dei documenti) | `regolamento.md` |
 | `::steps`, `::faq` | passi numerati, domande frequenti | `inizia-a-giocare.md` |
@@ -101,3 +101,15 @@ Per collegare un’altra pagina: [Ordine dei Guaritori](/wiki/geopolitica/est/pa
 alfabetico. Le immagini della wiki stanno in `public/wiki/uploads/`.
 
 Le pagine vengono dal backup della vecchia wiki (Wiki.js); lo script di importazione è nella storia git.
+
+## Mappa dell’Anello: `mappa.yml`
+
+La mappa interattiva (`/wiki/mappa`) legge i luoghi da `mappa.yml`: per ognuno il nome, il tipo (capitale, città,
+borgo, fortezza, regione, mare, isola…), l’area, la posizione sulla mappa (`x` e `y`, da 0 a 1280, con 0,0
+nell’angolo in alto a sinistra), un breve testo e la pagina della wiki a cui rimanda. Le istruzioni per ogni campo
+sono in cima al file. Per spostare un luogo basta cambiarne `x` e `y`; per aggiungerne uno, copia un luogo vicino e
+cambiane i dati. `stimato: true` segnala che la posizione è indicativa, perché la mappa dipinta originale non lo segna.
+
+Il testo sotto la mappa sta in `wiki/mappa.md`. Coste, montagne, foreste, fiumi e confini sono invece disegnati nel
+codice (`app/utils/mappa.ts`). Se cambi la mappa, rigenera l’anteprima `public/mappa/anello.jpg` (la usano il
+riquadro `::world-map` e le anteprime di condivisione) con `npm run generate && npm run mappa:anteprima`.

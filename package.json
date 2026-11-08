@@ -19,6 +19,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "gallery": "node scripts/gallery.mjs",
+    "mappa:anteprima": "node scripts/mappa-anteprima.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
