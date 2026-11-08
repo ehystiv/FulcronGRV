@@ -5,7 +5,7 @@ const page = await usePage('sinfonia')
 
 <template>
   <div class="container-site py-[clamp(2.5rem,6vw,4.5rem)]">
-    <p v-if="page.lead" class="mx-auto mb-10 max-w-[46ch] text-center text-[clamp(1.1rem,2vw,1.25rem)] text-muted">
+    <p v-if="page.lead" class="mx-auto mb-10 max-w-[46ch] text-center text-lead text-muted">
       {{ page.lead }}
     </p>
     <SiteImage

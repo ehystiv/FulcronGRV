@@ -11,7 +11,7 @@ defineProps<{ items: { q: string; a: string }[] }>()
       class="group rounded-lg border border-line bg-surface transition-colors duration-300 data-[expanded=true]:border-gold"
     >
       <summary
-        class="relative cursor-pointer list-none py-4 pr-12 pl-5 font-semibold text-ink [&::-webkit-details-marker]:hidden"
+        class="relative cursor-pointer py-4 pr-12 pl-5 font-semibold text-ink"
       >
         {{ item.q }}
         <span

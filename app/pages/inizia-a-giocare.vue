@@ -7,14 +7,14 @@ const page = await usePage('inizia-a-giocare')
     <PageHero :eyebrow="page.eyebrow" :title="page.title" :lead="page.lead" />
 
     <!-- container-site sits on a wrapper: prose-fulcron's max-w-none would override it on the same element -->
-    <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
+    <div class="container-site py-section">
       <ContentRenderer
         :value="page"
         class="prose-fulcron [&>h2]:text-center [&>h2:not(:first-child)]:mt-20 [&>h3]:mx-auto [&>h3]:max-w-3xl [&>p,&>ul]:mx-auto [&>p,&>ul]:max-w-reading [&_img]:rounded-card [&_img]:shadow-card"
       />
     </div>
 
-    <section class="container-site pb-[clamp(3rem,8vw,5.5rem)]">
+    <section class="container-site pb-section">
       <NextEvent v-reveal />
     </section>
   </div>

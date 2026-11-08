@@ -36,7 +36,7 @@ useSocialMeta({
       <GalleryGrid :album="slug" :title="album.title" :photos="album.photos ?? []" />
     </div>
 
-    <footer class="container-site flex flex-wrap items-baseline justify-between gap-4 pb-[clamp(3rem,8vw,5.5rem)]">
+    <footer class="container-site flex flex-wrap items-baseline justify-between gap-4 pb-section">
       <NuxtLink to="/gallery" class="font-medium">Tutti gli album</NuxtLink>
       <p class="m-0 text-[0.92rem] text-muted">
         Ci sei in una foto e vuoi toglierla?

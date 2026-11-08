@@ -27,7 +27,7 @@ const when = (o: { date?: string | Date; place?: string }) =>
       lead="Storie che iniziano e finiscono nello stesso evento, spesso in un mondo tutto loro e con regole proprie."
     />
 
-    <div class="container-site py-[clamp(3rem,8vw,5.5rem)]">
+    <div class="container-site py-section">
       <EmptyState v-if="!oneshots.length">Non ci sono ancora oneshot in archivio.</EmptyState>
 
       <UiCard
@@ -41,7 +41,7 @@ const when = (o: { date?: string | Date; place?: string }) =>
       >
         <div class="flex flex-1 flex-col justify-center md:px-6 md:py-4">
           <span class="eyebrow">{{ when(featured) }}</span>
-          <h2 class="mb-2 font-heading text-[clamp(1.6rem,3vw,2.2rem)] tracking-normal">{{ featured.title }}</h2>
+          <h2 class="mb-2 font-heading text-heading tracking-normal">{{ featured.title }}</h2>
           <ContentRenderer :value="featured" class="prose-fulcron prose-base text-muted" />
           <span
             class="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.92rem] font-semibold text-on-dark transition group-hover:bg-teal"

@@ -3,7 +3,7 @@ const page = await usePage('chi-siamo')
 </script>
 
 <template>
-  <article class="container-site pb-[clamp(3rem,8vw,5.5rem)]">
+  <article class="container-site pb-section">
     <ContentRenderer :value="page" class="prose-fulcron mx-auto max-w-reading" />
   </article>
 </template>

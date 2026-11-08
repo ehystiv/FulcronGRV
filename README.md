@@ -53,6 +53,7 @@ bacheca e oneshot sono file Markdown. Guida ed esempi in [`content/README.md`](c
 
 ```
 content/                  testi del sito (Markdown)
+  home.yml                testi della home page
   pagine/                 chi siamo, ambientazione, regolamento, inizia a giocare, privacy…
   bacheca/  oneshot/      una notizia / una oneshot per file
   wiki/                   la wiki di Fulcron (cartelle = sezioni)
@@ -60,14 +61,48 @@ app/
   assets/css/main.css     Tailwind: colori, font e stili di base del tema
   components/ui/          componenti di base (UiButton, UiCard, UiSectionTitle…)
   components/content/     blocchi usabili nei Markdown (::banner, ::faq, ::timeline…)
-  components/wiki/        menu della wiki
+  components/wiki/        menu e ricerca della wiki
   components/             header, footer e componenti condivisi
   composables/usePage.ts  carica una pagina da content/pagine
+  composables/useSocialMeta.ts  titolo, descrizione e anteprima di condivisione di una pagina
   pages/                  una pagina Vue per ogni URL
 public/                   immagini, PDF dei manuali, favicon
 modules/sitemap.ts        scrive sitemap.xml alla fine della build, dalle pagine generate
+server/routes/            l'indice della ricerca nella wiki (wiki-search.json, generato in build)
 scripts/gallery.mjs       prepara le foto della gallery (npm run gallery)
 ```
+
+## Stile
+
+I colori, i font e le misure del tema stanno in `@theme` in `app/assets/css/main.css`. Per i testi del sito ci
+sono cinque livelli, da usare al posto di misure scritte a mano:
+
+| Classe            | Per                                       |
+| ----------------- | ----------------------------------------- |
+| `text-display`    | il titolo grande della home               |
+| `text-title`      | il titolo (h1) di una pagina              |
+| `text-heading`    | il titolo di una sezione (h2)             |
+| `text-subheading` | il titolo di un riquadro o una scheda     |
+| `text-lead`       | il testo di presentazione sotto un titolo |
+
+`py-section` dà lo spazio verticale standard di una sezione, `bg-page-header` lo sfondo delle testate di campagna e
+wiki. Le pagine delle oneshot hanno invece una grafica tutta loro, vedi sotto.
+
+### Una nuova pagina oneshot
+
+Le pagine di Sunless Dawn, La Teoria del Nulla e Il Palazzo dei Destini Incrociati sono ricostruzioni dei siti
+originali, ognuna con il suo stile. Seguono tutte lo stesso schema, da ripetere per la prossima:
+
+1. I testi in `content/pagine/<nome>.md` (con `title`, `description`, `image` e i campi che servono), caricati nella
+   pagina con `usePage('<nome>')`, che imposta anche titolo e anteprima di condivisione.
+2. La pagina in `app/pages/oneshot/<nome>.vue`, che importa il proprio foglio di stile
+   (`import '~/assets/css/<nome>.css'`): così i font e gli stili dell'evento si scaricano solo lì.
+3. Tutte le classi sotto un prefisso proprio (`.sunless`, `.teoria`, `sd-`, `td-`), così non toccano il resto del
+   sito.
+4. I blocchi usati nel Markdown in `app/components/content/<Nome>*.vue`, quelli usati solo dalla pagina in
+   `app/components/<nome>/`.
+5. La scheda in `content/oneshot/<nome>.md`, con `page: /oneshot/<nome>` per collegarla, e la pagina nell'elenco
+   `PAGES` di `tests/e2e/pages.spec.ts`.
 
 ## Foto su R2
 

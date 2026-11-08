@@ -39,7 +39,7 @@ withDefaults(
       >
       <component
         :is="first ? 'h1' : 'h2'"
-        class="m-0 text-[clamp(2.2rem,5vw,3.6rem)] text-white [text-shadow:0_2px_20px_rgb(0_0_0/0.5)]"
+        class="m-0 text-title text-white [text-shadow:0_2px_20px_rgb(0_0_0/0.5)]"
       >
         {{ title }}
       </component>

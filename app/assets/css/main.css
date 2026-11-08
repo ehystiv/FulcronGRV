@@ -54,7 +54,15 @@
   --font-cardinal: 'Cardinal', 'Times New Roman', serif;
   --font-cursive: 'Italian Cursive', 'Times New Roman', serif;
 
+  /* Type scale of the main site, by role (the oneshot pages keep their own type) */
+  --text-display: clamp(2.3rem, 6.2vw, 4.5rem); /* the home page title */
+  --text-title: clamp(2.2rem, 5vw, 3.6rem); /* page titles (h1) */
+  --text-heading: clamp(1.6rem, 3.2vw, 2.3rem); /* section titles (h2) */
+  --text-subheading: clamp(1.5rem, 3vw, 2rem); /* titles of boxes and cards */
+  --text-lead: clamp(1.1rem, 2vw, 1.25rem); /* introduction under a title */
+
   /* Layout */
+  --spacing-section: clamp(3rem, 8vw, 5.5rem); /* vertical room around page sections: py-section */
   --spacing-header: 4rem;
   --spacing-tabs: 3.625rem;
   --container-site: 74rem;
@@ -123,6 +131,14 @@
     @apply font-heading;
   }
 
+  /* Every <details> uses v-accordion and draws its own chevron: no native marker */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   a {
     @apply text-teal decoration-gold/70 underline-offset-4 transition-colors hover:text-forest;
   }
@@ -175,6 +191,13 @@
 }
 
 /* Small uppercase label above titles */
+/* Header band of the campaign and wiki pages: a faint gold glow over the page colour */
+@utility bg-page-header {
+  background-image:
+    radial-gradient(ellipse at top, rgb(184 145 63 / 0.12), transparent 70%),
+    linear-gradient(180deg, var(--color-surface-2), transparent);
+}
+
 @utility eyebrow {
   @apply mb-3 inline-block text-xs font-semibold tracking-[0.18em] text-gold-ink uppercase;
 }

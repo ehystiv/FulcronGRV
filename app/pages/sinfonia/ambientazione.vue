@@ -5,7 +5,7 @@ const toc = computed(() => page.value.body?.toc?.links ?? [])
 </script>
 
 <template>
-  <div class="container-site grid gap-12 py-[clamp(3rem,8vw,5.5rem)] lg:grid-cols-[220px_minmax(0,1fr)]">
+  <div class="container-site grid gap-12 py-section lg:grid-cols-[220px_minmax(0,1fr)]">
     <aside
       class="sticky top-[calc(var(--spacing-header)+var(--spacing-tabs)+2rem)] hidden self-start lg:block"
       aria-label="Indice"
@@ -25,7 +25,7 @@ const toc = computed(() => page.value.body?.toc?.links ?? [])
 
     <!-- On phones the headings stop below the pinned table of contents -->
     <article class="min-w-0 max-w-205 max-lg:[&_h2]:scroll-mt-14">
-      <h1 class="mb-6 text-[clamp(2.2rem,5vw,3.6rem)]">{{ page.title }}</h1>
+      <h1 class="mb-6 text-title">{{ page.title }}</h1>
 
       <!-- Mobile table of contents -->
       <nav

@@ -26,15 +26,13 @@ watch(() => route.path, showActive)
 
 <template>
   <div>
-    <header
-      class="bg-[radial-gradient(ellipse_at_top,rgb(184_145_63/0.12),transparent_70%),linear-gradient(180deg,var(--color-surface-2),transparent)]"
-    >
+    <header class="bg-page-header">
       <div class="container-site flex flex-col items-center pt-6 pb-3 text-center">
         <!-- The overview page has no title of its own: here the campaign name is its h1 -->
-        <h1 v-if="isOverview" class="m-0 py-2 text-[clamp(2.2rem,5vw,3.6rem)]">La Sinfonia dei Sette</h1>
+        <h1 v-if="isOverview" class="m-0 py-2 text-title">La Sinfonia dei Sette</h1>
         <template v-else>
           <span class="eyebrow mb-1">La campagna</span>
-          <p class="font-display text-[clamp(1.5rem,3vw,2rem)] tracking-wide text-ink">La Sinfonia dei Sette</p>
+          <p class="font-display text-subheading tracking-wide text-ink">La Sinfonia dei Sette</p>
         </template>
       </div>
     </header>

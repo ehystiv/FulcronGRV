@@ -51,9 +51,7 @@ watch(path, () => {
 
 <template>
   <div v-if="page">
-    <header
-      class="border-b border-line bg-[radial-gradient(ellipse_at_top,rgb(184_145_63/0.12),transparent_70%),linear-gradient(180deg,var(--color-surface-2),transparent)]"
-    >
+    <header class="border-b border-line bg-page-header">
       <div class="container-site flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
         <nav aria-label="Percorso" class="text-sm">
           <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-muted">
@@ -78,9 +76,7 @@ watch(path, () => {
     <div class="container-site grid gap-10 py-[clamp(2rem,6vw,4rem)] lg:grid-cols-[250px_minmax(0,1fr)]">
       <!-- Wiki menu: sidebar on desktop, collapsible on phones -->
       <details ref="mobileMenu" v-accordion class="group rounded-card border border-line bg-surface lg:hidden">
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-semibold text-ink [&::-webkit-details-marker]:hidden"
-        >
+        <summary class="flex cursor-pointer items-center justify-between px-4 py-3 font-semibold text-ink">
           Esplora la wiki
           <AppIcon
             name="chevron-right"
@@ -97,6 +93,7 @@ watch(path, () => {
 
       <article class="min-w-0">
         <h1 class="mb-2 text-[clamp(2rem,4.5vw,3.2rem)]">{{ page.title }}</h1>
+        <!-- A notch below text-lead: the article column is narrower than on the other pages -->
         <p v-if="page.description" class="text-[clamp(1.05rem,2vw,1.2rem)] text-muted">{{ page.description }}</p>
 
         <details
@@ -104,9 +101,7 @@ watch(path, () => {
           v-accordion
           class="group my-6 max-w-reading rounded-lg border border-line bg-surface px-4 py-3"
         >
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-semibold text-ink [&::-webkit-details-marker]:hidden"
-          >
+          <summary class="flex cursor-pointer items-center justify-between font-semibold text-ink">
             In questa pagina
             <AppIcon
               name="chevron-right"
