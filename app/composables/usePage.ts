@@ -7,12 +7,11 @@ export async function usePage(slug: string) {
 
   // Composables must run before the first `await`, so the values are reactive getters
   const data = request.data
-  useSeoMeta({
+  useSocialMeta({
     title: () => data.value?.title,
     description: () => data.value?.description,
-    ogTitle: () => data.value?.title,
-    ogDescription: () => data.value?.description,
-    ogImage: () => data.value?.image,
+    image: () => data.value?.image,
+    modified: () => data.value?.updated,
   })
 
   const { data: page } = await request

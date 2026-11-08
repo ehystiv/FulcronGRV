@@ -1,3 +1,8 @@
+/** Default description and share image of the site, for pages that have none of their own. */
+export const SITE_DESCRIPTION =
+  'FulcronGRV è un’associazione di gioco di ruolo dal vivo (LARP) dell’Appennino Tosco-Emiliano: la campagna fantasy “La Sinfonia dei Sette”, oneshot e molto altro.'
+export const SITE_IMAGE = '/backgrounds/forest_op_comp.jpg'
+
 export const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/chi-siamo', label: 'Chi siamo' },

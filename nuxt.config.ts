@@ -1,5 +1,6 @@
 import { existsSync, readdirSync } from 'node:fs'
 import tailwindcss from '@tailwindcss/vite'
+import { SITE_DESCRIPTION as description, SITE_IMAGE } from './app/utils/site'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://fulcrongrv.it'
@@ -8,8 +9,6 @@ const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://fulcrongrv.it'
 // A fresh clone (or a Vercel build without NUXT_PUBLIC_GALLERY_URL) still builds and shows the real photos.
 const hasLocalPhotos = existsSync('public/foto') && readdirSync('public/foto').length > 0
 const galleryUrl = process.env.NUXT_PUBLIC_GALLERY_URL || (hasLocalPhotos ? '/foto' : 'https://foto.fulcrongrv.it')
-const description =
-  'FulcronGRV è un’associazione di gioco di ruolo dal vivo (LARP) dell’Appennino Tosco-Emiliano: la campagna fantasy “La Sinfonia dei Sette”, oneshot e molto altro.'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -50,7 +49,7 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'it_IT' },
         { property: 'og:description', content: description },
-        { property: 'og:image', content: `${siteUrl}/backgrounds/forest_op_comp.jpg` },
+        { property: 'og:image', content: `${siteUrl}${SITE_IMAGE}` },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [

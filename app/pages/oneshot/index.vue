@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
+useSocialMeta({
   title: 'Oneshot',
   description:
     'Gli eventi oneshot di FulcronGRV: avventure di gioco di ruolo dal vivo autoconclusive con ambientazioni sempre diverse.',

@@ -8,9 +8,12 @@ const surroundRequest = useAsyncData(`wiki-surround-${path.value}`, () =>
 )
 const { data: nav } = await useWikiNavigation()
 const page = pageRequest.data
-useSeoMeta({
+useSocialMeta({
   title: () => (page.value && path.value !== '/wiki' ? `${page.value.title} · Wiki` : 'Wiki di Fulcron'),
   description: () => page.value?.description,
+  // The first picture of the page, if it has one
+  image: () => JSON.stringify(page.value?.body ?? '').match(/"src":"(\/[^"]+\.(?:jpe?g|png|webp))"/i)?.[1],
+  modified: () => page.value?.updated,
 })
 
 await Promise.all([pageRequest, surroundRequest])
