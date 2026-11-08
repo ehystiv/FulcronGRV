@@ -1,5 +1,8 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Bacheca', description: 'Le notizie dal mondo di Fulcron e dalla campagna La Sinfonia dei Sette.' })
+useSocialMeta({
+  title: 'Bacheca',
+  description: 'Le notizie dal mondo di Fulcron e dalla campagna La Sinfonia dei Sette.',
+})
 
 const { data: posts } = await useAsyncData('bacheca', () => queryCollection('bacheca').order('date', 'DESC').all(), {
   default: () => [],

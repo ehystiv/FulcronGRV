@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
+useSocialMeta({
   title: 'Gallery',
   description: 'Le foto degli eventi di FulcronGRV, album per album.',
 })

@@ -19,9 +19,12 @@ const lead = computed(() =>
     .join(' · '),
 )
 
-useSeoMeta({
+// The share preview uses the poster of the event, or else the album's cover photo
+const { galleryUrl } = useRuntimeConfig().public
+useSocialMeta({
   title: () => `${album.value!.title} · Gallery`,
   description: () => `Le foto di ${album.value!.title}, un evento di FulcronGRV.`,
+  image: () => album.value!.poster ?? `${galleryUrl}/${slug}/large/${album.value!.cover ?? album.value!.first}`,
 })
 </script>
 
