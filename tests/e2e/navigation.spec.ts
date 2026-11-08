@@ -101,7 +101,7 @@ test('wiki map: a place found with the search opens its card, and the address re
 test('wiki map: tapping a place on the map opens its card', async ({ page }) => {
   await page.goto('/wiki/mappa')
   // Amhora is shown from the first view; wait for the browser-drawn terrain, then tap its symbol
-  await page.locator('.mappa use[href="#m-latifoglia"]').first().waitFor({ state: 'attached' })
+  await page.locator('.mappa use[href^="#m-latifoglia"]').first().waitFor({ state: 'attached' })
   await page.locator('[data-luogo="amhora"]').click()
   await expect(page.getByRole('complementary').getByRole('heading', { name: 'Amhora' })).toBeVisible()
   await page.getByRole('button', { name: 'Chiudi la scheda' }).click()

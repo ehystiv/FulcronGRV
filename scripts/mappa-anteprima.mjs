@@ -28,7 +28,7 @@ try {
     content: 'header, section > div:not(.mappa), section > aside { display: none !important }',
   })
   // Trees and mountains are drawn in the browser after loading
-  await page.locator('.mappa use[href="#m-latifoglia"]').first().waitFor({ state: 'attached' })
+  await page.locator('.mappa use[href^="#m-latifoglia"]').first().waitFor({ state: 'attached' })
   await page.waitForTimeout(500)
   const box = await page.locator('.mappa rect.m-cornice').first().boundingBox()
   if (!box) throw new Error('Mappa non trovata nella pagina')

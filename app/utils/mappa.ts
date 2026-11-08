@@ -325,6 +325,64 @@ export const MAPPA_LAGHI: string[] = [...coste.laghi.map((l) => l.d), ...LAGHI_A
 export const MAPPA_MARI: Record<string, string> = coste.mari
 export const MAPPA_CONFINI_MARI: string = coste.confiniMari
 
+/** The colours of the land, softly blended: snow, steppe, sand, forest, stone, marsh. */
+export const MAPPA_COLORI: Record<string, string> = {
+  ghiaccio: '#d9e6ee',
+  prato: '#d9d39c',
+  erba: '#c4cc86',
+  steppa: '#e2cf96',
+  sabbia: '#ebc77a',
+  ocra: '#d6a052',
+  verde: '#9fb27a',
+  bosco: '#7f9a62',
+  pietra: '#a39d92',
+  palude: '#7b8458',
+  fango: '#8f8566',
+}
+
+/** Patches of colour: centre, radii, colour and how strong it is (0 to 1). */
+export const MAPPA_BIOMI: { c: Punto; r: Punto; colore: string; forza: number }[] = [
+  // North: ice and snow, then the temperate kingdoms
+  { c: [160, 70], r: [280, 120], colore: 'ghiaccio', forza: 0.65 },
+  { c: [720, 60], r: [440, 115], colore: 'ghiaccio', forza: 0.6 },
+  { c: [1110, 90], r: [210, 160], colore: 'ghiaccio', forza: 0.55 },
+  { c: [270, 275], r: [210, 110], colore: 'verde', forza: 0.45 },
+  { c: [650, 245], r: [270, 85], colore: 'prato', forza: 0.4 },
+  // East: the arid free cities, the Great Desert, the Aarak, the green lands of Jotai
+  { c: [1000, 420], r: [210, 140], colore: 'steppa', forza: 0.55 },
+  { c: [1180, 560], r: [250, 380], colore: 'sabbia', forza: 0.8 },
+  { c: [1262, 600], r: [130, 320], colore: 'ocra', forza: 0.65 },
+  { c: [1205, 960], r: [170, 160], colore: 'sabbia', forza: 0.75 },
+  { c: [1060, 500], r: [90, 80], colore: 'ocra', forza: 0.3 },
+  { c: [960, 840], r: [125, 145], colore: 'verde', forza: 0.65 },
+  // South: the Old Kingdom, the Three Gems, the lawless lands, the marshes past the Wall
+  { c: [620, 1060], r: [270, 110], colore: 'prato', forza: 0.4 },
+  { c: [960, 1040], r: [150, 90], colore: 'steppa', forza: 0.45 },
+  { c: [690, 1132], r: [180, 50], colore: 'fango', forza: 0.25 },
+  { c: [700, 1268], r: [430, 100], colore: 'palude', forza: 0.8 },
+  { c: [290, 1232], r: [175, 72], colore: 'fango', forza: 0.65 },
+  { c: [960, 1262], r: [130, 52], colore: 'palude', forza: 0.5 },
+  // West: the plain of Wakan, the Chult, the coast, the stone of the Dwarves
+  { c: [210, 500], r: [175, 92], colore: 'erba', forza: 0.6 },
+  { c: [190, 690], r: [155, 235], colore: 'bosco', forza: 0.65 },
+  { c: [345, 900], r: [85, 140], colore: 'verde', forza: 0.3 },
+  { c: [290, 1150], r: [230, 55], colore: 'pietra', forza: 0.45 },
+]
+
+/** A tint for each of the seas, by id: the Mar Nero darker, the Mare delle Ossa the colour of bone. */
+export const MAPPA_TINTE_MARI: Record<string, [string, number]> = {
+  'mar-di-alboran': ['#6f98a8', 0.18],
+  'mare-del-cielo': ['#e3f0f2', 0.35],
+  'mar-dei-pirati': ['#5e8c88', 0.22],
+  'mar-d-avoz': ['#7aa4b6', 0.18],
+  'mare-di-parmore': ['#a8cabd', 0.25],
+  'mar-nero': ['#38545e', 0.22],
+  'mar-levante': ['#86b5a6', 0.25],
+  'mare-orientale': ['#8db8cc', 0.22],
+  'mare-centrale': ['#d3e6e2', 0.25],
+  'mare-delle-ossa': ['#d1cdb8', 0.35],
+}
+
 /** Areas with marsh tufts and dunes. */
 const PALUDI: Punto[][] = [
   [
@@ -412,9 +470,22 @@ export interface Simbolo {
   v: number
 }
 
+/** One mountain or hill, drawn on its own: body, shaded side, snow and the ink lines (outline and hatching) */
+export interface Monte {
+  y: number
+  corpo: string
+  ombra: string
+  neve?: string
+  linee: string
+}
+
 export interface Terreno {
-  montagne: Simbolo[]
-  alberi: (Simbolo & { tipo: 'latifoglie' | 'conifere' | 'cerulea' })[]
+  montagne: Monte[]
+  /** A soft band of colour under each mountain range, so a range reads as one relief */
+  basi: { d: string; largo: number }[]
+  /** Cracks in the ice of the far north */
+  crepe: string
+  alberi: (Simbolo & { tipo: 'latifoglie' | 'conifere' | 'cerulea'; chioma: string; ombra: string })[]
   /** Soft background under each forest */
   boschi: { d: string; tipo: 'latifoglie' | 'conifere' | 'cerulea' }[]
   ciuffi: Simbolo[]
@@ -424,8 +495,10 @@ export interface Terreno {
 /** Mountains, trees, marsh tufts and dunes, scattered over the hand-drawn shapes. */
 export function terrenoMappa(): Terreno {
   const r = casuale(1712)
-  const montagne: Simbolo[] = []
+  const punti: { x: number; y: number; s: number; colle: boolean; neve: boolean }[] = []
+  const basi: Terreno['basi'] = []
   for (const catena of CATENE) {
+    basi.push({ d: lineaMorbida(catena.linea), largo: catena.largo })
     for (let i = 0; i < catena.linea.length - 1; i++) {
       const [x1, y1] = catena.linea[i]!
       const [x2, y2] = catena.linea[i + 1]!
@@ -434,7 +507,7 @@ export function terrenoMappa(): Terreno {
       // Peaks fill a band around the crest: denser and taller near it, scattered and lower at the edges
       const quanti = Math.max(
         1,
-        Math.round((lungo / catena.passo) * (catena.largo > 24 ? 4.2 : catena.largo > 12 ? 2.8 : 1.2)),
+        Math.round((lungo / catena.passo) * (catena.largo > 24 ? 2.5 : catena.largo > 12 ? 1.7 : 1)),
       )
       for (let n = 0; n < quanti; n++) {
         const k = r()
@@ -442,14 +515,37 @@ export function terrenoMappa(): Terreno {
         const d = (r() + r() + r() - 1.5) / 1.5
         const x = x1 + (x2 - x1) * k + nx * d * catena.largo
         const y = y1 + (y2 - y1) * k + ny * d * catena.largo
-        const s = (catena.min + r() * (catena.max - catena.min)) * (1 - Math.abs(d) * 0.35)
-        if (suTerra([x, y])) montagne.push({ x, y, s, v: Math.floor(r() * 3) })
+        // Sizes vary a lot, so a range never looks like a row of equal teeth
+        const s = (catena.min + r() * (catena.max - catena.min)) * (1 - Math.abs(d) * 0.4) * (0.7 + r() * 0.5)
+        if (!suTerra([x, y])) continue
+        // At the edges of a range the mountains turn into hills
+        const colle = Math.abs(d) > 0.5 || (catena.largo > 12 && r() < 0.12)
+        // Snow on the north, on the Alte Montagne and on the tallest peaks
+        const neve = !colle && (y < 215 || x < 75 || s > catena.max * 0.85)
+        punti.push({ x, y, s, colle, neve })
       }
     }
   }
-  for (const [x, y, s] of PICCHI) montagne.push({ x, y, s, v: 0 })
+  for (const [x, y, s] of PICCHI) punti.push({ x, y, s, colle: false, neve: false })
   // Painter's order: the peaks lower on the map cover the ones behind them
-  montagne.sort((a, b) => a.y - b.y)
+  punti.sort((a, b) => a.y - b.y)
+  const montagne = punti.map((p) => (p.colle ? disegnaColle(p.x, p.y, p.s, r) : disegnaMonte(p.x, p.y, p.s, p.neve, r)))
+
+  // Cracks in the ice: short broken lines in the far north, away from the mountains
+  let crepe = ''
+  for (let n = 0; n < 34; n++) {
+    let x = 30 + r() * 1220
+    let y = 22 + r() * 150
+    if (!suTerra([x, y]) || punti.some((p) => Math.abs(p.x - x) < 26 && Math.abs(p.y - y) < 22)) continue
+    let a = (r() - 0.5) * 1.2
+    crepe += `M${f1(x)} ${f1(y)}`
+    for (let k = 0, passi = 2 + Math.floor(r() * 3); k < passi; k++) {
+      a += (r() - 0.5) * 1.4
+      x += Math.cos(a) * (6 + r() * 9)
+      y += Math.sin(a) * (4 + r() * 5)
+      crepe += `L${f1(x)} ${f1(y)}`
+    }
+  }
 
   const alberi: Terreno['alberi'] = []
   const boschi: Terreno['boschi'] = []
@@ -469,7 +565,9 @@ export function terrenoMappa(): Terreno {
       for (let x = cx - rx; x <= cx + rx; x += passo) {
         const p: Punto = [x + (r() - 0.5) * passo * 0.8, y + (r() - 0.5) * passo * 0.6]
         if (dentro(p, bordo) && suTerra(p) && r() > 0.12) {
-          alberi.push({ x: p[0], y: p[1], s: 6 + r() * 3, v: Math.floor(r() * 2), tipo: foresta.tipo })
+          const [chioma, ombra] = TONI[foresta.tipo][Math.floor(r() * 3)]!
+          const v = foresta.tipo === 'conifere' ? Math.floor(r() * 2) : Math.floor(r() * 3)
+          alberi.push({ x: p[0], y: p[1], s: 6 + r() * 3.5, v, tipo: foresta.tipo, chioma, ombra })
         }
       }
     }
@@ -491,10 +589,12 @@ export function terrenoMappa(): Terreno {
     }
     return out
   }
-  const lontanoDaiMonti = (p: Simbolo) => !montagne.some((m) => Math.abs(m.x - p.x) < m.s && Math.abs(m.y - p.y) < m.s)
+  const lontanoDaiMonti = (p: Simbolo) => !punti.some((m) => Math.abs(m.x - p.x) < m.s && Math.abs(m.y - p.y) < m.s)
 
   return {
     montagne,
+    basi,
+    crepe,
     alberi,
     boschi,
     ciuffi: sparsi(PALUDI, 20, 7).filter(lontanoDaiMonti),
@@ -515,4 +615,129 @@ function percorsoMorbido(p: Punto[]) {
     d += `C${f(x1 + (x2 - x0) / 6)} ${f(y1 + (y2 - y0) / 6)} ${f(x2 - (x3 - x1) / 6)} ${f(y2 - (y3 - y1) / 6)} ${f(x2)} ${f(y2)}`
   }
   return d + 'Z'
+}
+
+/** Three shades for each kind of tree, crown and shadow: a forest is never a single flat green */
+const TONI: Record<'latifoglie' | 'conifere' | 'cerulea', [string, string][]> = {
+  latifoglie: [
+    ['#8a9b5d', '#5f7040'],
+    ['#7d9256', '#566a3b'],
+    ['#98a564', '#6b7746'],
+  ],
+  conifere: [
+    ['#6a8360', '#445c40'],
+    ['#5d7857', '#3c5338'],
+    ['#748c66', '#4d6446'],
+  ],
+  cerulea: [
+    ['#86adb4', '#557f8a'],
+    ['#7aa3b0', '#4c7581'],
+    ['#94b8bb', '#5f8890'],
+  ],
+}
+
+const f1 = (v: number) => Math.round(v * 10) / 10
+const pt = (x: number, y: number) => `${f1(x)} ${f1(y)}`
+
+/** An open, smooth line through the points (Catmull-Rom turned into Bézier curves). */
+function lineaMorbida(p: Punto[]) {
+  let d = `M${pt(...p[0]!)}`
+  for (let i = 0; i < p.length - 1; i++) {
+    const [x0, y0] = p[Math.max(i - 1, 0)]!
+    const [x1, y1] = p[i]!
+    const [x2, y2] = p[i + 1]!
+    const [x3, y3] = p[Math.min(i + 2, p.length - 1)]!
+    d += `C${pt(x1 + (x2 - x0) / 6, y1 + (y2 - y0) / 6)} ${pt(x2 - (x3 - x1) / 6, y2 - (y3 - y1) / 6)} ${pt(x2, y2)}`
+  }
+  return d
+}
+
+/**
+ * A mountain drawn by hand, every one different: a broken outline with a shoulder or a second peak,
+ * the right side in shadow with a few hatching strokes, and snow on top when it is high or in the north.
+ * (x, y) is the middle of its foot, s its size in map units.
+ */
+function disegnaMonte(x: number, y: number, s: number, neve: boolean, r: () => number): Monte {
+  // Broad massifs rather than spikes
+  const w = s * (1.25 + r() * 0.6)
+  const h = s * (0.95 + r() * 0.35)
+  const L: Punto = [x - w / 2, y]
+  const R: Punto = [x + w / 2, y]
+  const P: Punto = [x + (r() - 0.5) * 0.3 * w, y - h]
+  const lungo = (a: Punto, b: Punto, t: number, scarto: number): Punto => [
+    a[0] + (b[0] - a[0]) * t + (r() - 0.5) * scarto * w,
+    a[1] + (b[1] - a[1]) * t + (r() - 0.5) * scarto * h,
+  ]
+  // Left slope: one or two kinks
+  const sx1 = lungo(L, P, 0.35 + r() * 0.2, 0.12)
+  const sx2 = r() < 0.5 ? lungo(L, P, 0.72 + r() * 0.1, 0.08) : null
+  // Right slope: a shoulder, sometimes high enough to look like a second peak
+  const doppio = r() < 0.3
+  const spalla: Punto = [
+    P[0] + (R[0] - P[0]) * (0.35 + r() * 0.15),
+    P[1] + h * (doppio ? 0.12 + r() * 0.1 : 0.35 + r() * 0.15),
+  ]
+  const dx1 = lungo(spalla, R, 0.5 + r() * 0.15, 0.1)
+  const sinistra = [L, sx1, ...(sx2 ? [sx2] : [])]
+  const destra = doppio
+    ? [
+        [spalla[0] - w * 0.06, spalla[1] + h * 0.12] as Punto,
+        [spalla[0] + w * 0.04, spalla[1] - h * 0.05] as Punto,
+        dx1,
+        R,
+      ]
+    : [spalla, dx1, R]
+  const contorno = [...sinistra, P, ...destra]
+  const corpo = `M${contorno.map((p) => pt(...p)).join('L')}Z`
+
+  // The shaded side: from the peak along the right slope, back up a ridge that ends right of the middle
+  const piede: Punto = [x + w * (0.05 + r() * 0.12), y]
+  const cresta: Punto = [P[0] + (piede[0] - P[0]) * 0.45 + w * 0.05 * (r() - 0.3), P[1] + (piede[1] - P[1]) * 0.45]
+  const ombra = `M${[P, ...destra, piede, cresta].map((p) => pt(...p)).join('L')}Z`
+
+  // Ink: the outline (not the foot) and short strokes falling from the ridge
+  let linee = `M${contorno.map((p) => pt(...p)).join('L')}`
+  linee += `M${pt(...P)}L${pt(...cresta)}`
+  const tratti = 2 + Math.floor(r() * 2)
+  for (let i = 0; i < tratti; i++) {
+    const t = 0.3 + (i / tratti) * 0.6 + r() * 0.06
+    const a: Punto = [P[0] + (piede[0] - P[0]) * t, P[1] + (piede[1] - P[1]) * t]
+    const lun = w * (0.1 + r() * 0.12)
+    linee += `M${pt(...a)}l${pt(lun, lun * 0.55)}`
+  }
+  // A stroke or two on the lit side, for texture
+  if (r() < 0.6) {
+    const a: Punto = [L[0] + (P[0] - L[0]) * 0.55, L[1] + (P[1] - L[1]) * 0.55]
+    linee += `M${pt(a[0] + w * 0.08, a[1] + h * 0.05)}l${pt(w * 0.06, h * 0.12)}`
+  }
+
+  let cappa: string | undefined
+  if (neve) {
+    // A jagged cap down to about a third of the height
+    const k = 0.28 + r() * 0.1
+    const a: Punto = [P[0] + (sinistra[sinistra.length - 1]![0] - P[0]) * k * 2.2, P[1] + h * k]
+    const b: Punto = [P[0] + (R[0] - P[0]) * k * 1.1, P[1] + h * k * 1.05]
+    cappa =
+      `M${pt(...P)}L${pt(...b)}L${pt(b[0] - w * 0.08, b[1] - h * 0.04)}L${pt(P[0] + w * 0.04, P[1] + h * k * 1.25)}` +
+      `L${pt(P[0] - w * 0.05, P[1] + h * k * 0.8)}L${pt(a[0] + w * 0.05, a[1] + h * 0.05)}L${pt(...a)}Z`
+  }
+  return { y, corpo, ombra, neve: cappa, linee }
+}
+
+/** A low, round hill at the edge of a range. */
+function disegnaColle(x: number, y: number, s: number, r: () => number): Monte {
+  const w = s * (1.4 + r() * 0.7)
+  const h = s * (0.4 + r() * 0.2)
+  const cx = x + (r() - 0.5) * w * 0.2
+  const L = pt(x - w / 2, y)
+  const R = pt(x + w / 2, y)
+  const cima = pt(cx, y - h * 1.9)
+  const corpo = `M${L}Q${cima} ${R}Z`
+  const ombra = `M${pt(cx + w * 0.02, y - h * 0.95)}Q${pt(cx + w * 0.38, y - h * 0.9)} ${R}L${pt(cx + w * 0.12, y)}Z`
+  let linee = `M${L}Q${cima} ${R}`
+  for (let i = 0; i < 2; i++) {
+    const t = 0.3 + i * 0.25
+    linee += `M${pt(cx + w * t, y - h * (0.75 - i * 0.25))}l${pt(w * 0.07, h * 0.3)}`
+  }
+  return { y, corpo, ombra, linee }
 }

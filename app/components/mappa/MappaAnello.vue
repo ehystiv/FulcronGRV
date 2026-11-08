@@ -58,7 +58,6 @@ const MARCATORI = new Set(['capitale', 'citta', 'borgo', 'fortezza', 'luogo', 'e
 // ---------- Terrain ----------
 // Thousands of trees and peaks: scattered in the browser only, so the page itself stays light
 const terreno = shallowRef<Terreno | null>(null)
-const montagneNevose = (m: Simbolo) => m.y < 215 || m.x < 70 || m.s > 24
 
 const marcatori = computed(() => props.luoghi.filter((l) => MARCATORI.has(l.tipo)))
 // Painted names: the size in map units, and the zoom step from which they are readable
@@ -136,13 +135,20 @@ function imposta(cx: number, cy: number, w: number) {
   // Offset of the free area's centre from the screen centre, in map units
   const dx = (r.left - r.right) / 2 / s
   const dy = (r.top - r.bottom) / 2 / s
-  // Keep at least part of the Ring on screen
-  cx = Math.min(Math.max(cx, -w * 0.1), LATO + w * 0.1)
-  cy = Math.min(Math.max(cy, -h * 0.1), LATO + h * 0.1)
   vista.w = w
   vista.h = h
-  vista.x = cx - w / 2 - dx
-  vista.y = cy - h / 2 - dy
+  vista.x = vincola(cx - w / 2 - dx, w, r.left / s, r.right / s)
+  vista.y = vincola(cy - h / 2 - dy, h, r.top / s, r.bottom / s)
+}
+/**
+ * Keeps a view from showing much beyond the sheet: at most a small margin, plus the room the panels take on
+ * that side (so a place by the edge can still sit beside the panel). A view wider than the sheet is centred.
+ */
+function vincola(inizio: number, lato: number, primaPannello: number, dopoPannello: number) {
+  const margine = 30
+  const min = -margine - primaPannello
+  const max = LATO - lato + margine + dopoPannello
+  return min <= max ? Math.min(Math.max(inizio, min), max) : (min + max) / 2
 }
 const centro = () => {
   const s = scala.value
@@ -393,24 +399,20 @@ const f = (n: number) => Math.round(n * 10) / 10
           <stop offset="1" stop-color="#b8d1cc" />
         </radialGradient>
         <linearGradient id="m-gelo" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#fbfcfd" stop-opacity="0.95" />
-          <stop offset="1" stop-color="#fbfcfd" stop-opacity="0" />
+          <stop offset="0" stop-color="#f7fafc" stop-opacity="0.95" />
+          <stop offset="0.55" stop-color="#eef4f7" stop-opacity="0.55" />
+          <stop offset="1" stop-color="#eef4f7" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="m-ovest" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#8d8579" stop-opacity="0.45" />
-          <stop offset="1" stop-color="#8d8579" stop-opacity="0" />
+          <stop offset="0" stop-color="#8f8a80" stop-opacity="0.75" />
+          <stop offset="0.5" stop-color="#a39d92" stop-opacity="0.35" />
+          <stop offset="1" stop-color="#a39d92" stop-opacity="0" />
         </linearGradient>
-        <radialGradient id="m-deserto">
-          <stop offset="0" stop-color="#e3bf6e" stop-opacity="0.8" />
-          <stop offset="1" stop-color="#e3bf6e" stop-opacity="0" />
-        </radialGradient>
-        <radialGradient id="m-palude">
-          <stop offset="0" stop-color="#6f7c4e" stop-opacity="0.55" />
-          <stop offset="1" stop-color="#6f7c4e" stop-opacity="0" />
-        </radialGradient>
-        <radialGradient id="m-verde">
-          <stop offset="0" stop-color="#93a86a" stop-opacity="0.4" />
-          <stop offset="1" stop-color="#93a86a" stop-opacity="0" />
+        <!-- One soft patch of colour per kind of land -->
+        <radialGradient v-for="(colore, nome) in MAPPA_COLORI" :id="`m-b-${nome}`" :key="nome">
+          <stop offset="0" :stop-color="colore" />
+          <stop offset="0.55" :stop-color="colore" stop-opacity="0.7" />
+          <stop offset="1" :stop-color="colore" stop-opacity="0" />
         </radialGradient>
         <!-- The traced shapes, drawn several times below -->
         <path id="m-forma-mare" :d="MAPPA_MARE" />
@@ -418,67 +420,46 @@ const f = (n: number) => Math.round(n * 10) / 10
           <path v-for="(d, i) in MAPPA_ISOLE" :key="i" :d="d" />
         </g>
         <clipPath id="m-foglio"><rect x="5" y="5" :width="LATO - 10" :height="LATO - 10" /></clipPath>
+        <filter id="m-sfuma" x="-5%" y="-5%" width="110%" height="110%">
+          <feGaussianBlur stdDeviation="22" />
+        </filter>
         <clipPath id="m-acqua"><use href="#m-forma-mare" /></clipPath>
 
-        <!-- Mountains: outline, shaded side, snow -->
-        <g id="m-monte-0">
-          <path d="M-.62 0L-.07 -1L.1 -.8L.62 0Z" fill="#ede1c4" />
-          <path d="M-.07 -1L.1 -.8L.62 0H.12Q.06 -.5 -.07 -1Z" fill="#a8916a" />
-          <path
-            d="M-.62 0L-.07 -1L.1 -.8L.62 0"
-            fill="none"
-            stroke="#3e3022"
-            stroke-width=".06"
-            stroke-linejoin="round"
-          />
-        </g>
-        <g id="m-monte-1">
-          <path d="M-.7 0L-.32 -.72L-.18 -.58L.04 -1L.66 0Z" fill="#ede1c4" />
-          <path
-            d="M.04 -1L.66 0H.16Q.12 -.5 .04 -1ZM-.32 -.72L-.18 -.58L-.24 0H-.36Q-.32 -.4 -.32 -.72Z"
-            fill="#a8916a"
-          />
-          <path
-            d="M-.7 0L-.32 -.72L-.18 -.58L.04 -1L.66 0"
-            fill="none"
-            stroke="#3e3022"
-            stroke-width=".06"
-            stroke-linejoin="round"
-          />
-        </g>
-        <g id="m-monte-2">
-          <path d="M-.62 0C-.42 -.5 -.2 -.92 0 -.92C.22 -.92 .42 -.5 .62 0Z" fill="#ede1c4" />
-          <path d="M0 -.92C.22 -.92 .42 -.5 .62 0H.14C.14 -.4 .08 -.7 0 -.92Z" fill="#a8916a" />
-          <path
-            d="M-.62 0C-.42 -.5 -.2 -.92 0 -.92C.22 -.92 .42 -.5 .62 0"
-            fill="none"
-            stroke="#3e3022"
-            stroke-width=".06"
-            stroke-linejoin="round"
-          />
-        </g>
-        <path id="m-neve-0" d="M-.29 -.47L-.07 -1L.1 -.8L.27 -.54L.12 -.58L.02 -.5L-.1 -.6Z" fill="#fbfcfd" />
-        <path id="m-neve-1" d="M-.12 -.6L.04 -1L.3 -.58L.16 -.62L.06 -.54L-.04 -.64Z" fill="#fbfcfd" />
-        <path
-          id="m-neve-2"
-          d="M-.3 -.62C-.2 -.82 -.1 -.92 0 -.92C.12 -.92 .22 -.8 .3 -.62L.16 -.66L.04 -.58L-.08 -.68Z"
-          fill="#fbfcfd"
-        />
-
-        <!-- Trees -->
-        <g id="m-latifoglia">
+        <!-- Trees: three crowns for broadleaves, two for conifers; colours come from each tree -->
+        <g id="m-latifoglia-0">
           <path d="M0 0V-.3" stroke="#4b3a28" stroke-width=".12" />
           <circle cy="-.62" r=".4" style="fill: var(--chioma)" stroke="#33402a" stroke-width=".08" />
-          <path
-            d="M.12 -.95A.4 .4 0 0 1 .2 -.27A.42 .42 0 0 0 .12 -.95Z"
-            class="m-chioma-ombra"
-            style="fill: var(--ombra)"
-          />
+          <path d="M.12 -.95A.4 .4 0 0 1 .2 -.27A.42 .42 0 0 0 .12 -.95Z" style="fill: var(--ombra)" />
         </g>
-        <g id="m-conifera">
+        <g id="m-latifoglia-1">
+          <path d="M0 0V-.28" stroke="#4b3a28" stroke-width=".12" />
+          <path
+            d="M-.42 -.42A.26 .26 0 0 1 -.3 -.8A.3 .3 0 0 1 .18 -.92A.28 .28 0 0 1 .44 -.5A.24 .24 0 0 1 .2 -.26H-.22A.22 .22 0 0 1 -.42 -.42Z"
+            style="fill: var(--chioma)"
+            stroke="#33402a"
+            stroke-width=".08"
+          />
+          <path d="M.18 -.92A.28 .28 0 0 1 .44 -.5A.24 .24 0 0 1 .2 -.26Q.3 -.6 .18 -.92Z" style="fill: var(--ombra)" />
+        </g>
+        <g id="m-latifoglia-2">
+          <path d="M0 0V-.25" stroke="#4b3a28" stroke-width=".12" />
+          <ellipse cy="-.7" rx=".3" ry=".48" style="fill: var(--chioma)" stroke="#33402a" stroke-width=".08" />
+          <path d="M.08 -1.17A.3 .48 0 0 1 .1 -.24Q.24 -.7 .08 -1.17Z" style="fill: var(--ombra)" />
+        </g>
+        <g id="m-conifera-0">
           <path d="M0 0V-.18" stroke="#4b3a28" stroke-width=".12" />
-          <path d="M0 -1.15L.36 -.18H-.36Z" style="fill: var(--chioma)" stroke="#33402a" stroke-width=".08" />
-          <path d="M0 -1.15L.36 -.18H.06Z" style="fill: var(--ombra)" />
+          <path d="M0 -1.2L.3 -.18H-.3Z" style="fill: var(--chioma)" stroke="#33402a" stroke-width=".08" />
+          <path d="M0 -1.2L.3 -.18H.05Z" style="fill: var(--ombra)" />
+        </g>
+        <g id="m-conifera-1">
+          <path d="M0 0V-.16" stroke="#4b3a28" stroke-width=".12" />
+          <path
+            d="M0 -1.15L.24 -.78H.12L.38 -.42H.22L.44 -.16H-.44L-.22 -.42H-.38L-.12 -.78H-.24Z"
+            style="fill: var(--chioma)"
+            stroke="#33402a"
+            stroke-width=".08"
+          />
+          <path d="M0 -1.15L.24 -.78H.12L.38 -.42H.22L.44 -.16H.06Z" style="fill: var(--ombra)" />
         </g>
         <path id="m-ciuffo" d="M-5 0H5M-3 0L-4 -4M0 0V-5.5M3 0L4 -4" />
         <path id="m-duna" d="M-9 0Q-2 -6 9 0M-2 -3.2Q3 -3.6 9 0" />
@@ -493,14 +474,21 @@ const f = (n: number) => Math.round(n * 10) / 10
       <g clip-path="url(#m-foglio)">
         <rect :width="LATO" :height="LATO" fill="#ece2c8" />
         <rect :width="LATO" :height="LATO" fill="url(#m-carta)" />
-        <rect :width="LATO" height="260" fill="url(#m-gelo)" />
-        <rect width="150" :height="LATO" fill="url(#m-ovest)" />
-        <ellipse cx="1300" cy="650" rx="300" ry="380" fill="url(#m-deserto)" />
-        <ellipse cx="1240" cy="960" rx="190" ry="160" fill="url(#m-deserto)" />
-        <ellipse cx="720" cy="1360" rx="420" ry="190" fill="url(#m-palude)" />
-        <ellipse cx="290" cy="1260" rx="160" ry="80" fill="url(#m-palude)" />
-        <ellipse cx="186" cy="690" rx="170" ry="220" fill="url(#m-verde)" />
-        <ellipse cx="960" cy="840" rx="130" ry="130" fill="url(#m-verde)" />
+        <!-- The colours of the land: snow to the north, sand to the east, marsh to the south, stone to the west -->
+        <ellipse
+          v-for="(b, i) in MAPPA_BIOMI"
+          :key="`bio${i}`"
+          :cx="b.c[0]"
+          :cy="b.c[1]"
+          :rx="b.r[0]"
+          :ry="b.r[1]"
+          :fill="`url(#m-b-${b.colore})`"
+          class="m-bioma"
+          :style="{ '--forza': b.forza }"
+        />
+        <rect :width="LATO" height="250" fill="url(#m-gelo)" class="m-bioma" />
+        <rect width="170" :height="LATO" fill="url(#m-ovest)" class="m-bioma" />
+        <path v-if="terreno" :d="terreno.crepe" class="m-crepe" />
 
         <!-- Forests under everything else -->
         <g v-if="terreno">
@@ -516,6 +504,17 @@ const f = (n: number) => Math.round(n * 10) / 10
           <use href="#m-forma-mare" stroke-width="12.5" class="m-onde-mare" />
           <use href="#m-forma-isole" stroke-width="12" />
           <use href="#m-forma-isole" stroke-width="10" class="m-onde-mare" />
+        </g>
+        <!-- Each sea its own shade, blurred so the seas fade into one another -->
+        <g clip-path="url(#m-acqua)" filter="url(#m-sfuma)">
+          <path
+            v-for="(d, id) in MAPPA_MARI"
+            :key="`t${id}`"
+            :d="d"
+            :fill="MAPPA_TINTE_MARI[id]?.[0] ?? 'none'"
+            :fill-opacity="MAPPA_TINTE_MARI[id]?.[1] ?? 0"
+            class="m-tinta"
+          />
         </g>
         <!-- The seas: they light up under the pointer -->
         <g class="m-mari">
@@ -554,17 +553,23 @@ const f = (n: number) => Math.round(n * 10) / 10
           <use
             v-for="(a, i) in terreno.alberi"
             :key="`a${i}`"
-            :href="a.tipo === 'conifere' ? '#m-conifera' : '#m-latifoglia'"
-            :class="`m-albero m-albero-${a.tipo}`"
+            :href="`#m-${a.tipo === 'conifere' ? 'conifera' : 'latifoglia'}-${a.v}`"
             :transform="`translate(${f(a.x)} ${f(a.y)}) scale(${f(a.s)})`"
+            :style="{ '--chioma': a.chioma, '--ombra': a.ombra }"
           />
-          <g
-            v-for="(m, i) in terreno.montagne"
-            :key="`m${i}`"
-            :transform="`translate(${f(m.x)} ${f(m.y)}) scale(${f(m.s)})`"
-          >
-            <use :href="`#m-monte-${m.v}`" />
-            <use v-if="montagneNevose(m)" :href="`#m-neve-${m.v}`" />
+          <!-- A band of colour under each range, then every mountain drawn on its own -->
+          <path
+            v-for="(b, i) in terreno.basi"
+            :key="`bs${i}`"
+            :d="b.d"
+            class="m-base"
+            :style="{ strokeWidth: b.largo * 1.5 }"
+          />
+          <g v-for="(m, i) in terreno.montagne" :key="`m${i}`">
+            <path :d="m.corpo" class="m-roccia" />
+            <path :d="m.ombra" class="m-ombra" />
+            <path v-if="m.neve" :d="m.neve" class="m-neve" />
+            <path :d="m.linee" class="m-tratto" />
           </g>
         </g>
 
@@ -677,6 +682,49 @@ svg:focus-visible {
 .m-fuori {
   fill: #12232b;
 }
+.mappa {
+  /* Strength of the land colours: 1 as drawn, lower for a paler map */
+  --intensita: 1;
+}
+.m-bioma {
+  opacity: calc(var(--forza, 1) * var(--intensita));
+  pointer-events: none;
+}
+.m-crepe {
+  fill: none;
+  stroke: #8fa6b4;
+  stroke-width: 0.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+.m-tinta {
+  pointer-events: none;
+}
+.m-base {
+  fill: none;
+  stroke: #b39a72;
+  stroke-opacity: 0.14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.m-roccia {
+  fill: #eee2c5;
+}
+.m-ombra {
+  fill: #ae9670;
+}
+.m-neve {
+  fill: #f9fbfc;
+}
+.m-tratto {
+  fill: none;
+  stroke: #3e3022;
+  stroke-width: 0.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .m-bosco {
   fill: #8ea267;
   opacity: 0.32;
@@ -756,18 +804,6 @@ svg:focus-visible {
   stroke-width: 0.9;
   stroke-linecap: round;
   opacity: 0.7;
-}
-.m-albero-latifoglie {
-  --chioma: #8a9b5d;
-  --ombra: #5f7040;
-}
-.m-albero-conifere {
-  --chioma: #6a8360;
-  --ombra: #445c40;
-}
-.m-albero-cerulea {
-  --chioma: #86adb4;
-  --ombra: #557f8a;
 }
 .m-confine-macro {
   fill: none;
