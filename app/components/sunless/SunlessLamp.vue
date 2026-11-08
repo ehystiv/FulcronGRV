@@ -69,8 +69,8 @@ onBeforeUnmount(() => {
       type="button"
       class="sd-lamp__switch"
       :class="{ 'is-pulled': pulled }"
-      @click="pull"
       :aria-label="phase === 'lit' ? 'Spegni la luce' : 'Accendi la luce'"
+      @click="pull"
       @animationend="(e) => e.animationName === 'sd-pull' && (pulled = false)"
     >
       <svg viewBox="0 0 240 490" aria-hidden="true">
