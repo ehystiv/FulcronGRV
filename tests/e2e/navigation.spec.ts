@@ -128,3 +128,17 @@ test('wiki map: the 3D view opens, names a place and gives way back to the flat 
   await expect(page.locator('.rilievo')).toHaveCount(0)
   await expect(page).toHaveURL('/wiki/mappa?luogo=valdyris')
 })
+
+test('wiki map: the layers panel stays inside the map and every option can be reached', async ({ page }) => {
+  await page.goto('/wiki/mappa')
+  await page.getByRole('button', { name: 'Livelli e legenda' }).click()
+  const panel = await page.locator('#mappa-livelli').boundingBox()
+  const map = await page.getByRole('region', { name: 'Mappa interattiva' }).boundingBox()
+  expect(panel!.y).toBeGreaterThanOrEqual(map!.y)
+  expect(panel!.y + panel!.height).toBeLessThanOrEqual(map!.y + map!.height)
+
+  const settlements = page.getByLabel('Città e luoghi')
+  await settlements.click()
+  await expect(settlements).not.toBeChecked()
+  await expect(page.locator('[data-luogo="amhora"]')).toBeHidden()
+})

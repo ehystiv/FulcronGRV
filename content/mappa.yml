@@ -631,6 +631,7 @@ luoghi:
     testo: "Uno dei Santuari dell’Anello, terre intatte come al tempo della creazione, care agli Dei e protette da un Guardiano. La wiki lo pone a Est senza dire dove: qui è nelle terre di Jotai, dove si venerano i kami."
     wiki: /wiki/religione#i-santuari
     lato: sinistra
+    livello: 3
   - id: lerrnerum
     nome: Monti Lerrnerum
     dipinto: Montagne del Lerrnerum

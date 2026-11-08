@@ -295,14 +295,16 @@ const testoScheda = computed(() => {
       </div>
 
       <!-- Zoom and layers -->
+      <!-- From under the title box to the bottom of the map: the layers panel sits beside the buttons on phones and
+           above them on wide screens, and scrolls if it does not fit (it used to slip under the site header) -->
       <div
-        class="absolute right-3 flex flex-col items-end gap-2 transition-[bottom] duration-300"
-        :style="{ bottom: `${(largo ? 0 : riquadro.bottom) + 12}px` }"
+        class="pointer-events-none absolute right-3 flex items-end justify-end gap-2 transition-[bottom] duration-300 lg:flex-col"
+        :style="{ top: `${largo ? 12 : misure.testata + 24}px`, bottom: `${(largo ? 0 : riquadro.bottom) + 12}px` }"
       >
         <div
           v-if="livelliAperti"
           id="mappa-livelli"
-          class="w-60 rounded-card bg-surface/95 p-4 text-sm shadow-card-lg ring-1 ring-line backdrop-blur-sm"
+          class="pointer-events-auto max-h-full min-h-0 w-60 overflow-y-auto overscroll-contain rounded-card bg-surface/95 p-4 text-sm shadow-card-lg ring-1 ring-line backdrop-blur-sm"
         >
           <p class="mb-2 font-semibold text-ink">Mostra sulla mappa</p>
           <label class="flex items-center gap-2 py-1"
@@ -377,7 +379,7 @@ const testoScheda = computed(() => {
           </ul>
         </div>
         <div
-          class="flex flex-col overflow-hidden rounded-lg bg-surface/95 shadow-card-lg ring-1 ring-line backdrop-blur-sm"
+          class="pointer-events-auto flex shrink-0 flex-col overflow-hidden rounded-lg bg-surface/95 shadow-card-lg ring-1 ring-line backdrop-blur-sm"
         >
           <button
             type="button"
