@@ -94,9 +94,9 @@ Per questo abbiamo dei veri e propri manuali, comodamente scaricabili qui.
 ::documents
 ---
 items:
-  - { href: /documents/guida-eventi.pdf, title: Guida agli eventi, size: 16 MB }
-  - { href: /documents/manuale-abilita.pdf, title: Manuale delle abilità, size: 4 MB }
-  - { href: /documents/guida-magia.pdf, title: Guida alla magia, size: "2,7 MB" }
+  - { title: Guida agli eventi, file: GuidaEventi.pdf, size: "3,4 MB", print: GuidaEventiPrint.pdf, printSize: 121 KB }
+  - { title: Manuale delle abilità, file: ManualeAbilita.pdf, size: "2,5 MB", print: ManualeAbilitaPrint.pdf, printSize: 145 KB }
+  - { title: Guida alla magia, file: GuidaMagia.pdf, size: "2,2 MB", print: GuidaMagiaPrint.pdf, printSize: 98 KB }
 ---
 ::
 

@@ -22,6 +22,21 @@
       "headers": { "cache-control": "public, max-age=86400, stale-while-revalidate=604800" },
       "continue": true
     },
+    {
+      "src": "/documents/guida-eventi\\.pdf",
+      "status": 301,
+      "headers": { "location": "https://documenti.fulcrongrv.it/GuidaEventi.pdf" }
+    },
+    {
+      "src": "/documents/manuale-abilita\\.pdf",
+      "status": 301,
+      "headers": { "location": "https://documenti.fulcrongrv.it/ManualeAbilita.pdf" }
+    },
+    {
+      "src": "/documents/guida-magia\\.pdf",
+      "status": 301,
+      "headers": { "location": "https://documenti.fulcrongrv.it/GuidaMagia.pdf" }
+    },
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]

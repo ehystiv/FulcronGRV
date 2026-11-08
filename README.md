@@ -29,6 +29,7 @@ npm test           # dopo generate: link rotti e test nel browser (Playwright)
 Variabili d'ambiente:
 
 - `NUXT_PUBLIC_SITE_URL` (default `https://fulcrongrv.it`): usata per sitemap, link canonici e Open Graph.
+- `NUXT_PUBLIC_DOCUMENTS_URL` (default `https://documenti.fulcrongrv.it`): da dove arrivano i PDF del regolamento.
 - `NUXT_PUBLIC_GALLERY_URL`: da dove arrivano le foto della gallery. Se non è impostata si usa `/foto` quando
   `public/foto/` contiene le foto generate da `npm run gallery`, altrimenti il bucket di produzione
   `https://foto.fulcrongrv.it`. Così un clone appena fatto si genera senza passaggi in più.
@@ -66,7 +67,7 @@ app/
   composables/usePage.ts  carica una pagina da content/pagine
   composables/useSocialMeta.ts  titolo, descrizione e anteprima di condivisione di una pagina
   pages/                  una pagina Vue per ogni URL
-public/                   immagini, PDF dei manuali, favicon
+public/                   immagini e favicon
 modules/sitemap.ts        scrive sitemap.xml alla fine della build, dalle pagine generate
 server/routes/            l'indice della ricerca nella wiki (wiki-search.json, generato in build)
 scripts/gallery.mjs       prepara le foto della gallery (npm run gallery)
@@ -138,6 +139,17 @@ Poi fai il commit dei JSON in `content/gallery/` e il deploy del sito.
   ricaricata.
 - Le foto hanno una cache di alcune ore, quindi una foto tolta può restare visibile per un po' a chi l'ha già
   caricata.
+
+## Manuali su R2
+
+I PDF del regolamento non sono nel repo: stanno nel bucket R2 `fulcrongrv-documenti`, servito da
+`https://documenti.fulcrongrv.it`, separato dal bucket delle foto (così `rclone sync` della gallery non li tocca).
+Ogni manuale ha due versioni: quella da leggere a schermo e quella da stampare (`…Print.pdf`).
+
+Per aggiornare un manuale basta caricare il nuovo PDF nel bucket dalla dashboard di Cloudflare con lo **stesso nome**:
+il link sul sito resta quello. Se cambia il nome, o il peso, va aggiornato il blocco `::documents` in
+`content/pagine/regolamento.md`, dove ogni voce indica `file`, `size`, `print` e `printSize`. I vecchi indirizzi
+`/documents/*.pdf` reindirizzano ai nuovi file (in `vercel.json`).
 
 ## Note
 

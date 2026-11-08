@@ -59,3 +59,14 @@ test('the sitemap lists the pages', async ({ request }) => {
   expect(xml).not.toContain('404')
   expect(xml).not.toContain('/who<')
 })
+
+test('the rulebook links each manual in both versions on the documents bucket', async ({ page }) => {
+  await page.goto('/sinfonia/regolamento')
+  const read = page.getByRole('link', { name: /^Leggi / })
+  const print = page.getByRole('link', { name: /da stampare/ })
+  await expect(read).toHaveCount(3)
+  await expect(print).toHaveCount(3)
+  for (const link of [...(await read.all()), ...(await print.all())]) {
+    await expect(link).toHaveAttribute('href', /^https:\/\/documenti\.fulcrongrv\.it\/\w+\.pdf$/)
+  }
+})
