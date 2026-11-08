@@ -188,6 +188,59 @@ const elenco = computed(() =>
   })),
 )
 const sezioneMappa = ref<HTMLElement>()
+
+// ---------- Full screen ----------
+// The browser's own full screen where it allows it; where it does not (Safari on iPhone, for pages) the map simply
+// covers the whole window, site header included
+const schermoIntero = ref(false)
+let nativo = false
+/** Once the map has its new size: the whole Ring again, or the chosen place */
+function riadatta() {
+  nextTick(() =>
+    requestAnimationFrame(() => (selezionato.value ? attiva.value?.vaiA(selezionato.value) : attiva.value?.adatta())),
+  )
+}
+async function cambiaSchermoIntero() {
+  const el = sezioneMappa.value
+  if (!el) return
+  if (schermoIntero.value) {
+    if (document.fullscreenElement) await document.exitFullscreen().catch(() => {})
+    return esciDalloSchermoIntero()
+  }
+  schermoIntero.value = true
+  document.documentElement.style.overflow = 'hidden'
+  if (el.requestFullscreen) {
+    try {
+      await el.requestFullscreen({ navigationUI: 'hide' })
+      nativo = true
+    } catch {
+      nativo = false
+    }
+  }
+  riadatta()
+}
+function esciDalloSchermoIntero() {
+  schermoIntero.value = false
+  nativo = false
+  document.documentElement.style.overflow = ''
+  riadatta()
+}
+// Left with the browser's own means (Esc, the system gesture): follow it
+function suCambioSchermo() {
+  if (!document.fullscreenElement && nativo) esciDalloSchermoIntero()
+}
+function suTasto(e: KeyboardEvent) {
+  if (e.key === 'Escape' && schermoIntero.value && !nativo) esciDalloSchermoIntero()
+}
+onMounted(() => {
+  document.addEventListener('fullscreenchange', suCambioSchermo)
+  document.addEventListener('keydown', suTasto)
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('fullscreenchange', suCambioSchermo)
+  document.removeEventListener('keydown', suTasto)
+  document.documentElement.style.overflow = ''
+})
 function mostra(id: string) {
   sezioneMappa.value?.scrollIntoView({ behavior: 'smooth' })
   seleziona(id, true)
@@ -207,7 +260,11 @@ const testoScheda = computed(() => {
   <div>
     <section
       ref="sezioneMappa"
-      class="relative h-[calc(100svh-var(--spacing-header)-6rem)] min-h-[28rem] lg:h-[calc(100svh-var(--spacing-header)-2.5rem)]"
+      :class="
+        schermoIntero
+          ? 'fixed inset-0 z-70 h-dvh bg-ink-deep'
+          : 'relative h-[calc(100svh-var(--spacing-header)-6rem)] min-h-[28rem] lg:h-[calc(100svh-var(--spacing-header)-2.5rem)]'
+      "
       aria-label="Mappa interattiva"
     >
       <MappaAnello
@@ -389,6 +446,15 @@ const testoScheda = computed(() => {
             @click="cambiaVista"
           >
             {{ vista3d ? '2D' : '3D' }}
+          </button>
+          <button
+            type="button"
+            class="grid size-11 place-items-center border-t border-line text-ink hover:bg-surface-2"
+            :aria-label="schermoIntero ? 'Esci dallo schermo intero' : 'Schermo intero'"
+            :aria-pressed="schermoIntero"
+            @click="cambiaSchermoIntero"
+          >
+            <AppIcon :name="schermoIntero ? 'shrink' : 'expand'" />
           </button>
           <button
             v-show="!vista3d"

@@ -142,3 +142,21 @@ test('wiki map: the layers panel stays inside the map and every option can be re
   await expect(settlements).not.toBeChecked()
   await expect(page.locator('[data-luogo="amhora"]')).toBeHidden()
 })
+
+test('wiki map: full screen covers the window and gives the page back', async ({ page }) => {
+  await page.goto('/wiki/mappa')
+  const map = page.getByRole('region', { name: 'Mappa interattiva' })
+  await page.getByRole('button', { name: 'Schermo intero' }).click()
+  const viewport = page.viewportSize()!
+  await expect(async () => {
+    const box = await map.boundingBox()
+    expect(Math.round(box!.y)).toBe(0)
+    expect(Math.round(box!.height)).toBeGreaterThanOrEqual(viewport.height - 1)
+  }).toPass()
+  // The map still works in full screen
+  await page.locator('[data-luogo="amhora"]').click()
+  await expect(page.getByRole('complementary').getByRole('heading', { name: 'Amhora' })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Esci dallo schermo intero' }).click()
+  await expect(async () => expect(Math.round((await map.boundingBox())!.y)).toBeGreaterThan(0)).toPass()
+})
