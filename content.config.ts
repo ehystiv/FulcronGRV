@@ -20,6 +20,8 @@ export default defineContentConfig({
         // Prossimo evento: last day (YYYY-MM-DD), after which the box goes back to its generic text
         until: z.string().optional(),
         link: z.string().optional(),
+        // Prossimo evento: what the box says while no event is scheduled
+        fallback: z.string().optional(),
         cards: z.array(z.string()).optional(),
       }),
     }),
@@ -61,6 +63,21 @@ export default defineContentConfig({
         place: z.string().optional(),
         // Page of the event on this site, e.g. /oneshot/palazzo-destini (optional)
         page: z.string().optional(),
+      }),
+    }),
+
+    // Texts of the home page: one YAML file, content/home.yml
+    home: defineCollection({
+      type: 'data',
+      source: 'home.yml',
+      schema: z.object({
+        hero: z.object({ title: z.string(), text: z.string(), image: z.string(), imageAlt: z.string() }),
+        intro: z.object({ title: z.string(), text: z.string() }),
+        campaign: z.object({ title: z.string(), text: z.string(), note: z.string().optional() }),
+        paths: z.array(
+          z.object({ title: z.string(), text: z.string(), image: z.string(), cta: z.string(), to: z.string() }),
+        ),
+        question: z.object({ title: z.string(), text: z.string() }),
       }),
     }),
 

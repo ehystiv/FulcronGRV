@@ -1,0 +1,41 @@
+# Testi della home page. Si modificano qui senza toccare il codice (vedi content/README.md).
+# Le immagini stanno in public/ e si indicano col percorso che inizia da "/".
+
+hero:
+  title: Un altro mondo, sull’Appennino
+  text: 'Giochiamo di ruolo dal vivo: ti metti in costume e diventi il tuo personaggio, insieme agli altri.'
+  image: /immagini/origini_1.jpg
+  imageAlt: Giocatori in costume si fronteggiano con le armi in lattice durante un evento FulcronGRV
+
+intro:
+  title: Siamo FulcronGRV
+  text: >-
+    Salve, viandante. Siamo partiti come un gruppo di amici con la voglia di vivere i mondi fantastici in prima
+    persona. Così ne abbiamo costruito uno e abbiamo iniziato a giocarci dentro, nei boschi dell’Appennino
+    Tosco-Emiliano.
+
+campaign:
+  title: La Sinfonia dei Sette
+  text: >-
+    A Nord ghiacci senza fine, a Est deserti, a Sud paludi, a Ovest montagne altissime e in mezzo un grande mare
+    interno. È l’Anello, il mondo che abbiamo scritto noi.
+  note: >-
+    Ci giochiamo da anni La Sinfonia dei Sette, la nostra campagna, e quello che fanno i personaggi cambia
+    davvero come vanno le cose.
+
+# Le due schede sotto la campagna
+paths:
+  - title: La tua prima volta
+    text: Non hai mai giocato? Ti spieghiamo com’è una giornata di gioco, come nasce un personaggio e come si combatte.
+    image: /immagini/gruppo-armature.jpg
+    cta: Inizia da qui
+    to: /inizia-a-giocare
+  - title: Oneshot
+    text: Storie che iniziano e finiscono nello stesso evento, spesso in un mondo tutto loro.
+    image: /oneshot/palazzo-destini/video-poster.jpg
+    cta: Guarda le oneshot
+    to: /oneshot
+
+question:
+  title: Hai una domanda?
+  text: Scrivici in privato su Instagram, rispondiamo volentieri. Lì pubblichiamo anche date, iscrizioni e novità.

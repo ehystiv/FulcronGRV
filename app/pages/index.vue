@@ -1,22 +1,10 @@
 <script setup lang="ts">
 useSeoMeta({ title: 'FulcronGRV', ogTitle: 'FulcronGRV · Gioco di ruolo dal vivo' })
 
-const paths = [
-  {
-    to: '/inizia-a-giocare',
-    title: 'La tua prima volta',
-    text: 'Non hai mai giocato? Ti spieghiamo com’è una giornata di gioco, come nasce un personaggio e come si combatte.',
-    image: '/immagini/gruppo-armature.jpg',
-    cta: 'Inizia da qui',
-  },
-  {
-    to: '/oneshot',
-    title: 'Oneshot',
-    text: 'Storie che iniziano e finiscono nello stesso evento, spesso in un mondo tutto loro.',
-    image: '/oneshot/palazzo-destini/video-poster.jpg',
-    cta: 'Guarda le oneshot',
-  },
-]
+// The texts live in content/home.yml
+const { data: home } = await useAsyncData('home', () => queryCollection('home').first())
+if (!home.value) throw createError({ statusCode: 500, statusMessage: 'Manca content/home.yml', fatal: true })
+const { hero, intro, campaign, paths, question } = home.value
 
 const { siteUrl } = useRuntimeConfig().public
 useHead({
@@ -52,8 +40,8 @@ useHead({
       class="on-dark relative isolate flex min-h-[min(100svh,880px)] items-end overflow-hidden bg-ink-deep text-on-dark"
     >
       <SiteImage
-        src="/immagini/origini_1.jpg"
-        alt="Giocatori in costume si fronteggiano con le armi in lattice durante un evento FulcronGRV"
+        :src="hero.image"
+        :alt="hero.imageAlt"
         loading="eager"
         fetchpriority="high"
         class="absolute inset-x-0 top-0 -z-20 h-[58%] w-full object-cover object-[30%_30%] md:h-full md:object-[50%_22%]"
@@ -65,11 +53,9 @@ useHead({
       <div class="container-site pt-[calc(var(--spacing-header)+3rem)] pb-[clamp(6rem,13vw,8.5rem)]">
         <div class="max-w-3xl">
           <h1 class="mb-[0.35em] text-[clamp(2.3rem,6.2vw,4.5rem)] text-white [text-shadow:0_4px_30px_rgb(0_0_0/0.5)]">
-            Un altro mondo, sull’Appennino
+            {{ hero.title }}
           </h1>
-          <p class="max-w-[42ch] text-[clamp(1.1rem,2.2vw,1.3rem)]">
-            Giochiamo di ruolo dal vivo: ti metti in costume e diventi il tuo personaggio, insieme agli altri.
-          </p>
+          <p class="max-w-[42ch] text-[clamp(1.1rem,2.2vw,1.3rem)]">{{ hero.text }}</p>
           <div class="mt-6 flex flex-wrap gap-3">
             <UiButton to="/inizia-a-giocare" variant="gold" icon-right="arrow-right">Inizia a giocare</UiButton>
             <UiButton to="/sinfonia/ambientazione#la-geografia-di-fulcron" variant="ghost">Guarda la mappa</UiButton>
@@ -83,12 +69,8 @@ useHead({
     </section>
 
     <section class="pt-[clamp(3rem,8vw,5.5rem)] pb-[clamp(3rem,8vw,5.5rem)]">
-      <UiSectionTitle v-reveal title="Siamo FulcronGRV" class="container-site">
-        <p class="mx-auto max-w-[46ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">
-          Salve, viandante. Siamo partiti come un gruppo di amici con la voglia di vivere i mondi fantastici in prima
-          persona. Così ne abbiamo costruito uno e abbiamo iniziato a giocarci dentro, nei boschi dell’Appennino
-          Tosco-Emiliano.
-        </p>
+      <UiSectionTitle v-reveal :title="intro.title" class="container-site">
+        <p class="mx-auto max-w-[46ch] text-[clamp(1.1rem,2vw,1.25rem)] text-muted">{{ intro.text }}</p>
       </UiSectionTitle>
     </section>
 
@@ -110,15 +92,9 @@ useHead({
           />
         </NuxtLink>
         <div class="pb-[clamp(3rem,8vw,5.5rem)] lg:py-[clamp(3rem,8vw,5.5rem)]">
-          <h2 class="mb-4 text-[clamp(1.8rem,3.6vw,2.6rem)] text-white">La Sinfonia dei Sette</h2>
-          <p class="mb-3 max-w-[46ch]">
-            A Nord ghiacci senza fine, a Est deserti, a Sud paludi, a Ovest montagne altissime e in mezzo un grande mare
-            interno. È l’Anello, il mondo che abbiamo scritto noi.
-          </p>
-          <p class="mb-6 max-w-[46ch] text-on-dark-muted">
-            Ci giochiamo da anni La Sinfonia dei Sette, la nostra campagna, e quello che fanno i personaggi cambia
-            davvero come vanno le cose.
-          </p>
+          <h2 class="mb-4 text-[clamp(1.8rem,3.6vw,2.6rem)] text-white">{{ campaign.title }}</h2>
+          <p class="mb-3 max-w-[46ch]">{{ campaign.text }}</p>
+          <p v-if="campaign.note" class="mb-6 max-w-[46ch] text-on-dark-muted">{{ campaign.note }}</p>
           <UiButton to="/sinfonia" variant="ghost" icon-right="arrow-right">Scopri la campagna</UiButton>
         </div>
       </div>
@@ -150,10 +126,8 @@ useHead({
     >
       <div v-reveal class="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>
-          <h2 class="mb-4 text-[clamp(1.6rem,3.2vw,2.3rem)] text-white">Hai una domanda?</h2>
-          <p>
-            Scrivici in privato su Instagram, rispondiamo volentieri. Lì pubblichiamo anche date, iscrizioni e novità.
-          </p>
+          <h2 class="mb-4 text-[clamp(1.6rem,3.2vw,2.3rem)] text-white">{{ question.title }}</h2>
+          <p>{{ question.text }}</p>
         </div>
         <div class="lg:justify-self-end">
           <UiButton :href="INSTAGRAM.href" variant="ghost" icon="instagram"

@@ -70,7 +70,14 @@ Il modo più semplice è copiare un blocco da una pagina esistente e cambiarne i
 Il riquadro "Prossimo evento" in home e in fondo a "Inizia a giocare" legge questo file. Quando c'è un evento
 in calendario compila `date` (es. `"18–19 aprile 2027"`), `until` (l'ultimo giorno, es. `2027-04-19`), `place`,
 `cost` (es. `"Quota: 40 €"`) e, se c'è un modulo, `link`; il testo del file è la presentazione. Con `date` vuoto,
-o passato il giorno `until`, il sito mostra il testo generico di `NextEvent.vue` e rimanda a Instagram.
+o passato il giorno `until`, il riquadro mostra il testo di `fallback` e rimanda a Instagram.
+
+## Home: `home.yml`
+
+I testi della home page: il titolo grande in alto con la sua foto, la presentazione, il riquadro sulla campagna,
+le due schede (prima volta e oneshot) e l'invito a scrivere su Instagram. Ogni testo ha il suo campo: basta
+cambiare le parole tra una riga e l'altra, lasciando com'è il nome del campo prima dei due punti. Se un testo
+contiene i due punti, va racchiuso tra apici (`'così: ad esempio'`).
 
 ## Wiki: `wiki/**/*.md`
 
