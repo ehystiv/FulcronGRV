@@ -83,13 +83,19 @@ test('wiki map: a place found with the search opens its card, and the address re
   // Accents are ignored, the painted name finds the wiki one
   await search.fill('utelan')
   await expect(page.getByRole('option', { name: /Estar/ })).toBeVisible()
-  await search.fill('partaros')
+  // Penthos, on the painted map, is Partaros
+  await search.fill('penthos')
   await search.press('Enter')
 
   const card = page.getByRole('complementary')
   await expect(card.getByRole('heading', { name: 'Partaros' })).toBeVisible()
-  await expect(card.getByText('Posizione indicativa')).toBeVisible()
+  await expect(card.getByText('Sulla mappa dipinta: Penthos')).toBeVisible()
   await expect(page).toHaveURL(/\?luogo=partaros$/)
+
+  // Places the painted map does not show say so
+  await search.fill('bontor')
+  await search.press('Enter')
+  await expect(card.getByText('Posizione indicativa')).toBeVisible()
 
   // A shared link opens on the same card
   await page.goto('/wiki/mappa?luogo=valdyris')

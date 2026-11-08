@@ -410,6 +410,11 @@ const f = (n: number) => Math.round(n * 10) / 10
           <stop offset="0.5" stop-color="#a39d92" stop-opacity="0.35" />
           <stop offset="1" stop-color="#a39d92" stop-opacity="0" />
         </linearGradient>
+        <radialGradient id="m-cratere">
+          <stop offset="0" stop-color="#1d1a18" stop-opacity="0.9" />
+          <stop offset="0.55" stop-color="#3a2f25" stop-opacity="0.65" />
+          <stop offset="1" stop-color="#4a3b2c" stop-opacity="0" />
+        </radialGradient>
         <!-- One soft patch of colour per kind of land -->
         <radialGradient v-for="(colore, nome) in MAPPA_COLORI" :id="`m-b-${nome}`" :key="nome">
           <stop offset="0" :stop-color="colore" />
@@ -491,6 +496,11 @@ const f = (n: number) => Math.round(n * 10) / 10
         <rect :width="LATO" height="250" fill="url(#m-gelo)" class="m-bioma" />
         <rect width="170" :height="LATO" fill="url(#m-ovest)" class="m-bioma" />
         <path v-if="terreno" :d="terreno.crepe" class="m-crepe" />
+        <!-- The black crater of the Great Cataclysm -->
+        <g :transform="`translate(${MAPPA_CRATERE[0]} ${MAPPA_CRATERE[1]})`">
+          <ellipse :rx="MAPPA_CRATERE[2] * 1.2" :ry="MAPPA_CRATERE[2] * 0.85" fill="url(#m-cratere)" />
+          <ellipse :rx="MAPPA_CRATERE[2] * 0.95" :ry="MAPPA_CRATERE[2] * 0.65" class="m-orlo" />
+        </g>
 
         <!-- Forests under everything else -->
         <g v-if="terreno">
@@ -698,6 +708,13 @@ svg:focus-visible {
   stroke-width: 0.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+  opacity: 0.7;
+}
+.m-orlo {
+  fill: none;
+  stroke: #3e3022;
+  stroke-width: 0.9;
+  stroke-dasharray: 3 2;
   opacity: 0.7;
 }
 .m-tinta {

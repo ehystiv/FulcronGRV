@@ -8,7 +8,7 @@
 // - Eryma, inside the Wall, was replaced by a chasm on the Day of the Breach (3014);
 // - Monte Iridel is a dormant volcano.
 // Browser only: the coast is drawn on a canvas to tell land from water.
-import { MAPPA_CATENE, MAPPA_ISOLE, MAPPA_LAGHI, MAPPA_LATO, MAPPA_MARE, MAPPA_PICCHI } from './mappa'
+import { MAPPA_CATENE, MAPPA_CRATERE, MAPPA_ISOLE, MAPPA_LAGHI, MAPPA_LATO, MAPPA_MARE, MAPPA_PICCHI } from './mappa'
 
 /** Height in map units of the tallest peaks; the board is 1280 wide */
 export const RILIEVO_ALTEZZA = 78
@@ -36,7 +36,7 @@ const ERYMA: Punto = [731, 1181]
 
 /** Land shapes and how they lie, by area: [centre, radii, how much higher (or lower), how rough] */
 const CARATTERE: { c: Punto; r: Punto; quota: number; ruvido: number }[] = [
-  { c: [282, 495], r: [80, 80], quota: -2, ruvido: 0.15 }, // Piana di Wakan: flat grass
+  { c: [262, 440], r: [115, 80], quota: -2, ruvido: 0.15 }, // Piana di Wakan: flat grass
   { c: [700, 1268], r: [440, 100], quota: -5, ruvido: 0.25 }, // the marsh past the Wall
   { c: [290, 1232], r: [175, 72], quota: -4, ruvido: 0.25 }, // Sabbie Mobili
   { c: [1180, 560], r: [250, 380], quota: 1, ruvido: 0.7 }, // dunes of the Great Desert
@@ -183,8 +183,12 @@ export function rilievoMappa(lato = 321): Rilievo {
       const dEryma = Math.hypot(x - ERYMA[0], y - ERYMA[1])
       if (dMuro < 4 && dEryma > 14) muro = 9 * (1 - (dMuro / 4) ** 4)
       const voragine = -16 * Math.exp(-((dEryma / 13) ** 2))
+      // The crater left by the Great Cataclysm in the North
+      const [cx, cy, cr] = MAPPA_CRATERE
+      const dc = Math.hypot(x - cx, y - cy)
+      const cratere = -22 * Math.exp(-((dc / cr) ** 2)) + 7 * Math.exp(-(((dc - cr * 1.1) / (cr * 0.35)) ** 2))
 
-      const suolo = (base + colline + monti + muro + voragine) * costa[i]!
+      const suolo = (base + colline + monti + muro + voragine + cratere) * costa[i]!
       // Under water: from the beach down to the open sea
       const sotto = -2 - 16 * (1 - fondale[i]!)
       quote[i] = terra[i]! > 0.5 ? Math.max(suolo, 0.8) : Math.min(sotto, -1) * (1 - costa[i]!) + suolo * costa[i]!

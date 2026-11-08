@@ -148,21 +148,19 @@ export const MAPPA_CATENE: {
     min: 13,
     max: 21,
   },
-  // The western arc: north of the Chult…
+  // Foothills where the Alte Montagne turn east. The painted map ran a whole range on to the coast here, but the wiki
+  // puts the open Piana di Wakan on the border with the North (the altar of Tetrangelo stands in it)
   {
     linea: [
-      [338, 416],
-      [290, 401],
-      [230, 389],
-      [170, 383],
-      [110, 387],
+      [150, 386],
+      [110, 389],
       [62, 402],
     ],
-    quota: 0.55,
-    largo: 16,
+    quota: 0.4,
+    largo: 12,
     passo: 11,
-    min: 12,
-    max: 19,
+    min: 10,
+    max: 15,
   },
   // …the Alte Montagne…
   {
@@ -304,7 +302,32 @@ const FORESTE: {
   { c: [228, 238], r: [36, 18], tipo: 'latifoglie' },
   { c: [380, 330], r: [44, 22], tipo: 'latifoglie' }, // woods of Ilvia
   { c: [478, 258], r: [70, 50], tipo: 'latifoglie' }, // Foresta di Shandora
-  { c: [812, 322], r: [62, 26], tipo: 'latifoglie' }, // Foresta di Tyr
+  // Foresta di Tyr: for the wiki one of the largest forests of Fulcron, on the border between North and East, reaching
+  // the steppe to the east and the Inner Sea to the south; Bontor stays outside it, now that the forest is back within
+  // its borders
+  {
+    c: [855, 335],
+    r: [100, 45],
+    tipo: 'latifoglie',
+    contorno: [
+      [760, 318],
+      [792, 302],
+      [826, 312],
+      [862, 316],
+      [896, 310],
+      [930, 318],
+      [956, 330],
+      [946, 348],
+      [916, 352],
+      [888, 364],
+      [856, 380],
+      [822, 362],
+      [792, 352],
+      [770, 342],
+    ],
+  },
+  // Foresta di Kalos, a sanctuary of the South: placed in the wild land between Stratos and the Reame dei Nani
+  { c: [418, 1078], r: [40, 22], tipo: 'latifoglie' },
   // Foresta del Chult. The wiki: about two thirds of the West, as large as the whole Rorish, the largest forest of
   // the Ring, with the elven kingdom of Syndarra inside it. North of it the Piana di Wakan, between it and the sea a
   // strip of fields for the coastal cities; to the south-east it reaches Xyla, "at the edge of the jungles"
@@ -355,15 +378,20 @@ export const MAPPA_FIUMI = [
   'M60 922C95 930 140 940 175 946S205 948 218 950', // into Lago Iveel
   'M258 950C300 940 340 935 370 944S394 954 404 958',
   'M790 205C795 240 790 270 795 300S792 335 790 354', // Tyr
-  'M1092 300C1060 302 1030 300 1000 305S950 318 925 326C900 334 870 338 846 344S818 352 804 358', // Amdinare
-  'M904 333C892 350 880 368 868 380S858 390 852 394', // its southern arm
+  // Amdinare: down from the mountains by Xerxes, with Nuova Theris on its eastern bank, then into two arms with
+  // Partaros between them, on the sea
+  'M985 188C975 230 958 265 955 300S945 328 935 336',
+  'M935 336C915 352 895 372 878 386S862 398 855 403', // northern arm
+  'M935 336C932 365 925 395 912 418S898 440 890 447', // southern arm
+  'M1088 640C1060 628 1030 618 1005 612S980 606 964 603', // Cyrus, south of Cyr
   'M1032 900C1000 894 975 900 950 898S900 892 872 896', // Haku
 ]
 
 /** The borders between North, East, South and West. */
 export const MAPPA_CONFINI_MACRO = [
   'M14 372C100 360 200 370 260 382S320 400 345 418', // North / West
-  'M1176 0C1140 60 1100 110 1070 165S1030 250 1000 280S975 300 950 320S896 342 862 360', // North / East
+  // North / East: past the Rocca Fantasma, then along the Amdinare and its northern arm
+  'M1176 0C1140 60 1100 110 1070 165S1000 182 985 188C975 230 958 265 955 300S945 328 935 336C915 352 895 372 878 386S862 398 855 403',
   'M852 928C900 950 960 975 1010 990S1100 1040 1150 1072S1232 1180 1280 1262', // East / South
   'M402 956C384 990 366 1020 346 1050S280 1100 232 1130S120 1200 64 1280', // South / West
 ]
@@ -399,6 +427,12 @@ export const MAPPA_LAGHI: string[] = [...coste.laghi.map((l) => l.d), ...LAGHI_A
 /** The nine seas (and the Mare delle Ossa), by id: the same ids as in content/mappa.yml */
 export const MAPPA_MARI: Record<string, string> = coste.mari
 export const MAPPA_CONFINI_MARI: string = coste.confiniMari
+
+/**
+ * The crater of the Great Cataclysm (3015): "a Nord una grande esplosione devasta tutto lasciando un enorme buco
+ * nero". The wiki does not say where: placed in the empty Terre del Nord, between two forests.
+ */
+export const MAPPA_CRATERE: [number, number, number] = [72, 218, 22]
 
 /** The colours of the land, softly blended: snow, steppe, sand, forest, stone, marsh. */
 export const MAPPA_COLORI: Record<string, string> = {
@@ -438,7 +472,8 @@ export const MAPPA_BIOMI: { c: Punto; r: Punto; colore: string; forza: number }[
   { c: [290, 1232], r: [175, 72], colore: 'fango', forza: 0.65 },
   { c: [960, 1262], r: [130, 52], colore: 'palude', forza: 0.5 },
   // West: the plain of Wakan, the Chult, the coast, the stone of the Dwarves
-  { c: [282, 495], r: [85, 85], colore: 'erba', forza: 0.6 },
+  { c: [262, 440], r: [120, 85], colore: 'erba', forza: 0.6 },
+  { c: [1085, 262], r: [80, 60], colore: 'sabbia', forza: 0.45 }, // the Great Desert reaches Primafalia
   { c: [175, 760], r: [175, 360], colore: 'bosco', forza: 0.65 },
   { c: [320, 830], r: [60, 170], colore: 'prato', forza: 0.35 },
   { c: [290, 1150], r: [230, 55], colore: 'pietra', forza: 0.45 },
@@ -455,7 +490,6 @@ export const MAPPA_TINTE_MARI: Record<string, [string, number]> = {
   'mar-levante': ['#86b5a6', 0.25],
   'mare-orientale': ['#8db8cc', 0.22],
   'mare-centrale': ['#d3e6e2', 0.25],
-  'mare-delle-ossa': ['#d1cdb8', 0.35],
 }
 
 /** Areas with marsh tufts and dunes. */
