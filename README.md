@@ -23,6 +23,7 @@ npm run preview    # prova in locale il sito generato
 npm run typecheck  # controllo dei tipi
 npm run format:check  # controlla la formattazione (Prettier)
 npm run lint       # controlla il codice Vue e TypeScript (ESLint)
+npm test           # dopo generate: link rotti e test nel browser (Playwright)
 ```
 
 Variabili d'ambiente:
@@ -31,6 +32,17 @@ Variabili d'ambiente:
 - `NUXT_PUBLIC_GALLERY_URL`: da dove arrivano le foto della gallery. Se non è impostata si usa `/foto` quando
   `public/foto/` contiene le foto generate da `npm run gallery`, altrimenti il bucket di produzione
   `https://foto.fulcrongrv.it`. Così un clone appena fatto si genera senza passaggi in più.
+
+## Test
+
+I test girano sul sito già generato, quindi prima serve `npm run generate`:
+
+- `npm run test:links` controlla che ogni link e immagine interna di ogni pagina porti a un file esistente.
+- `npm run test:e2e` apre il sito in Chromium (desktop e telefono) con `tests/serve.mjs`, che risponde come Vercel,
+  404 compresi: le pagine principali, il 404, il menu del telefono, la wiki e la gallery. La prima volta serve
+  `npx playwright install chromium`.
+
+La CI su GitHub esegue formattazione, lint, tipi, build e tutti i test a ogni PR.
 
 ## Contenuti
 
