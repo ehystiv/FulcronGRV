@@ -35,3 +35,12 @@ jobs:
       # Without public/foto the gallery points to the production bucket on R2
       - name: Static build
         run: npm run generate
+
+      - name: Links
+        run: npm run test:links
+
+      - name: Browser for the tests
+        run: npx playwright install --with-deps chromium
+
+      - name: Smoke tests
+        run: npm run test:e2e
