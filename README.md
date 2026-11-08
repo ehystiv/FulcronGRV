@@ -38,7 +38,8 @@ Variabili d'ambiente:
 
 I test girano sul sito già generato, quindi prima serve `npm run generate`:
 
-- `npm run test:links` controlla che ogni link e immagine interna di ogni pagina porti a un file esistente.
+- `npm run test:links` controlla che ogni link e immagine interna di ogni pagina porti a un file esistente. Controlla anche
+  `content/mappa.yml`: i testi con i due punti devono stare tra virgolette, e ogni luogo deve avere un `id` diverso.
 - `npm run test:e2e` apre il sito in Chromium (desktop e telefono) con `tests/serve.mjs`, che risponde come Vercel,
   404 compresi: le pagine principali, il 404, il menu del telefono, la wiki e la gallery. La prima volta serve
   `npx playwright install chromium`.

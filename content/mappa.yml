@@ -109,7 +109,7 @@ luoghi:
     area: nord
     x: 290
     y: 336
-    testo: Regno del Qorish governato da re Gwyn Vinhaim con il concilio dei Sette Savi. È diviso in quattro baronie (Swanburg, Wintergate, Arrowdale e Fendergast). Stemma: una civetta delle nevi nera su sfondo blu.
+    testo: "Regno del Qorish governato da re Gwyn Vinhaim con il concilio dei Sette Savi. È diviso in quattro baronie (Swanburg, Wintergate, Arrowdale e Fendergast). Stemma: una civetta delle nevi nera su sfondo blu."
     wiki: /wiki/geopolitica/nord#ilvia
   - id: iseldor
     nome: Iseldor
@@ -150,7 +150,7 @@ luoghi:
     area: nord
     x: 566
     y: 294
-    testo: Il regno costiero del Nord, con una possente flotta al servizio della regina Elaine Moonsharp. I commerci fioriscono. Stemma dei Moonsharp: una mezzaluna nera su sfondo celeste.
+    testo: "Il regno costiero del Nord, con una possente flotta al servizio della regina Elaine Moonsharp. I commerci fioriscono. Stemma dei Moonsharp: una mezzaluna nera su sfondo celeste."
     wiki: /wiki/geopolitica/nord#lungacosta
   - id: ilshaka
     nome: Ilshaka
@@ -159,7 +159,7 @@ luoghi:
     x: 770
     y: 196
     ruota: 24
-    testo: Il regno più vasto del Rorish, famoso per la sua potenza militare e per re Nymbra Shoot, la Vecchia Tigre, decisivo per la vittoria del Nord nella Grande Guerra. Stemma: una tigre nera su sfondo bianco.
+    testo: "Il regno più vasto del Rorish, famoso per la sua potenza militare e per re Nymbra Shoot, la Vecchia Tigre, decisivo per la vittoria del Nord nella Grande Guerra. Stemma: una tigre nera su sfondo bianco."
     wiki: /wiki/geopolitica/nord#ilshaka
   - id: foran
     nome: Foran
@@ -176,7 +176,7 @@ luoghi:
     x: 262
     y: 104
     livello: 1
-    testo: Il reame nanico delle Terre del Nord, una gigantesca miniera che si estende per chilometri sotto terra. Il re ha una carica solo onoraria: decidono ministri eletti e il voto della comunità.
+    testo: "Il reame nanico delle Terre del Nord, una gigantesca miniera che si estende per chilometri sotto terra. Il re ha una carica solo onoraria: decidono ministri eletti e il voto della comunità."
     wiki: /wiki/geopolitica/nord#casaroccia
   - id: babel
     nome: Babel
@@ -552,7 +552,7 @@ luoghi:
     area: est
     x: 982
     y: 632
-    testo: L’unico porto attivo dell’Impero dei Dodici Fiori, nel territorio del clan della Calendula: tanto trafficato quanto attentamente sorvegliato.
+    testo: "L’unico porto attivo dell’Impero dei Dodici Fiori, nel territorio del clan della Calendula: tanto trafficato quanto attentamente sorvegliato."
     wiki: /wiki/geopolitica/est/l-impero-dei-dodici-fiori#economia
   - id: edo
     nome: Edo
@@ -729,7 +729,7 @@ luoghi:
     x: 186
     y: 672
     livello: 1
-    testo: La zona boschiva più estesa dell’Anello, grande quanto l’intero Rorish: nessun mortale l’ha mai esplorata tutta. Vi sorgono i regni degli elfi; sotto le sue radici si apre un gigantesco formicaio di roccia.
+    testo: "La zona boschiva più estesa dell’Anello, grande quanto l’intero Rorish: nessun mortale l’ha mai esplorata tutta. Vi sorgono i regni degli elfi; sotto le sue radici si apre un gigantesco formicaio di roccia."
     wiki: /wiki/geopolitica/ovest#la-foresta-del-chult
   - id: bocca-del-serpente
     nome: Bocca del Serpente
