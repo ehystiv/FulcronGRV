@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-// The main pages: they answer 200, have one h1 and run without JavaScript errors
+// The main pages: they answer 200, have one h1, a share preview with an absolute image URL,
+// and run without JavaScript errors
 const PAGES = [
   '/',
   '/chi-siamo',
@@ -27,6 +28,8 @@ for (const path of PAGES) {
     expect(response?.status()).toBe(200)
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.locator('h1')).toBeVisible()
+    await expect(page.locator('meta[property="og:title"]')).toHaveCount(1)
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /^https:\/\//)
     expect(errors).toEqual([])
   })
 }
@@ -50,5 +53,9 @@ test('the sitemap lists the pages', async ({ request }) => {
   expect(response.ok()).toBe(true)
   const xml = await response.text()
   expect(xml).toContain('<loc>https://fulcrongrv.it/sinfonia/regolamento</loc>')
-  expect(xml).toContain('<loc>https://fulcrongrv.it/wiki/storia</loc>')
+  expect(xml).toContain('<loc>https://fulcrongrv.it/sinfonia</loc>')
+  expect(xml).toMatch(/<loc>https:\/\/fulcrongrv\.it\/wiki\/storia<\/loc><lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/)
+  // Error pages and redirects stay out
+  expect(xml).not.toContain('404')
+  expect(xml).not.toContain('/who<')
 })

@@ -81,7 +81,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       // Bacheca has no links while it is empty, so the crawler would not find it
-      routes: ['/', '/sitemap.xml', '/sinfonia/bacheca'],
+      routes: ['/', '/sinfonia/bacheca'],
     },
   },
 

@@ -65,7 +65,7 @@ app/
   composables/usePage.ts  carica una pagina da content/pagine
   pages/                  una pagina Vue per ogni URL
 public/                   immagini, PDF dei manuali, favicon
-server/routes/            sitemap.xml (generata in build)
+modules/sitemap.ts        scrive sitemap.xml alla fine della build, dalle pagine generate
 scripts/gallery.mjs       prepara le foto della gallery (npm run gallery)
 ```
 
