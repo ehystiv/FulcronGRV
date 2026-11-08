@@ -619,10 +619,11 @@ luoghi:
   # ---------- Ovest ----------
   - id: piana-di-wakan
     nome: Piana di Wakan
+    etichetta: 'Piana|di Wakan'
     tipo: regione
     area: ovest
-    x: 222
-    y: 520
+    x: 286
+    y: 500
     stimato: true
     testo: Un vastissimo mare d’erba a nord dell’Ovest, al confine con il Qorish, intatto da agricoltura e allevamento. Lo abitano tribù nomadi umane, eterogenee e bellicose, devote al dio Wakan.
     wiki: /wiki/geopolitica/ovest#la-piana-di-wakan
@@ -726,8 +727,8 @@ luoghi:
     nome: Foresta del Chult
     tipo: foresta
     area: ovest
-    x: 186
-    y: 672
+    x: 168
+    y: 820
     livello: 1
     testo: "La zona boschiva più estesa dell’Anello, grande quanto l’intero Rorish: nessun mortale l’ha mai esplorata tutta. Vi sorgono i regni degli elfi; sotto le sue radici si apre un gigantesco formicaio di roccia."
     wiki: /wiki/geopolitica/ovest#la-foresta-del-chult

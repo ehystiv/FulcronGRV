@@ -86,6 +86,8 @@ const nomi = computed(() =>
       let classe = stile.classe
       // The Mare Interno is a "land" of its own, but written like a sea
       if (l.tipo === 'macro' && l.area === 'mare') [fs, classe] = [19, 'n-mare n-mare-interno']
+      // The great forests (the Chult) are named large, like regions
+      if (l.tipo === 'foresta' && l.livello <= 1) fs = 17
       // The four lands and the sea are names for the whole map: they step aside when zooming in
       if (l.tipo === 'macro') classe += ' n-vasto'
       // Readable from about 7.5px on screen, never before the step of its level

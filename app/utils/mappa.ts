@@ -285,7 +285,17 @@ export const MAPPA_PICCHI: [number, number, number][] = [
 ]
 
 /** Forests: centre, radii, kind of tree. */
-const FORESTE: { c: Punto; r: Punto; tipo: 'latifoglie' | 'conifere' | 'cerulea' }[] = [
+/**
+ * Forests: centre, radii and kind of tree; a forest with an outline (`contorno`) follows it instead of an ellipse,
+ * and `passo` spaces its trees wider.
+ */
+const FORESTE: {
+  c: Punto
+  r: Punto
+  tipo: 'latifoglie' | 'conifere' | 'cerulea'
+  contorno?: Punto[]
+  passo?: number
+}[] = [
   { c: [165, 176], r: [56, 28], tipo: 'conifere' }, // Foresta delle Rocce
   { c: [86, 138], r: [40, 22], tipo: 'conifere' },
   { c: [418, 106], r: [28, 18], tipo: 'conifere' }, // Foresta del Sussurro
@@ -295,8 +305,44 @@ const FORESTE: { c: Punto; r: Punto; tipo: 'latifoglie' | 'conifere' | 'cerulea'
   { c: [380, 330], r: [44, 22], tipo: 'latifoglie' }, // woods of Ilvia
   { c: [478, 258], r: [70, 50], tipo: 'latifoglie' }, // Foresta di Shandora
   { c: [812, 322], r: [62, 26], tipo: 'latifoglie' }, // Foresta di Tyr
-  { c: [186, 690], r: [82, 128], tipo: 'latifoglie' }, // Foresta del Chult
-  { c: [330, 1000], r: [36, 26], tipo: 'latifoglie' }, // the jungle at Xyla
+  // Foresta del Chult. The wiki: about two thirds of the West, as large as the whole Rorish, the largest forest of
+  // the Ring, with the elven kingdom of Syndarra inside it. North of it the Piana di Wakan, between it and the sea a
+  // strip of fields for the coastal cities; to the south-east it reaches Xyla, "at the edge of the jungles"
+  {
+    c: [180, 760],
+    r: [190, 340],
+    tipo: 'latifoglie',
+    passo: 11,
+    contorno: [
+      [80, 445],
+      [140, 430],
+      [205, 426],
+      [238, 450],
+      [244, 505],
+      [232, 560],
+      [252, 605],
+      [258, 660],
+      [250, 720],
+      [262, 780],
+      [270, 840],
+      [285, 890],
+      [300, 940],
+      [330, 975],
+      [368, 1000],
+      [372, 1040],
+      [340, 1075],
+      [280, 1090],
+      [200, 1085],
+      [130, 1075],
+      [85, 1040],
+      [72, 960],
+      [70, 860],
+      [68, 760],
+      [68, 660],
+      [70, 560],
+      [72, 490],
+    ],
+  },
   { c: [960, 820], r: [56, 44], tipo: 'latifoglie' }, // Terre Verdi di Jotai
   { c: [1000, 930], r: [28, 22], tipo: 'latifoglie' },
   { c: [1030, 1238], r: [62, 30], tipo: 'latifoglie' }, // Foresta di Sathros
@@ -392,9 +438,9 @@ export const MAPPA_BIOMI: { c: Punto; r: Punto; colore: string; forza: number }[
   { c: [290, 1232], r: [175, 72], colore: 'fango', forza: 0.65 },
   { c: [960, 1262], r: [130, 52], colore: 'palude', forza: 0.5 },
   // West: the plain of Wakan, the Chult, the coast, the stone of the Dwarves
-  { c: [210, 500], r: [175, 92], colore: 'erba', forza: 0.6 },
-  { c: [190, 690], r: [155, 235], colore: 'bosco', forza: 0.65 },
-  { c: [345, 900], r: [85, 140], colore: 'verde', forza: 0.3 },
+  { c: [282, 495], r: [85, 85], colore: 'erba', forza: 0.6 },
+  { c: [175, 760], r: [175, 360], colore: 'bosco', forza: 0.65 },
+  { c: [320, 830], r: [60, 170], colore: 'prato', forza: 0.35 },
   { c: [290, 1150], r: [230, 55], colore: 'pietra', forza: 0.45 },
 ]
 
@@ -581,15 +627,17 @@ export function terrenoMappa(): Terreno {
   for (const foresta of FORESTE) {
     const [cx, cy] = foresta.c
     const [rx, ry] = foresta.r
-    // An irregular outline around the ellipse
-    const bordo: Punto[] = []
-    for (let i = 0; i < 28; i++) {
-      const a = (i / 28) * Math.PI * 2
-      const k = 0.85 + r() * 0.3
-      bordo.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k])
+    // The drawn outline, or an irregular one around the ellipse
+    const bordo: Punto[] = foresta.contorno ? frastaglia(foresta.contorno, r) : []
+    if (!foresta.contorno) {
+      for (let i = 0; i < 28; i++) {
+        const a = (i / 28) * Math.PI * 2
+        const k = 0.85 + r() * 0.3
+        bordo.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k])
+      }
     }
     boschi.push({ d: percorsoMorbido(bordo), tipo: foresta.tipo })
-    const passo = foresta.tipo === 'conifere' ? 8 : 9
+    const passo = foresta.passo ?? (foresta.tipo === 'conifere' ? 8 : 9)
     for (let y = cy - ry; y <= cy + ry; y += passo * 0.8) {
       for (let x = cx - rx; x <= cx + rx; x += passo) {
         const p: Punto = [x + (r() - 0.5) * passo * 0.8, y + (r() - 0.5) * passo * 0.6]
@@ -769,4 +817,21 @@ function disegnaColle(x: number, y: number, s: number, r: () => number): Monte {
     linee += `M${pt(cx + w * t, y - h * (0.75 - i * 0.25))}l${pt(w * 0.07, h * 0.3)}`
   }
   return { y, corpo, ombra, linee }
+}
+
+/** A drawn outline made natural: every side split in three, the new points pushed in or out a little */
+function frastaglia(contorno: Punto[], r: () => number): Punto[] {
+  const out: Punto[] = []
+  for (let i = 0; i < contorno.length; i++) {
+    const [x1, y1] = contorno[i]!
+    const [x2, y2] = contorno[(i + 1) % contorno.length]!
+    const lungo = Math.hypot(x2 - x1, y2 - y1) || 1
+    const [nx, ny] = [-(y2 - y1) / lungo, (x2 - x1) / lungo]
+    out.push([x1, y1])
+    for (const t of [1 / 3, 2 / 3]) {
+      const scarto = (r() - 0.5) * Math.min(lungo * 0.5, 26)
+      out.push([x1 + (x2 - x1) * t + nx * scarto, y1 + (y2 - y1) * t + ny * scarto])
+    }
+  }
+  return out
 }

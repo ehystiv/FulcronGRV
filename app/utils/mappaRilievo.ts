@@ -36,11 +36,11 @@ const ERYMA: Punto = [731, 1181]
 
 /** Land shapes and how they lie, by area: [centre, radii, how much higher (or lower), how rough] */
 const CARATTERE: { c: Punto; r: Punto; quota: number; ruvido: number }[] = [
-  { c: [210, 500], r: [170, 90], quota: -2, ruvido: 0.15 }, // Piana di Wakan: flat grass
+  { c: [282, 495], r: [80, 80], quota: -2, ruvido: 0.15 }, // Piana di Wakan: flat grass
   { c: [700, 1268], r: [440, 100], quota: -5, ruvido: 0.25 }, // the marsh past the Wall
   { c: [290, 1232], r: [175, 72], quota: -4, ruvido: 0.25 }, // Sabbie Mobili
   { c: [1180, 560], r: [250, 380], quota: 1, ruvido: 0.7 }, // dunes of the Great Desert
-  { c: [190, 690], r: [160, 240], quota: 3, ruvido: 1.2 }, // the Chult: rough ground under the trees
+  { c: [175, 760], r: [170, 350], quota: 3, ruvido: 1.2 }, // the Chult: rough ground under the trees
   { c: [640, 90], r: [640, 110], quota: 1, ruvido: 0.6 }, // the frozen moor of the North
 ]
 
