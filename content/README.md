@@ -59,7 +59,7 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 | `::notice` | frase evidenziata | `regolamento.md` |
 | `::world-map` | la mappa di Fulcron, apribile a schermo intero | `ambientazione.md` |
 | `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |
-| `::documents` | elenco di PDF da scaricare | `regolamento.md` |
+| `::documents` | i manuali in PDF (versione da leggere e da stampare, sul bucket R2 dei documenti) | `regolamento.md` |
 | `::steps`, `::faq` | passi numerati, domande frequenti | `inizia-a-giocare.md` |
 | `:button-link[Testo]{href="…"}` | bottone | `ambientazione.md` |
 

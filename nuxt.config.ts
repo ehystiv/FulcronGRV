@@ -67,6 +67,8 @@ export default defineNuxtConfig({
     public: {
       siteUrl,
       galleryUrl,
+      // Where the rulebook PDFs are served from: the fulcrongrv-documenti bucket on R2
+      documentsUrl: process.env.NUXT_PUBLIC_DOCUMENTS_URL || 'https://documenti.fulcrongrv.it',
     },
   },
 
