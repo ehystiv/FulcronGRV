@@ -1,11 +1,12 @@
 ---
 title: "Guerra dell'Occhio"
 updated: 2021-10-13
+order: 2
 ---
 
 ## La Guerra dell'Occhio 
 
-La Guerra dell'Occhio comprende una serie di battaglie combattute tutte nell'anno 3017 della V era tra la [Setta](/wiki/la-setta), guidata dall'[Occhio di Hava](/wiki/occhio-di-hava), e vari eserciti di Fulcron. Ha causato la sconfitta totale della Setta.
+La Guerra dell'Occhio comprende una serie di battaglie combattute tutte nell'anno 3017 della V era tra la [Setta](/wiki/fazioni/la-setta), guidata dall'[Occhio di Hava](/wiki/storia/occhio-di-hava), e vari eserciti di Fulcron. Ha causato la sconfitta totale della Setta.
 
 ### Le alleanze e la dichiarazione di guerra
 
@@ -39,7 +40,7 @@ Pur non aggregandosi mai ufficialmente in un unico esercito, ma stringendo solo 
 Ai regni di Fulcron, universalmente riconosciuti ed alleati, si uniscono altre forze ostili all'Occhio di Hava:
 
 -   L'esercito della Fiamma, guidato dall'Occhio di Yudah, composto da 4 000 fanti e 400 cavalieri.
--   L'[Armata Santa](/wiki/religione/armata-santa), esercito disorganizzato di fanatici al seguito del prete Uroboro.
+-   L'[Armata Santa](/wiki/fazioni/armata-santa), esercito disorganizzato di fanatici al seguito del prete Uroboro.
 
 ### Gli scontri
 

@@ -1,6 +1,7 @@
 ---
 title: "L'Antico Credo"
 updated: 2021-10-13
+order: 1
 ---
 
 L'Antico Credo o Vera Fede è un culto religioso sorto a Fulcron in seguito alla Pioggia di Fuoco. Esso si diffuse in varie zone del mondo, accogliendo diversi fedeli in un periodo storico buio e pieno di incertezze.
@@ -26,7 +27,7 @@ L'Antico Credo dà inizio alla propria opera di conversione degli infedeli con l
 
 **Tetrangelo**
 
-Sorto nella piana di Wakan, sul confine tra [Nord](/wiki/geopolitica/nord) ed [Ovest](/wiki/geopolitica/ovest), creò un vasta area di influenza nel nord-ovest, ma non riuscì mai a convertire il vicino Qorish, con cui fu spesso in contrasto. Secondo la leggenda un grande e potente mago, primo rettore di Embergard, si scontrò duramente coi seguaci del Credo. Oggi l'altare, ridotto in rovina, è venerato da un piccolo gruppo di monaci, ancora fedeli alla religione, mentre altri si sono trasferiti in luoghi meno ostili nel regno di Ilvia. L'Alto Sacerdote Urobor, guida dell'[Armata Santa](/wiki/religione/armata-santa), sembra essere stato formato in questo altare.
+Sorto nella piana di Wakan, sul confine tra [Nord](/wiki/geopolitica/nord) ed [Ovest](/wiki/geopolitica/ovest), creò un vasta area di influenza nel nord-ovest, ma non riuscì mai a convertire il vicino Qorish, con cui fu spesso in contrasto. Secondo la leggenda un grande e potente mago, primo rettore di Embergard, si scontrò duramente coi seguaci del Credo. Oggi l'altare, ridotto in rovina, è venerato da un piccolo gruppo di monaci, ancora fedeli alla religione, mentre altri si sono trasferiti in luoghi meno ostili nel regno di Ilvia. L'Alto Sacerdote Urobor, guida dell'[Armata Santa](/wiki/fazioni/armata-santa), sembra essere stato formato in questo altare.
 
 **Primafalia**
 

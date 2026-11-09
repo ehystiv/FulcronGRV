@@ -30,4 +30,4 @@ Esempio di spicco, il Thràfstis, in grado di incidere e tagliare le pietre blu 
 
 ## Vedi anche
 
-[Abenaki dell'Est](/wiki/geopolitica/est/popolazioni/abenaki)
+[Abenaki dell'Est](/wiki/popoli/abenaki)

@@ -414,7 +414,7 @@ luoghi:
     y: 254
     stimato: true
     testo: Cittadina del regno di Foran, attaccata nel 3017 da Ghevurà, il Rosso, della Mano della Setta, che vi morì. Valdyris vi ha aperto da poco una via commerciale.
-    wiki: /wiki/la-setta
+    wiki: /wiki/fazioni/la-setta
     lato: destra
   - id: foresta-di-tyr
     nome: Foresta di Tyr
@@ -526,7 +526,7 @@ luoghi:
     y: 232
     stimato: true
     testo: Antica magione al confine tra Nord ed Est. Nel 3017 vi si riunirono i potenti di Fulcron contrari alla Setta, e grazie ai poteri del luogo l’Occhio di Hava vi trovò la morte.
-    wiki: /wiki/guerra-dell-occhio#la-magione-peaful-e-la-caduta-dellocchio-di-hava
+    wiki: /wiki/storia/guerra-dell-occhio#la-magione-peaful-e-la-caduta-dellocchio-di-hava
   - id: primafalia
     nome: Primafalia
     tipo: luogo
@@ -800,7 +800,7 @@ luoghi:
     y: 724
     stimato: true
     testo: La zona sotto la foresta del Chult dove sorgeva la città sotterranea della Setta, il culto guidato dall’Occhio di Hava che nel 3017 dichiarò guerra all’intera Fulcron.
-    wiki: /wiki/la-setta
+    wiki: /wiki/fazioni/la-setta
   - id: herel
     nome: Herel
     tipo: borgo
@@ -1029,7 +1029,7 @@ luoghi:
     y: 1086
     stimato: true
     testo: Nel 3017, presso il Reame dei Nani, l’esercito del Sangue della Setta raggiunse l’esercito della Fiamma del traditore Occhio di Yudah. Entrambi gli eserciti furono distrutti.
-    wiki: /wiki/guerra-dell-occhio#lassedio-di-amhora-e-la-battaglia-degli-occhi
+    wiki: /wiki/storia/guerra-dell-occhio#lassedio-di-amhora-e-la-battaglia-degli-occhi
     lato: sinistra
   - id: sabbie-mobili
     nome: Sabbie Mobili
@@ -1189,7 +1189,7 @@ luoghi:
     y: 488
     stimato: true
     testo: Nel 3017, presso Atrapor, la flotta di Samudra della Setta fu intercettata da Cour Berenice, al servizio del re dei Pirati. Il mare si tinse di rosso; Cour Berenice morì e la flotta pirata si disperse.
-    wiki: /wiki/guerra-dell-occhio#la-battaglia-delle-acque-rosse
+    wiki: /wiki/storia/guerra-dell-occhio#la-battaglia-delle-acque-rosse
   - id: mezuna
     nome: Mezuna
     dipinto: Mezzuna

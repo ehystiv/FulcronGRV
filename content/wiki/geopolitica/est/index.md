@@ -25,4 +25,4 @@ Il Sultanato degli Aarak, si estende a sud-est, ad oriente dei monti Lerrnerum. 
 
 ## Popoli senza terra
 
-[Popolo Errante degli Abenaki](/wiki/geopolitica/est/popolazioni/abenaki)
+[Popolo Errante degli Abenaki](/wiki/popoli/abenaki)

@@ -2,7 +2,7 @@
 title: "Storia"
 description: "Indice storico degli eventi"
 updated: 2026-11-02
-order: 4
+order: 5
 ---
 
 Gli eventi che hanno segnato l’Anello, dalla Pioggia di Fuoco ai giorni nostri.
@@ -69,7 +69,7 @@ La regina dei pirati Elisha MaGkrafun viene assassinata. La M.A.S. attacca Port 
 La cupola nera comparsa a Nord si dissolve nel nulla.
 :::
 :::timeline-event{date="28 Fiorile 3017"}
-Scoppia la [Guerra dell'Occhio](/wiki/guerra-dell-occhio), dichiarata dall'Occhio di Hava.
+Scoppia la [Guerra dell'Occhio](/wiki/storia/guerra-dell-occhio), dichiarata dall'Occhio di Hava.
 :::
 :::timeline-event{date="1 Vendemmiaio 3017"}
 Conclusione della Guerra dell'Occhio e vittoria dei popoli liberi.

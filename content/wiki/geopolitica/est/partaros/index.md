@@ -4,7 +4,7 @@ description: "La città santa"
 updated: 2021-10-13
 ---
 
-Partaros è la più estesa e fiorente tra le città-libere dell’Oriente e si colloca tra il braccio settentrionale e quello meridionale del fiume Amdinare, affacciata sul Mare Interno. E' famosa in tutta Fulcron come grande città mercantile e sede dell'[Ordine dei Guaritori](/wiki/geopolitica/est/partaros/l-ordine-dei-guaritori).
+Partaros è la più estesa e fiorente tra le città-libere dell’Oriente e si colloca tra il braccio settentrionale e quello meridionale del fiume Amdinare, affacciata sul Mare Interno. E' famosa in tutta Fulcron come grande città mercantile e sede dell'[Ordine dei Guaritori](/wiki/fazioni/l-ordine-dei-guaritori).
 
 ## Storia
 

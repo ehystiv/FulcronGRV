@@ -10,11 +10,12 @@ Fulcron è un “Anello”, senza dubbio, ma solo per quello che ne sappiamo noi
 
 ## Da dove cominciare
 
+- [La mappa dell’Anello](/wiki/mappa), con le schede dei luoghi.
 - [Geografia e Regni](/wiki/geopolitica): i regni del Nord, dell’Est, del Sud e dell’Ovest, e il Mare Interno.
-- [Religione e culti](/wiki/religione): i Sette, l’Antico Credo e l’Armata Santa.
-- [Le razze](/wiki/razze) che abitano l’Anello.
-- [La storia](/wiki/storia) e il [calendario](/wiki/calendario) di Fulcron.
-- Le vicende più recenti: [la Setta](/wiki/la-setta), [l’Occhio di Hava](/wiki/occhio-di-hava) e [la Guerra dell’Occhio](/wiki/guerra-dell-occhio).
+- [Popoli e Razze](/wiki/popoli): le sette razze e i popoli che abitano l’Anello.
+- [Religione e Culti](/wiki/religione): i Sette Dei e l’Antico Credo.
+- [Ordini e Fazioni](/wiki/fazioni): i Cronomanti, i Guaritori di Partaros, l’Armata Santa e la Setta.
+- [La Storia](/wiki/storia) e il [calendario](/wiki/storia/calendario) di Fulcron, fino alla [Guerra dell’Occhio](/wiki/storia/guerra-dell-occhio).
 
 ## Un archivio vivo, ma non aggiornatissimo
 

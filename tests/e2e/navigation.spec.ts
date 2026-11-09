@@ -32,7 +32,7 @@ test('desktop navigation marks the current section', async ({ page, isMobile }) 
 })
 
 test('wiki: breadcrumbs and menu lead to other pages', async ({ page, isMobile }) => {
-  await page.goto('/wiki/geopolitica/est/partaros/l-ordine-dei-guaritori')
+  await page.goto('/wiki/fazioni/l-ordine-dei-guaritori')
   const crumbs = page.getByRole('navigation', { name: 'Percorso' })
   await expect(crumbs.getByRole('link', { name: 'Wiki di Fulcron' })).toBeVisible()
 
@@ -196,4 +196,23 @@ test.describe('night mode', () => {
     await expect(page).toHaveURL('/oneshot/sunless-dawn')
     await expect(page.locator('html')).not.toHaveClass(/\bnotte\b/)
   })
+})
+
+test('wiki menu: a section opens with its arrow without leaving the page', async ({ page, isMobile }) => {
+  await page.goto('/wiki/fazioni/la-setta')
+  if (isMobile) await page.getByText('Esplora la wiki').click()
+  const menu = page.getByRole('navigation', { name: 'Pagine della wiki' }).locator('visible=true')
+  await expect(menu.getByRole('link', { name: 'La Setta' })).toHaveAttribute('aria-current', 'page')
+  await expect(menu.getByRole('link', { name: "Guerra dell'Occhio" })).toHaveCount(0)
+  await menu.getByRole('button', { name: 'Apri Storia' }).click()
+  await expect(menu.getByRole('link', { name: "Guerra dell'Occhio" })).toBeVisible()
+  await expect(page).toHaveURL('/wiki/fazioni/la-setta')
+})
+
+test('wiki pages moved into sections still answer at their old address', async ({ page }) => {
+  await page.goto('/wiki/la-setta')
+  await expect(page).toHaveURL('/wiki/fazioni/la-setta')
+  await page.goto('/wiki/razze')
+  await expect(page).toHaveURL('/wiki/popoli')
+  await expect(page.locator('h1')).toHaveText('Popoli e Razze')
 })

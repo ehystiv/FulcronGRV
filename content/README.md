@@ -94,7 +94,7 @@ updated: 2026-11-02
 ---
 
 Testo della pagina. I titoli delle sezioni si scrivono con `##` e `###`.
-Per collegare un’altra pagina: [Ordine dei Guaritori](/wiki/geopolitica/est/partaros/l-ordine-dei-guaritori).
+Per collegare un’altra pagina: [Ordine dei Guaritori](/wiki/fazioni/l-ordine-dei-guaritori).
 ```
 
 `order` (facoltativo) decide la posizione nel menu: numeri più bassi vengono prima, il resto è in ordine

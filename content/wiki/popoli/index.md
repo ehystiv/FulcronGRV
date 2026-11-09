@@ -1,8 +1,8 @@
 ---
-title: "Razze"
-description: "Le Razze di Fulcron"
 updated: 2019-11-20
-order: 3
+title: "Popoli e Razze"
+description: "Le razze e i popoli che abitano l’Anello"
+order: 2
 ---
 
 In principio gli Dei popolarono Fulcron con Sette Razze. Ognuna di esse possedeva tratti differenti e unici rispetto alle altre, ma tutte quante, rispecchiando la forma dei loro creatori, erano umanoidi.
@@ -21,3 +21,8 @@ Nei giorni odierni gli Uomini sono la razza più diffusa a Fulcron, inoltre ques
 Gli Elfi, i Nani, e gli Uomini-Pesce sono presenti in numeri importanti, ma i loro habitat sono molto più limitati.
 I Maut abitano anch'essi Fulcron in numeri abbastanza elevati, ma tendono a non riunirsi in insediamenti.
 I Raktaag e gli Uomini-Gatto sono considerati praticamente estinti, dato che da anni non si registra la loro presenza.
+
+## Popoli
+
+- [Il Popolo Errante degli Abenaki](/wiki/popoli/abenaki), il Popolo Benedetto dell’Est.
+- [Gli Abenaki del Sud](/wiki/popoli/abenaki-del-sud), il Popolo Benedetto da Scienza e Magia.

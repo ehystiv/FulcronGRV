@@ -3,7 +3,7 @@ title: "La Setta"
 updated: 2021-10-13
 ---
 
-La Setta è un organizzazione politica e militare sorta ad [Ovest](/wiki/geopolitica/ovest) intorno all'anno 3016 del calendario di Fulcron. La sua sede fu una città sotterranea collocata al di sotto della foresta del Chult, in particolare nella zona nota come "Bocca del Serpente". I suoi membri erano legati ad uno strano culto, legato a sette divinità, tra cui la dea Hava. La sua guida è stata la sacerdotessa-guerriera nota come l'[Occhio di Hava](/wiki/occhio-di-hava), che nel Fiorile del 3017 diede inizio alla [Guerra dell'Occhio](/wiki/guerra-dell-occhio).
+La Setta è un organizzazione politica e militare sorta ad [Ovest](/wiki/geopolitica/ovest) intorno all'anno 3016 del calendario di Fulcron. La sua sede fu una città sotterranea collocata al di sotto della foresta del Chult, in particolare nella zona nota come "Bocca del Serpente". I suoi membri erano legati ad uno strano culto, legato a sette divinità, tra cui la dea Hava. La sua guida è stata la sacerdotessa-guerriera nota come l'[Occhio di Hava](/wiki/storia/occhio-di-hava), che nel Fiorile del 3017 diede inizio alla [Guerra dell'Occhio](/wiki/storia/guerra-dell-occhio).
 
 ## Storia
 

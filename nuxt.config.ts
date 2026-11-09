@@ -75,6 +75,18 @@ export default defineNuxtConfig({
   // Old URLs from the previous versions of the site (static redirect pages)
   routeRules: {
     '/who': { redirect: '/chi-siamo' },
+    // Wiki pages moved into sections (November 2026)
+    '/wiki/calendario': { redirect: '/wiki/storia/calendario' },
+    '/wiki/guerra-dell-occhio': { redirect: '/wiki/storia/guerra-dell-occhio' },
+    '/wiki/occhio-di-hava': { redirect: '/wiki/storia/occhio-di-hava' },
+    '/wiki/razze': { redirect: '/wiki/popoli' },
+    '/wiki/geopolitica/est/popolazioni/abenaki': { redirect: '/wiki/popoli/abenaki' },
+    '/wiki/geopolitica/sud/popolazioni/abenaki-del-sud': { redirect: '/wiki/popoli/abenaki-del-sud' },
+    '/wiki/geopolitica/est/popolazioni': { redirect: '/wiki/popoli' },
+    '/wiki/la-setta': { redirect: '/wiki/fazioni/la-setta' },
+    '/wiki/religione/armata-santa': { redirect: '/wiki/fazioni/armata-santa' },
+    '/wiki/geopolitica/nord/ordine-dei-cronomanti': { redirect: '/wiki/fazioni/ordine-dei-cronomanti' },
+    '/wiki/geopolitica/est/partaros/l-ordine-dei-guaritori': { redirect: '/wiki/fazioni/l-ordine-dei-guaritori' },
   },
 
   // Fully static site: `npm run generate` writes everything to .output/public
