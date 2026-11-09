@@ -7,6 +7,7 @@ const route = useRoute()
 const inWiki = computed(() => notFound.value && route.path.startsWith('/wiki'))
 
 useHead({ title: notFound.value ? 'Pagina non trovata' : 'Errore' })
+useNotte()
 </script>
 
 <template>

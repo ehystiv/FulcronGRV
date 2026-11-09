@@ -97,11 +97,17 @@ wiki. Le pagine delle oneshot hanno invece una grafica tutta loro, vedi sotto.
 
 ### Modalità notte
 
-Chi ha il telefono o il computer in modalità scura vede la wiki in versione notte: blu inchiostro, testo color
-pergamena e accenti verde smeraldo al posto dell'oro. I colori notturni stanno in `main.css`, sotto _Night mode_: gli
-stessi token del giorno (`gold`, `teal`, `surface`…) con un altro valore. Una pagina passa alla notte chiamando
-`useNotte()`; per ora lo fanno solo le pagine della wiki. Per i riempimenti pieni con testo chiaro (voce attiva del menu,
-nome di un'era) si usa `bg-primary` e non `bg-ink`, che di notte diventa il colore del testo.
+Chi ha il telefono o il computer in modalità scura vede il sito in versione notte: blu inchiostro, testo color pergamena
+e accenti verde smeraldo al posto dell'oro, una citazione dell'ambientazione. I colori notturni stanno in `main.css`,
+sotto _Night mode_: sono gli stessi token del giorno (`gold`, `teal`, `surface`…) con un altro valore, quindi una
+pagina che usa i token è già pronta. `useNotte()` (in `app.vue` e `error.vue`) mette la classe `notte` su `<html>` in
+tutte le pagine tranne quelle delle singole oneshot, che restano con la propria grafica; la mappa dipinta, le foto e il
+minigioco della 404 tengono i loro colori.
+
+- I riempimenti pieni con testo chiaro (pulsanti, voce attiva del menu, nome di un'era) usano `bg-primary`
+  (`primary-hover`, `primary-deep` per i gradienti), non `bg-ink`: di notte `ink` è il colore del testo e diventa chiaro.
+- Niente colori scritti a mano nelle pagine comuni: un oro in un gradiente si scrive
+  `color-mix(in srgb, var(--color-gold) 12%, transparent)`, così di notte diventa smeraldo.
 
 ### Una nuova pagina oneshot
 

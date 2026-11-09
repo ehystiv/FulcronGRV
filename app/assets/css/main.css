@@ -38,6 +38,11 @@
   --color-gold-ink: #7d5f22;
   /* Solid fills that carry light text: the active menu entry, the era labels of a timeline. Ink by day */
   --color-primary: #002d40;
+  --color-primary-hover: #124459;
+  --color-primary-deep: #004013; /* end of the dark gradients, forest green by day */
+  /* "Wrong" examples of the rulebook */
+  --color-danger: #9b2c2c;
+  --color-danger-soft: #c26b6b;
 
   /* Surfaces and text */
   --color-parchment: #f7f3ea;
@@ -87,7 +92,7 @@
 /* ---------- Night mode ---------- */
 
 /* For people whose phone or computer is set to dark mode, on the pages that support it: they mark themselves with
-   useHead({ htmlAttrs: { class: 'notte' } }), so the class is in the generated HTML and the page never flashes white.
+   the class `notte` on <html> (app.vue and error.vue), so it is in the generated HTML and the page never flashes white.
    Night is ink blue with parchment-coloured text, and every gold accent turns emerald, a nod to the setting.
    The tokens keep their daytime names (gold, teal…): here they stand for their role, not for the colour. */
 @media (prefers-color-scheme: dark) {
@@ -101,6 +106,10 @@
     --color-muted: #9aabb2;
     --color-ink: #f0e9d8; /* headings and strong text */
     --color-primary: #0e5a40;
+    --color-primary-hover: #137452;
+    --color-primary-deep: #0b4733;
+    --color-danger: #f08c8c;
+    --color-danger-soft: #c96f6f;
     /* Emerald accents */
     --color-teal: #4fd69c; /* links */
     --color-forest: #8ae8bf; /* links on hover */
@@ -241,7 +250,9 @@
     inset: 8px;
     pointer-events: none;
     opacity: 0.85;
-    background:
+    /* The flourishes are a mask painted in the accent colour: gold by day, emerald at night */
+    background-color: var(--color-gold);
+    mask:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44' fill='none' stroke='%23b8913f' stroke-width='1.1'%3E%3Cg transform=''%3E%3Cpath d='M2 42V12Q2 2 12 2h30'/%3E%3Cpath d='M8 34V15q0-7 7-7h19'/%3E%3Cpath d='M2 2l6 6' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%23b8913f' stroke='none'/%3E%3C/g%3E%3C/svg%3E")
         top left / 34px no-repeat,
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44' fill='none' stroke='%23b8913f' stroke-width='1.1'%3E%3Cg transform='translate%2844 0%29 scale%28-1 1%29'%3E%3Cpath d='M2 42V12Q2 2 12 2h30'/%3E%3Cpath d='M8 34V15q0-7 7-7h19'/%3E%3Cpath d='M2 2l6 6' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%23b8913f' stroke='none'/%3E%3C/g%3E%3C/svg%3E")

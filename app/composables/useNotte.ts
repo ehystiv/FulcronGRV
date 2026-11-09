@@ -1,5 +1,6 @@
-// Marks the page as ready for night mode: with the phone or computer set to dark, it switches to the night colours
-// of main.css. Only the pages that call it change, so the rest of the site can follow one page at a time.
+// Night mode: with the phone or computer set to dark, the site switches to the night colours of main.css.
+// The pages of a single oneshot keep their own look, day and night.
 export function useNotte() {
-  useHead({ htmlAttrs: { class: 'notte' } })
+  const route = useRoute()
+  useHead(() => ({ htmlAttrs: { class: /^\/oneshot\/./.test(route.path) ? '' : 'notte' } }))
 }

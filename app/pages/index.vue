@@ -122,7 +122,7 @@ useHead({
     </section>
 
     <section
-      class="bg-[radial-gradient(ellipse_at_top_right,rgb(184_145_63/0.18),transparent_55%),linear-gradient(135deg,var(--color-ink-deep),var(--color-ink)_55%,var(--color-forest))] py-section text-on-dark on-dark"
+      class="bg-[radial-gradient(ellipse_at_top_right,color-mix(in_srgb,var(--color-gold)_18%,transparent),transparent_55%),linear-gradient(135deg,var(--color-ink-deep),var(--color-primary)_55%,var(--color-primary-deep))] py-section text-on-dark on-dark"
     >
       <div v-reveal class="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>

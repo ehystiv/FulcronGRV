@@ -13,9 +13,9 @@ const props = withDefaults(
 )
 
 const variants = {
-  primary: 'border-transparent bg-ink text-on-dark hover:bg-teal hover:text-white',
+  primary: 'border-transparent bg-primary text-on-dark hover:bg-primary-hover hover:text-white',
   gold: 'border-transparent bg-gold text-ink-deep hover:bg-gold-soft hover:text-ink-deep',
-  outline: 'border-ink/70 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-on-dark',
+  outline: 'border-ink/70 bg-transparent text-ink hover:border-primary hover:bg-primary hover:text-on-dark',
   ghost: 'border-on-dark/55 bg-white/5 text-on-dark backdrop-blur-sm hover:bg-on-dark hover:text-ink-deep',
 }
 const sizes = {

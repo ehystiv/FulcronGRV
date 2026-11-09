@@ -14,7 +14,6 @@ const luoghi = computed<LuogoMappa[]>(() =>
   (dati.value?.luoghi ?? []).map((l) => ({ ...l, livello: l.livello ?? 2, stimato: l.stimato ?? false })),
 )
 
-useNotte()
 useSocialMeta({
   title: 'Mappa dell’Anello · Wiki',
   description: () => pagina.value?.description,

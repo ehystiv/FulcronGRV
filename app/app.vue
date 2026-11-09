@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const siteUrl = useRuntimeConfig().public.siteUrl.replace(/\/$/, '')
+useNotte()
 
 useHead(() => ({
   titleTemplate: (title?: string) =>
