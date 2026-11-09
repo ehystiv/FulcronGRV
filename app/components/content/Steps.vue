@@ -17,7 +17,7 @@ defineProps<{ items: { title: string; text: string; to?: string; cta?: string; i
         {{ i + 1 }}
       </span>
       <h3 class="mb-1.5 text-xl">{{ step.title }}</h3>
-      <p class="text-[0.98rem] text-muted">{{ step.text }}</p>
+      <p class="text-[0.98rem] text-muted"><TestoTermini :testo="step.text" /></p>
       <NuxtLink
         v-if="step.to"
         :to="step.to"

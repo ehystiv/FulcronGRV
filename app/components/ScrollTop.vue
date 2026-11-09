@@ -26,7 +26,7 @@ const toTop = () => window.scrollTo({ top: 0 })
       v-show="visible"
       type="button"
       aria-label="Torna all’inizio della pagina"
-      class="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 grid size-12 place-items-center rounded-full border border-gold-soft/40 bg-ink text-on-dark shadow-card-lg hover:bg-teal"
+      class="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 grid size-12 place-items-center rounded-full border border-gold-soft/40 bg-primary text-on-dark shadow-card-lg hover:bg-primary-hover notte:shadow-luce"
       @click="toTop"
     >
       <AppIcon name="arrow-up" :size="22" />

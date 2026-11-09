@@ -224,3 +224,64 @@ test('the Bacheca is always in the campaign tabs, with a pointer to Instagram wh
   await expect(page.locator('h1')).toHaveText('Bacheca')
   await expect(page.getByRole('link', { name: 'Instagram' }).first()).toBeVisible()
 })
+
+test.describe('glossary', () => {
+  test('a word of the game shows its meaning on hover or tap', async ({ page, isMobile }) => {
+    await page.goto('/inizia-a-giocare')
+    const termine = page.getByRole('button', { name: 'Workshop' }).first()
+    const bolla = page.getByRole('tooltip').filter({ hasText: 'L’incontro prima di ogni evento' }).first()
+    await termine.scrollIntoViewIfNeeded()
+    if (isMobile) {
+      // Retry until the page has hydrated: a tap before that does nothing
+      await expect(async () => {
+        await termine.tap()
+        await expect(bolla).toBeVisible({ timeout: 500 })
+      }).toPass({ timeout: 10_000 })
+      await termine.tap()
+      await expect(bolla).toBeHidden()
+    } else {
+      await expect(async () => {
+        await page.mouse.move(0, 0)
+        await termine.hover()
+        await expect(bolla).toBeVisible({ timeout: 500 })
+      }).toPass({ timeout: 10_000 })
+    }
+  })
+
+  test('FAQ answers explain their acronyms, and the full list is on the newcomers page', async ({ page }) => {
+    await page.goto('/inizia-a-giocare')
+    await page.getByText('Devo per forza creare un personaggio?').click()
+    await expect(page.locator('details[open]').getByRole('button', { name: 'PGOS' })).toBeVisible()
+    await expect(page.locator('#termine-pab')).toContainText('130 PAB')
+  })
+})
+
+test('the date of Fulcron: today in the footer, any day in the calendar page', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-12-31T12:00:00'))
+  await page.goto('/wiki/storia/calendario')
+  await expect(page.locator('footer').getByRole('link', { name: /Oggi a Fulcron/ })).toContainText(
+    'Samana 31 Frimaio 3026 · Festa del Sole',
+  )
+  await page.getByLabel('Una data del nostro calendario').fill('2017-05-28')
+  await expect(page.getByText('Surana 28 Fiorile 3017')).toBeVisible()
+})
+
+test('a wiki page without its own description does not repeat its first paragraph as the subtitle', async ({
+  page,
+}) => {
+  await page.goto('/wiki/fazioni/la-setta')
+  await expect(page.locator('article').getByText(/^La Setta è un organizzazione politica/)).toHaveCount(1)
+  await page.goto('/wiki/storia')
+  await expect(page.locator('article').getByText('Indice storico degli eventi')).toBeVisible()
+})
+
+test('photos and events lead to each other', async ({ page }) => {
+  await page.goto('/sinfonia/eventi')
+  await expect(page.getByRole('link', { name: 'Le foto' })).toHaveCount(7)
+  await page.goto('/gallery/il-banchetto-dei-guitti')
+  await page.getByRole('link', { name: /cronologia della Sinfonia/ }).click()
+  await expect(page).toHaveURL('/sinfonia/eventi#evento-il-banchetto-dei-guitti')
+  await expect(page.locator('#evento-il-banchetto-dei-guitti')).toBeInViewport()
+  await page.goto('/oneshot')
+  await expect(page.getByRole('link', { name: 'Foto dell’evento' })).toHaveAttribute('href', '/gallery/sunless-dawn')
+})

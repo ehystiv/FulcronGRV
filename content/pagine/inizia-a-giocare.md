@@ -15,9 +15,9 @@ lead: Non hai mai fatto un gioco di ruolo dal vivo (LARP)? Ti serve meno di quan
 
 Ogni evento ha la sua storia, ma il ritmo è più o meno questo. Prendiamo Il Palazzo dei Destini Incrociati, una nostra oneshot del 2022.
 
-Ci si trova in mattinata, si passa dalla segreteria e ci si prepara con trucco e costume. Poi c’è il Workshop, dove ripassiamo tutto quello che serve per giocare, per chi è nuovo e per chi gioca da anni. Si pranza insieme, ancora fuori gioco.
+Ci si trova in mattinata, si passa dalla segreteria e ci si prepara con trucco e costume. Poi c’è il :termine[Workshop], dove ripassiamo tutto quello che serve per giocare, per chi è nuovo e per chi gioca da anni. Si pranza insieme, ancora fuori gioco.
 
-Con il Time In diventi il tuo personaggio, e lo resti anche a cena. Possono esserci battaglie, intrighi, trattative e preghiere. Il gioco finisce con il Time Off, che quella volta era previsto alle tre di notte.
+Con il :termine[Time In] diventi il tuo personaggio, e lo resti anche a cena. Possono esserci battaglie, intrighi, trattative e preghiere. Il gioco finisce con il :termine[Time Off], che quella volta era previsto alle tre di notte.
 
 ![Giocatori in costume a tavola durante un banchetto a lume di candela](/immagini/banchetto.jpg)
 
@@ -49,6 +49,13 @@ items:
 
 ---
 
+::
+
+## Le parole del gioco
+
+Sigle e parole che sentirai agli eventi. Nelle pagine del sito, quando le trovi sottolineate a puntini, toccale per leggerne il significato.
+
+::glossario
 ::
 
 ## Domande frequenti

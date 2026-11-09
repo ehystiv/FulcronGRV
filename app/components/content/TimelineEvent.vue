@@ -1,14 +1,16 @@
 <script setup lang="ts">
 // One event of a ::timeline-era. Cards alternate left/right on wide screens;
 // right-hand cards move up so the two columns interleave instead of leaving gaps.
-// `chip` adds a small label next to the text, `major` frames the card as a milestone.
-defineProps<{ date?: string; chip?: string; major?: boolean }>()
+// `chip` adds a small label next to the text, `major` frames the card as a milestone, `album` links the photos of the
+// event in the gallery (the album's page links back here, to #evento-<album>).
+defineProps<{ date?: string; chip?: string; major?: boolean; album?: string }>()
 </script>
 
 <template>
   <li
+    :id="album ? `evento-${album}` : undefined"
     v-reveal
-    class="group relative pb-7 pl-8 md:w-1/2 md:pl-0 md:odd:pr-10 md:even:ml-auto md:even:-mt-20 md:even:pl-10"
+    class="group relative scroll-mt-[calc(var(--spacing-header)+var(--spacing-tabs)+2rem)] pb-7 pl-8 md:w-1/2 md:pl-0 md:odd:pr-10 md:even:ml-auto md:even:-mt-20 md:even:pl-10"
   >
     <span
       class="absolute top-4 left-0 size-4 rounded-full border-2 border-gold notte:shadow-luce md:left-auto md:group-odd:-right-2 md:group-even:-left-2"
@@ -35,6 +37,13 @@ defineProps<{ date?: string; chip?: string; major?: boolean }>()
           {{ chip }}
         </span>
       </div>
+      <NuxtLink
+        v-if="album"
+        :to="`/gallery/${album}`"
+        class="mt-2 inline-flex min-h-9 items-center gap-1.5 text-sm font-semibold no-underline"
+      >
+        <AppIcon name="image" :size="15" /> Le foto
+      </NuxtLink>
     </div>
   </li>
 </template>

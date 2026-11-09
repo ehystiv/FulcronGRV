@@ -227,10 +227,10 @@ lead: I live della campagna dal 2012 al 2019, divisi per arco narrativo.
 :::timeline-event{date="8 dicembre 2016"}
 **Operation SOTIRIS**
 :::
-:::timeline-event{date="3–4 gennaio 2017 · Amhora, Ilvia" major}
+:::timeline-event{date="3–4 gennaio 2017 · Amhora, Ilvia" major album="alba-nuziale"}
 **Adunanza invernale 3017 – L’Alba Nuziale**
 :::
-:::timeline-event{date="11 marzo 2017 · Milston"}
+:::timeline-event{date="11 marzo 2017 · Milston" album="un-interminabile-persecuzione"}
 **Un’Interminabile Persecuzione**
 :::
 :::timeline-event{date="17 aprile 2017 · Fallridge, Lungacosta"}
@@ -242,13 +242,13 @@ lead: I live della campagna dal 2012 al 2019, divisi per arco narrativo.
 :::timeline-event{date="30 luglio 2017 · Villaggio di Waju, Foran"}
 **Soffierà ancora il vento – parte II**
 :::
-:::timeline-event{date="20 agosto 2017 · Ishar, Rocca Fantasma"}
+:::timeline-event{date="20 agosto 2017 · Ishar, Rocca Fantasma" album="il-giorno-delle-lacrime"}
 **Il Giorno delle Lacrime**
 :::
 :::timeline-event{date="29 settembre – 1 ottobre 2017 · Magione Peful, Foran" major}
 **Adunanza 3017 – Oculus Mundi**
 :::
-:::timeline-event{date="11 novembre 2017 · Nuova Theris"}
+:::timeline-event{date="11 novembre 2017 · Nuova Theris" album="il-banchetto-dei-guitti"}
 **Il Banchetto dei Guitti**
 :::
 :::timeline-event{date="28 gennaio 2018 · Medwegya, Ilshaka"}
@@ -257,7 +257,7 @@ lead: I live della campagna dal 2012 al 2019, divisi per arco narrativo.
 :::timeline-event{date="25 febbraio 2018 · Accampamento Abenaki ad Est"}
 **Il Cammino Verso gli Dei**
 :::
-:::timeline-event{date="4–5 settembre 2018 · Rocca Fantasma"}
+:::timeline-event{date="4–5 settembre 2018 · Rocca Fantasma" album="l-ultimo-pianto"}
 **L’Ultimo Pianto**
 :::
 ::
@@ -272,10 +272,10 @@ lead: I live della campagna dal 2012 al 2019, divisi per arco narrativo.
 :::timeline-event{date="3 marzo 2019 · Pressi di Partaros" chip="Minilive"}
 **Verba Volant**
 :::
-:::timeline-event{date="2 agosto 2019 · Pressi di Cyr" chip="Minilive"}
+:::timeline-event{date="2 agosto 2019 · Pressi di Cyr" chip="Minilive" album="alla-vecchia-spada"}
 **La Vecchia Spada**
 :::
-:::timeline-event{date="28–29 settembre 2019 · Kamigami, Regno del Bucaneve, Jotai"}
+:::timeline-event{date="28–29 settembre 2019 · Kamigami, Regno del Bucaneve, Jotai" album="metamorfosi"}
 **Metamorfosi**
 :::
 ::

@@ -10,14 +10,14 @@ lead: Regole basilari per ogni tipo di LARP (gioco di ruolo dal vivo).
 2. La sicurezza viene prima di tutto: chi gioca in modo pericoloso viene allontanato dall’evento.
 3. Niente atteggiamenti offensivi o aggressivi fuori dal gioco.
 4. Non barare: qui non si vince, e barare è una mancanza di rispetto verso gli altri.
-5. Distingui In Gioco e Fuori Gioco: quello che sai tu, il tuo personaggio non lo sa.
+5. Distingui :termine[In Gioco] e :termine[Fuori Gioco]: quello che sai tu, il tuo personaggio non lo sa.
 6. Resta nel personaggio il più possibile.
 7. Non sollevare questioni di regolamento mentre si gioca.
 8. Ad ogni azione, una reazione: se ti succede qualcosa, fallo vedere.
 9. Si combatte con armi in lattice e poche chiamate a voce, spiegate nei manuali.
-10. Se una scena è troppo intensa, di’ “Vacci piano”: chi gioca con te deve abbassare subito l’intensità.
+10. Se una scena è troppo intensa, di’ :termine[“Vacci piano”]: chi gioca con te deve abbassare subito l’intensità.
 
-Il resto lo ripassiamo al Workshop prima di ogni evento. Sotto trovi i dettagli.
+Il resto lo ripassiamo al :termine[Workshop] prima di ogni evento. Sotto trovi i dettagli.
 
 ## Correttezza e rispetto verso gli altri
 

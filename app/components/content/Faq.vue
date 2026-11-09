@@ -19,7 +19,7 @@ defineProps<{ items: { q: string; a: string }[] }>()
           aria-hidden="true"
         />
       </summary>
-      <p class="max-w-[39rem] px-5 pb-4">{{ item.a }}</p>
+      <p class="max-w-[39rem] px-5 pb-4"><TestoTermini :testo="item.a" /></p>
     </details>
   </div>
 </template>

@@ -57,7 +57,7 @@ export default defineContentConfig({
         date: z.date().optional(),
         image: z.string(),
         tags: z.array(z.string()).default([]),
-        // Optional link to the photos of the event (e.g. an external album)
+        // Optional link to the photos of the event: an album of the gallery (/gallery/<album>) or an external one
         photos: z.string().optional(),
         // Where the event took place (optional)
         place: z.string().optional(),

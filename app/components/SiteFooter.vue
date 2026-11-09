@@ -1,6 +1,9 @@
 <script setup lang="ts">
 // Computed at build time and reused on the client: no hydration mismatch
 const year = useState('footer-year', () => new Date().getFullYear())
+// Today in the calendar of Fulcron: only known in the browser, the line keeps its room until then
+const oggi = ref<DataFulcron | null>(null)
+onMounted(() => (oggi.value = dataFulcron(new Date())))
 
 const columns = [
   {
@@ -58,6 +61,12 @@ const legal = [
         </NuxtLink>
         <p class="max-w-[38ch]">
           Associazione di gioco di ruolo dal vivo nata tra i boschi dell’Appennino Tosco-Emiliano.
+        </p>
+        <p class="mt-4 min-h-[1.6em] text-sm">
+          <NuxtLink v-if="oggi" to="/wiki/storia/calendario" :class="linkClass">
+            Oggi a Fulcron è&nbsp;<span class="text-gold-soft notte:text-shadow-luce">{{ oggi.testo }}</span
+            ><template v-if="oggi.festa">&nbsp;· {{ oggi.festa }}</template>
+          </NuxtLink>
         </p>
       </div>
 

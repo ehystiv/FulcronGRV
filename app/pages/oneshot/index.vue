@@ -65,14 +65,15 @@ const when = (o: { date?: string | Date; place?: string }) =>
           <p class="mb-3 text-sm text-muted">{{ ['Evento concluso', when(oneshot)].filter(Boolean).join(' · ') }}</p>
           <TagList :tags="oneshot.tags" />
           <ContentRenderer :value="oneshot" class="prose-fulcron prose-base" />
-          <div v-if="oneshot.page || oneshot.photos?.startsWith('http')" class="mt-auto flex flex-wrap gap-2 pt-4">
+          <div v-if="oneshot.page || oneshot.photos" class="mt-auto flex flex-wrap gap-2 pt-4">
             <UiButton v-if="oneshot.page" :to="oneshot.page" size="sm" icon-right="arrow-right">
               Visita la pagina dell’evento
             </UiButton>
-            <!-- The gallery is disabled for now: only external photo albums are linked -->
+            <!-- An album of the gallery (/gallery/...) or an external one -->
             <UiButton
-              v-if="oneshot.photos?.startsWith('http')"
-              :href="oneshot.photos"
+              v-if="oneshot.photos"
+              :to="oneshot.photos.startsWith('/') ? oneshot.photos : undefined"
+              :href="oneshot.photos.startsWith('/') ? undefined : oneshot.photos"
               variant="outline"
               size="sm"
               icon="image"

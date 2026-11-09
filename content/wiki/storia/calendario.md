@@ -4,6 +4,13 @@ updated: 2019-11-20
 order: 1
 ---
 
+I mesi di Fulcron durano quanto i nostri e l’anno è il nostro più mille: il nostro 2026 a Fulcron è il 3026.
+
+## Che giorno è a Fulcron?
+
+::data-fulcron
+::
+
 ## Mesi di Fulcron
 - Nevoso, 31 giorni
 - Piovoso, 28 giorni

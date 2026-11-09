@@ -42,6 +42,22 @@ const crumbs = computed(() => {
 
 const updated = computed(() => formatDate(page.value?.updated))
 
+// Without a `description`, Nuxt Content uses the first paragraph: shown as the subtitle it would repeat right below
+const testo = (node: unknown): string =>
+  typeof node === 'string' ? node : Array.isArray(node) ? node.slice(2).map(testo).join('') : ''
+const pulito = (s: string) =>
+  s
+    .replace(/\s+/g, ' ')
+    .replace(/(\.\.\.|…)$/, '')
+    .trim()
+const sottotitolo = computed(() => {
+  const descrizione = page.value?.description?.trim()
+  if (!descrizione) return ''
+  const nodi = (page.value?.body as { value?: unknown[] } | undefined)?.value ?? []
+  const primo = nodi.find((n) => Array.isArray(n) && n[0] === 'p')
+  return primo && pulito(testo(primo)).startsWith(pulito(descrizione)) ? '' : descrizione
+})
+
 // Close the phone menu after moving to another page
 const mobileMenu = ref<HTMLDetailsElement>()
 watch(path, () => {
@@ -94,7 +110,7 @@ watch(path, () => {
       <article class="min-w-0">
         <h1 class="mb-2 text-[clamp(2rem,4.5vw,3.2rem)]">{{ page.title }}</h1>
         <!-- A notch below text-lead: the article column is narrower than on the other pages -->
-        <p v-if="page.description" class="text-[clamp(1.05rem,2vw,1.2rem)] text-muted">{{ page.description }}</p>
+        <p v-if="sottotitolo" class="text-[clamp(1.05rem,2vw,1.2rem)] text-muted">{{ sottotitolo }}</p>
 
         <details
           v-if="toc.length > 2"

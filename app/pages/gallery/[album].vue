@@ -7,6 +7,17 @@ const { data: album } = await useAsyncData(`gallery-${slug}`, () =>
 )
 if (!album.value?.count) throw createError({ statusCode: 404, statusMessage: 'Album non trovato', fatal: true })
 
+// The event of these photos: a oneshot whose `photos` is this album, or an event of the campaign chronology
+// marked with album="<slug>" (it gets the anchor #evento-<slug>)
+const { data: evento } = await useAsyncData(`gallery-evento-${slug}`, async () => {
+  const oneshot = await queryCollection('oneshot').where('photos', '=', `/gallery/${slug}`).first()
+  if (oneshot) return { to: oneshot.page ?? '/oneshot', testo: `La oneshot ${oneshot.title}` }
+  const cronologia = await queryCollection('pagine').path('/pagine/eventi').first()
+  if (JSON.stringify(cronologia?.body ?? '').includes(`"album":"${slug}"`))
+    return { to: `/sinfonia/eventi#evento-${slug}`, testo: 'L’evento nella cronologia della Sinfonia dei Sette' }
+  return null
+})
+
 const month = new Intl.DateTimeFormat('it-IT', { month: 'long', year: 'numeric', timeZone: 'Europe/Rome' })
 const lead = computed(() =>
   [
@@ -30,7 +41,15 @@ useSocialMeta({
 
 <template>
   <div v-if="album">
-    <PageHero :title="album.title" :lead="lead" />
+    <PageHero :title="album.title" :lead="lead">
+      <NuxtLink
+        v-if="evento"
+        :to="evento.to"
+        class="mt-4 inline-flex min-h-11 items-center gap-1.5 font-semibold no-underline"
+      >
+        {{ evento.testo }} <AppIcon name="arrow-right" :size="16" />
+      </NuxtLink>
+    </PageHero>
 
     <div class="mx-auto max-w-[110rem] px-1.5 py-[clamp(1.5rem,4vw,3rem)] sm:px-4">
       <GalleryGrid :album="slug" :title="album.title" :photos="album.photos ?? []" />
