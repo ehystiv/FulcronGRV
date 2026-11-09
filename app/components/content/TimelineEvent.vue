@@ -11,7 +11,7 @@ defineProps<{ date?: string; chip?: string; major?: boolean }>()
     class="group relative pb-7 pl-8 md:w-1/2 md:pl-0 md:odd:pr-10 md:even:ml-auto md:even:-mt-20 md:even:pl-10"
   >
     <span
-      class="absolute top-4 left-0 size-4 rounded-full border-2 border-gold md:left-auto md:group-odd:-right-2 md:group-even:-left-2"
+      class="absolute top-4 left-0 size-4 rounded-full border-2 border-gold notte:shadow-luce md:left-auto md:group-odd:-right-2 md:group-even:-left-2"
       :class="major ? 'bg-gold' : 'bg-parchment'"
       aria-hidden="true"
     />

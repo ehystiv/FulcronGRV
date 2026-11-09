@@ -44,7 +44,7 @@ const when = (o: { date?: string | Date; place?: string }) =>
           <h2 class="mb-2 font-heading text-heading tracking-normal">{{ featured.title }}</h2>
           <ContentRenderer :value="featured" class="prose-fulcron prose-base text-muted" />
           <span
-            class="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[0.92rem] font-semibold text-on-dark transition group-hover:bg-primary-hover"
+            class="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-primary notte:shadow-luce px-5 py-2.5 text-[0.92rem] font-semibold text-on-dark transition group-hover:bg-primary-hover"
           >
             Visita la pagina dell’evento <AppIcon name="arrow-right" :size="16" />
           </span>

@@ -36,6 +36,16 @@
   --color-gold-soft: #d9bf7f;
   /* Gold for text and focus rings on light surfaces (≥4.5:1 on parchment, surface and surface-2) */
   --color-gold-ink: #7d5f22;
+  /* Glow of the emerald at night (notte:shadow-luce, notte:text-shadow-luce, notte:drop-shadow-luce); unused by day */
+  --color-luce: #2df5a0;
+  --shadow-luce:
+    0 0 0 1px color-mix(in srgb, var(--color-luce) 45%, transparent),
+    0 0 12px color-mix(in srgb, var(--color-luce) 45%, transparent),
+    0 0 28px color-mix(in srgb, var(--color-luce) 20%, transparent);
+  --text-shadow-luce:
+    0 0 6px color-mix(in srgb, var(--color-luce) 70%, transparent),
+    0 0 16px color-mix(in srgb, var(--color-luce) 35%, transparent);
+  --drop-shadow-luce: 0 0 4px color-mix(in srgb, var(--color-luce) 80%, transparent);
   /* Solid fills that carry light text: the active menu entry, the era labels of a timeline. Ink by day */
   --color-primary: #002d40;
   --color-primary-hover: #124459;
@@ -91,6 +101,15 @@
 
 /* ---------- Night mode ---------- */
 
+/* `notte:` styles apply only at night, e.g. notte:shadow-luce */
+@custom-variant notte {
+  @media (prefers-color-scheme: dark) {
+    :root.notte & {
+      @slot;
+    }
+  }
+}
+
 /* For people whose phone or computer is set to dark mode, on the pages that support it: they mark themselves with
    the class `notte` on <html> (app.vue and error.vue), so it is in the generated HTML and the page never flashes white.
    Night is ink blue with parchment-coloured text, and every gold accent turns emerald, a nod to the setting.
@@ -105,17 +124,19 @@
     --color-body: #d8d2c3;
     --color-muted: #9aabb2;
     --color-ink: #f0e9d8; /* headings and strong text */
-    --color-primary: #0e5a40;
-    --color-primary-hover: #137452;
-    --color-primary-deep: #0b4733;
+    --color-primary: #0b6145;
+    --color-primary-hover: #0f7a56;
+    --color-primary-deep: #0a4a33;
     --color-danger: #f08c8c;
     --color-danger-soft: #c96f6f;
     /* Emerald accents */
-    --color-teal: #4fd69c; /* links */
-    --color-forest: #8ae8bf; /* links on hover */
-    --color-gold: #2bb37c;
-    --color-gold-soft: #86e2b8;
-    --color-gold-ink: #45cc92;
+    --color-teal: #56dfa6; /* links */
+    --color-forest: #9af0cb; /* links on hover */
+    --color-gold: #1fc184;
+    --color-gold-soft: #86f2c4;
+    --color-gold-ink: #3fe09c;
+    /* The light the emerald gives off, for the few things that glow */
+    --color-luce: #2df5a0;
     --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.7);
     --shadow-card-lg: 0 2px 4px rgb(0 0 0 / 0.35), 0 20px 40px -16px rgb(0 0 0 / 0.8);
   }
@@ -238,7 +259,7 @@
 }
 
 @utility eyebrow {
-  @apply mb-3 inline-block text-xs font-semibold tracking-[0.18em] text-gold-ink uppercase;
+  @apply mb-3 inline-block text-xs font-semibold tracking-[0.18em] text-gold-ink uppercase notte:text-shadow-luce;
 }
 
 /* Gold corner flourishes for featured boxes */

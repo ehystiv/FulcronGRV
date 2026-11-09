@@ -15,7 +15,7 @@ const tag = computed(() => (String(props.level) === '2' ? 'h2' : 'h3'))
   <section class="not-prose relative my-10 first:mt-4">
     <component
       :is="tag"
-      class="relative z-10 mb-8 w-fit rounded-full border border-gold bg-primary px-5 py-2 font-display text-lg tracking-wide text-gold-soft md:mx-auto md:text-xl"
+      class="relative z-10 mb-8 w-fit rounded-full border border-gold bg-primary px-5 notte:shadow-luce py-2 font-display text-lg tracking-wide text-gold-soft md:mx-auto md:text-xl"
     >
       {{ name }}
     </component>

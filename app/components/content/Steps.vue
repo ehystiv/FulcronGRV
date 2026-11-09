@@ -11,7 +11,7 @@ defineProps<{ items: { title: string; text: string; to?: string; cta?: string; i
       class="relative rounded-card border border-line bg-surface px-[1.4rem] pt-9 pb-[1.4rem] shadow-card"
     >
       <span
-        class="absolute -top-[1.1rem] left-[1.4rem] grid size-9 place-items-center rounded-full border-2 border-gold bg-primary font-display text-lg text-gold-soft"
+        class="absolute -top-[1.1rem] left-[1.4rem] grid size-9 place-items-center rounded-full border-2 border-gold bg-primary font-display notte:shadow-luce text-lg text-gold-soft"
         aria-hidden="true"
       >
         {{ i + 1 }}

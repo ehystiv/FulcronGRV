@@ -173,7 +173,7 @@ test.describe('night mode', () => {
     expect(await sfondo(page)).toBe(NOTTE)
     await expect(page.getByRole('navigation', { name: 'Percorso' }).getByRole('link').first()).toHaveCSS(
       'color',
-      'rgb(69, 204, 146)',
+      'rgb(63, 224, 156)',
     )
     await page.goto('/chi-siamo')
     expect(await sfondo(page)).toBe(NOTTE)

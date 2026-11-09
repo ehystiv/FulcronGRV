@@ -43,7 +43,7 @@ const isActive = (link: { to: string; match?: string }) =>
 const linkClass =
   'relative rounded-full px-3.5 py-2 text-[0.92rem] font-medium tracking-wide no-underline transition-colors hover:text-gold-soft after:absolute after:inset-x-3.5 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-100'
 const ctaClass =
-  'rounded-full border border-gold px-4 py-2 text-[0.88rem] font-semibold tracking-wide whitespace-nowrap text-gold-soft no-underline transition-colors hover:bg-gold hover:text-ink-deep'
+  'notte:shadow-luce rounded-full border border-gold px-4 py-2 text-[0.88rem] font-semibold tracking-wide whitespace-nowrap text-gold-soft no-underline transition-colors hover:bg-gold hover:text-ink-deep'
 </script>
 
 <template>
@@ -76,7 +76,12 @@ const ctaClass =
           v-for="link in NAV_LINKS"
           :key="link.to"
           :to="link.to"
-          :class="[linkClass, isActive(link) ? 'text-gold-soft after:scale-x-100' : 'text-on-dark']"
+          :class="[
+            linkClass,
+            isActive(link)
+              ? 'text-gold-soft notte:text-shadow-luce after:scale-x-100 notte:after:shadow-luce'
+              : 'text-on-dark',
+          ]"
           :aria-current="isActive(link) ? 'page' : undefined"
         >
           {{ link.label }}
