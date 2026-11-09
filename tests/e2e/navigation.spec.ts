@@ -216,3 +216,11 @@ test('wiki pages moved into sections still answer at their old address', async (
   await expect(page).toHaveURL('/wiki/popoli')
   await expect(page.locator('h1')).toHaveText('Popoli e Razze')
 })
+
+test('the Bacheca is always in the campaign tabs, with a pointer to Instagram while it is empty', async ({ page }) => {
+  await page.goto('/sinfonia')
+  await page.getByRole('link', { name: 'Bacheca', exact: true }).first().click()
+  await expect(page).toHaveURL('/sinfonia/bacheca')
+  await expect(page.locator('h1')).toHaveText('Bacheca')
+  await expect(page.getByRole('link', { name: 'Instagram' }).first()).toBeVisible()
+})

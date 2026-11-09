@@ -2,14 +2,13 @@
 const route = useRoute()
 const isOverview = computed(() => route.path.replace(/\/$/, '') === '/sinfonia')
 
-const hasNews = useHasNews()
-const tabs = computed(() => [
+const tabs = [
   { to: '/sinfonia', label: 'Panoramica' },
   { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
   { to: '/sinfonia/regolamento', label: 'Regolamento' },
   { to: '/sinfonia/eventi', label: 'Eventi' },
-  ...(hasNews.value ? [{ to: '/sinfonia/bacheca', label: 'Bacheca' }] : []),
-])
+  { to: '/sinfonia/bacheca', label: 'Bacheca' },
+]
 
 // On phones the tabs scroll sideways: keep the current one in view
 const strip = ref<HTMLElement>()

@@ -2,8 +2,7 @@
 // Computed at build time and reused on the client: no hydration mismatch
 const year = useState('footer-year', () => new Date().getFullYear())
 
-const hasNews = useHasNews()
-const columns = computed(() => [
+const columns = [
   {
     title: 'Esplora',
     links: [
@@ -20,11 +19,11 @@ const columns = computed(() => [
       { to: '/sinfonia/ambientazione', label: 'Ambientazione' },
       { to: '/sinfonia/regolamento', label: 'Regolamento e manuali' },
       { to: '/sinfonia/eventi', label: 'Eventi giocati' },
-      ...(hasNews.value ? [{ to: '/sinfonia/bacheca', label: 'Bacheca' }] : []),
+      { to: '/sinfonia/bacheca', label: 'Bacheca' },
       { to: '/wiki', label: 'Wiki di Fulcron' },
     ],
   },
-])
+]
 
 // Comfortable tap height on touch layouts, compact on desktop
 const linkClass = 'inline-flex items-center text-on-dark-muted no-underline hover:text-gold-soft max-lg:min-h-11'
