@@ -78,6 +78,7 @@ let bx = BARGHEST_X[0]!
 let by = 0
 let bvy = 0
 let presa = 0 // progress of the final lunge
+let vasoCambiato = { indice: -1, tempo: 0 } // the jar that just emptied or filled, which blinks for a moment
 
 function disegnaSprite(righe: string[], specchio = false): Sprite {
   const w = Math.max(...righe.map((r) => r.length))
@@ -112,6 +113,8 @@ function preparaSprite() {
     masso: disegnaSprite(OSTACOLI.masso),
     cactus: disegnaSprite(OSTACOLI.cactus),
     teschio: disegnaSprite(OSTACOLI.teschio),
+    vasoPieno: disegnaSprite(VASO_PIENO),
+    vasoVuoto: disegnaSprite(VASO_VUOTO),
   }
 }
 
@@ -179,6 +182,7 @@ function inizia() {
   by = 0
   bvy = 0
   presa = 0
+  vasoCambiato = { indice: -1, tempo: 0 }
   punti.value = 0
   colpi.value = 0
   annuncio.value = ''
@@ -207,6 +211,7 @@ function abbassa(giu: boolean) {
 
 function aggiorna(dt: number) {
   tempo += dt
+  vasoCambiato.tempo = Math.max(0, vasoCambiato.tempo - dt)
   if (stato.value === 'corsa') {
     velocita = Math.min(VELOCITA_MAX * scala, velocita + ACCELERAZIONE * scala * dt)
     punti.value += (dt * velocita) / 9
@@ -239,6 +244,10 @@ function aggiorna(dt: number) {
         colpi.value++
         senzaColpi = 0
         invulnerabile = INVULNERABILE
+        vasoCambiato = { indice: COLPI_MAX - colpi.value, tempo: 1 }
+        const restano = COLPI_MAX - colpi.value
+        if (restano > 0)
+          annuncio.value = `Colpito! ${restano === 1 ? 'Resta una pozione' : `Restano ${restano} pozioni`}.`
         if (colpi.value >= COLPI_MAX) {
           stato.value = 'preso'
           presa = 0
@@ -251,6 +260,8 @@ function aggiorna(dt: number) {
     if (colpi.value > 0 && senzaColpi > RECUPERO) {
       colpi.value--
       senzaColpi = 0
+      vasoCambiato = { indice: COLPI_MAX - colpi.value - 1, tempo: 1 }
+      annuncio.value = 'Il Barghest perde terreno: una pozione torna piena.'
     }
   } else if (stato.value === 'preso') {
     presa = Math.min(1, presa + dt * 2.2)
@@ -279,6 +290,7 @@ function aggiorna(dt: number) {
 
 function termina() {
   stato.value = 'fine'
+  vasoCambiato.tempo = 0
   fineDa = performance.now()
   cancelAnimationFrame(raf)
   raf = 0
@@ -358,6 +370,19 @@ function disegna() {
       c.fillRect(Math.round(bx + 4 - fase * 22), Math.round(top + 4 + i * 2 - fase * 6), 1, 1)
     }
     c.globalAlpha = 1
+  }
+
+  // Life meter: one jar of healing draught for each hit Illyrio can still take
+  if (stato.value !== 'attesa') {
+    const vite = COLPI_MAX - colpi.value
+    for (let i = 0; i < COLPI_MAX; i++) {
+      let pieno = i < vite
+      // The jar that just changed flickers between its old and new state
+      if (i === vasoCambiato.indice && vasoCambiato.tempo > 0 && Math.floor(vasoCambiato.tempo * 10) % 2 === 0) {
+        pieno = !pieno
+      }
+      c.drawImage(sprites[pieno ? 'vasoPieno' : 'vasoVuoto']!.img, 6 + i * 12, 5)
+    }
   }
 }
 

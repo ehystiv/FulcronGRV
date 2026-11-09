@@ -43,6 +43,13 @@ export const BARGHEST_COLORI: Record<string, string> = {
   a: '#5b4234',
   I: '#c98b7f', // bare head
   J: '#e0c070', // beak
+  // Potion jars of the life meter
+  g: '#3b2e3f', // glass edge
+  h: '#fffaf0', // glint
+  e: '#efe1c4', // empty glass
+  u: '#c7262c', // healing draught
+  U: '#86161b',
+  o: '#9a6a3d', // cork
 }
 
 // Upper body of Illyrio, shared by the running and standing frames
@@ -170,6 +177,23 @@ export const OSTACOLI = {
   ],
   teschio: ['b........b', 'bn......nb', '.bbbbbbbb.', '..bNbbNb..', '..bbbbbb..', '...bnnb...', '...bNNb...'],
 }
+
+// Life meter: square jars of healing draught, one emptied by each hit
+export const VASO_PIENO = [
+  '..ooooo..',
+  '..ooooo..',
+  '.ggggggg.',
+  '..gehhg..',
+  'ggggggggg',
+  'ghuuuuuug',
+  'ghuuuuuug',
+  'guuuuuuUg',
+  'guuuuuuUg',
+  'guuuuuUUg',
+  'ggggggggg',
+]
+
+export const VASO_VUOTO = VASO_PIENO.map((riga, j) => (j > 1 ? riga.replace(/[uU]/g, 'e') : riga.replace(/o/g, '.')))
 
 export const AVVOLTOIO = [
   [
