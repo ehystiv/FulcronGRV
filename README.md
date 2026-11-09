@@ -95,6 +95,14 @@ sono cinque livelli, da usare al posto di misure scritte a mano:
 `py-section` dà lo spazio verticale standard di una sezione, `bg-page-header` lo sfondo delle testate di campagna e
 wiki. Le pagine delle oneshot hanno invece una grafica tutta loro, vedi sotto.
 
+### Modalità notte
+
+Chi ha il telefono o il computer in modalità scura vede la wiki in versione notte: blu inchiostro, testo color
+pergamena e accenti verde smeraldo al posto dell'oro. I colori notturni stanno in `main.css`, sotto _Night mode_: gli
+stessi token del giorno (`gold`, `teal`, `surface`…) con un altro valore. Una pagina passa alla notte chiamando
+`useNotte()`; per ora lo fanno solo le pagine della wiki. Per i riempimenti pieni con testo chiaro (voce attiva del menu,
+nome di un'era) si usa `bg-primary` e non `bg-ink`, che di notte diventa il colore del testo.
+
 ### Una nuova pagina oneshot
 
 Le pagine di Sunless Dawn, La Teoria del Nulla e Il Palazzo dei Destini Incrociati sono ricostruzioni dei siti

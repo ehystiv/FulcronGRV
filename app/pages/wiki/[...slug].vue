@@ -8,6 +8,7 @@ const surroundRequest = useAsyncData(`wiki-surround-${path.value}`, () =>
 )
 const { data: nav } = await useWikiNavigation()
 const page = pageRequest.data
+useNotte()
 useSocialMeta({
   title: () => (page.value && path.value !== '/wiki' ? `${page.value.title} · Wiki` : 'Wiki di Fulcron'),
   description: () => page.value?.description,

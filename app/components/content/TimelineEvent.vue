@@ -19,7 +19,7 @@ defineProps<{ date?: string; chip?: string; major?: boolean }>()
       class="rounded-lg px-4 py-3 shadow-card transition md:min-h-20 duration-300 hover:-translate-y-0.5"
       :class="
         major
-          ? 'border-4 border-double border-gold bg-[linear-gradient(135deg,rgb(184_145_63/0.14),transparent_60%),var(--color-surface)] hover:shadow-card-lg [&_strong]:block [&_strong]:font-heading [&_strong]:text-[1.2rem] [&_strong]:leading-snug [&_strong]:font-normal'
+          ? 'border-4 border-double border-gold bg-[linear-gradient(135deg,color-mix(in_srgb,var(--color-gold)_14%,transparent),transparent_60%),var(--color-surface)] hover:shadow-card-lg [&_strong]:block [&_strong]:font-heading [&_strong]:text-[1.2rem] [&_strong]:leading-snug [&_strong]:font-normal'
           : 'border border-line bg-surface hover:border-gold'
       "
     >

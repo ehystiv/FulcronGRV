@@ -26,7 +26,7 @@ const isOpen = (item: WikiNavItem) =>
         v-else
         :to="item.path"
         class="block rounded-md px-2.5 py-1.5 text-[0.92rem] leading-snug text-muted no-underline hover:bg-surface-2 hover:text-ink max-lg:py-3"
-        exact-active-class="!bg-ink !text-on-dark"
+        exact-active-class="!bg-primary !text-on-dark"
       >
         {{ item.title }}
       </NuxtLink>

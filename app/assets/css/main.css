@@ -36,6 +36,8 @@
   --color-gold-soft: #d9bf7f;
   /* Gold for text and focus rings on light surfaces (≥4.5:1 on parchment, surface and surface-2) */
   --color-gold-ink: #7d5f22;
+  /* Solid fills that carry light text: the active menu entry, the era labels of a timeline. Ink by day */
+  --color-primary: #002d40;
 
   /* Surfaces and text */
   --color-parchment: #f7f3ea;
@@ -79,6 +81,34 @@
       opacity: 0;
       transform: translateY(-6px);
     }
+  }
+}
+
+/* ---------- Night mode ---------- */
+
+/* For people whose phone or computer is set to dark mode, on the pages that support it: they mark themselves with
+   useHead({ htmlAttrs: { class: 'notte' } }), so the class is in the generated HTML and the page never flashes white.
+   Night is ink blue with parchment-coloured text, and every gold accent turns emerald, a nod to the setting.
+   The tokens keep their daytime names (gold, teal…): here they stand for their role, not for the colour. */
+@media (prefers-color-scheme: dark) {
+  :root.notte {
+    color-scheme: dark;
+    --color-parchment: #0b1a21; /* page */
+    --color-surface: #11242d; /* boxes and cards */
+    --color-surface-2: #183039;
+    --color-line: #27434f;
+    --color-body: #d8d2c3;
+    --color-muted: #9aabb2;
+    --color-ink: #f0e9d8; /* headings and strong text */
+    --color-primary: #0e5a40;
+    /* Emerald accents */
+    --color-teal: #4fd69c; /* links */
+    --color-forest: #8ae8bf; /* links on hover */
+    --color-gold: #2bb37c;
+    --color-gold-soft: #86e2b8;
+    --color-gold-ink: #45cc92;
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.7);
+    --shadow-card-lg: 0 2px 4px rgb(0 0 0 / 0.35), 0 20px 40px -16px rgb(0 0 0 / 0.8);
   }
 }
 
@@ -194,7 +224,7 @@
 /* Header band of the campaign and wiki pages: a faint gold glow over the page colour */
 @utility bg-page-header {
   background-image:
-    radial-gradient(ellipse at top, rgb(184 145 63 / 0.12), transparent 70%),
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--color-gold) 12%, transparent), transparent 70%),
     linear-gradient(180deg, var(--color-surface-2), transparent);
 }
 

@@ -160,3 +160,31 @@ test('wiki map: full screen covers the window and gives the page back', async ({
   await page.getByRole('button', { name: 'Esci dallo schermo intero' }).click()
   await expect(async () => expect(Math.round((await map.boundingBox())!.y)).toBeGreaterThan(0)).toPass()
 })
+
+test.describe('night mode', () => {
+  const sfondo = (page: import('@playwright/test').Page) =>
+    page.evaluate(() => getComputedStyle(document.body).backgroundColor)
+
+  test('the wiki follows a dark system theme, with emerald accents', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' })
+    await page.goto('/wiki/storia')
+    expect(await sfondo(page)).toBe('rgb(11, 26, 33)')
+    await expect(page.getByRole('navigation', { name: 'Percorso' }).getByRole('link').first()).toHaveCSS(
+      'color',
+      'rgb(69, 204, 146)',
+    )
+    // Leaving the wiki through a link brings the daytime colours back
+    await page.getByRole('link', { name: 'Chi siamo' }).first().click()
+    await expect(page).toHaveURL('/chi-siamo')
+    await expect.poll(() => sfondo(page)).toBe('rgb(247, 243, 234)')
+  })
+
+  test('the wiki stays light with a light system theme, and other pages stay light either way', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' })
+    await page.goto('/wiki/storia')
+    expect(await sfondo(page)).toBe('rgb(247, 243, 234)')
+    await page.emulateMedia({ colorScheme: 'dark' })
+    await page.goto('/chi-siamo')
+    expect(await sfondo(page)).toBe('rgb(247, 243, 234)')
+  })
+})
