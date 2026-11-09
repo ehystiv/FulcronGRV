@@ -37,6 +37,9 @@ const punti = ref(0)
 const record = ref(0)
 const colpi = ref(0)
 const annuncio = ref('')
+const riquadro = ref<HTMLElement>()
+// Once a game starts the desert widens to the whole page (edge to edge on phones) and stays wide
+const aperto = ref(false)
 
 const testo = computed(() => {
   if (stato.value === 'attesa') return 'Anche Illyrio si è perso, e il Barghest ne ha fiutato le tracce.'
@@ -150,7 +153,19 @@ function urta(o: Ostacolo) {
   )
 }
 
+function apri() {
+  if (aperto.value) return
+  aperto.value = true
+  // Bring the whole desert into view once it has finished widening
+  const fermo = matchMedia('(prefers-reduced-motion: reduce)').matches
+  setTimeout(
+    () => riquadro.value?.scrollIntoView({ block: 'center', behavior: fermo ? 'auto' : 'smooth' }),
+    fermo ? 0 : 450,
+  )
+}
+
 function inizia() {
+  apri()
   velocita = VELOCITA_INIZIO * scala
   tempo = 0
   y = 0
@@ -413,9 +428,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="mx-auto mt-12 w-full max-w-[40rem]" data-barghest>
+  <div
+    ref="riquadro"
+    class="mx-auto mt-12 w-full transition-[max-width,width] duration-500 ease-out motion-reduce:transition-none"
+    :class="aperto ? 'max-w-site max-sm:mx-[calc(50%-50vw)] max-sm:w-screen max-sm:max-w-none' : 'max-w-[40rem]'"
+    data-barghest
+  >
     <div
-      class="relative cursor-pointer overflow-hidden rounded-card border border-line bg-[#f6e9cc] shadow-card select-none"
+      class="relative cursor-pointer overflow-hidden border border-line bg-[#f6e9cc] shadow-card select-none"
+      :class="aperto ? 'rounded-card max-sm:rounded-none max-sm:border-x-0' : 'rounded-card'"
       tabindex="0"
       role="application"
       aria-roledescription="minigioco"

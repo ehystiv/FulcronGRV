@@ -54,12 +54,15 @@ test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page,
   await page.goto('/questa-pagina-non-esiste')
   const game = page.getByRole('application', { name: /Illyrio in fuga dal Barghest/ })
   await expect(game).toContainText('Premi Spazio')
+  const prima = (await game.boundingBox())!.width
   if (isMobile) await game.tap()
   else await page.keyboard.press('Space')
   // The game is on: the hint goes away and the steps start counting
   await expect(game).not.toContainText('Premi Spazio')
   await expect(game).not.toContainText('00000')
   await expect(game).not.toContainText('-')
+  // ...and the desert widens to make room for the run
+  await expect.poll(async () => (await game.boundingBox())!.width).toBeGreaterThan(prima + 20)
   expect(errors).toEqual([])
 })
 
