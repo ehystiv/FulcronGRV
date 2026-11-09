@@ -317,6 +317,29 @@
   & :where(blockquote p::before, blockquote p::after) {
     content: none;
   }
+  /* Bullets are small diamonds, like the one under the section titles: gold by day, glowing emerald at night */
+  & :where(ul) {
+    list-style: none;
+  }
+  & :where(ul > li) {
+    position: relative;
+  }
+  & :where(ul > li)::before {
+    content: '';
+    position: absolute;
+    /* Centred on the first line, whatever its height */
+    top: calc(0.5lh - 0.2em);
+    left: -1.05em;
+    width: 0.4em;
+    height: 0.4em;
+    background: var(--tw-prose-bullets);
+    transform: rotate(45deg);
+  }
+  @variant notte {
+    & :where(ul > li)::before {
+      box-shadow: 0 0 6px color-mix(in srgb, var(--color-luce) 60%, transparent);
+    }
+  }
 }
 
 /* ---------- Animations ---------- */
