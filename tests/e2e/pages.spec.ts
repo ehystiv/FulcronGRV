@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test, type Locator } from '@playwright/test'
 
 // The main pages: they answer 200, have one h1, a share preview with an absolute image URL,
 // and run without JavaScript errors
@@ -43,6 +43,15 @@ test('an unknown address is a real 404 with a way back', async ({ page }) => {
   await expect(page).toHaveURL('/')
 })
 
+// Start the game, trying again until the page has hydrated and the game listens: a key pressed earlier is lost
+async function avvia(game: Locator, isMobile: boolean) {
+  await expect(async () => {
+    if (isMobile) await game.tap()
+    else await game.page().keyboard.press('Space')
+    await expect(game).not.toContainText('Premi Spazio', { timeout: 500 })
+  }).toPass({ timeout: 10_000 })
+}
+
 test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page, isMobile }) => {
   // Some browsers give the first frame a timestamp a little before performance.now(): the game must not go back in time
   await page.addInitScript(() => {
@@ -55,8 +64,7 @@ test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page,
   const game = page.getByRole('application', { name: /Illyrio in fuga dal Barghest/ })
   await expect(game).toContainText('Premi Spazio')
   const prima = (await game.boundingBox())!.width
-  if (isMobile) await game.tap()
-  else await page.keyboard.press('Space')
+  await avvia(game, isMobile)
   // The game is on: the hint goes away and the steps start counting
   await expect(game).not.toContainText('Premi Spazio')
   await expect(game).not.toContainText('00000')
@@ -64,6 +72,23 @@ test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page,
   // ...and the desert widens to make room for the run
   await expect.poll(async () => (await game.boundingBox())!.width).toBeGreaterThan(prima + 20)
   expect(errors).toEqual([])
+})
+
+test('at the current year + 1000 steps a warrior comes to the rescue and slays the Barghest', async ({
+  page,
+  isMobile,
+}) => {
+  // Pretend it is the year -990, so the goal is 10 steps away instead of a couple of minutes of play
+  await page.addInitScript(() => {
+    Date.prototype.getFullYear = () => -990
+  })
+  await page.goto('/questa-pagina-non-esiste')
+  const game = page.getByRole('application', { name: /Illyrio in fuga dal Barghest/ })
+  await avvia(game, isMobile)
+  await expect(game.getByText('Ho capito, Magistro Illyrio!')).toBeVisible()
+  await expect(game).toContainText('Il Barghest è stato sconfitto!', { timeout: 10_000 })
+  await expect(game.getByText('Ho capito, Magistro Illyrio!')).toBeHidden()
+  await expect(game).toContainText('00010')
 })
 
 test('a missing wiki page offers the way back to the wiki', async ({ page }) => {

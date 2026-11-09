@@ -173,6 +173,8 @@ il link sul sito resta quello. Se cambia il nome, o il peso, va aggiornato il bl
 - La pagina 404 nasconde un minigioco: Illyrio, il guaritore di Partaros, in fuga dal Barghest
   (`app/components/BarghestGame.vue`). Gli sprite sono disegnati a caratteri in `app/utils/barghest.ts`, un carattere
   per pixel: per ritoccarli basta cambiare le lettere. Il record resta solo nel browser di chi gioca.
+  Chi arriva a tanti passi quanti l'anno in corso + 1000 vede il finale: un guerriero arriva in aiuto e uccide il
+  Barghest.
 - I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.
 - La wiki, prima su `wikia.fulcrongrv.it`, ora è una sezione del sito (`/wiki`). Se il vecchio sottodominio è ancora
   attivo, conviene reindirizzarlo a `https://fulcrongrv.it/wiki`.

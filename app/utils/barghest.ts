@@ -50,6 +50,15 @@ export const BARGHEST_COLORI: Record<string, string> = {
   u: '#c7262c', // healing draught
   U: '#86161b',
   o: '#9a6a3d', // cork
+  // The warrior who comes to Illyrio's aid
+  p: '#4d2c27', // dark brown hood
+  y: '#321b18',
+  m: '#262930', // chainmail
+  l: '#858b97', // its rings catching the light
+  i: '#c3c7cf', // steel
+  j: '#7c818b',
+  z: '#3f7a4a', // green pendant
+  Z: '#28232e', // dark trousers
 }
 
 // Upper body of Illyrio, shared by the running and standing frames
@@ -177,6 +186,52 @@ export const OSTACOLI = {
   ],
   teschio: ['b........b', 'bn......nb', '.bbbbbbbb.', '..bNbbNb..', '..bbbbbb..', '...bnnb...', '...bNNb...'],
 }
+
+// The warrior: short dark hair, brown hood, black chainmail over a black cloak, the hilt of a sword over the shoulder
+// and a green stone on a cord. Drawn facing right, mirrored when he comes in from the right
+const GUERRIERO_BUSTO = [
+  '.......HHHHH......',
+  '...i..HHHHHHH.....',
+  '...ij.HHHHHHHH....',
+  '....L.HHSSSSSS....',
+  '....L.HSSGSSGS....',
+  '....L.HSSSSSSSS...',
+  '....L..sSSSSSS....',
+  '....L..sSSssS.....',
+  '....L.ppSSSSp.....',
+  '..jiiippppppyp....',
+  '...kKmmmmmmmmKk...',
+  '..kKmlmlmlmlmlKk..',
+  '..KKmmmmmmpmmmKK..',
+  '..KKmlmlmpmlmmSK..',
+  '..KKmmmmzzmmmmSK..',
+  '..KKmlmlzzmlmlKK..',
+  '..KKmmmmmmmmmmKK..',
+  '...KmlmlmlmlmlK...',
+  '...KmmmmmmmmmmK...',
+  '...KKKKKKKKKKKK...',
+]
+
+export const GUERRIERO_FERMO = [
+  ...GUERRIERO_BUSTO,
+  '.....ZZ...ZZ......',
+  '.....ZZ...ZZ......',
+  '.....ZZ...ZZ......',
+  '....OOO...OOO.....',
+]
+
+export const GUERRIERO_CORSA = [
+  [...GUERRIERO_BUSTO, '....ZZ.....ZZ.....', '...ZZ.......ZZ....', '..ZZ.........ZZ...', '.OOO.........OOO..'],
+  [...GUERRIERO_BUSTO, '.......ZZZ........', '......ZZZZ........', '......ZZ.ZZ.......', '.....OOO.OOO......'],
+]
+
+// The blow: the sword is out of its scabbard and held straight ahead
+export const GUERRIERO_COLPO = GUERRIERO_FERMO.map((riga, j) => {
+  const corpo = riga.replace(/[ijL]/g, '.')
+  if (j === 10 || j === 12) return corpo.slice(0, 17) + 'j'
+  if (j === 11) return corpo.slice(0, 16) + 'Sjiiiiiiiiiiii'
+  return corpo
+})
 
 // Life meter: square jars of healing draught, one emptied by each hit
 export const VASO_PIENO = [

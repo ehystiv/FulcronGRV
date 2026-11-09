@@ -1,6 +1,8 @@
 <script setup lang="ts">
 // Easter egg of the 404 page, in the spirit of Chrome's offline dinosaur: Illyrio runs through the desert with the
 // Barghest at his heels. Every obstacle he hits brings the beast closer; the third time it catches him.
+// Whoever reaches the current year + 1000 steps gets help: a warrior comes in, answers "Ho capito, Magistro Illyrio!"
+// and slays the Barghest.
 // Drawn on a small canvas scaled up with sharp pixels; the loop only runs while a game is on.
 
 // Width of the desert in game pixels: narrower on phones, so each pixel stays big enough to see
@@ -20,8 +22,16 @@ const RECUPERO = 20 // seconds without hits after which the Barghest loses groun
 const BARGHEST_X = [-14, 6, 26] // left edge of the Barghest after 0, 1 and 2 hits
 const CHIAVE_RECORD = 'fulcron-barghest-record'
 
-type Stato = 'attesa' | 'corsa' | 'preso' | 'fine'
+type Stato = 'attesa' | 'corsa' | 'preso' | 'fine' | 'finale' | 'vittoria'
 type Sprite = { img: HTMLCanvasElement; w: number; h: number }
+interface Brace {
+  x: number
+  y: number
+  vx: number
+  vy: number
+  vita: number
+  colore: string
+}
 interface Ostacolo {
   tipo: keyof typeof OSTACOLI | 'avvoltoio'
   x: number
@@ -40,10 +50,16 @@ const annuncio = ref('')
 const riquadro = ref<HTMLElement>()
 // Once a game starts the desert widens to the whole page (edge to edge on phones) and stays wide
 const aperto = ref(false)
+const traguardo = ref(3026) // steps that end the run in victory: the current year + 1000, set when a game starts
+// The warrior's line, shown in a speech bubble above him
+const fumetto = ref(false)
+const fumettoX = ref(0)
+const BATTUTA = 'Ho capito, Magistro Illyrio!'
 
 const testo = computed(() => {
   if (stato.value === 'attesa') return 'Anche Illyrio si è perso, e il Barghest ne ha fiutato le tracce.'
   if (stato.value === 'fine') return 'Il Barghest ha raggiunto Illyrio!'
+  if (stato.value === 'vittoria') return 'Il Barghest è stato sconfitto!'
   return ''
 })
 const comandi = computed(() =>
@@ -51,7 +67,9 @@ const comandi = computed(() =>
     ? 'Premi Spazio o tocca il deserto per aiutarlo a scappare'
     : stato.value === 'fine'
       ? 'Premi Spazio o tocca per riprovare'
-      : '',
+      : stato.value === 'vittoria'
+        ? 'Premi Spazio o tocca per giocare ancora'
+        : '',
 )
 const cifre = (n: number) => String(Math.floor(n)).padStart(5, '0')
 
@@ -79,6 +97,13 @@ let by = 0
 let bvy = 0
 let presa = 0 // progress of the final lunge
 let vasoCambiato = { indice: -1, tempo: 0 } // the jar that just emptied or filled, which blinks for a moment
+// The ending
+let fin = 0 // seconds since the goal was reached
+let lampo = 0 // white flash that freezes the run
+let wx = 0 // left edge of the warrior's body
+let wy = 0
+let barghestVivo = true
+let braci: Brace[] = [] // what is left of the Barghest
 
 function disegnaSprite(righe: string[], specchio = false): Sprite {
   const w = Math.max(...righe.map((r) => r.length))
@@ -113,6 +138,10 @@ function preparaSprite() {
     masso: disegnaSprite(OSTACOLI.masso),
     cactus: disegnaSprite(OSTACOLI.cactus),
     teschio: disegnaSprite(OSTACOLI.teschio),
+    guerriero: disegnaSprite(GUERRIERO_FERMO, true),
+    guerriero0: disegnaSprite(GUERRIERO_CORSA[0]!, true),
+    guerriero1: disegnaSprite(GUERRIERO_CORSA[1]!, true),
+    guerrieroColpo: disegnaSprite(GUERRIERO_COLPO, true),
     vasoPieno: disegnaSprite(VASO_PIENO),
     vasoVuoto: disegnaSprite(VASO_VUOTO),
   }
@@ -120,6 +149,7 @@ function preparaSprite() {
 
 function spriteIllyrio(): Sprite {
   if (stato.value === 'attesa') return sprites.fermo!
+  if ((stato.value === 'finale' || stato.value === 'vittoria') && y === 0) return sprites.fermo!
   const passo = stato.value === 'corsa' ? Math.floor(tempo * 10) % 2 : 0
   if (chino && y === 0) return sprites[`chino${passo}`]!
   return sprites[y > 0 ? 'corsa0' : `corsa${passo}`]!
@@ -183,6 +213,10 @@ function inizia() {
   bvy = 0
   presa = 0
   vasoCambiato = { indice: -1, tempo: 0 }
+  barghestVivo = true
+  braci = []
+  fumetto.value = false
+  traguardo.value = new Date().getFullYear() + 1000
   punti.value = 0
   colpi.value = 0
   annuncio.value = ''
@@ -192,7 +226,7 @@ function inizia() {
 
 function salta() {
   if (stato.value === 'attesa') return inizia()
-  if (stato.value === 'fine') {
+  if (stato.value === 'fine' || stato.value === 'vittoria') {
     if (performance.now() - fineDa > 600) inizia()
     return
   }
@@ -216,6 +250,7 @@ function aggiorna(dt: number) {
     velocita = Math.min(VELOCITA_MAX * scala, velocita + ACCELERAZIONE * scala * dt)
     punti.value += (dt * velocita) / 9
     scorrimento += velocita * dt
+    if (punti.value >= traguardo.value) return avviaFinale()
 
     // Illyrio
     if (y > 0 || vy > 0) {
@@ -263,6 +298,9 @@ function aggiorna(dt: number) {
       vasoCambiato = { indice: COLPI_MAX - colpi.value - 1, tempo: 1 }
       annuncio.value = 'Il Barghest perde terreno: una pozione torna piena.'
     }
+  } else if (stato.value === 'finale') {
+    aggiornaFinale(dt)
+    return
   } else if (stato.value === 'preso') {
     presa = Math.min(1, presa + dt * 2.2)
     if (y > 0) {
@@ -288,12 +326,82 @@ function aggiorna(dt: number) {
   }
 }
 
-function termina() {
-  stato.value = 'fine'
-  vasoCambiato.tempo = 0
-  fineDa = performance.now()
-  cancelAnimationFrame(raf)
-  raf = 0
+function avviaFinale() {
+  punti.value = traguardo.value
+  stato.value = 'finale'
+  fin = 0
+  lampo = 0.25
+  ostacoli = [] // swept away by the flash
+  invulnerabile = 0
+  chino = false
+  wx = larghezza.value + 8
+  wy = 0
+  annuncio.value = `Un guerriero accorre in aiuto di Illyrio: «${BATTUTA}»`
+}
+
+// The ending, as a timeline: the run slows to a halt, the warrior runs in and speaks, leaps over Illyrio and strikes
+function aggiornaFinale(dt: number) {
+  fin += dt
+  lampo = Math.max(0, lampo - dt)
+  velocita *= Math.max(0, 1 - dt * 4)
+  scorrimento += velocita * dt
+  if (y > 0 || vy > 0) {
+    vy -= GRAVITA * dt
+    y = Math.max(0, y + vy * dt)
+    if (y === 0) vy = 0
+  }
+  if (by > 0 || bvy > 0) {
+    bvy -= GRAVITA * dt
+    by = Math.max(0, by + bvy * dt)
+    if (by === 0) bvy = 0
+  }
+
+  // The Barghest steps out into the open, growling, so the fight happens in plain sight
+  if (fin < 3.6) bx += (Math.max(bx, 10) - bx) * Math.min(1, dt * 3)
+  const posa = X_ILLYRIO + 34 // where he stops, just ahead of Illyrio
+  const bersaglio = bx + 34 // close enough for the blade to reach the Barghest's head
+  if (fin < 0.4) wx = larghezza.value + 8
+  else if (fin < 1.4) wx = posa + (larghezza.value + 8 - posa) * (1 - (fin - 0.4))
+  else if (fin < 3.6) wx = posa
+  else if (fin < 4.1) {
+    const p = (fin - 3.6) / 0.5
+    wx = posa + (bersaglio - posa) * p
+    wy = Math.sin(Math.PI * p) * 32
+  } else {
+    wx = bersaglio
+    wy = 0
+  }
+  fumetto.value = fin >= 1.5 && fin < 3.5
+  fumettoX.value = wx + 9
+
+  // Struck at 4.1 s, the Barghest flickers and then bursts into embers
+  if (barghestVivo && fin >= 4.5) {
+    barghestVivo = false
+    const top = SUOLO - by - 17
+    const colori = ['#16121b', '#3a3142', '#ff3b2f', '#ff7a2f', '#ffb347']
+    for (let i = 0; i < 70; i++) {
+      braci.push({
+        x: bx + 4 + Math.random() * 26,
+        y: top + Math.random() * 17,
+        vx: (Math.random() - 0.5) * 50,
+        vy: -15 - Math.random() * 45,
+        vita: 0.7 + Math.random() * 0.9,
+        colore: colori[i % colori.length]!,
+      })
+    }
+  }
+  for (const b of braci) {
+    b.x += b.vx * dt
+    b.y += b.vy * dt
+    b.vx *= 1 - dt
+    b.vita -= dt
+  }
+  braci = braci.filter((b) => b.vita > 0)
+
+  if (fin >= 6.2) vince()
+}
+
+function salvaRecord() {
   const fatti = Math.floor(punti.value)
   const nuovo = fatti > record.value
   if (nuovo) {
@@ -304,7 +412,29 @@ function termina() {
       // Storage blocked: the record lasts until the page is closed
     }
   }
+  return { fatti, nuovo }
+}
+
+function ferma(nuovoStato: Stato) {
+  stato.value = nuovoStato
+  vasoCambiato.tempo = 0
+  fineDa = performance.now()
+  cancelAnimationFrame(raf)
+  raf = 0
+}
+
+function termina() {
+  ferma('fine')
+  const { fatti, nuovo } = salvaRecord()
   annuncio.value = `Il Barghest ti ha preso dopo ${fatti} passi.${nuovo ? ' Nuovo record!' : ''}`
+  disegna()
+}
+
+function vince() {
+  ferma('vittoria')
+  fumetto.value = false
+  const { fatti, nuovo } = salvaRecord()
+  annuncio.value = `Il Barghest è stato sconfitto dopo ${fatti} passi!${nuovo ? ' Nuovo record!' : ''}`
   disegna()
 }
 
@@ -358,9 +488,11 @@ function disegna() {
     c.drawImage(s.img, X_ILLYRIO, Math.round(SUOLO - y - s.h))
   }
 
-  // The Barghest, with a trail of embers
-  if (stato.value !== 'attesa') {
-    const s = sprites[`barghest${Math.floor(tempo * 9) % 2}`]!
+  // The Barghest, with a trail of embers. Once the run stops it stands still; struck, it flickers
+  const colpito = stato.value === 'finale' && fin >= 4.1 && Math.floor(fin * 16) % 2 === 0
+  if (stato.value !== 'attesa' && barghestVivo && !colpito) {
+    const passo = stato.value === 'finale' && velocita < 20 ? 0 : Math.floor(tempo * 9) % 2
+    const s = sprites[`barghest${passo}`]!
     const top = Math.round(SUOLO - by - s.h)
     c.drawImage(s.img, Math.round(bx), top)
     c.fillStyle = '#ff7a2f'
@@ -371,6 +503,31 @@ function disegna() {
     }
     c.globalAlpha = 1
   }
+
+  // The warrior, mirrored to face the Barghest
+  if ((stato.value === 'finale' || stato.value === 'vittoria') && fin >= 0.4) {
+    let nome = 'guerriero'
+    if (fin < 1.4) nome = `guerriero${Math.floor(tempo * 10) % 2}`
+    else if (fin >= 3.6 && fin < 4.1) nome = 'guerriero0'
+    else if (fin >= 4.1 && fin < 4.9) nome = 'guerrieroColpo'
+    const s = sprites[nome]!
+    // The drawn sword sticks out on the left: keep his body where it was
+    const sx = nome === 'guerrieroColpo' ? wx - (s.w - 18) : wx
+    c.drawImage(s.img, Math.round(sx), Math.round(SUOLO - wy - s.h))
+    // The slash
+    if (fin >= 4.1 && fin < 4.3) {
+      c.fillStyle = '#ffffff'
+      for (let k = 0; k <= 12; k++) {
+        c.fillRect(Math.round(wx - 10 - Math.sin((k / 12) * Math.PI) * 7), Math.round(SUOLO - 26 + k * 1.7), 2, 1)
+      }
+    }
+  }
+  for (const b of braci) {
+    c.globalAlpha = Math.min(1, b.vita * 1.5)
+    c.fillStyle = b.colore
+    c.fillRect(Math.round(b.x), Math.round(b.y), 1, 1)
+  }
+  c.globalAlpha = 1
 
   // Life meter: one jar of healing draught for each hit Illyrio can still take
   if (stato.value !== 'attesa') {
@@ -384,6 +541,14 @@ function disegna() {
       c.drawImage(sprites[pieno ? 'vasoPieno' : 'vasoVuoto']!.img, 6 + i * 12, 5)
     }
   }
+
+  // The flash that stops the run
+  if (lampo > 0) {
+    c.globalAlpha = Math.min(1, lampo * 4)
+    c.fillStyle = '#fffaf0'
+    c.fillRect(0, 0, LARGHEZZA, ALTEZZA)
+    c.globalAlpha = 1
+  }
 }
 
 function ciclo(ora: number) {
@@ -393,7 +558,7 @@ function ciclo(ora: number) {
   ultimo = Math.max(ultimo, ora)
   aggiorna(dt)
   disegna()
-  if (stato.value === 'corsa' || stato.value === 'preso') raf = requestAnimationFrame(ciclo)
+  if (stato.value === 'corsa' || stato.value === 'preso' || stato.value === 'finale') raf = requestAnimationFrame(ciclo)
 }
 
 function avvia() {
@@ -482,6 +647,17 @@ onBeforeUnmount(() => {
       >
         <span v-if="record" class="mr-3 opacity-70">REC {{ cifre(record) }}</span
         >{{ cifre(punti) }}
+      </p>
+      <p
+        v-if="fumetto"
+        class="absolute -translate-x-1/2 rounded-md border-2 border-[#3b2e25] bg-[#fffdf8] px-2 py-1 text-[clamp(0.72rem,1.8vw,0.95rem)] font-semibold whitespace-nowrap text-[#3b2e25]"
+        :style="{ left: `${(fumettoX / larghezza) * 100}%`, bottom: `${((ALTEZZA - (SUOLO - 28)) / ALTEZZA) * 100}%` }"
+        aria-hidden="true"
+      >
+        {{ BATTUTA }}
+        <span
+          class="absolute -bottom-[7px] left-1/2 size-3 -translate-x-1/2 rotate-45 border-r-2 border-b-2 border-[#3b2e25] bg-[#fffdf8]"
+        />
       </p>
       <div
         v-if="testo"
