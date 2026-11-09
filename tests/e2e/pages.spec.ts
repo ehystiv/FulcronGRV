@@ -43,6 +43,17 @@ test('an unknown address is a real 404 with a way back', async ({ page }) => {
   await expect(page).toHaveURL('/')
 })
 
+test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page, isMobile }) => {
+  await page.goto('/questa-pagina-non-esiste')
+  const game = page.getByRole('application', { name: /Illyrio in fuga dal Barghest/ })
+  await expect(game).toContainText('Premi Spazio')
+  if (isMobile) await game.tap()
+  else await page.keyboard.press('Space')
+  // The game is on: the hint goes away and the steps start counting
+  await expect(game).not.toContainText('Premi Spazio')
+  await expect(game).not.toContainText('00000')
+})
+
 test('a missing wiki page offers the way back to the wiki', async ({ page }) => {
   const response = await page.goto('/wiki/pagina-inventata')
   expect(response?.status()).toBe(404)

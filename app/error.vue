@@ -26,6 +26,7 @@ useHead({ title: notFound.value ? 'Pagina non trovata' : 'Errore' })
         <UiButton v-if="inWiki" to="/wiki" @click="clearError()">Torna alla wiki</UiButton>
         <UiButton :variant="inWiki ? 'outline' : 'primary'" to="/" @click="clearError()">Torna alla home</UiButton>
       </div>
+      <LazyBarghestGame v-if="notFound" />
     </section>
   </NuxtLayout>
 </template>

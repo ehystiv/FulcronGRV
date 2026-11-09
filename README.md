@@ -170,6 +170,9 @@ il link sul sito resta quello. Se cambia il nome, o il peso, va aggiornato il bl
   comunque Nuxt da `package.json`.
 - `vercel.json` aggiunge anche alcuni header di sicurezza su tutte le pagine e la cache: un anno per `/_nuxt/` (file
   con hash nel nome), un giorno per le immagini di `/_ipx/` (il loro indirizzo non cambia se cambia l'immagine).
+- La pagina 404 nasconde un minigioco: Illyrio, il guaritore di Partaros, in fuga dal Barghest
+  (`app/components/BarghestGame.vue`). Gli sprite sono disegnati a caratteri in `app/utils/barghest.ts`, un carattere
+  per pixel: per ritoccarli basta cambiare le lettere. Il record resta solo nel browser di chi gioca.
 - I vecchi indirizzi `/who` e `/sinfonia` reindirizzano alle nuove pagine.
 - La wiki, prima su `wikia.fulcrongrv.it`, ora è una sezione del sito (`/wiki`). Se il vecchio sottodominio è ancora
   attivo, conviene reindirizzarlo a `https://fulcrongrv.it/wiki`.
