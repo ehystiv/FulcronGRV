@@ -44,6 +44,13 @@ test('an unknown address is a real 404 with a way back', async ({ page }) => {
 })
 
 test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page, isMobile }) => {
+  // Some browsers give the first frame a timestamp a little before performance.now(): the game must not go back in time
+  await page.addInitScript(() => {
+    const raf = window.requestAnimationFrame.bind(window)
+    window.requestAnimationFrame = (cb) => raf((t) => cb(t - 30))
+  })
+  const errors: string[] = []
+  page.on('pageerror', (e) => errors.push(e.message))
   await page.goto('/questa-pagina-non-esiste')
   const game = page.getByRole('application', { name: /Illyrio in fuga dal Barghest/ })
   await expect(game).toContainText('Premi Spazio')
@@ -52,6 +59,8 @@ test('the 404 page hides a game: Illyrio runs from the Barghest', async ({ page,
   // The game is on: the hint goes away and the steps start counting
   await expect(game).not.toContainText('Premi Spazio')
   await expect(game).not.toContainText('00000')
+  await expect(game).not.toContainText('-')
+  expect(errors).toEqual([])
 })
 
 test('a missing wiki page offers the way back to the wiki', async ({ page }) => {

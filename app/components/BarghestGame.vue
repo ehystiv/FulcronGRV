@@ -347,9 +347,10 @@ function disegna() {
 }
 
 function ciclo(ora: number) {
-  // Long pauses (a hidden tab) do not turn into one giant step
-  const dt = Math.min(0.05, (ora - ultimo) / 1000)
-  ultimo = ora
+  // Long pauses (a hidden tab) do not turn into one giant step. The first timestamp can come before the
+  // performance.now() read at the start, since it marks the start of the frame: never step back in time
+  const dt = Math.max(0, Math.min(0.05, (ora - ultimo) / 1000))
+  ultimo = Math.max(ultimo, ora)
   aggiorna(dt)
   disegna()
   if (stato.value === 'corsa' || stato.value === 'preso') raf = requestAnimationFrame(ciclo)
