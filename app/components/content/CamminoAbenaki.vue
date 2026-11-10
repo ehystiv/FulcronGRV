@@ -25,8 +25,8 @@ type Regione = (typeof REGIONI)[number]
 const POPOLI = [
   { id: 'est', nome: 'Abenaki dell’Est', colore: '#1d4ed8', luce: '#38bdf8', bordo: '#bae6fd', pagina: '/wiki/popoli/abenaki' },
   { id: 'sud', nome: 'Abenaki del Sud', colore: '#15803d', luce: '#86efac', bordo: '#dcfce7', pagina: '/wiki/popoli/abenaki-del-sud' },
-  { id: 'ovest', nome: 'Abenaki dell’Ovest', colore: '#c2410c', luce: '#fdba74', bordo: '#ffedd5', pagina: '' },
-  { id: 'nord', nome: 'Abenaki del Nord', colore: '#7c3aed', luce: '#c4b5fd', bordo: '#ede9fe', pagina: '' },
+  { id: 'ovest', nome: 'Abenaki dell’Ovest', colore: '#7c3aed', luce: '#c4b5fd', bordo: '#ede9fe', pagina: '' },
+  { id: 'nord', nome: 'Abenaki del Nord', colore: '#c2410c', luce: '#fdba74', bordo: '#ffedd5', pagina: '' },
 ] as const
 
 const C = 220 // centre of the wheel
