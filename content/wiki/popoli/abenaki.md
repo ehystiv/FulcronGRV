@@ -33,6 +33,13 @@ Questa usanza non sempre è apprezzata dalle popolazioni di Fulcron, che si ridu
 
 Come rituale propizio alla loro eterna ricerca, il popolo Abenaki è in eterno spostamento intorno all'anello, come una metafora al loro scopo. Secondo la leggenda, tutti i popoli Abenaki discendono da un primo gruppo, detto **Awla**, che per primi intrapresero l'**Altariq** attorno a Fulcron. Da quel gruppo, poi, alcuni membri si staccarono e diedero vita ad altri gruppi, sino ai giorni nostri, pronti a intraprendere il proprio percorso, il **Masar**.
 
+### Il Cammino
+
+Il cammino attorno all'anello dura un anno: le tribù partono dall'Est il primo giorno di Nevoso e attraversano il Sud, l'Ovest e il Nord, tre mesi in ogni terra, per tornare all'Est all'inizio dell'anno successivo. La ruota segue i giorni veri e mostra dove si trovano oggi; con il cursore si può vedere dove saranno, o dove erano, in un altro giorno dell'anno.
+
+::cammino-abenaki
+::
+
 ### Leggende
 
 La leggenda più famosa vuole che due Abenaki, Maqalat della propria tribù, furono scelti dagli dei per ascendere al loro regno. Sebbene non si abbiano prove di ciò, questa leggenda è sacra presso gli Abenaki.
