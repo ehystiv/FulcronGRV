@@ -22,6 +22,13 @@ Alle feste condivise da tutti gli Abenaki si aggiunge:
 
 -   Pràsinos dròmos, la festa dedicata alla tecnologia;
 
+## Il Cammino
+
+Come i loro progenitori dell'Est, gli Abenaki del Sud girano attorno all'anello in un anno, partendo dal cuore del Sud il primo giorno di Ventoso e attraversando l'Ovest, il Nord e l'Est, prima di tornare a festeggiare il Masar nel luogo da cui erano partiti.
+
+::cammino-abenaki{inizio="01-03" evidenzia="sud"}
+::
+
 ## Tecnologia
 
 Gli Abenaki del Sud sono i primi della loro popolazione ad aggiungere alla loro ricerca del Bahath l'utilizzo della tecnologia sotto forma di strumenti: essi, infatti, sono i primi ad aver creato degli strumenti avanzati per la lavorazione del pigmento blu (diventato ora verde) per le loro pelli, e di strumenti per leggere il cielo che sfruttino scienza e magia contemporaneamente

@@ -35,9 +35,11 @@ Come rituale propizio alla loro eterna ricerca, il popolo Abenaki è in eterno s
 
 ### Il Cammino
 
-Il cammino attorno all'anello dura un anno: le tribù partono dal cuore dell'Est il primo giorno di Ventoso e attraversano il Sud, l'Ovest e il Nord, una stagione in ogni terra. A metà di Nevoso rientrano nell'Est e il primo di Ventoso, quando l'anno di cammino si compie, festeggiano il Masar nel luogo da cui erano partiti, prima di rimettersi in viaggio. La ruota segue i giorni veri e mostra dove si trovano oggi; con il cursore si può vedere dove saranno, o dove erano, in un altro giorno del cammino.
+Il cammino attorno all'anello dura un anno: le tribù partono dal cuore dell'Est il primo giorno di Ventoso e attraversano il Sud, l'Ovest e il Nord, una stagione in ogni terra. A metà di Nevoso rientrano nell'Est e il primo di Ventoso, quando l'anno di cammino si compie, festeggiano il Masar nel luogo da cui erano partiti, prima di rimettersi in viaggio.
 
-::cammino-abenaki{inizio="01-03" partenza="est"}
+Lo stesso giorno si mettono in cammino anche gli altri tre popoli Abenaki, ciascuno dal cuore della propria terra: così i quattro popoli si trovano sempre in quattro terre diverse dell'anello. La ruota segue i giorni veri e mostra dove si trovano oggi; con il cursore si può vedere dove saranno, o dove erano, in un altro giorno del cammino.
+
+::cammino-abenaki{inizio="01-03" evidenzia="est"}
 ::
 
 ### Leggende
