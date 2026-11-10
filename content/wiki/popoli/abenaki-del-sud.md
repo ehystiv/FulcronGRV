@@ -8,7 +8,7 @@ updated: 2021-10-23
 
 ## Tratti Somatici
 
-La tipica carnagione scura degli Abenaki è una delle prima cose che si va a perdere in questo popolo, lasciando spazio ad una carnagione tendenzialmente olivastra, e così anche i tipici segni blu derivanti dalle **Hajar azraq** cedono parte del loro colore sino a raggiungere un tenuo verde.
+La tipica carnagione scura degli Abenaki è una delle prime cose che si va a perdere in questo popolo, lasciando spazio ad una carnagione tendenzialmente olivastra, e così anche i tipici segni blu derivanti dalle **Hajar 'azraq** cedono parte del loro colore sino a raggiungere un tenue verde.
 
 Le pitture facciali assumono poi simboli geometrici e simmetrici, più simili alle architetture rupestri dell'Antico Sud.
 
@@ -24,7 +24,7 @@ Alle feste condivise da tutti gli Abenaki si aggiunge:
 
 ## Tecnologia
 
-Gli Abenaki del Sud sono i primi della loro popolazione ad aggiungere alla loro ricerca del Bahath l'utilizzo della tecnologia sotto forma di strumenti: essi, infatti, sono i primi ad aver creato degli strumenti avanzati per la lavorazione del pigmento blue (diventato ora verde) per le loro pelli, e di strumenti per leggere il cielo che sfruttino scienza e magia contemporaneamente
+Gli Abenaki del Sud sono i primi della loro popolazione ad aggiungere alla loro ricerca del Bahath l'utilizzo della tecnologia sotto forma di strumenti: essi, infatti, sono i primi ad aver creato degli strumenti avanzati per la lavorazione del pigmento blu (diventato ora verde) per le loro pelli, e di strumenti per leggere il cielo che sfruttino scienza e magia contemporaneamente
 
 Esempio di spicco, il Thràfstis, in grado di incidere e tagliare le pietre blu in maniera perfetta senza tutti i rischi del caso.
 

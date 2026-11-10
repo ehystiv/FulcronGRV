@@ -27,7 +27,7 @@ Ognuno poi decide una “specializzazione”, ovvero un ramo rispettivamente del
 
 La popolazione quindi, risulta in una specie di “competizione” per la fazione che troverà per prima il modo di raggiungere gli dei.
 
-Gli Abenaki raggiungono la maggiore età a 16 anni, da quel momento sono attivi membri della comunità. Da questo momento essi possono cambiare il nome attribuitogli dai genitori: è pratica comune per un Abenaki cambiare nome più e più volta nella sua vita, usando parole che possano identificare le sue scelte di vita, scopi o profondi legami con la loro cultura. Invece, il concetto di cognome non esiste: all'interno del gruppo, è più facile essere ricordati per ciò che si ha fatto che per il proprio nome.
+Gli Abenaki raggiungono la maggiore età a 16 anni, da quel momento sono attivi membri della comunità. Da questo momento essi possono cambiare il nome attribuitogli dai genitori: è pratica comune per un Abenaki cambiare nome più e più volte nella sua vita, usando parole che possano identificare le sue scelte di vita, scopi o profondi legami con la loro cultura. Invece, il concetto di cognome non esiste: all'interno del gruppo, è più facile essere ricordati per ciò che si ha fatto che per il proprio nome.
 
 Questa usanza non sempre è apprezzata dalle popolazioni di Fulcron, che si riducono a chiamare qualsiasi appartenente a questa tribù semplicemente Abenaki.
 
