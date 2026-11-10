@@ -3,6 +3,15 @@
 const year = useState('footer-year', () => new Date().getFullYear())
 // Today in the calendar of Fulcron: only known in the browser, the line keeps its room until then
 const oggi = ref<DataFulcron | null>(null)
+const route = useRoute()
+
+// Day, night or follow the phone or computer (useTema); not on the oneshot pages, which keep their own look
+const { tema, scegli } = useTema()
+const TEMI = [
+  { id: 'auto', icona: 'contrast', nome: 'Automatico, come il dispositivo' },
+  { id: 'giorno', icona: 'sun', nome: 'Giorno' },
+  { id: 'notte', icona: 'moon', nome: 'Notte' },
+] as const
 onMounted(() => (oggi.value = dataFulcron(new Date())))
 
 const columns = [
@@ -100,7 +109,33 @@ const legal = [
           >{{ part.after }}</template
         >
       </p>
-      <NuxtLink to="/privacy" :class="linkClass">Privacy</NuxtLink>
+      <div class="flex items-center gap-5">
+        <div
+          v-if="conNotte(route.path)"
+          role="group"
+          aria-label="Colori del sito"
+          class="flex items-center gap-0.5 rounded-full border border-white/15 p-0.5"
+        >
+          <button
+            v-for="t in TEMI"
+            :key="t.id"
+            type="button"
+            :title="t.nome"
+            :aria-pressed="tema === t.id"
+            class="grid size-9 cursor-pointer place-items-center rounded-full transition-colors max-lg:size-11"
+            :class="
+              tema === t.id
+                ? 'bg-white/12 text-gold-soft notte:text-shadow-luce'
+                : 'text-on-dark-muted hover:text-on-dark'
+            "
+            @click="scegli(t.id)"
+          >
+            <AppIcon :name="t.icona" :size="18" />
+            <span class="sr-only">{{ t.nome }}</span>
+          </button>
+        </div>
+        <NuxtLink to="/privacy" :class="linkClass">Privacy</NuxtLink>
+      </div>
     </div>
   </footer>
 </template>

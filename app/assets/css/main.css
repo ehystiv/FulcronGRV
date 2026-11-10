@@ -101,21 +101,35 @@
 
 /* ---------- Night mode ---------- */
 
-/* `notte:` styles apply only at night, e.g. notte:shadow-luce */
+/* Night comes on the pages that support it (they carry the class `notte` on <html>, see useNotte) when the
+   visitor picks it in the footer (data-tema="notte"), or when they left it on automatic and their phone or computer
+   is set to dark. The choice is applied by a script in <head> before the first paint, so a page never flashes in the
+   wrong colours. `notte:` styles an element at night (e.g. notte:shadow-luce); `notte-pagina` is the same for <html>. */
 @custom-variant notte {
+  :root.notte[data-tema='notte'] & {
+    @slot;
+  }
   @media (prefers-color-scheme: dark) {
-    :root.notte & {
+    :root.notte:not([data-tema='giorno']) & {
+      @slot;
+    }
+  }
+}
+@custom-variant notte-pagina {
+  &.notte[data-tema='notte'] {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &.notte:not([data-tema='giorno']) {
       @slot;
     }
   }
 }
 
-/* For people whose phone or computer is set to dark mode, on the pages that support it: they mark themselves with
-   the class `notte` on <html> (app.vue and error.vue), so it is in the generated HTML and the page never flashes white.
-   Night is ink blue with parchment-coloured text, and every gold accent turns emerald, a nod to the setting.
+/* Night is ink blue with parchment-coloured text, and every gold accent turns emerald, a nod to the setting.
    The tokens keep their daytime names (gold, teal…): here they stand for their role, not for the colour. */
-@media (prefers-color-scheme: dark) {
-  :root.notte {
+:root {
+  @variant notte-pagina {
     color-scheme: dark;
     --color-parchment: #0b1a21; /* page */
     --color-surface: #11242d; /* boxes and cards */

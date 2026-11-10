@@ -285,3 +285,49 @@ test('photos and events lead to each other', async ({ page }) => {
   await page.goto('/oneshot')
   await expect(page.getByRole('link', { name: 'Foto dell’evento' })).toHaveAttribute('href', '/gallery/sunless-dawn')
 })
+
+test.describe('day and night chosen in the footer', () => {
+  const sfondo = (page: import('@playwright/test').Page) =>
+    page.evaluate(() => getComputedStyle(document.body).backgroundColor)
+  const NOTTE = 'rgb(11, 26, 33)'
+  const GIORNO = 'rgb(247, 243, 234)'
+  const scelta = (page: import('@playwright/test').Page, nome: string) =>
+    page.getByRole('group', { name: 'Colori del sito' }).getByRole('button', { name: nome })
+
+  test('night on a light device, kept when the page is opened again', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' })
+    await page.goto('/wiki/storia')
+    expect(await sfondo(page)).toBe(GIORNO)
+    // Retry until the page has hydrated: a click before that does nothing
+    await expect(async () => {
+      await scelta(page, 'Notte').click()
+      await expect(scelta(page, 'Notte')).toHaveAttribute('aria-pressed', 'true', { timeout: 500 })
+    }).toPass({ timeout: 10_000 })
+    expect(await sfondo(page)).toBe(NOTTE)
+    // Already dark in the generated page, before any script of the app runs: no flash
+    await page.goto('/chi-siamo', { waitUntil: 'commit' })
+    await page.waitForSelector('body')
+    expect(await sfondo(page)).toBe(NOTTE)
+    await expect(scelta(page, 'Notte')).toHaveAttribute('aria-pressed', 'true')
+  })
+
+  test('day on a dark device, and automatic follows the device again', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' })
+    await page.goto('/sinfonia')
+    expect(await sfondo(page)).toBe(NOTTE)
+    await expect(async () => {
+      await scelta(page, 'Giorno').click()
+      await expect(scelta(page, 'Giorno')).toHaveAttribute('aria-pressed', 'true', { timeout: 500 })
+    }).toPass({ timeout: 10_000 })
+    expect(await sfondo(page)).toBe(GIORNO)
+    await scelta(page, 'Automatico, come il dispositivo').click()
+    expect(await sfondo(page)).toBe(NOTTE)
+    await page.reload()
+    expect(await sfondo(page)).toBe(NOTTE)
+  })
+
+  test('the oneshot pages, which keep their own look, have no choice to make', async ({ page }) => {
+    await page.goto('/oneshot/sunless-dawn')
+    await expect(page.getByRole('group', { name: 'Colori del sito' })).toHaveCount(0)
+  })
+})

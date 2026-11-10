@@ -97,7 +97,7 @@ wiki. Le pagine delle oneshot hanno invece una grafica tutta loro, vedi sotto.
 
 ### Modalità notte
 
-Chi ha il telefono o il computer in modalità scura vede il sito in versione notte: blu inchiostro, testo color pergamena
+Chi ha il telefono o il computer in modalità scura, o la sceglie nel footer (sole, luna o automatico; la scelta resta nel suo browser), vede il sito in versione notte: blu inchiostro, testo color pergamena
 e accenti verde smeraldo al posto dell'oro, una citazione dell'ambientazione. I colori notturni stanno in `main.css`,
 sotto _Night mode_: sono gli stessi token del giorno (`gold`, `teal`, `surface`…) con un altro valore, quindi una
 pagina che usa i token è già pronta. `useNotte()` (in `app.vue` e `error.vue`) mette la classe `notte` su `<html>` in
