@@ -57,7 +57,7 @@ sono file in `pagine/`. Si scrivono in Markdown normale (titoli con `##`, elench
 | `::gods` | elenco delle divinità | `ambientazione.md` |
 | `::timeline-era` + `:::timeline-event` | linea del tempo (con link e grassetti); aggiungi `level="2"` se non sta sotto un titolo `##`; su un evento, `chip="…"` mostra un’etichetta e `major` lo mette in risalto | `ambientazione.md`, `wiki/storia.md`, `pagine/eventi.md` |
 | `::notice` | frase evidenziata | `regolamento.md` |
-| `::cammino-abenaki` | la ruota del cammino degli Abenaki, che segue i giorni veri; `partenza="nord"` e `verso="antiorario"` cambiano da dove partono e in che verso girano | `wiki/popoli/abenaki.md` |
+| `::cammino-abenaki` | la ruota del cammino degli Abenaki, che segue i giorni veri; `inizio="01-03"` (giorno-mese) è il giorno in cui partono, `partenza="est"` la terra da cui partono e `verso="antiorario"` li fa girare nell’altro verso | `wiki/popoli/abenaki.md` |
 | `::world-map` | l’anteprima della mappa di Fulcron, che apre la mappa interattiva | `ambientazione.md` |
 | `::examples` | esempi “da evitare” / “molto meglio” | `regolamento.md` |
 | `::documents` | i manuali in PDF (versione da leggere e da stampare, sul bucket R2 dei documenti) | `regolamento.md` |

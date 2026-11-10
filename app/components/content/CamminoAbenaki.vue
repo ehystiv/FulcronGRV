@@ -1,10 +1,13 @@
 <script setup lang="ts">
 // ::cammino-abenaki — the wandering of the Abenaki around the Ring, as a wheel that turns with our real days.
-// One loop of the Ring takes one year: the tribes set off on 1 Nevoso from the edge of the region in `partenza`
-// and walk in the direction of `verso` (orario: Est → Sud → Ovest → Nord, antiorario: the other way), three months
-// in each region. Both can be changed from the Markdown, e.g. ::cammino-abenaki{partenza="nord" verso="antiorario"}.
+// One loop of the Ring takes one year: every year on the day in `inizio` (giorno-mese, our months are the months of
+// Fulcron) the tribes set off from the heart of the region in `partenza` and walk in the direction of `verso`
+// (orario: Est → Sud → Ovest → Nord, antiorario: the other way), a quarter of the year in each region, and they
+// come back to it some weeks before the next departure, to celebrate the Masar where they set off.
+// All three can be changed from the Markdown, e.g. ::cammino-abenaki{inizio="21-03" partenza="nord" verso="antiorario"}.
 // The site is static: today is only known in the browser, so the marker appears once the page is open.
-const props = withDefaults(defineProps<{ partenza?: string; verso?: string }>(), {
+const props = withDefaults(defineProps<{ inizio?: string; partenza?: string; verso?: string }>(), {
+  inizio: '01-03',
   partenza: 'est',
   verso: 'orario',
 })
@@ -25,14 +28,29 @@ const R_MESI = 194
 
 const orario = computed(() => props.verso !== 'antiorario')
 const centroPartenza = computed(() => REGIONI.find((r) => r.id === props.partenza)?.centro ?? 0)
-/** Angle (degrees, 0 = east, clockwise as on the map) where the walk starts */
-const angoloInizio = computed(() => centroPartenza.value + (orario.value ? -45 : 45))
+/** Angle (degrees, 0 = east, clockwise as on the map) where the walk starts: the heart of the region of departure */
+const angoloInizio = computed(() => centroPartenza.value)
 
-const giorniAnno = (anno: number) => ((anno % 4 === 0 && anno % 100 !== 0) || anno % 400 === 0 ? 366 : 365)
-const giornoAnno = (d: Date) =>
-  Math.round((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(d.getFullYear(), 0, 1)) / 86400000)
+const UN_GIORNO = 86400000
+/** Days from `da` to `a` (local dates) */
+const giorni = (da: Date, a: Date) =>
+  Math.round(
+    (Date.UTC(a.getFullYear(), a.getMonth(), a.getDate()) - Date.UTC(da.getFullYear(), da.getMonth(), da.getDate())) /
+      UN_GIORNO,
+  )
+const giornoPartenza = computed(() => {
+  const [g, m] = props.inizio.split('-').map(Number)
+  return { g: g || 1, m: (m || 1) - 1 }
+})
+/** The day of departure in a given year */
+const partenzaNel = (anno: number) => new Date(anno, giornoPartenza.value.m, giornoPartenza.value.g)
+/** The last departure on or before a day */
+const partenzaPrima = (d: Date) => {
+  const p = partenzaNel(d.getFullYear())
+  return p > d ? partenzaNel(d.getFullYear() - 1) : p
+}
 
-/** Angle on the wheel for a fraction (0–1) of the year */
+/** Angle on the wheel for a fraction (0–1) of the loop */
 const angolo = (f: number) => angoloInizio.value + (orario.value ? 1 : -1) * 360 * f
 const punto = (gradi: number, r: number) => {
   const a = (gradi * Math.PI) / 180
@@ -49,28 +67,39 @@ const fetta = (da: number, a: number, rFuori: number, rDentro: number) => {
 }
 
 const oggi = ref<Date | null>(null)
-const scarto = ref(0) // days moved away from today with the slider
 onMounted(() => (oggi.value = new Date()))
 
+/** The loop the tribes are walking today: from the last departure to the next one */
+const ciclo = computed(() => {
+  const inizio = partenzaPrima(oggi.value ?? new Date(2026, 0, 1))
+  return { inizio, totale: giorni(inizio, partenzaNel(inizio.getFullYear() + 1)) }
+})
+const totale = computed(() => ciclo.value.totale)
+/** Day of the loop shown on the wheel (0 = day of departure), moved by the slider */
+const indice = ref(0)
+watch(oggi, (d) => d && (indice.value = giorni(ciclo.value.inizio, d)))
 const giorno = computed(() => {
   if (!oggi.value) return null
-  const d = new Date(oggi.value.getFullYear(), 0, 1)
-  d.setDate(d.getDate() + scarto.value)
+  const d = new Date(ciclo.value.inizio)
+  d.setDate(d.getDate() + indice.value)
   return d
 })
-const totale = computed(() => giorniAnno((giorno.value ?? new Date(2026, 0, 1)).getFullYear()))
-const indice = computed({
-  get: () => (giorno.value ? giornoAnno(giorno.value) : 0),
-  set: (v: number) => (scarto.value = Number(v)),
-})
-watch(oggi, (d) => d && (scarto.value = giornoAnno(d)))
 
-const anno = computed(() => giorno.value?.getFullYear() ?? 2026)
+/** Where a day of our calendar falls in the loop (0–1) */
+const nelCiclo = (m: number, g: number) => {
+  const { inizio } = ciclo.value
+  let d = new Date(inizio.getFullYear(), m, g)
+  if (d < inizio) d = new Date(inizio.getFullYear() + 1, m, g)
+  return giorni(inizio, d) / totale.value
+}
 const mesi = computed(() =>
   MESI_FULCRON.map((nome, m) => {
-    const inizio = giornoAnno(new Date(anno.value, m, 1)) / totale.value
-    const meta = giornoAnno(new Date(anno.value, m, 15)) / totale.value
-    return { nome, linea: [punto(angolo(inizio), R_TERRA_FUORI), punto(angolo(inizio), R_TERRA_FUORI + 9)], etichetta: punto(angolo(meta), R_MESI) }
+    const inizio = angolo(nelCiclo(m, 1))
+    return {
+      nome,
+      linea: [punto(inizio, R_TERRA_FUORI), punto(inizio, R_TERRA_FUORI + 9)],
+      etichetta: punto(angolo(nelCiclo(m, 15)), R_MESI),
+    }
   }),
 )
 const regioni = REGIONI.map((r) => ({
@@ -80,8 +109,10 @@ const regioni = REGIONI.map((r) => ({
 }))
 
 const frazione = computed(() => (indice.value + 0.5) / totale.value)
+const partenzaSegno = computed(() => punto(angolo(0), R_CAMMINO))
+const testoPartenza = computed(() => `${giornoPartenza.value.g} ${MESI_FULCRON[giornoPartenza.value.m]}`)
 const posizione = computed(() => punto(angolo(frazione.value), R_CAMMINO))
-/** The stretch already walked this year */
+/** The stretch already walked since the departure */
 const scia = computed(() => {
   const a = angolo(0)
   const b = angolo(frazione.value)
@@ -173,6 +204,19 @@ const id = useId()
         </template>
       </g>
 
+      <!-- The place and day of departure -->
+      <rect
+        :x="partenzaSegno.x - 4.5"
+        :y="partenzaSegno.y - 4.5"
+        width="9"
+        height="9"
+        :transform="`rotate(45 ${partenzaSegno.x} ${partenzaSegno.y})`"
+        class="fill-gold stroke-surface"
+        stroke-width="1.5"
+      >
+        <title>Partenza: {{ testoPartenza }}</title>
+      </rect>
+
       <!-- The way walked so far and the tribe, glowing like the Hajar 'azraq -->
       <template v-if="data">
         <path :d="scia" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 6" opacity="0.7" />
@@ -189,7 +233,7 @@ const id = useId()
         <template v-if="data">{{ nelle(regione) }}</template>
       </p>
       <p class="mt-1 mb-0 min-h-[1.4em] text-sm text-muted">
-        <template v-if="data">{{ data.testo }} · giorno {{ indice + 1 }} di {{ totale }} del cammino</template>
+        <template v-if="data">{{ data.testo }} · giorno {{ indice + 1 }} di {{ totale }} del cammino, partito il {{ testoPartenza }}</template>
       </p>
     </figcaption>
 
@@ -208,7 +252,7 @@ const id = useId()
         type="button"
         class="min-h-11 rounded-lg border border-line px-3 text-sm font-semibold text-ink transition hover:border-gold disabled:opacity-40"
         :disabled="eOggi || !data"
-        @click="oggi && (scarto = giornoAnno(oggi))"
+        @click="oggi && (indice = giorni(ciclo.inizio, oggi))"
       >
         Oggi
       </button>
